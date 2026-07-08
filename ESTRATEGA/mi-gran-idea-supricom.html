@@ -11,7 +11,7 @@
     --accent: #015CDE;
     --accent-hover: #068AF1;
     --text: #1A1A2E;
-    --text-light: #C8C8C8;
+    --text-light: #6B7280;
     --bg: #F8F9F9;
     --white: #FFFFFF;
     --success: #00CC88;
@@ -92,7 +92,7 @@
   nav .menu-toggle:hover { background: rgba(255,255,255,.1); }
   nav ul { display: flex; list-style: none; gap: 2px; }
   nav ul li a {
-    color: rgba(255,255,255,.65); text-decoration: none;
+    color: rgba(255,255,255,.8); text-decoration: none;
     padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
     transition: all .25s; position: relative;
   }
@@ -148,12 +148,12 @@
     background-clip: text;
   }
   .hero p {
-    font-size: 20px; opacity: .8;
-    max-width: 560px; margin: 0 auto; font-weight: 300;
+    font-size: 20px; opacity: .9;
+    max-width: 560px; margin: 0 auto; font-weight: 400;
   }
   .hero .meta {
     margin-top: 36px; display: flex; justify-content: center; gap: 40px;
-    font-size: 13px; opacity: .6; font-weight: 400;
+    font-size: 13px; opacity: .75; font-weight: 400;
   }
   .hero .meta span {
     display: flex; align-items: center; gap: 6px;
@@ -220,9 +220,9 @@
     margin-top: 20px; margin-bottom: 8px;
     text-transform: uppercase; letter-spacing: 1px;
   }
-  section p { margin-bottom: 12px; color: #444; line-height: 1.7; }
+  section p { margin-bottom: 12px; color: #333; line-height: 1.7; }
   section ul, section ol { margin: 8px 0 16px 0; padding-left: 20px; }
-  section li { margin-bottom: 8px; color: #444; line-height: 1.6; }
+  section li { margin-bottom: 8px; color: #333; line-height: 1.6; }
   section li strong { color: #0056DB; }
 
   /* ── SCROLL REVEAL ── */
@@ -280,8 +280,8 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .kpi-card .label { font-size: 12px; color: #C8C8C8; font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: .5px; }
-  .kpi-card .desc { font-size: 12px; color: #999; margin-top: 6px; }
+  .kpi-card .label { font-size: 12px; color: #6B7280; font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .kpi-card .desc { font-size: 12px; color: #777; margin-top: 6px; }
 
   /* ── ROLE GRID ── */
   .role-grid {
@@ -337,7 +337,7 @@
   }
   .flow-step .step-body { flex: 1; }
   .flow-step .step-body strong { display: block; font-size: 15px; color: #0056DB; margin-bottom: 4px; }
-  .flow-step .step-body span { font-size: 13px; color: #C8C8C8; line-height: 1.5; }
+  .flow-step .step-body span { font-size: 13px; color: #555; line-height: 1.5; }
 
   /* ── VS GRID ── */
   .vs-grid {
@@ -363,8 +363,8 @@
     position: absolute; left: 0; font-weight: 700; font-size: 14px;
   }
   .vs-col.danger { border-color: rgba(200,200,200,.3); background: linear-gradient(135deg, #fff, #F5F7FA); }
-  .vs-col.danger::before { background: #C8C8C8; }
-  .vs-col.danger ul li::before { content: 'x'; color: #C8C8C8; }
+  .vs-col.danger::before { background: #6B7280; }
+  .vs-col.danger ul li::before { content: 'x'; color: #6B7280; }
   .vs-col.success { border-color: rgba(6,138,241,.2); background: linear-gradient(135deg, #fff, #F0F6FF); }
   .vs-col.success::before { background: #068AF1; }
   .vs-col.success ul li::before { content: '✓'; color: #068AF1; }
@@ -432,7 +432,7 @@
     box-shadow: 0 0 0 5px rgba(204,122,0,.2);
   }
   .timeline-item h4 { margin: 0 0 4px; font-size: 15px; text-transform: none; letter-spacing: 0; }
-  .timeline-item p { margin: 0; font-size: 13px; color: #C8C8C8; line-height: 1.5; }
+  .timeline-item p { margin: 0; font-size: 13px; color: #6B7280; line-height: 1.5; }
   .timeline-item .date {
     display: inline-block;
     background: linear-gradient(135deg, #015CDE, #068AF1);
@@ -488,11 +488,11 @@
   }
   .side-toc h5 {
     font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
-    color: #C8C8C8; margin-bottom: 12px; font-weight: 700;
+    color: #6B7280; margin-bottom: 12px; font-weight: 700;
   }
   .side-toc a {
     display: block; padding: 6px 12px; font-size: 13px;
-    color: #C8C8C8; text-decoration: none;
+    color: #6B7280; text-decoration: none;
     border-left: 2px solid transparent; transition: all .2s;
     border-radius: 0 4px 4px 0;
   }
@@ -521,7 +521,7 @@
   footer {
     position: relative; z-index: 1;
     background: linear-gradient(135deg, #0056DB, #015CDE);
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.7);
     text-align: center; padding: 40px 24px; font-size: 13px;
   }
   footer::before {
@@ -688,7 +688,7 @@
   <p>Evaluamos la opcion de buzones fisicos y la descartamos. La diferencia es abismal:</p>
   <div class="vs-grid">
     <div class="vs-col danger">
-      <h4 style="color:#C8C8C8;">Buzon Fisico</h4>
+      <h4 style="color:#6B7280;">Buzon Fisico</h4>
       <ul>
         <li>Solo personal presente en oficina</li>
         <li>Costo operativo: impresion + 3 hrs/semana</li>
