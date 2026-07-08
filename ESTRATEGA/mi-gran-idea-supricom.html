@@ -25,6 +25,23 @@
     line-height: 1.6;
   }
 
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  section { animation: fadeUp .45s ease-out both; }
+  section:nth-child(1) { animation-delay: .05s; }
+  section:nth-child(2) { animation-delay: .1s; }
+  section:nth-child(3) { animation-delay: .15s; }
+  section:nth-child(4) { animation-delay: .2s; }
+  section:nth-child(5) { animation-delay: .25s; }
+  section:nth-child(6) { animation-delay: .3s; }
+
   /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
@@ -39,9 +56,7 @@
     background: none; border: none; color: white; font-size: 24px; cursor: pointer;
     display: none; padding: 4px;
   }
-  nav ul {
-    display: flex; list-style: none; gap: 4px;
-  }
+  nav ul { display: flex; list-style: none; gap: 4px; }
   nav ul li a {
     color: rgba(255,255,255,.75); text-decoration: none;
     padding: 8px 12px; border-radius: 6px; font-size: 13px;
@@ -50,22 +65,6 @@
   nav ul li a:hover, nav ul li a.active {
     color: white; background: rgba(255,255,255,.1);
   }
-  .nav-toc {
-    display: none;
-    position: fixed; top: 56px; left: 0; width: 260px; bottom: 0;
-    background: var(--white); border-right: 1px solid var(--border);
-    overflow-y: auto; padding: 16px 0; z-index: 90;
-  }
-  .nav-toc a {
-    display: block; padding: 6px 20px; font-size: 13px;
-    color: var(--text-light); text-decoration: none; transition: all .15s;
-    border-left: 3px solid transparent;
-  }
-  .nav-toc a:hover, .nav-toc a.active {
-    color: var(--primary); background: #F0F0F5;
-    border-left-color: var(--accent);
-  }
-  .nav-toc a.toc-h2 { padding-left: 36px; font-size: 12px; }
 
   /* HERO */
   .hero {
@@ -87,14 +86,10 @@
   }
 
   /* MAIN */
-  .main-wrapper {
-    display: flex; max-width: 1200px; margin: 0 auto; position: relative;
-  }
-  main {
-    flex: 1; padding: 40px 32px 80px; max-width: 860px; margin: 0 auto;
-  }
+  .main-wrapper { display: flex; max-width: 1200px; margin: 0 auto; }
+  main { flex: 1; padding: 40px 32px 80px; max-width: 860px; margin: 0 auto; }
 
-  /* SECTION */
+  /* SECTIONS */
   section {
     background: var(--white); border-radius: 12px; padding: 32px;
     margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06);
@@ -118,7 +113,7 @@
   section li { margin-bottom: 6px; color: #333; }
   section li strong { color: var(--primary); }
 
-  /* TABLE */
+  /* TABLES */
   table {
     width: 100%; border-collapse: collapse; margin: 16px 0;
     font-size: 13px;
@@ -133,18 +128,7 @@
   }
   tr:nth-child(even) td { background: #FAFAFC; }
 
-  /* HIGHLIGHTS */
-  .highlight-box {
-    background: #FFF8F0; border-left: 4px solid var(--accent);
-    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
-  }
-  .highlight-box strong { color: var(--accent); }
-
-  .success-box {
-    background: #F0FFF8; border-left: 4px solid var(--success);
-    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
-  }
-
+  /* KPI GRID */
   .kpi-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px; margin: 16px 0;
@@ -152,11 +136,17 @@
   .kpi-card {
     background: var(--bg); border-radius: 10px; padding: 20px; text-align: center;
     border: 1px solid var(--border);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
   }
   .kpi-card .num { font-size: 32px; font-weight: 800; color: var(--accent); }
   .kpi-card .label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
   .kpi-card .desc { font-size: 12px; color: #888; margin-top: 8px; }
 
+  /* ROLE GRID */
   .role-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px; margin: 16px 0;
@@ -165,15 +155,16 @@
     background: var(--white); border: 1px solid var(--border);
     border-radius: 10px; padding: 20px;
     border-top: 4px solid var(--accent);
+    transition: transform .15s;
   }
+  .role-card:hover { transform: translateY(-2px); }
   .role-card h4 { margin-top: 0; text-transform: none; letter-spacing: 0; font-size: 16px; }
   .role-card .who { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
   .role-card ul { margin: 8px 0 0 16px; }
   .role-card li { font-size: 13px; margin-bottom: 4px; }
 
-  .flow-steps {
-    display: flex; flex-direction: column; gap: 0; margin: 16px 0;
-  }
+  /* FLOW STEPS */
+  .flow-steps { display: flex; flex-direction: column; margin: 16px 0; }
   .flow-step {
     display: flex; gap: 16px; padding: 16px 0;
     border-bottom: 1px solid var(--border);
@@ -189,7 +180,86 @@
   .flow-step .step-body strong { display: block; font-size: 14px; color: var(--primary); }
   .flow-step .step-body span { font-size: 13px; color: var(--text-light); }
 
-  .indent { padding-left: 24px; }
+  /* VS GRID */
+  .vs-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+  }
+  .vs-col {
+    padding: 20px; border: 1px solid var(--border); border-radius: 10px;
+    transition: transform .15s;
+  }
+  .vs-col:hover { transform: translateY(-2px); }
+  .vs-col h4 { text-align: center; margin-top: 0; text-transform: none; font-size: 16px; }
+  .vs-col ul { list-style: none; margin: 12px 0 0; }
+  .vs-col ul li { padding: 6px 0 6px 24px; position: relative; font-size: 13px; }
+  .vs-col.danger ul li::before {
+    content: "x"; color: #E04040; font-weight: 700;
+    position: absolute; left: 0;
+  }
+  .vs-col.success ul li::before {
+    content: "✓"; color: var(--success); font-weight: 700;
+    position: absolute; left: 0;
+  }
+
+  /* HIGHLIGHT BOXES */
+  .highlight-box {
+    background: #FFF8F0; border-left: 4px solid var(--accent);
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+  .highlight-box strong { color: var(--accent); }
+  .success-box {
+    background: #F0FFF8; border-left: 4px solid var(--success);
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+  .info-box {
+    background: #F0F5FF; border-left: 4px solid #4080E0;
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin: 16px 0 !important; }
+  .feature-list li {
+    padding: 5px 0 5px 28px; position: relative; font-size: 14px;
+  }
+  .feature-list li::before {
+    content: "✓"; color: var(--success); font-weight: 700;
+    position: absolute; left: 0;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; margin: 24px 0; padding-left: 32px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 11px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before {
+    content: ""; position: absolute; left: -24px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-item h4 { margin: 0 0 4px; font-size: 15px; }
+  .timeline-item p { margin: 0; font-size: 13px; color: var(--text-light); }
+  .timeline-item .date {
+    font-size: 11px; color: var(--accent); font-weight: 600;
+    text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px;
+  }
+
+  /* TWO COLUMN */
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0;
+  }
+
+  /* PRINT */
+  @media print {
+    nav, .menu-toggle { display: none !important; }
+    .hero { margin-top: 0; padding: 40px 24px; }
+    section { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
+    .kpi-card:hover, .role-card:hover, .vs-col:hover { transform: none; }
+    section { animation: none; }
+  }
 
   /* FOOTER */
   footer {
@@ -202,9 +272,11 @@
   @media (max-width: 768px) {
     nav ul { display: none; }
     nav .menu-toggle { display: block; }
-    nav ul.open { display: flex; flex-direction: column; position: absolute;
+    nav ul.open {
+      display: flex; flex-direction: column; position: absolute;
       top: 56px; left: 0; width: 100%; background: var(--primary);
-      padding: 8px 16px 16px; }
+      padding: 8px 16px 16px;
+    }
     .hero h1 { font-size: 32px; }
     .hero p { font-size: 16px; }
     .hero .meta { flex-direction: column; gap: 8px; }
@@ -213,6 +285,7 @@
     table { font-size: 12px; }
     .role-grid { grid-template-columns: 1fr; }
     .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .vs-grid, .two-col { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -221,30 +294,27 @@
 <!-- NAV -->
 <nav>
   <div class="brand">MI GRAN <span>IDEA</span></div>
-  <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="#resumen">Resumen</a></li>
-    <li><a href="#digital">Digital</a></li>
-    <li><a href="#panel">Panel</a></li>
-    <li><a href="#funcionalidades">Funciones</a></li>
+    <li><a href="#digital">Digital vs Fisico</a></li>
     <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#categorias">Categorías</a></li>
-    <li><a href="#evaluacion">Evaluación</a></li>
     <li><a href="#roles">Roles</a></li>
     <li><a href="#kpis">KPIs</a></li>
-    <li><a href="#implementacion">Implementación</a></li>
+    <li><a href="#implementacion">Implementacion</a></li>
+    <li><a href="#costos">Costos</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="badge">Programa de Innovación Interna</div>
+  <div class="badge">Programa de Innovacion Interna</div>
   <h1>Mi Gran <span>Idea</span></h1>
-  <p>Buzón digital de sugerencias integrado al Panel SUPRICOM</p>
+  <p>Buzon digital de sugerencias integrado al Panel SUPRICOM</p>
   <div class="meta">
-    <span>📅 Julio 2026</span>
-    <span>💰 Costo operativo: $0</span>
-    <span>👥 Cobertura: 100% del personal</span>
+    <span>Julio 2026</span>
+    <span>Costo operativo: $0</span>
+    <span>Cobertura: 100% del personal</span>
   </div>
 </div>
 
@@ -254,370 +324,359 @@
 
 <!-- 1. RESUMEN -->
 <section id="resumen">
-  <h2>1. Resumen Ejecutivo</h2>
-  <p><strong>"Mi Gran Idea Supricom"</strong> es un programa permanente de innovación interna que canaliza la creatividad de todos los colaboradores de SUPRICOM para proponer mejoras en procesos, productos, servicio al cliente y ambiente laboral.</p>
-  <p>A diferencia de los buzones de sugerencias tradicionales, esta propuesta se integra directamente al <strong>Panel SUPRICOM</strong> (actualmente en desarrollo por el equipo de programación), convirtiéndose en un módulo nativo al que todo el personal accede con sus credenciales existentes.</p>
+  <h2>Resumen Ejecutivo</h2>
+  <p><strong>"Mi Gran Idea Supricom"</strong> es un programa permanente de innovacion interna que canaliza la creatividad de todos los colaboradores para proponer mejoras en procesos, productos, servicio al cliente y ambiente laboral. Se integra directamente al <strong>Panel SUPRICOM</strong> como un modulo nativo accesible con las credenciales existentes.</p>
 
-  <div class="success-box">
-    <strong>✅ Principios del programa:</strong><br>
-    Sin presupuesto inicial · Cobertura total (oficina, campo, sucursales) · Trazabilidad completa · Anonimato configurable · Sin fricción (no papeles, ni urnas, ni digitalización manual)
-  </div>
+  <ul class="feature-list">
+    <li><strong>Sin presupuesto inicial</strong> &mdash; aprovecha infraestructura existente</li>
+    <li><strong>Cobertura total</strong> &mdash; oficina, campo y sucursales (100%)</li>
+    <li><strong>Trazabilidad completa</strong> &mdash; cada idea tiene un ciclo de vida visible</li>
+    <li><strong>Anonimato configurable</strong> &mdash; participacion sin identificacion</li>
+    <li><strong>Sin friccion</strong> &mdash; no hay papeles, urnas ni digitalizacion manual</li>
+  </ul>
 
   <div class="kpi-grid">
     <div class="kpi-card"><div class="num">$0</div><div class="label">Costo operativo</div><div class="desc">Sin presupuesto requerido</div></div>
     <div class="kpi-card"><div class="num">100%</div><div class="label">Cobertura</div><div class="desc">Todo el personal</div></div>
-    <div class="kpi-card"><div class="num">3</div><div class="label">Niveles de premio</div><div class="desc">Mensual · Idea del Mes · Anual</div></div>
-    <div class="kpi-card"><div class="num">8</div><div class="label">Categorías</div><div class="desc">Tipos de ideas</div></div>
+    <div class="kpi-card"><div class="num">3</div><div class="label">Niveles de premio</div><div class="desc">Mensual / Idea del Mes / Anual</div></div>
+    <div class="kpi-card"><div class="num">8</div><div class="label">Categorias de ideas</div><div class="desc">De ahorro a marketing</div></div>
   </div>
+
+  <h3>Objetivos del programa</h3>
+  <ol>
+    <li>Fomentar una cultura de mejora continua e innovacion participativa</li>
+    <li>Identificar oportunidades de ahorro, eficiencia y nuevos ingresos no visibles desde la gerencia</li>
+    <li>Dar voz a todos los colaboradores, independientemente de su rol o ubicacion</li>
+    <li>Reconocer y premiar el talento interno que genera valor medible</li>
+  </ol>
 </section>
 
-<!-- 2. QUÉ ES -->
+<!-- 2. CICLO DE VIDA -->
 <section>
-  <h2>2. ¿Qué es "Mi Gran Idea Supricom"?</h2>
-  <p>Es el buzón de sugerencias oficial de SUPRICOM, pero en su versión moderna, digital y conectada. Cada propuesta tiene un <strong>ciclo de vida completo</strong>:</p>
-  <ol>
-    <li><strong>Registro</strong> — El colaborador envía su idea con categoría y descripción.</li>
-    <li><strong>Evaluación</strong> — El comité evalúa con criterios objetivos (matriz de 100 pts).</li>
-    <li><strong>Decisión</strong> — Aprobada, en estudio, o devuelta con motivo claro.</li>
-    <li><strong>Implementación</strong> — La idea aprobada se ejecuta con responsable asignado.</li>
-    <li><strong>Reconocimiento</strong> — El autor recibe premio y reconocimiento público.</li>
-  </ol>
-
-  <h3>Objetivos</h3>
-  <ol>
-    <li>Fomentar una cultura de mejora continua e innovación participativa.</li>
-    <li>Identificar oportunidades de ahorro, eficiencia y nuevos ingresos que la gerencia no ve desde su posición.</li>
-    <li>Dar voz a todos los colaboradores, independientemente de su rol o ubicación.</li>
-    <li>Reconocer y premiar el talento interno que genera valor medible.</li>
-  </ol>
-</section>
-
-<!-- 3. POR QUÉ DIGITAL -->
-<section id="digital">
-  <h2>3. Por qué Digital y no Físico</h2>
-  <p>Se evaluó la opción de buzones físicos (urnas en oficina) y se descartó por las siguientes razones:</p>
-
-  <table>
-    <tr><th>Factor</th><th>Buzón Físico</th><th>Buzón Digital (Panel)</th></tr>
-    <tr><td><strong>Cobertura</strong></td><td>Solo personal presente en oficina</td><td>100% del personal</td></tr>
-    <tr><td><strong>Costo oculto</strong></td><td>Impresión + 2-3 hrs/semana digitalizando papel</td><td>$0. Automatizado</td></tr>
-    <tr><td><strong>Anonimato real</strong></td><td>No. Caligrafía y ubicación delatan</td><td>Sí. Configurable sin IP</td></tr>
-    <tr><td><strong>Trazabilidad</strong></td><td>Nula. La idea desaparece en el buzón</td><td>Total. Estatus visible</td></tr>
-    <tr><td><strong>Categorización</strong></td><td>Manual. Alguien lee y clasifica</td><td>Automática. Lista desplegable</td></tr>
-    <tr><td><strong>Escalabilidad</strong></td><td>Mala. Cada sucursal necesita su buzón</td><td>Inmediata. Un solo Panel</td></tr>
-    <tr><td><strong>Participación</strong></td><td>Baja. "Agujero negro" desmotiva</td><td>Alta. El empleado ve el progreso</td></tr>
-    <tr><td><strong>Análisis</strong></td><td>Imposible. Datos en papel</td><td>Reportes por categoría, depto., mes</td></tr>
-  </table>
-
-  <div class="highlight-box">
-    <strong>⛔ Conclusión:</strong> El buzón físico es más costoso de lo que parece, excluye personal clave y genera frustración. El digital es superior en todos los factores.
-  </div>
-</section>
-
-<!-- 4. INTEGRACIÓN CON EL PANEL -->
-<section id="panel">
-  <h2>4. Integración con el Panel SUPRICOM</h2>
-  <p>El <strong>Panel SUPRICOM</strong> es la plataforma interna que desarrolla el equipo de programación. Es el sitio donde todos los colaboradores ingresarán para acceder a recursos de la empresa.</p>
-  <p>"Mi Gran Idea" se integrará como un <strong>módulo nativo</strong> dentro del Panel, con estas ventajas:</p>
-  <ol>
-    <li><strong>Autenticación unificada</strong> — Mismas credenciales del Panel. Sin registro adicional.</li>
-    <li><strong>Experiencia integrada</strong> — Sin salir del Panel, sin abrir otra página.</li>
-    <li><strong>Datos centralizados</strong> — Misma base de datos del Panel.</li>
-    <li><strong>Notificaciones internas</strong> — Alertas de nuevas ideas, cambios de estatus, resultados.</li>
-    <li><strong>Perfil de participante</strong> — Historial de ideas de cada colaborador.</li>
-  </ol>
-</section>
-
-<!-- 5. FUNCIONALIDADES -->
-<section id="funcionalidades">
-  <h2>5. Funcionalidades del Módulo</h2>
-
-  <h3>5.1 Para el colaborador</h3>
-  <ul>
-    <li>Botón <strong>"Enviar mi idea"</strong> en el menú principal del Panel.</li>
-    <li><strong>Formulario</strong> con:
-      <ul>
-        <li>Departamento (lista desplegable)</li>
-        <li>Categoría de la idea (lista desplegable)</li>
-        <li>Título corto (máx. 100 caracteres)</li>
-        <li>Descripción del problema u oportunidad</li>
-        <li>Propuesta de solución</li>
-        <li>Beneficio esperado</li>
-        <li>¿Participarías en la implementación? (Sí/No)</li>
-      </ul>
-    </li>
-    <li><strong>Opción de anonimato:</strong> Casilla "Enviar de forma anónima (no optarás al premio)".</li>
-    <li><strong>Historial "Mis Ideas":</strong> Estatus visible: Recibida → En Evaluación → Aprobada → Implementada → Rechazada (con motivo).</li>
-    <li><strong>Tablero público de innovación:</strong> Ideas implementadas del mes, ranking por departamento, foto del Innovador del Mes.</li>
-  </ul>
-
-  <h3>5.2 Para el administrador / comité</h3>
-  <ul>
-    <li><strong>Panel de administración:</strong> Bandeja de entrada, filtros, visualización detallada.</li>
-    <li><strong>Herramientas de evaluación:</strong> Asignación de puntaje (100 pts), comentarios internos, cambio de estatus.</li>
-    <li><strong>Reportes automáticos:</strong> Ideas por mes, % implementadas, participación por depto., tiempo promedio de evaluación.</li>
-    <li><strong>Exportación a Excel</strong> del histórico completo.</li>
-  </ul>
-</section>
-
-<!-- 6. PROCESO -->
-<section id="proceso">
-  <h2>6. Flujo del Proceso</h2>
+  <h2>Ciclo de Vida de una Idea</h2>
+  <p>Cada propuesta dentro del programa tiene un recorrido completo y transparente:</p>
 
   <div class="flow-steps">
     <div class="flow-step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <strong>El colaborador envía su idea</strong>
-        <span>Ingresa al Panel, completa el formulario y lo envía. Tiempo: 5-10 min.</span>
+        <strong>Registro</strong>
+        <span>El colaborador envia su idea con categoria, descripcion y solucion propuesta.</span>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <strong>Registro automático</strong>
-        <span>El sistema asigna folio único y notifica al comité evaluador.</span>
+        <strong>Evaluacion</strong>
+        <span>El comite evaluador analiza con la matriz de 100 puntos y criterios objetivos.</span>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">3</div>
       <div class="step-body">
-        <strong>Confirmación al colaborador</strong>
-        <span>"Tu idea #123 fue recibida. Gracias por contribuir."</span>
+        <strong>Decision</strong>
+        <span>Aprobada, en estudio o devuelta con motivo claro para el autor.</span>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">4</div>
       <div class="step-body">
-        <strong>Evaluación mensual</strong>
-        <span>Días 26-28. El comité evalúa todas las ideas acumuladas con la matriz de puntaje.</span>
+        <strong>Implementacion</strong>
+        <span>Se asigna responsable, recursos y fecha estimada de ejecucion.</span>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">5</div>
       <div class="step-body">
-        <strong>Actualización de estatus</strong>
-        <span>Aprobada, En Estudio o Rechazada (con motivo visible para el autor).</span>
+        <strong>Reconocimiento</strong>
+        <span>Premio mensual, publicacion en el tablero de innovacion y opcion a premio anual.</span>
       </div>
     </div>
-    <div class="flow-step">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <strong>Implementación</strong>
-        <span>Se asigna responsable y fecha estimada según complejidad.</span>
-      </div>
+  </div>
+</section>
+
+<!-- 3. DIGITAL VS FISICO -->
+<section id="digital">
+  <h2>Digital vs. Fisico</h2>
+  <p>Se evaluo la opcion de buzones fisicos (urnas en oficina) y se descarto. La comparacion no tiene punto intermedio:</p>
+
+  <div class="vs-grid">
+    <div class="vs-col danger" style="border-top: 4px solid #E04040;">
+      <h4 style="color:#E04040;">Buzon Fisico</h4>
+      <ul>
+        <li>Solo personal presente en oficina</li>
+        <li>Costo operativo: impresion + 2-3 hrs/semana</li>
+        <li>Anonimato dudoso (caligrafia, ubicacion)</li>
+        <li>Trazabilidad nula. La idea desaparece</li>
+        <li>Categorizacion manual de cada papel</li>
+        <li>Mala escalabilidad por sucursal</li>
+        <li>Participacion baja por falta de respuesta</li>
+      </ul>
     </div>
-    <div class="flow-step">
-      <div class="step-num">7</div>
-      <div class="step-body">
-        <strong>Publicación de resultados</strong>
-        <span>Último día del mes: idea del mes, premios, tablero actualizado.</span>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">8</div>
-      <div class="step-body">
-        <strong>Seguimiento trimestral</strong>
-        <span>Ideas implementadas se evalúan por su impacto real (ahorro, ingresos).</span>
-      </div>
+    <div class="vs-col success" style="border-top: 4px solid var(--success);">
+      <h4 style="color:var(--success);">Digital (Panel SUPRICOM)</h4>
+      <ul>
+        <li>Cobertura: 100% del personal</li>
+        <li>$0 operativo. Datos listos para evaluar</li>
+        <li>Anonimato real configurable</li>
+        <li>Estatus visible: de recibida a implementada</li>
+        <li>Autom&aacute;tica. Lista desplegable</li>
+        <li>Inmediata. Un solo Panel para toda la empresa</li>
+        <li>Alta. El colaborador ve el progreso</li>
+      </ul>
     </div>
   </div>
 
   <div class="highlight-box">
-    <strong>💡 Ciclo mensual:</strong> Ideas se recolectan días 1-25, se evalúan días 26-28, se publican último día hábil. Esto genera un "evento mensual" que mantiene el interés.
+    <strong>Conclusion:</strong> El buz&oacute;n f&iacute;sico es m&aacute;s costoso de lo que aparenta, excluye personal clave y genera frustraci&oacute;n por falta de retroalimentaci&oacute;n. El digital es superior en todos los factores cr&iacute;ticos.
   </div>
 </section>
 
-<!-- 7. CATEGORÍAS -->
-<section id="categorias">
-  <h2>7. Categorías de Ideas</h2>
-  <table>
-    <tr><th>Categoría</th><th>Descripción</th><th>Ejemplos</th></tr>
-    <tr><td><strong>Ahorro de Costos</strong></td><td>Propuestas que reducen gastos operativos, logísticos o administrativos.</td><td>Reducción consumo eléctrico, renegociación de fletes</td></tr>
-    <tr><td><strong>Mejora de Procesos</strong></td><td>Optimizan flujos de trabajo, reducen tiempos o eliminan pasos innecesarios.</td><td>Automatización de órdenes, mejora de picking</td></tr>
-    <tr><td><strong>Nuevos Productos / Mercados</strong></td><td>Propuestas para expandir el catálogo o ingresar a nuevas categorías.</td><td>Nueva marca de impresoras, canal Panamá</td></tr>
-    <tr><td><strong>Servicio al Cliente</strong></td><td>Mejoran la experiencia de los aliados en su relación con SUPRICOM.</td><td>Chatbot WhatsApp, tracking de envío</td></tr>
-    <tr><td><strong>Ambiente Laboral</strong></td><td>Mejoran el clima organizacional y el bienestar del equipo.</td><td>Día de integración, horario flexible</td></tr>
-    <tr><td><strong>Tecnología / Sistemas</strong></td><td>Mejoras al Panel, CRM o sistemas internos.</td><td>Nuevo reporte CRM, mejora de interfaz</td></tr>
-    <tr><td><strong>Marketing / Ventas</strong></td><td>Ideas para comunicación externa, marca o estrategias de venta.</td><td>Campaña Q4, nuevo catálogo digital</td></tr>
-    <tr><td><strong>Otro</strong></td><td>Ideas no clasificables en categorías anteriores.</td><td>—</td></tr>
-  </table>
-</section>
-
-<!-- 8. EVALUACIÓN -->
-<section id="evaluacion">
-  <h2>8. Sistema de Evaluación — Matriz de 100 Puntos</h2>
-  <table>
-    <tr><th>Criterio</th><th>Pts</th><th>¿Qué evalúa?</th></tr>
-    <tr><td><strong>Impacto para SUPRICOM</strong></td><td>30</td><td>Ahorro económico, incremento de ingresos o mejora del servicio.</td></tr>
-    <tr><td><strong>Facilidad de Implementación</strong></td><td>20</td><td>Recursos, tiempo y complejidad técnica necesarios.</td></tr>
-    <tr><td><strong>Innovación y Creatividad</strong></td><td>15</td><td>Originalidad y diferenciación de la propuesta.</td></tr>
-    <tr><td><strong>Alcance</strong></td><td>10</td><td>¿Beneficia a una persona, un departamento o toda la empresa?</td></tr>
-    <tr><td><strong>Sostenibilidad</strong></td><td>10</td><td>¿Beneficios permanentes y escalables?</td></tr>
-    <tr><td><strong>Riesgo</strong></td><td>5</td><td>Riesgo operativo, financiero o legal. A menor riesgo, mayor puntaje.</td></tr>
-    <tr><td><strong>Alineación Estratégica</strong></td><td>10</td><td>Coherencia con visión y objetivos de SUPRICOM.</td></tr>
-    <tr style="background: #FFF8F0;"><td><strong>TOTAL</strong></td><td><strong>100</strong></td><td>Puntaje mínimo para aprobación: <strong>60 pts</strong></td></tr>
-  </table>
-</section>
-
-<!-- 9. RECONOCIMIENTO -->
+<!-- 4. CATEGORIAS Y EVALUACION -->
 <section>
-  <h2>9. Sistema de Reconocimiento</h2>
+  <h2>Categorias y Evaluacion</h2>
 
+  <div class="two-col">
+    <div>
+      <h4>Categorias de ideas</h4>
+      <table>
+        <tr><th>Categoria</th><th>Ejemplos</th></tr>
+        <tr><td><strong>Ahorro de Costos</strong></td><td>Reduccion consumo electrico, renegociacion de fletes</td></tr>
+        <tr><td><strong>Mejora de Procesos</strong></td><td>Automatizacion de ordenes, mejora de picking</td></tr>
+        <tr><td><strong>Nuevos Prod./Mercados</strong></td><td>Nueva marca, canal Panama</td></tr>
+        <tr><td><strong>Servicio al Cliente</strong></td><td>Chatbot WhatsApp, tracking de envio</td></tr>
+        <tr><td><strong>Ambiente Laboral</strong></td><td>Dia de integracion, horario flexible</td></tr>
+        <tr><td><strong>Tecnologia / Sistemas</strong></td><td>Nuevo reporte CRM, mejora de interfaz</td></tr>
+        <tr><td><strong>Marketing / Ventas</strong></td><td>Campana Q4, nuevo catalogo digital</td></tr>
+        <tr><td><strong>Otro</strong></td><td>Ideas no clasificables</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Matriz de evaluacion (100 pts)</h4>
+      <table>
+        <tr><th>Criterio</th><th>Pts</th></tr>
+        <tr><td><strong>Impacto para SUPRICOM</strong></td><td>30</td></tr>
+        <tr><td><strong>Facilidad de Implementacion</strong></td><td>20</td></tr>
+        <tr><td><strong>Innovacion y Creatividad</strong></td><td>15</td></tr>
+        <tr><td><strong>Alcance</strong></td><td>10</td></tr>
+        <tr><td><strong>Sostenibilidad</strong></td><td>10</td></tr>
+        <tr><td><strong>Riesgo</strong></td><td>5</td></tr>
+        <tr><td><strong>Alineacion Estrategica</strong></td><td>10</td></tr>
+        <tr style="background: #FFF8F0;"><td><strong>TOTAL</strong></td><td><strong>100</strong></td></tr>
+      </table>
+      <p style="margin-top: 8px;"><strong>Puntaje minimo:</strong> 60 puntos para aprobacion.</p>
+    </div>
+  </div>
+
+  <h4>Reconocimiento escalonado</h4>
   <div class="role-grid">
     <div class="role-card" style="border-top-color: #999;">
-      <h4>🎁 Participación Mensual</h4>
-      <div class="who">Todos los que envían una idea</div>
+      <h4>Participacion Mensual</h4>
+      <div class="who">Todos los que envian una idea</div>
       <ul>
-        <li>Sorteo de un detalle corporativo (termo, gorra, cupón de café).</li>
-        <li>Premia el intento y mantiene el hábito.</li>
+        <li>Sorteo de detalle corporativo (termo, gorra)</li>
+        <li>Premia el intento y mantiene el habito</li>
       </ul>
     </div>
-    <div class="role-card" style="border-top-color: var(--accent);">
-      <h4>🏆 Gran Idea del Mes</h4>
+    <div class="role-card">
+      <h4>Gran Idea del Mes</h4>
       <div class="who">1 ganador mensual</div>
       <ul>
-        <li>Incentivo intermedio: bono, tarde libre, tarjeta de regalo o producto del catálogo.</li>
-        <li>Publicación en el tablero de innovación.</li>
+        <li>Bono, tarde libre o producto del catalogo</li>
+        <li>Publicacion en el tablero de innovacion</li>
       </ul>
     </div>
     <div class="role-card" style="border-top-color: var(--primary);">
-      <h4>🌟 Innovador del Año</h4>
+      <h4>Innovador del Ano</h4>
       <div class="who">1 ganador anual</div>
       <ul>
-        <li>Premio mayor: viaje, electrodoméstico, bono significativo.</li>
-        <li>Reconocimiento del Gerente General.</li>
+        <li>Premio mayor: viaje, bono significativo</li>
+        <li>Reconocimiento del Gerente General</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- 10. ROLES -->
+<!-- 5. PROCESO MENSUAL -->
+<section id="proceso">
+  <h2>Flujo Mensual del Programa</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">Dias 1-25</div>
+      <h4>Recoleccion de ideas</h4>
+      <p>Los colaboradores envian sus propuestas a traves del modulo en el Panel. Recepcion continua.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Dias 26-28</div>
+      <h4>Evaluacion en bloque</h4>
+      <p>El comite evaluador se reune (60 min max.) y eval&uacute;a todas las ideas acumuladas con la matriz de 100 puntos.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Dia 28</div>
+      <h4>Actualizacion de estatus</h4>
+      <p>Cada idea recibe su resultado: Aprobada, En Estudio o Rechazada (con motivo visible para el autor).</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Ultimo dia habil</div>
+      <h4>Publicacion de resultados</h4>
+      <p>Se anuncia la Idea del Mes, se entregan premios y se actualiza el tablero p&uacute;blico de innovaci&oacute;n.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Cada 3 meses</div>
+      <h4>Seguimiento trimestral</h4>
+      <p>Las ideas implementadas se eval&uacute;an por su impacto real (ahorro, ingresos, mejora medible).</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Nota sobre el ciclo:</strong> Evaluar en bloque evita la fatiga de revisar una por una en tiempo real y genera un "evento mensual" que mantiene el inter&eacute;s y la participaci&oacute;n.
+  </div>
+</section>
+
+<!-- 6. ROLES -->
 <section id="roles">
-  <h2>10. Roles y Responsabilidades</h2>
+  <h2>Roles y Responsabilidades</h2>
 
   <div class="role-grid">
     <div class="role-card">
-      <h4>🎤 Marketing</h4>
-      <div class="who">Dueño Operativo</div>
-      <p style="font-size:13px; margin:0 0 8px;">Ejecuta y opera el programa.</p>
+      <h4>Marketing</h4>
+      <div class="who">Dueno Operativo</div>
+      <p style="font-size:13px; color:#666; margin-bottom:8px;">Ejecuta y opera el programa diariamente.</p>
       <ul>
-        <li>Diseña el formulario en el Panel</li>
+        <li>Disena el formulario en el Panel</li>
         <li>Redacta comunicaciones internas</li>
-        <li>Gestiona el tablero público</li>
-        <li>Coordina con Sistemas</li>
+        <li>Gestiona el tablero publico</li>
+        <li>Coordina con Sistemas el desarrollo</li>
         <li>Mide y reporta KPIs</li>
       </ul>
     </div>
-    <div class="role-card">
-      <h4>📊 Gerente de Ventas</h4>
+    <div class="role-card" style="border-top-color: var(--primary);">
+      <h4>Gerente de Ventas</h4>
       <div class="who">Sponsor</div>
-      <p style="font-size:13px; margin:0 0 8px;">Patrocina y da la cara.</p>
+      <p style="font-size:13px; color:#666; margin-bottom:8px;">Patrocina y da la cara.</p>
       <ul>
-        <li>Anuncia el lanzamiento</li>
-        <li>Valida ideas comerciales</li>
-        <li>Asiste a premiaciones</li>
-        <li><em>No gestiona el día a día</em></li>
+        <li>Anuncia el lanzamiento del programa</li>
+        <li>Valida ideas del area comercial</li>
+        <li>Asiste a las premiaciones mensuales</li>
+        <li><em>No gestiona el dia a dia</em></li>
       </ul>
     </div>
-    <div class="role-card">
-      <h4>👥 RRHH</h4>
-      <div class="who">Aliado Estratégico</div>
-      <p style="font-size:13px; margin:0 0 8px;">Participa en evaluación.</p>
+    <div class="role-card" style="border-top-color: #4080E0;">
+      <h4>RRHH</h4>
+      <div class="who">Aliado Estrategico</div>
+      <p style="font-size:13px; color:#666; margin-bottom:8px;">Participa en la evaluacion.</p>
       <ul>
-        <li>Detecta sesgos de participación</li>
+        <li>Detecta sesgos de participacion</li>
         <li>Asegura transparencia en premios</li>
         <li>Gestiona el aspecto cultural</li>
       </ul>
     </div>
-    <div class="role-card">
-      <h4>💻 Sistemas</h4>
-      <div class="who">Facilitador Técnico</div>
-      <p style="font-size:13px; margin:0 0 8px;">Construye y da soporte.</p>
+    <div class="role-card" style="border-top-color: #888;">
+      <h4>Sistemas</h4>
+      <div class="who">Facilitador Tecnico</div>
+      <p style="font-size:13px; color:#666; margin-bottom:8px;">Construye y da soporte.</p>
       <ul>
-        <li>Desarrolla el módulo en el Panel</li>
-        <li>Da soporte técnico</li>
-        <li><em>No evalúa ni comunica</em></li>
+        <li>Desarrolla el modulo en el Panel</li>
+        <li>Da soporte tecnico</li>
+        <li><em>No evalua ni comunica resultados</em></li>
       </ul>
     </div>
   </div>
 
-  <h3>¿Por qué Marketing es el dueño operativo?</h3>
-  <ul>
-    <li><strong>Vocería:</strong> Ya maneja la comunicación interna y externa.</li>
-    <li><strong>Capacidad de diseño:</strong> Sabe crear formularios, flujos y piezas visuales. RRHH y Ventas no tienen esas competencias.</li>
-    <li><strong>Segmentación:</strong> Puede categorizar ideas y darles el tratamiento adecuado.</li>
-    <li><strong>Relación con Sistemas:</strong> Coordina el desarrollo del módulo en el Panel.</li>
-    <li><strong>Medición:</strong> Los KPIs del programa son análogos a los de cualquier campaña de marketing interno.</li>
-  </ul>
-
-  <h3>Estructura de Reporte</h3>
+  <h3>Estructura de reporte</h3>
   <table>
     <tr><th>Rol</th><th>Reporta a</th><th>Lo nombra</th></tr>
     <tr><td>Sponsor (Gerente de Ventas)</td><td>Gerencia General</td><td>Su cargo</td></tr>
-    <tr><td>Dueño Operativo (Marketing)</td><td>Sponsor</td><td>El Sponsor lo asigna</td></tr>
-    <tr><td>Comité Evaluador</td><td>Sponsor + Gerencia General</td><td>El Sponsor lo convoca</td></tr>
-    <tr><td>Implementador</td><td>Su jefe de área</td><td>Su cargo</td></tr>
+    <tr><td>Dueno Operativo (Marketing)</td><td>Sponsor</td><td>El Sponsor lo asigna</td></tr>
+    <tr><td>Comite Evaluador</td><td>Sponsor + Gcia. General</td><td>El Sponsor lo convoca</td></tr>
+    <tr><td>Implementador</td><td>Su jefe de area</td><td>Su cargo</td></tr>
   </table>
 
   <div class="highlight-box">
-    <strong>📌 Resumen:</strong> Marketing opera, Ventas patrocina, RRHH evalúa, Sistemas construye. Nadie se pregunta "¿y esto de quién es?"
+    <strong>Gobierno del programa:</strong> Marketing opera, Ventas patrocina, RRHH evalua, Sistemas construye. Nadie se pregunta de quien es cada tarea.
   </div>
 </section>
 
-<!-- 11. KPIs -->
+<!-- 7. KPIs -->
 <section id="kpis">
-  <h2>11. KPIs del Programa</h2>
+  <h2>KPIs del Programa</h2>
   <table>
-    <tr><th>Indicador</th><th>Frecuencia</th><th>Meta año 1</th></tr>
-    <tr><td>Ideas recibidas por mes</td><td>Mensual</td><td>≥ 10 ideas/mes</td></tr>
-    <tr><td>% de participación</td><td>Mensual</td><td>≥ 30%</td></tr>
-    <tr><td>% de ideas implementadas</td><td>Trimestral</td><td>≥ 60%</td></tr>
-    <tr><td>Tiempo promedio de evaluación</td><td>Mensual</td><td>≤ 30 días</td></tr>
-    <tr><td>Ahorro económico generado</td><td>Trimestral</td><td>A definir</td></tr>
-    <tr><td>Participación por departamento</td><td>Mensual</td><td>≥ 20% c/u</td></tr>
-    <tr><td>Satisfacción del programa</td><td>Trimestral</td><td>≥ 70%</td></tr>
+    <tr><th>Indicador</th><th>Frecuencia</th><th>Meta ano 1</th></tr>
+    <tr><td>Ideas recibidas por mes</td><td>Mensual</td><td>10 ideas/mes</td></tr>
+    <tr><td>% de participacion</td><td>Mensual</td><td>30%</td></tr>
+    <tr><td>% de ideas implementadas</td><td>Trimestral</td><td>60%</td></tr>
+    <tr><td>Tiempo promedio de evaluacion</td><td>Mensual</td><td>30 dias</td></tr>
+    <tr><td>Participacion por departamento</td><td>Mensual</td><td>20% c/u</td></tr>
+    <tr><td>Satisfaccion del programa</td><td>Trimestral</td><td>70%</td></tr>
   </table>
 </section>
 
-<!-- 12. IMPLEMENTACIÓN -->
+<!-- 8. IMPLEMENTACION -->
 <section id="implementacion">
-  <h2>12. Plan de Implementación</h2>
-  <table>
-    <tr><th>Fase</th><th>Actividades</th><th>Responsable</th><th>Tiempo</th></tr>
-    <tr><td><strong>F1: Diseño</strong></td><td>Definir campos del formulario, flujo de aprobación, matriz de evaluación</td><td>Marketing + Sistemas</td><td>Semana 1</td></tr>
-    <tr><td><strong>F2: Desarrollo</strong></td><td>Programar módulo en el Panel, base de datos, notificaciones</td><td>Sistemas</td><td>Semana 2-3</td></tr>
-    <tr><td><strong>F3: Pruebas</strong></td><td>Prueba interna del flujo completo, ajustes</td><td>Marketing + Sistemas</td><td>Semana 4</td></tr>
-    <tr><td><strong>F4: Lanzamiento</strong></td><td>Comunicación interna, correo del Gerente de Ventas</td><td>Marketing + Gte. Ventas</td><td>Semana 5</td></tr>
-    <tr><td><strong>F5: Operación</strong></td><td>Recolección continua, primera evaluación, primeros resultados</td><td>Comité evaluador</td><td>Mes 2+</td></tr>
-  </table>
+  <h2>Plan de Implementacion</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">Semana 1</div>
+      <h4>Fase 1: Diseno</h4>
+      <p>Definir campos del formulario, flujo de aprobacion en el Panel y matriz de evaluacion.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Semanas 2-3</div>
+      <h4>Fase 2: Desarrollo</h4>
+      <p>Programar modulo en el Panel, crear base de datos de ideas y configurar notificaciones automaticas.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Semana 4</div>
+      <h4>Fase 3: Pruebas</h4>
+      <p>Prueba interna del flujo completo y ajustes de interfaz y funcionalidad.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Semana 5</div>
+      <h4>Fase 4: Lanzamiento</h4>
+      <p>Comunicacion interna con correo del Gerente de Ventas anunciando el programa via el Panel.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Mes 2+</div>
+      <h4>Fase 5: Operacion</h4>
+      <p>Recoleccion continua, primera evaluacion al cierre del mes y publicacion de primeros resultados.</p>
+    </div>
+  </div>
+
+  <div class="success-box">
+    <strong>Tiempo total estimado:</strong> 5 semanas desde la aprobacion hasta el lanzamiento oficial. Operacion recurrente a partir del mes 2.
+  </div>
 </section>
 
-<!-- 13. COSTOS -->
-<section>
-  <h2>13. Costo del Programa</h2>
+<!-- 9. COSTOS -->
+<section id="costos">
+  <h2>Costo del Programa</h2>
   <table>
     <tr><th>Concepto</th><th>Costo</th></tr>
-    <tr><td>Desarrollo del módulo en el Panel</td><td>$0 (programadores internos ya asignados al Panel)</td></tr>
-    <tr><td>Hosting y almacenamiento</td><td>$0 (infraestructura existente)</td></tr>
-    <tr><td>Premios mensuales (12)</td><td>A definir — pueden ser productos del catálogo SUPRICOM</td></tr>
+    <tr><td>Desarrollo del modulo en el Panel</td><td>$0 (programadores internos ya asignados)</td></tr>
+    <tr><td>Hosting y almacenamiento</td><td>$0 (infraestructura existente del Panel)</td></tr>
+    <tr><td>Premios mensuales (12)</td><td>A definir por Gerencia</td></tr>
     <tr><td>Premio anual</td><td>A definir por Gerencia</td></tr>
-    <tr><td>Comunicación interna</td><td>$0 (diseño in-house por Marketing)</td></tr>
-    <tr style="background: #F0FFF8;"><td><strong>TOTAL operativo</strong></td><td><strong>$0</strong></td></tr>
+    <tr><td>Comunicacion interna</td><td>$0 (diseno in-house por Marketing)</td></tr>
+    <tr style="background: #F0FFF8;"><td><strong>TOTAL operativo base</strong></td><td><strong>$0</strong></td></tr>
   </table>
+
+  <div class="info-box">
+    <strong>Nota:</strong> Los premios pueden ser productos del catalogo SUPRICOM sin costo incremental, manteniendo el presupuesto en $0.
+  </div>
 </section>
 
 </main>
 </div>
 
 <footer>
-  <p><strong>SUPRICOM</strong> · Tu mayorista de confianza</p>
-  <p>Programa Mi Gran Idea · Versión 1.0 · Julio 2026</p>
-  <p style="margin-top:8px; font-size:11px;">Documento generado para presentación interna · ESTRATEGA SUPRICOM</p>
+  <p><strong>SUPRICOM</strong> &middot; Tu mayorista de confianza</p>
+  <p>Programa Mi Gran Idea &middot; Version 1.0 &middot; Julio 2026</p>
+  <p style="margin-top:8px; font-size:11px;">Documento para presentacion interna &middot; ESTRATEGA SUPRICOM</p>
 </footer>
 
 <script>
-// Highlight active section on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul li a');
 const observer = new IntersectionObserver(entries => {
