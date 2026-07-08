@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte de Prospección — SUPRICOM</title>
+<style>
+  :root {
+    --primary: #1A1A2E; --primary-light: #2D2D4A; --accent: #CC7A00;
+    --accent-hover: #E68A00; --text: #1A1A2E; --text-light: #666;
+    --bg: #F5F5F8; --white: #FFFFFF; --success: #00CC88; --border: #E0E0E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.6;
+  }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--primary); color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 56px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  nav .brand { font-weight: 700; font-size: 18px; }
+  nav .brand span { color: var(--accent); }
+  nav .menu-toggle {
+    background: none; border: none; color: white; font-size: 24px; cursor: pointer;
+    display: none; padding: 4px;
+  }
+  nav ul { display: flex; list-style: none; gap: 4px; }
+  nav ul li a {
+    color: rgba(255,255,255,.75); text-decoration: none;
+    padding: 8px 12px; border-radius: 6px; font-size: 13px;
+    transition: all .2s;
+  }
+  nav ul li a:hover, nav ul li a.active {
+    color: white; background: rgba(255,255,255,.1);
+  }
+  .hero {
+    margin-top: 56px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; text-align: center; padding: 60px 24px 40px;
+  }
+  .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { font-size: 16px; opacity: .8; }
+  .hero .meta { margin-top: 20px; display: flex; justify-content: center; gap: 24px; font-size: 13px; opacity: .7; }
+  .main-wrapper { display: flex; max-width: 1200px; margin: 0 auto; }
+  main { flex: 1; padding: 40px 32px 80px; max-width: 860px; margin: 0 auto; }
+  section {
+    background: var(--white); border-radius: 12px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+  section h2 {
+    font-size: 26px; color: var(--primary);
+    margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 3px solid var(--accent);
+  }
+  section h3 { font-size: 18px; color: var(--primary); margin-top: 24px; margin-bottom: 12px; }
+  section p { margin-bottom: 12px; color: #333; }
+  section ul, section ol { margin: 8px 0 16px 24px; }
+  section li { margin-bottom: 6px; color: #333; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAFAFC; }
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px; margin: 16px 0;
+  }
+  .kpi-card {
+    background: var(--bg); border-radius: 10px; padding: 16px; text-align: center;
+    border: 1px solid var(--border); transition: transform .15s;
+  }
+  .kpi-card:hover { transform: translateY(-2px); }
+  .kpi-card .num { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .kpi-card .label { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+  .highlight-box {
+    background: #FFF8F0; border-left: 4px solid var(--accent);
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+  .success-box {
+    background: #F0FFF8; border-left: 4px solid var(--success);
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+  .timeline { position: relative; margin: 24px 0; padding-left: 32px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 11px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-item::before {
+    content: ""; position: absolute; left: -24px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-item h4 { margin: 0 0 4px; font-size: 15px; }
+  .timeline-item p { margin: 0; font-size: 13px; color: var(--text-light); }
+  .timeline-item .date { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  .badge-score {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; color: white;
+  }
+  .badge-alto { background: var(--success); }
+  .badge-medio { background: var(--accent); }
+  .badge-bajo { background: #999; }
+  footer {
+    background: var(--primary); color: rgba(255,255,255,.6);
+    text-align: center; padding: 32px 24px; font-size: 13px;
+  }
+  footer strong { color: var(--accent); }
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    nav .menu-toggle { display: block; }
+    nav ul.open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 56px; left: 0; width: 100%; background: var(--primary);
+      padding: 8px 16px 16px;
+    }
+    .hero h1 { font-size: 28px; }
+    main { padding: 20px 16px 60px; }
+    section { padding: 20px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media print { nav { display: none; } .hero { margin-top: 0; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">SUPRICOM <span>· Prospección</span></div>
+  <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <ul>
+    <li><a href="#resumen">Resumen</a></li>
+    <li><a href="#leads">Leads</a></li>
+    <li><a href="#oportunidad">Oportunidad</a></li>
+    <li><a href="#accion">Próximos pasos</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Reporte de <span>Prospección</span></h1>
+  <p>Valencia, Carabobo — Julio 2026</p>
+  <div class="meta">
+    <span>18 tiendas prospectadas</span>
+    <span>72% sin protección eléctrica</span>
+    <span>100% sin BLUETTI</span>
+  </div>
+</div>
+
+<div class="main-wrapper">
+<main>
+
+<!-- RESUMEN -->
+<section id="resumen">
+  <h2>Resumen Ejecutivo</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="num">18</div><div class="label">Tiendas prospectadas</div></div>
+    <div class="kpi-card"><div class="num">13</div><div class="label">Sin protección eléctrica</div></div>
+    <div class="kpi-card"><div class="num">18</div><div class="label">Sin BLUETTI (100%)</div></div>
+    <div class="kpi-card"><div class="num">14</div><div class="label">Venden laptops (78%)</div></div>
+    <div class="kpi-card"><div class="num">2</div><div class="label">Ya venden UPS/reguladores</div></div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Oportunidad principal:</strong> 13 de 18 tiendas NO venden protección eléctrica. 18 de 18 NO venden BLUETTI. Mercado virgen para estaciones de energía portátil.
+  </div>
+</section>
+
+<!-- LEADS PRIORIZADOS -->
+<section id="leads">
+  <h2>Leads Priorizados</h2>
+
+  <h3>Lead ALTO</h3>
+  <table>
+    <tr><th>Tienda</th><th>Tipo</th><th>Producto a ofrecer</th><th>Contacto</th></tr>
+    <tr>
+      <td><strong>PC Actual</strong><br><span style="font-size:11px;color:#888;">31 años, Valencia</span></td>
+      <td>Física + Online + App</td>
+      <td>FORZA NT-511 + FVR-901M + regleta</td>
+      <td>ventas@pcactual.net<br>0412-4502090</td>
+    </tr>
+    <tr>
+      <td><strong>Venemax Store</strong><br><span style="font-size:11px;color:#888;">Vende servidores</span></td>
+      <td>Física</td>
+      <td>APC BX1000M + FORZA NT-1011</td>
+      <td>Presencial C.C. La Asunción</td>
+    </tr>
+  </table>
+
+  <h3>Lead MEDIO</h3>
+  <table>
+    <tr><th>Tienda</th><th>Perfil</th><th>Producto</th></tr>
+    <tr><td><strong>Tecnoadictos</strong></td><td>Online, laptops gaming</td><td>FORZA FVR-901M + regleta</td></tr>
+    <tr><td><strong>Futuro Digital</strong></td><td>Física, El Viñedo</td><td>FORZA NT-511 + regleta</td></tr>
+    <tr><td><strong>Enter La Tecnologia</strong></td><td>Física, Av. Bolívar Norte</td><td>FORZA NT-511</td></tr>
+  </table>
+
+  <div class="info-box" style="border-left-color: var(--success);">
+    <strong>Oportunidad especial:</strong> PC Shop de Venezuela (@pcshopvzla) YA vende protección eléctrica pero NO tiene BLUETTI. Ofrecer AC50P y Elite 30 V2 para su portafolio.
+  </div>
+</section>
+
+<!-- OPORTUNIDAD DE MERCADO -->
+<section id="oportunidad">
+  <h2>Oportunidad de Mercado</h2>
+  <div class="two-col" style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div>
+      <h4>Protección Eléctrica</h4>
+      <p><strong style="font-size: 32px; color: var(--accent);">72%</strong><br>de las tiendas NO venden UPS ni reguladores</p>
+      <ul>
+        <li>Oportunidad de crear la categoría</li>
+        <li>Venta cruzada natural con laptops (78% venden)</li>
+        <li>Kit entrada: UPS + regulador + regleta</li>
+      </ul>
+    </div>
+    <div>
+      <h4>BLUETTI / Energía Portátil</h4>
+      <p><strong style="font-size: 32px; color: var(--success);">100%</strong><br>de las tiendas NO tienen energía portátil</p>
+      <ul>
+        <li>Mercado completamente virgen</li>
+        <li>Demanda activa por crisis eléctrica</li>
+        <li>Diferenciador frente a competidores</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Recomendación de Contacto</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">Prioridad 1</div>
+      <h4>PC Actual</h4>
+      <p>Kit FORZA NT-511 + FVR-901M + regleta. Contacto: ventas@pcactual.net</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Prioridad 2</div>
+      <h4>Venemax Store</h4>
+      <p>APC BX1000M-LM60 + FORZA NT-1011. Perfil empresarial. Contacto presencial.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Prioridad 3</div>
+      <h4>Tecnoadictos</h4>
+      <p>FORZA FVR-901M + regleta PS-001W para acompañar laptops gaming.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACCIÓN -->
+<section id="accion">
+  <h2>Próximos Pasos</h2>
+  <ol>
+    <li><strong>Contactar Damasco</strong> (cadena +10 sucursales) — prioridad nacional #1</li>
+    <li><strong>Contactar PC Actual</strong> — lead #1 en Valencia</li>
+    <li><strong>Contactar Venemax Store</strong> — presencial en C.C. La Asunción</li>
+    <li><strong>Ofrecer BLUETTI a PC Shop</strong> — ya venden protección, falta energía portátil</li>
+    <li><strong>Extender prospección a Caracas</strong> — siguiente plaza clave</li>
+  </ol>
+
+  <div class="success-box">
+    <strong>Resumen:</strong> 5 leads prioritarios identificados con necesidad de protección eléctrica. BLUETTI representa una categoría nueva sin competencia en las 18 tiendas prospectadas.
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>SUPRICOM</strong> · Tu mayorista de confianza</p>
+  <p>Reporte de Prospección · Valencia · Julio 2026</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav ul li a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`nav ul li a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: .3 });
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

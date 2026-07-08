@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUPRICOM — Plan de Contenido Julio 2026</title>
+<style>
+  :root {
+    --primary: #0056DB;
+    --primary-light: #0791F4;
+    --bg: #F3F3F3;
+    --gradient-hero: linear-gradient(135deg, #015CDE 0%, #068AF1 100%);
+    --gradient-section: linear-gradient(135deg, #C8C8C8 0%, #F8F9F9 100%);
+    --text: #1A1A2E;
+    --text-light: #666;
+    --white: #FFFFFF;
+    --success: #00CC88;
+    --border: #E0E0E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.5;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--primary); color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; height: 52px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.15);
+  }
+  nav .brand { font-weight: 700; font-size: 16px; letter-spacing: -.3px; }
+  nav .brand span { color: #6BCBFF; }
+  nav .menu-toggle {
+    background: none; border: none; color: white; font-size: 24px; cursor: pointer;
+    display: none; padding: 4px;
+  }
+  nav ul { display: flex; list-style: none; gap: 2px; }
+  nav ul li a {
+    color: rgba(255,255,255,.7); text-decoration: none;
+    padding: 7px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
+    transition: all .2s;
+  }
+  nav ul li a:hover, nav ul li a.active {
+    color: white; background: rgba(255,255,255,.12);
+  }
+  nav ul li a .count {
+    display: inline-block; background: rgba(255,255,255,.15); border-radius: 10px;
+    padding: 0 7px; font-size: 10px; margin-left: 4px; line-height: 18px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    margin-top: 52px;
+    background: var(--gradient-hero);
+    color: white; text-align: center; padding: 48px 20px 36px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.03) 40px, rgba(255,255,255,.03) 41px);
+    pointer-events: none;
+  }
+  .hero .badge {
+    display: inline-block; background: rgba(255,255,255,.15); backdrop-filter: blur(4px);
+    color: white; padding: 3px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    margin-bottom: 10px; border: 1px solid rgba(255,255,255,.15);
+  }
+  .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -1px; }
+  .hero h1 span { color: #6BCBFF; }
+  .hero .sub { font-size: 15px; opacity: .8; margin-top: 4px; }
+  .hero .kpi-strip {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .hero .kpi-strip .kp {
+    background: rgba(255,255,255,.1); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px; padding: 10px 18px; min-width: 80px;
+    transition: transform .2s, background .2s;
+  }
+  .hero .kpi-strip .kp:hover { transform: translateY(-2px); background: rgba(255,255,255,.15); }
+  .hero .kpi-strip .kp .num { font-size: 24px; font-weight: 800; color: #fff; }
+  .hero .kpi-strip .kp .lb { font-size: 10px; opacity: .65; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
+
+  /* ─── MAIN ─── */
+  .main-wrapper { display: flex; max-width: 1200px; margin: 0 auto; }
+  main { flex: 1; padding: 28px 20px 60px; max-width: 100%; }
+
+  /* ─── WEEK CARD ─── */
+  .week-card {
+    background: var(--white); border-radius: 14px; margin-bottom: 28px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06); overflow: hidden;
+  }
+  .week-card .week-top {
+    background: var(--primary); color: white; padding: 14px 20px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .week-card .week-top h2 { font-size: 18px; font-weight: 700; }
+  .week-card .week-top .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .week-card .week-top .tags span {
+    background: rgba(255,255,255,.15); padding: 3px 12px; border-radius: 10px;
+    font-size: 11px; font-weight: 600;
+  }
+  .week-card .week-focus {
+    padding: 10px 20px; font-size: 13px; color: var(--text-light);
+    background: #F8FAFE; border-bottom: 1px solid var(--border);
+  }
+  .week-card .week-focus strong { color: var(--primary); }
+
+  /* ─── CALENDAR GRID ─── */
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  @media (max-width: 1000px) { .cal-grid { grid-template-columns: repeat(1, 1fr); } }
+
+  .cal-col {
+    background: var(--white); padding: 12px; min-height: 360px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .cal-col .col-head {
+    display: flex; align-items: baseline; gap: 6px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--primary-light); margin-bottom: 4px;
+  }
+  .cal-col .col-head .day { font-weight: 700; font-size: 13px; color: var(--primary); text-transform: uppercase; letter-spacing: .3px; }
+  .cal-col .col-head .date { font-size: 11px; color: var(--text-light); }
+
+  /* ─── CONTENT CARD ─── */
+  .piece {
+    background: #FAFBFC; border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px; position: relative;
+    transition: all .2s; cursor: pointer;
+  }
+  .piece:hover {
+    border-color: var(--primary-light); box-shadow: 0 2px 8px rgba(7,145,244,.12);
+  }
+  .piece .num {
+    position: absolute; top: 4px; right: 6px;
+    background: var(--bg); border-radius: 50%;
+    width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; color: var(--text-light);
+  }
+  .piece .fmt {
+    display: inline-block; font-size: 8px; font-weight: 700; text-transform: uppercase;
+    padding: 1px 8px; border-radius: 8px; color: white; letter-spacing: .3px;
+    margin-bottom: 3px;
+  }
+  .piece .fmt.carrusel { background: #1565c0; }
+  .piece .fmt.post { background: #e65100; }
+  .piece .fmt.vs1 { background: #7b1fa2; }
+  .piece .fmt.vs2 { background: #7b1fa2; }
+  .piece .fmt.vocero { background: #00838f; }
+  .piece .fmt.vo { background: #2e7d32; }
+
+  .piece .pillar {
+    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+    color: var(--primary); margin-bottom: 2px;
+  }
+  .piece .topic {
+    font-size: 11px; line-height: 1.4; color: var(--text);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .piece.expanded .topic { display: block; }
+  .piece .brands { font-size: 9px; color: var(--text-light); margin-top: 2px; }
+
+  .piece .ve-badge {
+    display: inline-block; font-size: 7px; font-weight: 700;
+    background: #ffd700; color: #000; padding: 0 5px; border-radius: 3px;
+    margin-left: 3px; vertical-align: middle; line-height: 14px;
+  }
+
+  /* ─── PRODUCT DROPDOWN ─── */
+  .piece .prods { margin-top: 5px; }
+  .piece .prods summary {
+    cursor: pointer; font-size: 9px; font-weight: 600; color: var(--primary-light);
+    padding: 1px 0; user-select: none;
+  }
+  .piece .prods summary::-webkit-details-marker { color: var(--primary-light); }
+  .piece .prods .pl {
+    margin-top: 3px; display: flex; flex-direction: column; gap: 1px;
+  }
+  .piece .prods .pl .pi {
+    font-size: 9px; padding: 2px 6px; background: #F0F5FF;
+    border-radius: 3px; display: flex; justify-content: space-between;
+  }
+  .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 8px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--primary); color: rgba(255,255,255,.6);
+    text-align: center; padding: 28px 20px; font-size: 13px;
+  }
+  footer strong { color: #6BCBFF; }
+
+  /* ─── FILTER BAR ─── */
+  .filter-bar {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+    align-items: center;
+  }
+  .filter-bar span { font-size: 12px; font-weight: 600; color: var(--text-light); margin-right: 4px; }
+  .filter-bar .fil {
+    font-size: 11px; padding: 4px 12px; border-radius: 14px;
+    border: 1px solid var(--border); background: var(--white);
+    cursor: pointer; transition: all .2s; color: var(--text-light);
+    user-select: none;
+  }
+  .filter-bar .fil:hover { border-color: var(--primary-light); color: var(--primary); }
+  .filter-bar .fil.active { background: var(--primary-light); color: white; border-color: var(--primary-light); }
+  .filter-bar .fil.toggle-prods { background: var(--bg); }
+  .filter-bar .fil.toggle-prods.active { background: var(--success); color: white; border-color: var(--success); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    nav .menu-toggle { display: block; }
+    nav ul.open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 52px; left: 0; width: 100%; background: var(--primary);
+      padding: 8px 16px 16px;
+    }
+    .hero h1 { font-size: 28px; }
+    .hero .sub { font-size: 13px; }
+    .hero .kpi-strip .kp { padding: 8px 14px; min-width: 60px; }
+    .hero .kpi-strip .kp .num { font-size: 20px; }
+    main { padding: 16px 10px 40px; }
+    .week-card .week-top { padding: 12px 14px; }
+    .week-card .week-top h2 { font-size: 16px; }
+    .cal-col { min-height: auto; padding: 10px; }
+  }
+
+  @media print {
+    nav, .menu-toggle { display: none !important; }
+    .hero { margin-top: 0; padding: 40px 24px; }
+    .piece { break-inside: avoid; }
+    .week-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">SUPRICOM <span>· Julio 2026</span></div>
+  <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <ul>
+    <li><a href="#s1" class="active">S1 <span class="count">13–17</span></a></li>
+    <li><a href="#s2">S2 <span class="count">20–24</span></a></li>
+    <li><a href="#s3">S3 <span class="count">27–31</span></a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="badge">Plan de Contenido · Marketing</div>
+  <h1>Julio <span>2026</span></h1>
+  <div class="sub">SUPRICOM · C.A.</div>
+  <div class="kpi-strip">
+    <div class="kp"><div class="num">30</div><div class="lb">Piezas</div></div>
+    <div class="kp"><div class="num">12</div><div class="lb">Videos</div></div>
+    <div class="kp"><div class="num">18</div><div class="lb">Diseño</div></div>
+    <div class="kp"><div class="num">3</div><div class="lb">Semanas</div></div>
+    <div class="kp"><div class="num">6</div><div class="lb">🇻🇪 Contexto</div></div>
+  </div>
+</div>
+
+<div class="main-wrapper">
+<main>
+
+<div class="filter-bar">
+  <span>Filtrar:</span>
+  <span class="fil active" data-filter="all">Todo</span>
+  <span class="fil" data-filter="video">Video</span>
+  <span class="fil" data-filter="carrusel">Carrusel</span>
+  <span class="fil" data-filter="post">Post</span>
+  <span class="fil" data-filter="ve">🇻🇪 Venezuela</span>
+  <span style="margin-left:auto"></span>
+  <span class="fil toggle-prods" id="toggleProds">📦 Productos: visible</span>
+</div>
+
+<!-- ═══════ S1 ═══════ -->
+<div class="week-card" id="s1">
+  <div class="week-top">
+    <h2>S1 · 13 al 17 de julio</h2>
+    <div class="tags">
+      <span>🎬 4 videos</span>
+      <span style="background:#6BCBFF;color:#003">BLUETTI</span>
+      <span>🇻🇪 lun + vie</span>
+    </div>
+  </div>
+  <div class="week-focus"><strong>Foco:</strong> BLUETTI bienvenida · Protección FORZA/SMARTBITT/APC/HAVIT · Laptops Acer/ASUS/Dell/HP/Lenovo</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">13</span></div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">1</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Bienvenida</div>
+        <div class="topic"><strong>«BLUETTI llega a SUPRICOM: independencia energética para tu cliente».</strong> BLUETTI no es un UPS ni una planta. Es la tranquilidad de no depender del horario de luz. Bienvenida al portafolio.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 6 productos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">EB3A · 268Wh</span><span class="sku">BLU-EB3A</span></div>
+            <div class="pi"><span class="name">EB55 · 537Wh</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">AC180 · 1,152Wh</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">AC200P · 2,000Wh</span><span class="sku">BLU-AC200P</span></div>
+            <div class="pi"><span class="name">AC200MAX · 2,048Wh</span><span class="sku">BLU-AC200M</span></div>
+            <div class="pi"><span class="name">AC300 · 3,072Wh</span><span class="sku">BLU-AC300</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">2</div>
+        <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
+        <div class="pillar">Diagnóstico</div>
+        <div class="topic"><strong>«3 señales de que tu cliente necesita protección en Venezuela».</strong> Fluctuaciones de voltaje, apagones sin aviso, equipos dañados. El diagnóstico en mostrador.</div>
+        <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
+        <details class="prods">
+          <summary>📦 12 productos de protección</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 600VA</span><span class="sku">FZ-UPS600</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1500VA</span><span class="sku">FZ-UPS1500</span></div>
+            <div class="pi"><span class="name">FORZA Regulador 8T</span><span class="sku">FZ-REG8T</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 800VA</span><span class="sku">SB-UPS800</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 1200VA</span><span class="sku">SB-UPS1200</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 2000VA</span><span class="sku">SB-UPS2000</span></div>
+            <div class="pi"><span class="name">APC Back-UPS 650VA</span><span class="sku">APC-B650</span></div>
+            <div class="pi"><span class="name">APC Back-UPS 1100VA</span><span class="sku">APC-B1100</span></div>
+            <div class="pi"><span class="name">APC Smart-UPS 1500VA</span><span class="sku">APC-S1500</span></div>
+            <div class="pi"><span class="name">HAVIT UPS 600VA</span><span class="sku">HV-UPS600</span></div>
+            <div class="pi"><span class="name">HAVIT UPS 1000VA</span><span class="sku">HV-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">14</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">3</div>
+        <span class="fmt vs1">Video Supri #1</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>FORZA.</strong> La marca que los comercios conocen y piden. Showcase visual de la línea de protección.</div>
+        <div class="brands">FORZA</div>
+        <details class="prods">
+          <summary>📦 4 productos FORZA</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">UPS FORZA 600VA</span><span class="sku">FZ-UPS600</span></div>
+            <div class="pi"><span class="name">UPS FORZA 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">UPS FORZA 1500VA</span><span class="sku">FZ-UPS1500</span></div>
+            <div class="pi"><span class="name">Regulador FORZA 8 tomas</span><span class="sku">FZ-REG8T</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">4</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Comparativa</div>
+        <div class="topic"><strong>«BLUETTI vs planta eléctrica».</strong> Ruido, mantenimiento, vida útil, costo real. Lo que necesitas saber para asesorar.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 6 productos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">EB3A · 268Wh</span><span class="sku">BLU-EB3A</span></div>
+            <div class="pi"><span class="name">EB55 · 537Wh</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">AC180 · 1,152Wh</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">AC200P · 2,000Wh</span><span class="sku">BLU-AC200P</span></div>
+            <div class="pi"><span class="name">AC200MAX · 2,048Wh</span><span class="sku">BLU-AC200M</span></div>
+            <div class="pi"><span class="name">AC300 · 3,072Wh</span><span class="sku">BLU-AC300</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">15</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">5</div>
+        <span class="fmt vs2">Video Supri #2</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic">Dato clave sobre protección eléctrica. Visualización educativa.</div>
+        <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
+        <details class="prods">
+          <summary>📦 5 productos destacados</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 1200VA</span><span class="sku">SB-UPS1200</span></div>
+            <div class="pi"><span class="name">APC Back-UPS 1100VA</span><span class="sku">APC-B1100</span></div>
+            <div class="pi"><span class="name">BLUETTI EB55</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">HAVIT UPS 1000VA</span><span class="sku">HV-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">6</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Perfil</div>
+        <div class="topic"><strong>«Laptop de entrada vs corporativa: ¿cuál va con cada cliente?».</strong> Estudiante, oficinista, gerente, diseñador. Cuándo recomendar cada gama.</div>
+        <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
+        <details class="prods">
+          <summary>📦 8 laptops recomendadas</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire Go 15 R7/16GB/512GB</span><span class="sku">AG15-42P-R917</span></div>
+            <div class="pi"><span class="name">Acer Aspire Lite 15 R7/16GB/512GB</span><span class="sku">NXDAKAL004</span></div>
+            <div class="pi"><span class="name">ASUS Vivobook Go 15 R5/16GB</span><span class="sku">90NB0ZR2-M03XS0</span></div>
+            <div class="pi"><span class="name">ASUS Vivobook 14 i7/12GB</span><span class="sku">197105876187</span></div>
+            <div class="pi"><span class="name">ASUS TUF Gaming A15 R7/RTX3050</span><span class="sku">90NR0JF7-M00JA0</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15 i7/16GB</span><span class="sku">LDC15250-7427BLK-PUS</span></div>
+            <div class="pi"><span class="name">HP 255R G10 R7/16GB</span><span class="sku">C84ZVUA</span></div>
+            <div class="pi"><span class="name">Lenovo IdeaPad Slim 3 R7/16GB</span><span class="sku">83K700TUUS</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">16</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">7</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Mix</div>
+        <div class="topic"><strong>«Tu cliente compra una laptop. ¿Le ofreces protección?».</strong> Cómo aumentar el ticket cuidando la inversión del cliente.</div>
+        <div class="brands">FORZA · Acer · ASUS · HP</div>
+        <details class="prods">
+          <summary>📦 5 productos del mix</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 600VA</span><span class="sku">FZ-UPS600</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">Acer Aspire Go 15 R7</span><span class="sku">AG15-42P-R917</span></div>
+            <div class="pi"><span class="name">ASUS Vivobook 15 i7</span><span class="sku">90NB10T1-M01NH0</span></div>
+            <div class="pi"><span class="name">HP Victus Gaming R7/RTX</span><span class="sku">BT6E1PA#ACJ</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">8</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Perfil</div>
+        <div class="topic"><strong>«4 tipos de clientes que necesitan BLUETTI».</strong> Hogar, oficina, clínica, emprendimiento. Cada uno con un argumento distinto.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 BLUETTI por perfil</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">EB3A · Hogar / Emprendimiento</span><span class="sku">BLU-EB3A</span></div>
+            <div class="pi"><span class="name">EB55 · Oficina</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">AC180 · Clínica</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">AC200P · Hogar completo</span><span class="sku">BLU-AC200P</span></div>
+            <div class="pi"><span class="name">AC300 · Oficina grande / Taller</span><span class="sku">BLU-AC300</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">17</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">9</div>
+        <span class="fmt vo">Video Voz en off <span class="ve-badge">VE</span></span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«Lo que está pasando con la protección eléctrica en Venezuela».</strong> Análisis del contexto, tendencias de compra, Q3.</div>
+        <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
+        <details class="prods">
+          <summary>📦 5 productos de protección</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 1500VA</span><span class="sku">FZ-UPS1500</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 2000VA</span><span class="sku">SB-UPS2000</span></div>
+            <div class="pi"><span class="name">APC Smart-UPS 1500VA</span><span class="sku">APC-S1500</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200MAX</span><span class="sku">BLU-AC200M</span></div>
+            <div class="pi"><span class="name">HAVIT UPS 1000VA</span><span class="sku">HV-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">10</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Inversión</div>
+        <div class="topic"><strong>«Inversión vs gasto: laptop con protección».</strong> Dos escenarios: con y sin UPS. El cálculo a 12 meses.</div>
+        <div class="brands">Acer · ASUS · Dell · HP · Lenovo · FORZA</div>
+        <details class="prods">
+          <summary>📦 6 productos del cálculo</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire Lite 15</span><span class="sku">NXDAKAL004</span></div>
+            <div class="pi"><span class="name">ASUS Vivobook Go 15</span><span class="sku">90NB0ZR2-M03XS0</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15 i7</span><span class="sku">LDC15250-7427BLK-PUS</span></div>
+            <div class="pi"><span class="name">HP 255R G10</span><span class="sku">C84ZVUA</span></div>
+            <div class="pi"><span class="name">Lenovo IdeaPad Slim 3</span><span class="sku">83K700TUUS</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ S2 ═══════ -->
+<div class="week-card" id="s2">
+  <div class="week-top">
+    <h2>S2 · 20 al 24 de julio</h2>
+    <div class="tags">
+      <span>🎬 4 videos</span>
+      <span style="background:#00838f">Cámaras+Redes</span>
+      <span>🇻🇪 mar</span>
+    </div>
+  </div>
+  <div class="week-focus"><strong>Foco:</strong> Cámaras NEXXT/HAVIT/TP-LINK · Routers HIKVISION/Linksys/Xiaomi · Ecosistema con protección</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">20</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">11</div>
+        <span class="fmt vs1">Video Supri #1</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic">NEXXT HOME + HAVIT + TP-LINK. Portafolio completo de seguridad. Showcase visual.</div>
+        <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
+        <details class="prods">
+          <summary>📦 6 cámaras</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span></div>
+            <div class="pi"><span class="name">NEXXT PTZ NHC-OP10 2K+5MP</span><span class="sku">MM107NXT23</span></div>
+            <div class="pi"><span class="name">NEXXT Flood Light NHC-F410</span><span class="sku">MM106NXT55</span></div>
+            <div class="pi"><span class="name">NEXXT Indoor NHC-I710 2K</span><span class="sku">MM106NXT46</span></div>
+            <div class="pi"><span class="name">HAVIT IP Camera Blanca</span><span class="sku">IPC20-UE</span></div>
+            <div class="pi"><span class="name">TP-LINK Tapo C310 Exterior</span><span class="sku">TAPO-C310</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">12</div>
+        <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
+        <div class="pillar">Diagnóstico</div>
+        <div class="topic"><strong>«Lo que le pasa a un comercio que no tiene cámaras».</strong> Robos, reclamos, pérdida de inventario.</div>
+        <div class="brands">NEXXT HOME · HAVIT</div>
+        <details class="prods">
+          <summary>📦 3 cámaras recomendadas</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span></div>
+            <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span></div>
+            <div class="pi"><span class="name">HAVIT IP Camera</span><span class="sku">IPC20-UE</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">21</span></div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">13</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Comparativa</div>
+        <div class="topic"><strong>«Router WiFi vs Mesh: ¿qué necesita tu cliente?».</strong> Según espacio y dispositivos. Portafolio combinado.</div>
+        <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
+        <details class="prods">
+          <summary>📦 10 routers</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800</span><span class="sku">DS-3WR18X</span></div>
+            <div class="pi"><span class="name">NEXXT Bolt Mesh AX1800</span><span class="sku">NW231NXT32</span></div>
+            <div class="pi"><span class="name">Linksys Velop AX2900 3PK</span><span class="sku">MX20EC3</span></div>
+            <div class="pi"><span class="name">Linksys EA7430 AC1900</span><span class="sku">EA7430-RM2</span></div>
+            <div class="pi"><span class="name">Linksys Micro Mesh AX3000 2PK</span><span class="sku">LN11011201</span></div>
+            <div class="pi"><span class="name">Xiaomi AX1500 Red Mesh</span><span class="sku">54939</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3000T</span><span class="sku">55780</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3200</span><span class="sku">35756</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">14</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Solución</div>
+        <div class="topic"><strong>«El ecosistema básico: cámara + router + UPS».</strong> En Venezuela, si la luz se va, el internet también.</div>
+        <div class="brands">HIKVISION · NEXXT HOME · FORZA</div>
+        <details class="prods">
+          <summary>📦 3 productos del ecosistema</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT Battery Cam</span><span class="sku">MM106NXT36</span></div>
+            <div class="pi"><span class="name">HIKVISION Router AX1500</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">22</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">15</div>
+        <span class="fmt vs2">Video Supri #2</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic">Dato clave sobre conectividad. Visualización educativa.</div>
+        <div class="brands">HIKVISION · Linksys · Xiaomi</div>
+        <details class="prods">
+          <summary>📦 3 routers destacados</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">Linksys Velop AX2900</span><span class="sku">MX20EC3</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3200</span><span class="sku">35756</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">16</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Guía</div>
+        <div class="topic"><strong>«Cómo elegir una cámara de seguridad».</strong> Resolución, visión nocturna, almacenamiento, app.</div>
+        <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
+        <details class="prods">
+          <summary>📦 6 cámaras</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span></div>
+            <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span></div>
+            <div class="pi"><span class="name">NEXXT Flood Light NHC-F410</span><span class="sku">MM106NXT55</span></div>
+            <div class="pi"><span class="name">NEXXT Indoor NHC-I710</span><span class="sku">MM106NXT46</span></div>
+            <div class="pi"><span class="name">HAVIT IP Camera</span><span class="sku">IPC20-UE</span></div>
+            <div class="pi"><span class="name">TP-LINK Tapo C310</span><span class="sku">TAPO-C310</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">23</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">17</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Ecosistema</div>
+        <div class="topic"><strong>«Todo lo que tu cliente necesita para no perder vigilancia ni conectividad».</strong> El vocero arma el combo.</div>
+        <div class="brands">NEXXT HOME · HIKVISION · Linksys · FORZA</div>
+        <details class="prods">
+          <summary>📦 4 productos del combo</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span></div>
+            <div class="pi"><span class="name">HIKVISION Router AX1500</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">Linksys Velop AX2900</span><span class="sku">MX20EC3</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">18</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Perfil</div>
+        <div class="topic"><strong>«¿Cámaras, domótica o ambos?».</strong> Perfiles: el que solo vigila, el que automatiza, el que quiere control total.</div>
+        <div class="brands">NEXXT HOME</div>
+        <details class="prods">
+          <summary>📦 15 productos NEXXT HOME</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Smart Plug RGB NHP-S610</span><span class="sku">MM106NXT68</span></div>
+            <div class="pi"><span class="name">Bombilla LED A19 2PK</span><span class="sku">MM106NXT71</span></div>
+            <div class="pi"><span class="name">Bombilla BR30 4PK</span><span class="sku">MM105NXT44</span></div>
+            <div class="pi"><span class="name">Bombilla GU10 3PK</span><span class="sku">MM105NXT47</span></div>
+            <div class="pi"><span class="name">Camara interior PTZ NHC-IP10</span><span class="sku">MM107NXT25</span></div>
+            <div class="pi"><span class="name">Camara exterior PTZ NHC-O612</span><span class="sku">MM106NXT65</span></div>
+            <div class="pi"><span class="name">Cerradora WiFi NHS-D100</span><span class="sku">MM106NXT56</span></div>
+            <div class="pi"><span class="name">LED Strip RGBIC 5m</span><span class="sku">MM106NXT83</span></div>
+            <div class="pi"><span class="name">Smart Baby Monitor NHC-B100</span><span class="sku">MM106NXT67</span></div>
+            <div class="pi"><span class="name">Smart Doorbell NHC-D100</span><span class="sku">MM106NXT32</span></div>
+            <div class="pi"><span class="name">Smart Blind Control NHA-B100</span><span class="sku">MM106NXT63</span></div>
+            <div class="pi"><span class="name">Smart Ceiling Light NHB-C810</span><span class="sku">MM106NXT61</span></div>
+            <div class="pi"><span class="name">Smart Power Strip NHP-E610</span><span class="sku">MM105NXT39</span></div>
+            <div class="pi"><span class="name">Smart Dual Plug NHP-D610</span><span class="sku">MM105NXT37</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">24</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">19</div>
+        <span class="fmt vo">Video Voz en off</span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«El futuro de la conectividad».</strong> WiFi 6, MESH, hogares inteligentes. Hacia dónde va.</div>
+        <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
+        <details class="prods">
+          <summary>📦 7 routers WiFi 6 / Mesh</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800</span><span class="sku">DS-3WR18X</span></div>
+            <div class="pi"><span class="name">NEXXT Bolt Mesh AX1800</span><span class="sku">NW231NXT32</span></div>
+            <div class="pi"><span class="name">Linksys Velop AX2900 3PK</span><span class="sku">MX20EC3</span></div>
+            <div class="pi"><span class="name">Linksys Micro Mesh AX3000 2PK</span><span class="sku">LN11011201</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3000T</span><span class="sku">55780</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3200</span><span class="sku">35756</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="post" onclick="togglePiece(this)">
+        <div class="num">20</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Inversión</div>
+        <div class="topic"><strong>«Seguridad y conectividad: ¿gasto o inversión?».</strong> Lo que cuesta no tener vs implementar.</div>
+        <div class="brands">NEXXT HOME · HIKVISION · Linksys</div>
+        <details class="prods">
+          <summary>📦 3 productos destacados</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span></div>
+            <div class="pi"><span class="name">Linksys Velop AX2900</span><span class="sku">MX20EC3</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ S3 ═══════ -->
+<div class="week-card" id="s3">
+  <div class="week-top">
+    <h2>S3 · 27 al 31 de julio</h2>
+    <div class="tags">
+      <span>🎬 4 videos</span>
+      <span style="background:#e65100">MSI+BLUETTI</span>
+      <span>🇻🇪 mar + mié</span>
+    </div>
+  </div>
+  <div class="week-focus"><strong>Foco:</strong> MSI Mini PC · BLUETTI recall · Cierre Q3 · Sinergia cómputo+protección</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">27</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">21</div>
+        <span class="fmt vs1">Video Supri #1</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic">MSI Mini PC. Potencia compacta. Por qué los negocios migran a este formato.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📦 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">CUBI512M016B</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i5 12th</span><span class="sku">CUBI512M015B</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">CUBIZAI8M024B</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">CUBIZAI8M023B</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">22</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Alternativa</div>
+        <div class="topic"><strong>«MSI Cubi: lo que una Mini PC puede hacer por tu negocio».</strong> Recepción, kiosco, estación de trabajo.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📦 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i5</span><span class="sku">CUBI512M015B</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">CUBIZAI8M024B</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">CUBIZAI8M023B</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">28</span></div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">23</div>
+        <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
+        <div class="pillar">Visión</div>
+        <div class="topic"><strong>«Usos de BLUETTI en Venezuela que quizás no habías considerado».</strong> Oficinas, clínicas, talleres, eventos.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 6 BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">EB3A · Taller/Emprendimiento</span><span class="sku">BLU-EB3A</span></div>
+            <div class="pi"><span class="name">EB55 · Oficina</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">AC180 · Clínica</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">AC200P · Hogar completo</span><span class="sku">BLU-AC200P</span></div>
+            <div class="pi"><span class="name">AC300 · Oficina grande</span><span class="sku">BLU-AC300</span></div>
+            <div class="pi"><span class="name">AC200MAX · Industrial</span><span class="sku">BLU-AC200M</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">24</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Sinergia</div>
+        <div class="topic"><strong>«MSI + BLUETTI: trabaja sin interrupciones».</strong> Compacto + ininterrumpido. Productividad sin límites.</div>
+        <div class="brands">MSI · BLUETTI · FORZA</div>
+        <details class="prods">
+          <summary>📦 3 productos del combo</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span></div>
+            <div class="pi"><span class="name">BLUETTI EB55</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">29</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">25</div>
+        <span class="fmt vs2">Video Supri #2</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«¿Cuánto dura un UPS en un apagón?».</strong> Clave para dimensionar correctamente.</div>
+        <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
+        <details class="prods">
+          <summary>📦 6 UPS por capacidad</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 600VA ~10min</span><span class="sku">FZ-UPS600</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA ~20min</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">APC Back-UPS 1100VA</span><span class="sku">APC-B1100</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 2000VA ~40min</span><span class="sku">SB-UPS2000</span></div>
+            <div class="pi"><span class="name">BLUETTI EB55 ~2h</span><span class="sku">BLU-EB55</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180 ~4h</span><span class="sku">BLU-AC180</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">26</div>
+        <span class="fmt carrusel">Carrusel</span>
+        <div class="pillar">Perfil</div>
+        <div class="topic"><strong>«Protección para cada presupuesto y cada riesgo».</strong> Gama entrada, media, premium. Cómo guiar al cliente.</div>
+        <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
+        <details class="prods">
+          <summary>📦 8 por gama</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HAVIT UPS 600VA · Entrada</span><span class="sku">HV-UPS600</span></div>
+            <div class="pi"><span class="name">FORZA UPS 600VA · Entrada</span><span class="sku">FZ-UPS600</span></div>
+            <div class="pi"><span class="name">APC Back-UPS 650VA · Media</span><span class="sku">APC-B650</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA · Media</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 1200VA · Media+</span><span class="sku">SB-UPS1200</span></div>
+            <div class="pi"><span class="name">APC Smart-UPS 1500VA · Premium</span><span class="sku">APC-S1500</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180 · Premium+</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P · Industrial</span><span class="sku">BLU-AC200P</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">30</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">27</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Cierre</div>
+        <div class="topic"><strong>«Prepara tu inventario para Q3».</strong> El vocero comparte su visión de cierre de mes.</div>
+        <div class="brands">BLUETTI · FORZA · MSI</div>
+        <details class="prods">
+          <summary>📦 4 productos clave Q3</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC180</span><span class="sku">BLU-AC180</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P</span><span class="sku">BLU-AC200P</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="carrusel" onclick="togglePiece(this)">
+        <div class="num">28</div>
+        <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
+        <div class="pillar">Error común</div>
+        <div class="topic"><strong>«El error de subdimensionar la protección en Venezuela».</strong> Cuando los cortes duran horas, un UPS pequeño no basta.</div>
+        <div class="brands">FORZA · SMARTBITT</div>
+        <details class="prods">
+          <summary>📦 4 soluciones dimensionadas</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">FORZA UPS 1000VA · PC oficina</span><span class="sku">FZ-UPS1000</span></div>
+            <div class="pi"><span class="name">FORZA UPS 1500VA · Servidor</span><span class="sku">FZ-UPS1500</span></div>
+            <div class="pi"><span class="name">SMARTBITT UPS 2000VA · Red</span><span class="sku">SB-UPS2000</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P · Respaldo total</span><span class="sku">BLU-AC200P</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">31</span></div>
+
+      <div class="piece" data-format="video" onclick="togglePiece(this)">
+        <div class="num">29</div>
+        <span class="fmt vo">Video Voz en off</span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«Q3: lo que viene en protección, conectividad y cómputo».</strong> Reflexión sobre el mercado.</div>
+        <div class="brands">Todas</div>
+        <details class="prods">
+          <summary>📦 Categorías clave</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI · Estaciones de energía</span><span class="sku">BLU-AC180 + AC200P</span></div>
+            <div class="pi"><span class="name">FORZA · UPS y reguladores</span><span class="sku">FZ-UPS600 a FZ-UPS1500</span></div>
+            <div class="pi"><span class="name">MSI · Mini PC Cubi</span><span class="sku">CUBI512M016B</span></div>
+            <div class="pi"><span class="name">NEXXT · Cámaras y domótica</span><span class="sku">MM106NXT36 + MM107NXT25</span></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="piece" data-format="post" onclick="togglePiece(this)">
+        <div class="num">30</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Inversión + Cierre</div>
+        <div class="topic"><strong>«La independencia energética sigue siendo la tranquilidad de tu cliente».</strong> Cierre del mes.</div>
+        <div class="brands">—</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>SUPRICOM</strong> · Tu mayorista de confianza</p>
+  <p>Documento interno de marketing · Generado: 08/07/2026</p>
+</footer>
+
+<script>
+// Filter
+document.querySelectorAll('[data-filter]').forEach(f => {
+  f.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
+    f.classList.add('active');
+    const v = f.dataset.filter;
+    document.querySelectorAll('.piece').forEach(p => {
+      if (v === 'all') { p.style.display = ''; return; }
+      if (v === 've') { p.style.display = p.querySelector('.ve-badge') ? '' : 'none'; return; }
+      p.style.display = p.dataset.format === v ? '' : 'none';
+    });
+  });
+});
+
+// Toggle product visibility globally
+const tp = document.getElementById('toggleProds');
+tp.addEventListener('click', () => {
+  const all = document.querySelectorAll('.prods');
+  const open = tp.textContent.includes('visible');
+  all.forEach(d => { if (open) d.removeAttribute('open'); else d.setAttribute('open',''); });
+  tp.textContent = open ? '📦 Productos: oculto' : '📦 Productos: visible';
+  tp.classList.toggle('active');
+});
+
+// Expand topic on click
+function togglePiece(el) {
+  // Don't toggle if clicking inside details
+  if (event.target.closest('.prods')) return;
+  el.classList.toggle('expanded');
+}
+
+// Scrollspy
+const sections = document.querySelectorAll('.week-card[id]');
+const navLinks = document.querySelectorAll('nav ul li a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const link = document.querySelector('nav ul li a[href="#' + entry.target.id + '"]');
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: .2 });
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
