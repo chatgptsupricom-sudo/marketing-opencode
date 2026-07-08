@@ -7,6 +7,7 @@
 
 ## Criterios del plan
 
+<<<<<<< HEAD
 - **Cada día = dos piezas con ángulos opuestos.** Nunca dos pilares iguales el mismo día.
 - **Tono 100% consultivo.** Sin interactivos, sin encuestas.
 - **Lenguaje:** "tu negocio", "tu tienda", "tu cliente", "comercio". Evitamos "revendedor".
@@ -23,6 +24,34 @@
   - Almacenamiento: ADATA · Kingston · WD · Toshiba
   - Periféricos: Logitech · Havit · Redragon · Targus · Primus · Klipxtreme
   - Impresoras: Canon · Epson · HP · SAT · Xerox
+=======
+- **Cada día = dos piezas con ángulos opuestos.** Nunca dos diagnósticos, dos comparativas o dos guías el mismo día. Cada par combina pilares distintos (ej: diagnóstico + solución, comparativa + perfil, tendencia + inversión).
+- **Tono 100% consultivo.** Todo el contenido asesora, educa y aporta criterio. Sin interactivos, sin encuestas, sin "cuéntanos".
+- **Lenguaje:** se habla de "tu negocio", "tu tienda", "tu cliente", "comercio". Evitamos "revendedor".
+- **Mensaje central:** «La independencia energética es la tranquilidad de tu cliente». Transversal en toda protección eléctrica y BLUETTI. Todo alineado a apagones Venezuela.
+- **Alternancia protección:** dentro de cada semana, los contenidos de protección alternan: uno sobre la marca, el siguiente sobre la situación venezolana, luego marca, luego situación.
+- **Formato según profundidad:** carrusel para temas que necesitan múltiples slides (comparativas, guías, perfiles, ecosistemas). Post para mensajes directos de una sola idea (inversión, concepto, cierre).
+- **Portafolio completo (23 categorías — ver CONTEXTO_MAESTRO.md para detalle):**
+  - Protección eléctrica: FORZA · SMARTBITT · APC · BLUETTI · HAVIT
+  - Cámaras + Domótica: NEXXT HOME · EZVIZ · TP-LINK VIGI
+  - Routers / Redes: HIKVISION · NEXXT HOME · LINKSYS · TP-LINK · MERCUSYS · XIAOMI
+  - Cableado estructurado: NEXXT HOME (keystones, patch cords, paneles, herramientas)
+  - Laptops: Acer · ASUS · Dell · HP · Lenovo · Toshiba
+  - Mini PC: MSI CUBI
+  - Monitores: ACER · AOC · HIKVISION · MSI
+  - Impresoras: BROTHER · CANON · EPSON · HP · SAT · XEROX
+  - Consumibles: ASTA · CANON · EPSON · HP
+  - Almacenamiento: ADATA · KINGSTON · TOSHIBA
+  - Periféricos: LOGITECH · REDRAGON · HAVIT · TARGUS · XTECH · PRIMUS · MSI · EVGA
+  - Audio: HAVIT · KLIP · KLIPXTREME · LOGITECH · HIKVISION · XIAOMI
+  - Bolsos y mochilas: KLIP · TARGUS · HP · XTECH
+  - Mobiliario: AEROCOOL · IKEA · HAVIT
+  - Proyectores: EPSON · HAVIT
+  - Punto de venta: SAT (impresoras, lectores, contadoras)
+  - Tablets: LENOVO
+  - Juguetes: VOYAGER KIDS
+  - Componentes PC: ADATA · AEROCOOL · KINGSTON
+>>>>>>> f23c31cbad3611cc86220bd90ed555d61934a116
 
 ---
 
