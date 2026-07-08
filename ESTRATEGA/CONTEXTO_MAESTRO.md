@@ -7,12 +7,67 @@
 
 Distribuidor mayorista B2B de tecnología en Venezuela. No venden al consumidor final. Su cliente es el dueño de tienda de tecnología, gerente de compras, revendedor, integrador.
 
-### Portafolio de marcas principales
-- **Protección eléctrica:** FORZA · SMARTBITT · APC · BLUETTI · HAVIT
-- **Cámaras + Domótica:** NEXXT HOME
-- **Routers / Redes:** HIKVISION · NEXXT HOME
-- **Laptops:** Acer · ASUS · Dell · HP · Lenovo
-- **Mini PC:** MSI
+### Portafolio completo (23 categorías)
+
+| # | Categoría | Marcas | Productos clave | Stock típico |
+|---|-----------|--------|-----------------|-------------|
+| 1 | **ALMACENAMIENTO** | ADATA, KINGSTON, TOSHIBA | SSD SATA/NVMe, HDD externo, memoria USB, DDR4 SODIMM/UDIMM | 8–1,000+ uds |
+| 2 | **AUDÍFONOS** | ASTRO, HAVIT, KLIP, KLIPXTREME, LOGITECH, PRIMUS, REDRAGON, TARGUS, XTECH | Gaming, inalámbricos BT, cancelación ruido, open ear, kids | 1–253 uds |
+| 3 | **BOLSOS Y MOCHILAS** | KLIP, KLIPXTREME, TARGUS, HP, XTECH | Bolsos laptop 13"-17", mochilas con USB, fundas neopreno, maletines | 1–126 uds |
+| 4 | **CÁMARAS** | EZVIZ, HAVIT, NEXXT HOME, TP-LINK VIGI | IP fijas, PTZ, exteriores, NVR, kits vigilancia | 2–500+ uds |
+| 5 | **COMPONENTES PC** | ADATA, AEROCOOL, KINGSTON, XTECH | Gabinetes, memorias RAM, coolers CPU, torres | 1–240 uds |
+| 6 | **CONSUMIBLES** | ASTA (genéricos), CANON, EPSON, HP | Toners, tintas, drums, chips, cintas matriciales, papel térmico | 1–2,000+ uds |
+| 7 | **DOMÓTICA** | NEXXT HOME, PRIMUS | Bombillas WiFi, switches inteligentes, sensores, enchufes smart, cerraduras | 3–1,000+ uds |
+| 8 | **GENERAL/VARIOS** | ASTA, CASIO, EPSON, EZVIZ, HAVIT, HIKVISION, KLIP, KLIPXTREME, NEXXT, REDRAGON, TARGUS, XIAOMI, XTECH | Relojes inteligentes, cargadores, soportes TV, calculadoras, cerraduras, pistolas masaje, smart doorbells | 1–500+ uds |
+| 9 | **IMPRESORAS** | BROTHER, CANON, EPSON, HP, SAT, XEROX | Láser monocromo/color, tinta, matriciales, plotter, térmicas, multifuncionales | 1–94 uds |
+| 10 | **JUGUETES** | VOYAGER KIDS | Patinetas eléctricas 2-en-1 desmontables | 3–90 uds |
+| 11 | **LAPTOP** | ACER, ASUS, DELL, HP, LENOVO, TOSHIBA | Oficina, gaming, convertible, corporativa | 1–94 uds |
+| 12 | **LAPTOP USO INTENSO** | TOSHIBA (Dynabook) | Equipos rugged/semi-rugged | Stock limitado |
+| 13 | **MINI PC** | MSI (CUBI 5, CUBI Z AI) | Compactos Intel Core i5/i7, AMD Ryzen 7/9 con IA | 3–26 uds |
+| 14 | **MOBILIARIO** | AEROCOOL, IKEA, HAVIT | Sillas gaming, mesas, estantes, bases laptop | 1–94 uds |
+| 15 | **MONITORES** | ACER, AOC, HIKVISION, MSI | Gaming, oficina, pantallas interactivas 65" 4K, 27"-32" FHD | 1–230 uds |
+| 16 | **PAPELERÍA** | CANON, EPSON, HP, SAT | Papel fotocopia, papel térmico 57mm, kits papel foto | 1–100+ uds |
+| 17 | **PERIFÉRICOS** | ADATA, EVGA, HAVIT, KLIP, KLIPXTREME, LOGITECH, MSI, PRIMUS, REDRAGON, SAT, TARGUS, XTECH | Teclados, mice, combos, gamepads, hubs USB-C, adaptadores, mouse pads | 1–2,229 uds |
+| 18 | **PROYECTORES** | EPSON, HAVIT, KLIPXTREME, TARGUS | Proyectores portátiles, mini proyector Google TV, pantallas trípode/pared, presentadores láser | 4–56 uds |
+| 19 | **ROUTERING** | HAVIT, HIKVISION, LINKSYS, MERCUSYS, NEXXT HOME, TP-LINK, XIAOMI, XTECH | Routers WiFi 5/6/6E/7, switches PoE/gestionados, access points, CPE, mesh, cableado estructurado CAT5e/6/6A | 1–5,061 uds |
+| 20 | **SONIDO** | HAVIT, HIKVISION, KLIP, KLIPXTREME, LOGITECH, PRIMUS, REDRAGON, TARGUS, XIAOMI, XTECH | Bocinas BT, party speakers, soundbars, micrófonos, audífonos | 1–253 uds |
+| 21 | **TABLET** | LENOVO | Lenovo Tab ONE 8.7" 4GB/128GB Android 14 | 19 uds |
+| 22 | **UPS Y REGULADORES** | APC, FORZA, HAVIT, KLIPXTREME, MSI, REDRAGON, SMARTBITT | UPS interactiva/online, reguladores AVR, centrales portátiles, protectores voltaje, power banks, PSU | 1–1,119 uds |
+| 23 | **VIDEOJUEGOS Y ACC.** | HAVIT, KINGSTON, LOGITECH, MSI, TARGUS | Volantes G923, gamepads, pendrives, accesorios gaming | 1–976 uds |
+
+### Marcas distribuidas (resumen por volumen de SKUs)
+- **HAVIT**: Audio, periféricos, power banks, proyectores, mobiliario, smartwatch, cargadores — marca más amplia del catálogo
+- **KLIP / KLIPXTREME**: Bolsos, mochilas, audio, periféricos, cables, cargadores, soportes TV
+- **LOGITECH**: Periféricos (teclados, mice, combos), audífonos, gamepads, volantes, presentadores, speakers
+- **REDRAGON**: Periféricos gaming (teclados, mice, mouse pads, gamepads, audífonos), fuentes poder
+- **TARGUS**: Bolsos, maletines, mochilas, hubs USB-C, docks, mice, teclados, cargadores, soportes laptop, audífonos, presentadores, fundas tablet
+- **XTECH / KLIPXTREME**: Cables (HDMI, USB, USB-C, DisplayPort), adaptadores, hubs, mice, teclados, soportes TV, mouse pads, audífonos
+- **PRIMUS**: Periféricos gaming (teclados, mice, mouse pads, audífonos, micrófonos)
+- **NEXXT HOME**: Cámaras, domótica, cableado estructurado (keystones, patch cords, paneles, herramientas red), routers mesh
+- **HIKVISION**: Cámaras, NVR, routers, switches PoE, access points, monitores, pantallas interactivas, audio conferencia
+- **FORZA**: UPS interactiva, reguladores voltaje, regletas, protectores, central eléctrica portátil 100W
+- **SMARTBITT**: UPS 600VA–10KVA online, reguladores AVR
+- **APC**: UPS Back Pro, Smart-UPS
+- **MSI**: Mini PC CUBI, monitores, PSU, periféricos
+- **SAT**: Impresoras (matricial, térmica, móvil), lectores código barras, contadoras billetes, verificadores dinero, cajón monedero
+- **ASTA**: Consumibles genéricos (toners, tintas, drums, chips) para Brother, Canon, Epson, HP, Samsung
+- **ADATA**: SSD, HDD externo, memorias RAM, USB drives, mouse pads
+- **KINGSTON**: SSD, pendrives DataTraveler, memoria RAM
+
+### Stock estratégico (productos con mayor disponibilidad)
+| Producto | Stock |
+|----------|-------|
+| FORZA Regleta PS-001W | 1,119 |
+| KINGSTON Pendrive DTX-64GB | 2,229 |
+| KINGSTON Pendrive DTXS/128GB | 1,000 |
+| KINGSTON DTXS/64GB | 959 |
+| NEXXT HOME Placa pared 1 puerto AW160NXT01 | 825 |
+| HIKVISION Router DS-3WR15X AX1500 | 5,061 |
+| HIKVISION Router DS-3WR12GC AC1200 | 3,546 |
+| HIKVISION Router DS-3WR18X AX1800 | 2,632 |
+| LINKSYS Velop MX20EC3 | 1,447 |
+| TP-LINK Router Archer-C50 | 133 |
+| XIAOMI Router AX1500 | 260 |
 
 ### Buyer B2B tech venezolano (psicografía)
 - Dueño/gerente de tienda tech. 30-55 años. 2-15 empleados.
@@ -150,7 +205,7 @@ Al evaluar cualquier idea, contrastar contra:
 ---
 
 *Documento maestro de contexto estratégico — SUPRICOM C.A.*
-*Actualizado: 08/07/2026*
+*Actualizado: 08/07/2026 — Catálogo completo integrado (Catalogo_Completo_SUPRICOM_VALENCIA.pdf)*
 
 ---
 

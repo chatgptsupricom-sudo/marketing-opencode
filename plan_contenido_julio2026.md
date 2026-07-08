@@ -13,12 +13,26 @@
 - **Mensaje central:** «La independencia energética es la tranquilidad de tu cliente». Transversal en toda protección eléctrica y BLUETTI. Todo alineado a apagones Venezuela.
 - **Alternancia protección:** dentro de cada semana, los contenidos de protección alternan: uno sobre la marca, el siguiente sobre la situación venezolana, luego marca, luego situación.
 - **Formato según profundidad:** carrusel para temas que necesitan múltiples slides (comparativas, guías, perfiles, ecosistemas). Post para mensajes directos de una sola idea (inversión, concepto, cierre).
-- **Portafolio correcto:**
+- **Portafolio completo (23 categorías — ver CONTEXTO_MAESTRO.md para detalle):**
   - Protección eléctrica: FORZA · SMARTBITT · APC · BLUETTI · HAVIT
-  - Cámaras + Domótica: NEXXT HOME
-  - Routers / Redes: HIKVISION · NEXXT HOME
-  - Laptops: Acer · ASUS · Dell · HP · Lenovo
-  - Mini PC: MSI
+  - Cámaras + Domótica: NEXXT HOME · EZVIZ · TP-LINK VIGI
+  - Routers / Redes: HIKVISION · NEXXT HOME · LINKSYS · TP-LINK · MERCUSYS · XIAOMI
+  - Cableado estructurado: NEXXT HOME (keystones, patch cords, paneles, herramientas)
+  - Laptops: Acer · ASUS · Dell · HP · Lenovo · Toshiba
+  - Mini PC: MSI CUBI
+  - Monitores: ACER · AOC · HIKVISION · MSI
+  - Impresoras: BROTHER · CANON · EPSON · HP · SAT · XEROX
+  - Consumibles: ASTA · CANON · EPSON · HP
+  - Almacenamiento: ADATA · KINGSTON · TOSHIBA
+  - Periféricos: LOGITECH · REDRAGON · HAVIT · TARGUS · XTECH · PRIMUS · MSI · EVGA
+  - Audio: HAVIT · KLIP · KLIPXTREME · LOGITECH · HIKVISION · XIAOMI
+  - Bolsos y mochilas: KLIP · TARGUS · HP · XTECH
+  - Mobiliario: AEROCOOL · IKEA · HAVIT
+  - Proyectores: EPSON · HAVIT
+  - Punto de venta: SAT (impresoras, lectores, contadoras)
+  - Tablets: LENOVO
+  - Juguetes: VOYAGER KIDS
+  - Componentes PC: ADATA · AEROCOOL · KINGSTON
 
 ---
 
