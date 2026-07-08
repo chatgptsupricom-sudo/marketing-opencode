@@ -11,7 +11,7 @@
     --accent: #015CDE;
     --accent-hover: #068AF1;
     --text: #1A1A2E;
-    --text-light: #6B7280;
+    --text-light: #444;
     --bg: #F8F9F9;
     --white: #FFFFFF;
     --success: #00CC88;
@@ -280,8 +280,8 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .kpi-card .label { font-size: 12px; color: #6B7280; font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: .5px; }
-  .kpi-card .desc { font-size: 12px; color: #777; margin-top: 6px; }
+  .kpi-card .label { font-size: 12px; color: #333; font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .kpi-card .desc { font-size: 12px; color: #555; margin-top: 6px; }
 
   /* ── ROLE GRID ── */
   .role-grid {
@@ -337,7 +337,7 @@
   }
   .flow-step .step-body { flex: 1; }
   .flow-step .step-body strong { display: block; font-size: 15px; color: #0056DB; margin-bottom: 4px; }
-  .flow-step .step-body span { font-size: 13px; color: #555; line-height: 1.5; }
+  .flow-step .step-body span { font-size: 13px; color: #444; line-height: 1.5; }
 
   /* ── VS GRID ── */
   .vs-grid {
@@ -363,8 +363,8 @@
     position: absolute; left: 0; font-weight: 700; font-size: 14px;
   }
   .vs-col.danger { border-color: rgba(200,200,200,.3); background: linear-gradient(135deg, #fff, #F5F7FA); }
-  .vs-col.danger::before { background: #6B7280; }
-  .vs-col.danger ul li::before { content: 'x'; color: #6B7280; }
+  .vs-col.danger::before { background: #444; }
+  .vs-col.danger ul li::before { content: 'x'; color: #444; }
   .vs-col.success { border-color: rgba(6,138,241,.2); background: linear-gradient(135deg, #fff, #F0F6FF); }
   .vs-col.success::before { background: #068AF1; }
   .vs-col.success ul li::before { content: '✓'; color: #068AF1; }
@@ -432,7 +432,7 @@
     box-shadow: 0 0 0 5px rgba(204,122,0,.2);
   }
   .timeline-item h4 { margin: 0 0 4px; font-size: 15px; text-transform: none; letter-spacing: 0; }
-  .timeline-item p { margin: 0; font-size: 13px; color: #6B7280; line-height: 1.5; }
+  .timeline-item p { margin: 0; font-size: 13px; color: #444; line-height: 1.5; }
   .timeline-item .date {
     display: inline-block;
     background: linear-gradient(135deg, #015CDE, #068AF1);
@@ -488,11 +488,11 @@
   }
   .side-toc h5 {
     font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
-    color: #6B7280; margin-bottom: 12px; font-weight: 700;
+    color: #444; margin-bottom: 12px; font-weight: 700;
   }
   .side-toc a {
     display: block; padding: 6px 12px; font-size: 13px;
-    color: #6B7280; text-decoration: none;
+    color: #444; text-decoration: none;
     border-left: 2px solid transparent; transition: all .2s;
     border-radius: 0 4px 4px 0;
   }
@@ -688,7 +688,7 @@
   <p>Evaluamos la opcion de buzones fisicos y la descartamos. La diferencia es abismal:</p>
   <div class="vs-grid">
     <div class="vs-col danger">
-      <h4 style="color:#6B7280;">Buzon Fisico</h4>
+      <h4 style="color:#444;">Buzon Fisico</h4>
       <ul>
         <li>Solo personal presente en oficina</li>
         <li>Costo operativo: impresion + 3 hrs/semana</li>
