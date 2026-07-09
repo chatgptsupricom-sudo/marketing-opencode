@@ -15,7 +15,7 @@ Marketing strategy & content hub for **SUPRICOM**, a B2B tech wholesaler in Vene
 | `_scripts/` | Python scripts (`md_to_docx.py`, `generar_propuesta_mi_gran_idea.py`) |
 | `_catalogs/` | Supplier catalogs (Valencia PDF) |
 | `_content/` | Content plans (`.md` + `.docx`), topic bases, proposals |
-| `.opencode/skills/` | OpenCode skills (prospector-tiendas, presenter-html) |
+| `.opencode/skills/` | OpenCode skills (prospector-tiendas, presenter-html, layout-copywriter) |
 
 ## Key data sources
 
@@ -61,6 +61,7 @@ gh repo create <name> --public --push --source=.
 
 # Load skills
 /skill presenter-html
+/skill layout-copywriter
 /skill prospector-tiendas
 ```
 
