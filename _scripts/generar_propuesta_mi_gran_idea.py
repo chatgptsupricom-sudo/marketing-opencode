@@ -131,6 +131,7 @@ toc_items = [
     'Resumen Ejecutivo',
     '¿Qué es "Mi Gran Idea Supricom"?',
     'Por qué Digital y no Físico',
+    'Buzón Físico para Personal sin Acceso al Panel',
     'Integración con el Panel SUPRICOM',
     'Funcionalidades del Módulo',
     'Flujo del Proceso (Paso a Paso)',
@@ -245,9 +246,106 @@ p.add_run(
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 4. INTEGRACIÓN CON EL PANEL SUPRICOM
+# 4. BUZÓN FÍSICO PARA PERSONAL SIN ACCESO AL PANEL
 # ════════════════════════════════════════════
-add_heading_styled(doc, '4. Integración con el Panel SUPRICOM', 1)
+add_heading_styled(doc, '4. Buzón Físico para Personal sin Acceso al Panel', 1)
+
+doc.add_paragraph(
+    'Parte del personal de SUPRICOM (almacén, limpieza, entre otros) no dispone '
+    'de acceso al Panel digital. Para garantizar que nadie quede excluido del programa, '
+    'se implementa un buzón físico complementario en la entrada del almacén.'
+)
+
+add_heading_styled(doc, '4.1 Ubicación', 2)
+doc.add_paragraph(
+    'Único buzón físico: fijo en la pared de la entrada del almacén, con ranura '
+    'para papel doblado en tres, cerradura de seguridad y un letrero visible que diga '
+    '"MI GRAN IDEA — Depósito tus ideas aquí".'
+)
+
+add_heading_styled(doc, '4.2 Formato del papelito', 2)
+doc.add_paragraph(
+    'Se imprime en hojas de color azul claro (para que destaquen) en tamaño '
+    'media carta (A5). El formato predefinido evita papeles rotos, garabatos '
+    'ilegibles o ideas incompletas:'
+)
+
+p = doc.add_paragraph()
+run = p.add_run('Diseño del papelito:')
+run.bold = True
+
+add_bullet(doc, ' Cabecera: "TU GRAN IDEA PARA SUPRICOM" en negrita.')
+add_bullet(doc, ' Línea: "¿Qué mejorarías?" seguida de 3 líneas punteadas para escribir.')
+add_bullet(doc, ' Línea: "Tu nombre (opcional): ______"')
+add_bullet(doc, ' Categoría: 4 casillas de verificación — Proceso | Cliente | Producto | Otro.')
+add_bullet(doc, ' Reverse: instrucciones breves + explicación del programa.')
+
+doc.add_paragraph(
+    'Se coloca un portapapeles con 20-30 hojas y un lapicero atado junto al buzón. '
+    'El personal solo debe rellenar, doblar en tres y depositar.'
+)
+
+add_heading_styled(doc, '4.3 Responsable de transcripción', 2)
+doc.add_paragraph(
+    'El Community Manager de Marketing es el encargado de:'
+)
+add_number(doc, ' Abrir el buzón cada viernes a las 3:00 p.m.')
+add_number(doc, ' Fotografiar cada papelito como respaldo.')
+add_number(doc, ' Transcribir cada idea al Panel (sección "Mi Gran Idea") en un plazo máximo de 2 horas hábiles.')
+add_number(doc, ' Archivar físicamente los papelitos originales en una carpeta rotulada por mes.')
+add_number(doc, ' Dar estatus en el Panel: "Recibida" desde el momento de la transcripción.')
+
+p = doc.add_paragraph()
+run = p.add_run('Nota: ')
+run.bold = True
+p.add_run(
+    'El plazo de respuesta de 72 horas hábiles corre desde la transcripción '
+    '(no desde el depósito). El CM deriva las ideas que requieran presupuesto '
+    'o cambio estructural al Gerente de Ventas para evaluación previa.'
+)
+
+add_heading_styled(doc, '4.4 Retroalimentación al autor físico', 2)
+doc.add_paragraph(
+    'El personal de almacén y limpieza no tiene acceso al Panel para consultar '
+    'el estatus de su idea. Para evitar imprimir respuestas individuales, se usa '
+    'un sistema de folio:'
+)
+add_number(doc, ' Al abrir el buzón cada viernes, el CM asigna un número de folio correlativo a cada papelito '
+    '(escrito en la esquina superior derecha).')
+add_number(doc, ' El CM transcribe la idea al Panel con ese mismo folio como identificador.')
+add_number(doc, ' El CM imprime un listado físico en una hoja A4 con los resultados semanales:')
+
+p = doc.add_paragraph()
+p.paragraph_format.left_indent = Cm(1.5)
+run = p.add_run(
+    'Ejemplo:\n'
+    'SEMANA DEL 07-07-2026\n'
+    'Folio | Estatus\n'
+    '#001  | Aprobada\n'
+    '#002  | En evaluación\n'
+    '#003  | No viable — requiere inversión fuera del presupuesto'
+)
+run.font.size = Pt(9.5)
+run.italic = True
+
+add_number(doc, ' Ese listado se pega en la cartelera de almacén (junto al buzón) cada viernes.')
+add_bullet(doc, ' El autor reconoce su folio y sabe el estatus sin necesidad de papel adicional.')
+add_bullet(doc, ' Si la idea fue anónima, el folio es el único identificador visible.')
+doc.add_paragraph(
+    'Cero papeles extra por idea. Solo un listado semanal de una hoja.'
+)
+
+add_heading_styled(doc, '4.5 Stock y mantenimiento del buzón', 2)
+add_bullet(doc, ' El CM verifica el estado del buzón cada viernes (ranura despejada, cerradura funcional).')
+add_bullet(doc, ' Repone el portapapeles con hojas en blanco.')
+add_bullet(doc, ' Reporta cualquier anomalía al coordinador de almacén para mantenimiento.')
+
+doc.add_page_break()
+
+# ════════════════════════════════════════════
+# 5. INTEGRACIÓN CON EL PANEL SUPRICOM
+# ════════════════════════════════════════════
+add_heading_styled(doc, '5. Integración con el Panel SUPRICOM', 1)
 
 doc.add_paragraph(
     'El Panel SUPRICOM es la plataforma interna que el equipo de programación '
@@ -269,16 +367,16 @@ add_number(doc, ' Perfil de participante — el Panel registra el historial de i
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 5. FUNCIONALIDADES DEL MÓDULO
+# 6. FUNCIONALIDADES DEL MÓDULO
 # ════════════════════════════════════════════
-add_heading_styled(doc, '5. Funcionalidades del Módulo', 1)
+add_heading_styled(doc, '6. Funcionalidades del Módulo', 1)
 
-add_heading_styled(doc, '5.1 Para el colaborador (usuario)', 2)
+add_heading_styled(doc, '6.1 Para el colaborador (usuario)', 2)
 
 add_bullet(doc, 'Botón visible "Enviar mi idea" en el menú principal del Panel.')
 add_bullet(doc, 'Formulario simple con los siguientes campos:')
 add_bullet(doc, ' Departamento (Ventas, Marketing, Operaciones, Logística, Administración, Sistemas, Otro)', indent=1)
-add_bullet(doc, ' Categoría de la idea (lista desplegable — ver sección 7)', indent=1)
+add_bullet(doc, ' Categoría de la idea (lista desplegable — ver sección 8)', indent=1)
 add_bullet(doc, ' Título corto de la idea (máx. 100 caracteres)', indent=1)
 add_bullet(doc, ' Descripción: ¿Cuál es el problema u oportunidad que detectaste? (campo abierto)', indent=1)
 add_bullet(doc, ' Propuesta de solución: ¿Qué propones hacer? (campo abierto)', indent=1)
@@ -298,7 +396,7 @@ add_bullet(doc, ' Sección visible para todos con las ideas implementadas del me
 add_bullet(doc, ' Ranking de participación por departamento (sin nombres si es anónimo).', indent=1)
 add_bullet(doc, ' Foto del "Innovador del Mes" (si acepta visibilidad).', indent=1)
 
-add_heading_styled(doc, '5.2 Para el administrador / comité evaluador', 2)
+add_heading_styled(doc, '6.2 Para el administrador / comité evaluador', 2)
 
 add_bullet(doc, 'Panel de administración con:')
 add_bullet(doc, ' Bandeja de entrada de nuevas ideas (ordenadas por fecha).', indent=1)
@@ -306,7 +404,7 @@ add_bullet(doc, ' Filtros por: categoría, departamento, fecha, estatus.', inden
 add_bullet(doc, ' Visualización detallada de cada idea.', indent=1)
 
 add_bullet(doc, 'Herramientas de evaluación:')
-add_bullet(doc, ' Asignación de puntaje según matriz de 100 puntos (ver sección 8).', indent=1)
+add_bullet(doc, ' Asignación de puntaje según matriz de 100 puntos (ver sección 9).', indent=1)
 add_bullet(doc, ' Campo de comentarios internos del comité.', indent=1)
 add_bullet(doc, ' Botón para cambiar estatus: Aprobada / En Estudio / Rechazada (campo obligatorio de motivo).', indent=1)
 
@@ -322,9 +420,9 @@ add_bullet(doc, 'Exportación a Excel de todo el histórico para análisis profu
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 6. FLUJO DEL PROCESO
+# 7. FLUJO DEL PROCESO
 # ════════════════════════════════════════════
-add_heading_styled(doc, '6. Flujo del Proceso (Paso a Paso)', 1)
+add_heading_styled(doc, '7. Flujo del Proceso (Paso a Paso)', 1)
 
 rows = [
     ['Paso', 'Qué ocurre', 'Responsable', 'Tiempo'],
@@ -352,9 +450,9 @@ p.add_run(
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 7. CATEGORÍAS DE IDEAS
+# 8. CATEGORÍAS DE IDEAS
 # ════════════════════════════════════════════
-add_heading_styled(doc, '7. Categorías de Ideas', 1)
+add_heading_styled(doc, '8. Categorías de Ideas', 1)
 
 doc.add_paragraph(
     'Cada idea debe pertenecer a una de las siguientes categorías. '
@@ -377,9 +475,9 @@ add_table_with_shading(doc, rows)
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 8. SISTEMA DE EVALUACIÓN
+# 9. SISTEMA DE EVALUACIÓN
 # ════════════════════════════════════════════
-add_heading_styled(doc, '8. Sistema de Evaluación y Puntaje', 1)
+add_heading_styled(doc, '9. Sistema de Evaluación y Puntaje', 1)
 
 doc.add_paragraph(
     'Cada idea es evaluada por el comité usando la siguiente matriz de 100 puntos. '
@@ -407,9 +505,9 @@ p.add_run('60 puntos. Por debajo de 60, la idea pasa a "En Estudio" o se rechaza
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 9. SISTEMA DE RECONOCIMIENTO
+# 10. SISTEMA DE RECONOCIMIENTO
 # ════════════════════════════════════════════
-add_heading_styled(doc, '9. Sistema de Reconocimiento', 1)
+add_heading_styled(doc, '10. Sistema de Reconocimiento', 1)
 
 doc.add_paragraph(
     'Para mantener el programa vivo, el reconocimiento debe ser predecible, '
@@ -433,21 +531,22 @@ add_bullet(doc, ' Reconocimiento público en la comunicación interna y mención
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 10. ROLES Y RESPONSABILIDADES
+# 11. ROLES Y RESPONSABILIDADES
 # ════════════════════════════════════════════
-add_heading_styled(doc, '10. Roles y Responsabilidades', 1)
+add_heading_styled(doc, '11. Roles y Responsabilidades', 1)
 
 rows = [
     ['Rol', 'Responsabilidades', '¿Quién lo ocupa?'],
     ['Sponsor', 'Aprueba el programa. Anuncia el lanzamiento. Comunica resultados a la organización. Valida ideas del área comercial.', 'Gerente de Ventas'],
     ['Dueño Operativo', 'Diseña el formulario en el Panel. Redacta las comunicaciones internas. Gestiona el tablero público. Da soporte técnico a los usuarios.', 'Marketing / Sistemas'],
+    ['Transcriptor del Buzón Físico', 'Abre el buzón del almacén cada viernes. Fotografía y transcribe las ideas físicas al Panel. Archiva los originales.', 'Community Manager (Marketing)'],
     ['Comité Evaluador', 'Revisa ideas mensualmente. Asigna puntaje según la matriz. Determina aprobación, rechazo o pase a estudio. Selecciona la Idea del Mes.', 'Gerente de Ventas + Marketing + RRHH + 1 miembro rotativo de Operaciones'],
     ['Implementador', 'Ejecuta la idea aprobada. Reporta avances. Documenta el resultado.', 'Jefe del área correspondiente'],
     ['Comunicador', 'Publica resultados mensuales. Actualiza el tablero. Mantiene el programa visible y presente.', 'Marketing'],
 ]
 add_table_with_shading(doc, rows)
 
-add_heading_styled(doc, '10.1 Modelo de Gobierno: ¿Quién manda en esto?', 2)
+add_heading_styled(doc, '11.1 Modelo de Gobierno: ¿Quién manda en esto?', 2)
 
 doc.add_paragraph(
     'El programa necesita un modelo de gobierno claro para no morir en el mes 2. '
@@ -523,9 +622,9 @@ doc.add_paragraph(
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 11. KPIs
+# 12. KPIs
 # ════════════════════════════════════════════
-add_heading_styled(doc, '11. KPIs del Programa', 1)
+add_heading_styled(doc, '12. KPIs del Programa', 1)
 
 rows = [
     ['Indicador', 'Fórmula / Definición', 'Frecuencia', 'Meta sugerida (año 1)'],
@@ -542,9 +641,9 @@ add_table_with_shading(doc, rows)
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 12. PLAN DE IMPLEMENTACIÓN
+# 13. PLAN DE IMPLEMENTACIÓN
 # ════════════════════════════════════════════
-add_heading_styled(doc, '12. Plan de Implementación', 1)
+add_heading_styled(doc, '13. Plan de Implementación', 1)
 
 rows = [
     ['Fase', 'Actividades', 'Responsable', 'Tiempo'],
@@ -559,9 +658,9 @@ add_table_with_shading(doc, rows)
 doc.add_page_break()
 
 # ════════════════════════════════════════════
-# 13. ANEXOS
+# 14. ANEXOS
 # ════════════════════════════════════════════
-add_heading_styled(doc, '13. Anexos', 1)
+add_heading_styled(doc, '14. Anexos', 1)
 
 add_heading_styled(doc, 'Anexo A: Referencias y mejores prácticas', 2)
 
@@ -583,7 +682,8 @@ rows = [
     ['Premios mensuales (12 meses)', 'A definir por Gerencia — puede ser $0 si se usan productos del catálogo SUPRICOM'],
     ['Premio anual', 'A definir por Gerencia'],
     ['Comunicación interna', '$0 (diseño in-house por Marketing)'],
-    ['TOTAL estimado', 'SOLO premios (si aplica) — operación $0'],
+    ['Buzón físico (buzón, cartel, hojas, lapicero)', 'Por definir — único costo real del programa; pendiente de cotizar'],
+    ['TOTAL operativo base (digital)', '$0'],
 ]
 add_table_with_shading(doc, rows)
 
@@ -624,6 +724,12 @@ run.font.color.rgb = RGBColor(0xCC, 0x7A, 0x00)
 run.bold = True
 
 # ── Save ──
-output = r'C:\Users\MDIGITAL01\Desktop\MARKETING OPENCODE\Propuesta_Mi_Gran_Idea_SUPRICOM.docx'
-doc.save(output)
-print(f'Documento guardado en: {output}')
+output_root = r'C:\Users\MDIGITAL01\Desktop\MARKETING OPENCODE\Propuesta_Mi_Gran_Idea_SUPRICOM.docx'
+output_content = r'C:\Users\MDIGITAL01\Desktop\MARKETING OPENCODE\_content\Propuesta_Mi_Gran_Idea_SUPRICOM.docx'
+output_estratega = r'C:\Users\MDIGITAL01\Desktop\MARKETING OPENCODE\ESTRATEGA\Propuesta_Mi_Gran_Idea_SUPRICOM.docx'
+doc.save(output_root)
+doc.save(output_content)
+doc.save(output_estratega)
+print(f'Documento guardado en: {output_root}')
+print(f'Documento guardado en: {output_content}')
+print(f'Documento guardado en: {output_estratega}')
