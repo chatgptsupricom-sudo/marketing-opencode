@@ -80,12 +80,12 @@
 ---
 
 ### S1 — 13 al 17 de julio (lun—vie) · 4 videos
-**Bienvenida BLUETTI + Protección eléctrica + Laptops.**  
-La semana arranca con el lanzamiento de BLUETTI en SUPRICOM. Las piezas de BLUETTI se intercalan con protección FORZA/SMARTBITT/APC/HAVIT y laptops para mantener variedad.
+**Showcase BLUETTI + Protección FORZA/SMARTBITT/APC/HAVIT + Laptops.**  
+La semana arranca mostrando el portafolio BLUETTI disponible en SUPRICOM, intercalado con protección FORZA/SMARTBITT/APC, HAVIT y laptops.
 
 | Día | # | Formato | Pilar | Categoría | Marcas | Tema |
 |-----|---|---------|-------|-----------|--------|------|
-| **Lun 13** | 1 | Carrusel | **Bienvenida** | Protección Eléctrica | BLUETTI | **#11:** «BLUETTI llega a SUPRICOM: independencia energética para tu cliente». BLUETTI no es un UPS ni una planta. Es la tranquilidad de no depender del horario de luz. Bienvenida al portafolio. |
+| **Lun 13** | 1 | Carrusel | **Showcase** | Protección Eléctrica | BLUETTI | **#1:** «BLUETTI: las estaciones de energía disponibles en SUPRICOM». AC50P, AC70P, Elite 100 V2, Premium 200 V2 y más. El portafolio completo ya en Caracas y Valencia. |
 | | 2 | Carrusel | **Diagnóstico** | Protección Eléctrica | FORZA · SMARTBITT · APC · BLUETTI · HAVIT | **#33:** «3 señales de que tu cliente necesita protección en Venezuela». Fluctuaciones de voltaje, apagones sin aviso, equipos dañados. El diagnóstico en mostrador. |
 | **Mar 14** | 3 | **Video Supri #1** | **Showcase** | Protección Eléctrica | FORZA | FORZA. La marca que los comercios conocen y piden. Showcase visual de la línea de protección. |
 | | 4 | Carrusel | **Comparativa** | Protección Eléctrica | BLUETTI | **#56:** «BLUETTI vs planta eléctrica». Ruido, mantenimiento, vida útil, costo real. Lo que necesitas saber para asesorar. |

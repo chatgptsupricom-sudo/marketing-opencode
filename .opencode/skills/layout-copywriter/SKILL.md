@@ -42,36 +42,103 @@ Aplicar reglas de marca y estructura según formato.
 - **Cierre institucional:** `SUPRICOM. Tu mayorista de confianza.`
 - **Supri IA:** boca cerrada, circuitos color #00FF88, cajas selladas
 
+### ✅ Regla de público objetivo (B2B estricto)
+
+Todo el copy debe estar dirigido AL DUEÑO DE TIENDA / REVENDEDOR que nos sigue como mayorista, NO al consumidor final.
+
+**Prueba de fuego:** una persona natural o consumidor final debe leer el copy y decir "esto no es para mí, esto es al mayor". Lograrlo implica:
+
+- Hablar de **"tu cliente"** (el cliente del dueño de tienda), no de "tú" como consumidor
+- Usar **"tu negocio"**, **"tu comercio"**, **"tu inventario"**, **"tu vitrina"**
+- El beneficio siempre es: **cómo esto ayuda al dueño de tienda a venderle MEJOR a sus clientes**
+- Nunca dirigirse al lector como si fuera el usuario final del producto
+- El "tú" en el copy es siempre el **comerciante**, no el consumidor
+
+**Ejemplo correcto:** «Tu cliente no necesita un apagón para perder un equipo. Un UPS FORZA es lo que separa un cliente satisfecho de uno que reclama una garantía.»
+
+**Ejemplo incorrecto (NO):** «Tú no necesitas un apagón para perder tu equipo. Un UPS FORZA te salva.»
+
+### ✅ Regla de prohibición total de precios y cifras monetarias
+
+- **NUNCA** escribir precios en dólares, bolívares, euros ni ninguna moneda
+- **NUNCA** escribir cifras de costo, ahorro, gasto o inversión en números monetarios
+- **NUNCA** hacer comparaciones de costo entre productos usando cifras ($X vs $Y)
+- **NUNCA** mencionar rangos de precios ("desde $X", "hasta $Y", "~$Z")
+- **NUNCA** usar palabras como "cuesta", "vale", "precio", "económico", "caro", "barato", "ahorras", "ahorro de $"
+- **Permitido:** hablar de valor, retorno, inversión, margen, rotación — SIN acompañarlos de números concretos
+- **Permitido:** "vale la pena", "es una inversión", "tiene buen margen", "alta rotación" (sin cifras)
+- Si el copy necesita un argumento de valor, usar conceptos cualitativos: "se paga solo", "protege la inversión", "evita pérdidas"
+
+### ✅ Regla de veracidad del portafolio
+
+- **NUNCA** inventar productos, marcas o categorías que SUPRICOM no tiene en su portafolio
+- Si no estás seguro de que un producto esté en el catálogo, **no lo menciones**
+- Verificar contra la lista de portafolio en `AGENTS.md` o `plan_contenido_julio2026.md` antes de escribir
+- No asumir que ciertos productos se venden solo porque son conocidos — confirmar contra los catálogos en `_catalogs/`
+- Si el copy necesita un contraste o alternativa y SUPRICOM no la tiene, **reformular el argumento** sin mencionar el producto faltante
+
+### ✅ Regla de mención exacta de productos con SKU
+
+Cuando un slide mencione un producto específico (no una marca genérica):
+
+1. **Buscar el producto real** en los catálogos de `_catalogs/` (Caracas y/o Valencia)
+2. **Usar el nombre exacto** que aparece en el catálogo, no un nombre genérico de mercado
+3. **Incluir el código SKU** entre paréntesis para que el dueño de tienda pueda ubicarlo rápido
+4. **NO** usar nombres de modelos no verificados (ej: "Lenovo ThinkPad", "Dell Latitude", "HP EliteBook", "Acer Aspire") a menos que aparezcan textualmente en los catálogos
+5. **NO** inventar especificaciones técnicas (procesador, RAM, peso, autonomía) — si el catálogo no las tiene, investigar en la web del fabricante o no mencionarlas
+6. **NUNCA** inventar productos que SUPRICOM no distribuye solo porque existen en el mercado
+7. Si el catálogo no tiene un producto para el ejemplo que necesitas, **cambiar el ejemplo** — no inventar el producto
+
+**Formato correcto:** «Una ASUS VivoBook 15 X1502VA i7-13620H 16GB (90NB10T1-M01NH0) es ideal para el oficinista que necesita multitarea fluida.»
+
+**Formato incorrecto (NO):** «Una Dell Latitude es ideal para el viajero» — si Dell Latitude no aparece en los catálogos.
+
+### ✅ Regla de representación equitativa de marcas en categorías multi-marca
+
+Cuando un contenido cubre una categoría con múltiples marcas en el portafolio de SUPRICOM:
+
+- **Mencionar TODAS las marcas** de esa categoría en el contenido. No reducir una categoría multi-marca a una sola marca.
+- **Nunca posicionar una marca como "la solución"** de una categoría. Cada marca tiene sus fortalezas, el copy debe reflejarlo sin jerarquías.
+- **Excepción:** se puede dedicar un contenido completo a una marca específica cuando:
+  - El plan de contenido lo instruye explícitamente (ej: "showcase FORZA")
+  - Hay exceso de inventario de esa marca y se necesita rotación
+- **Formato correcto:** «En SUPRICOM manejamos HIKVISION, NEXXT HOME, Linksys, Xiaomi y TP-LINK. Cada uno con su fortaleza.» (no decir «el HIKVISION es el mejor»)
+- **Formato incorrecto (NO):** «El combo perfecto: NEXXT + HIKVISION + FORZA» cuando existen otras marcas en esas categorías
+- Cuando el contenido es sobre el **beneficio de la categoría** (no de una marca específica), mantener el mensaje genérico y listar las marcas disponibles al cierre
+
+### ✅ Regla de referencias BLUETTI
+
+BLUETTI tiene su propia campaña y sus productos pueden diferir del catálogo general. Para cualquier mención de modelos BLUETTI:
+
+- Usar SOLO los modelos listados en `_catalogs/bluetti_modelos_disponibles.txt`
+- Si no aparece en ese archivo, **no está disponible** — no inventar ni asumir
+- El tono BLUETTI debe alinearse con los mensajes de campaña: "independencia energética", "tranquilidad", "resiliencia"
+- Cerrar siempre con disponibilidad en Caracas y Valencia
+
 ---
 
 ## Estructuras por formato
 
-### Carrusel (multi-slide)
+### Carrusel (multi-slide) — Formato corto
+
+Cada slide lleva SOLO un título-frase (texto imagen) y una frase acompañante corta. Nada de párrafos extensos — el diseño no los soporta.
 
 ```
 Slide 1 — Portada
-  H1: [Titular potente — 6-8 palabras]
-  H2: [Subtítulo — 10-14 palabras]
-  CTA visual: "Desliza →"
+  Texto imagen: [Titular gancho — 6 a 9 palabras]
+  Frase acompañante: [1 línea — 8 a 12 palabras]
+  Nota visual: [indicación para diseñadora]
 
-Slide 2 — Problema / Contexto
-  H1: [El dolor/necesidad]
-  Body: [2-3 líneas explicativas]
-  (Opcional: dato de investigación)
+Slide 2 a N-1 — Contenido
+  Texto imagen: [Frase principal del slide — 6 a 9 palabras]
+  Frase acompañante: [1 línea — máximo 15 palabras]
+  Nota visual: [indicación para diseñadora]
 
-Slide 3 — Solución / Producto
-  H1: [Propuesta de valor — nombre del producto]
-  Body: [Beneficio clave, no especificaciones técnicas]
-  (Opcional: icono o imagen del producto)
-
-Slide 4 — Perfil / Cuándo aplica
-  H1: ¿[pregunta de perfil]?
-  Body: [A quién le sirve / en qué caso]
-
-Slide 5 — Cierre
-  H1: [Conclusión / moraleja]
-  Body: [CTA — "Escríbenos al DM" / "Disponible en nuestras sucursales"]
+Slide N — Cierre
+  Texto imagen: [Cierre o moraleja]
+  CTA: [Llamado a la acción]
   Marca: SUPRICOM. Tu mayorista de confianza.
+  Nota visual: [indicación]
 ```
 
 ### Post (idea única)
