@@ -40,6 +40,26 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Todos los modelos BLUETTI en grid. Logo SUPRICOM.
 
+### CAPTION
+
+Ocho modelos BLUETTI. ¿Cuál va con cada cliente? No es casualidad.
+
+BLUETTI llegó a SUPRICOM y desde entonces la pregunta más frecuente es "¿cuál me llevo?". La respuesta no es única — por eso trajimos 8 modelos, para que tengas un argumento distinto según el perfil de cada cliente.
+
+Lo que no cupo en el carrusel:
+
+El AC50P y el Elite 30 V2 son los que más van a rotar en clientes de hogar y emprendedores. Son portátiles, buen precio, argumento fácil.
+
+El AC70P y el AC180P son para el comercio que no puede parar. POS, router, una cámara. El cliente que los prueba, los recomienda.
+
+El Premium 200 V2, el AC200P L y el Apex 300 son para quien necesita respaldo de horas. Clínicas, talleres, oficinas con servidores. Ahí el margen es otro.
+
+BLUETTI no compite con tus UPS. Los complementa. El UPS protege equipos críticos durante minutos. BLUETTI mantiene todo operando durante horas. Son dos conversaciones distintas que puedes tener con el mismo cliente.
+
+Guarda este carrusel. Cuando un cliente entre preguntando "¿y eso sirve para mi negocio?", ya sabes cuál modelo mostrarle primero.
+
+#BLUETTI #estacionesdeenergia #B2BVenezuela #mayoristatecnologia #energiaportatil
+
 ---
 
 ## PIEZA #2: 3 señales de que tu cliente necesita protección en Venezuela
@@ -76,6 +96,26 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid con logos de las 5 marcas. Fondo blanco, texto azul.
 
+### CAPTION
+
+3 señales de que tu cliente necesita protección eléctrica (y no te lo está diciendo).
+
+El 72% de las tiendas tech en Venezuela no venden protección eléctrica. No porque no haya demanda — porque el dueño de tienda no sabe identificar al cliente que la necesita.
+
+Hasta que el cliente vuelve con una laptop dañada.
+
+Ahí es cuando el argumento cambia. El cliente no quería un UPS. Quería que su equipo dejara de dañarse. Tú eres quien conecta los puntos.
+
+La señal #2 (reparaciones frecuentes) es la más rentable para ti. Cada vez que un cliente vuelve con una laptop que "se apaga sola", esa reparación le cuesta más que un UPS de entrada. Y si el técnico le dice "necesitas un protector", ese cliente va a comprarlo — pero no necesariamente en tu tienda. Ahí está la venta que estás dejando ir.
+
+La señal #3 (el negocio se detiene) es la que más duele: un día sin caja registradora, sin facturación, sin responder clientes. Un UPS FORZA NT-511 de 500VA resuelve el problema base. Pero si el corte es largo, esa conversación sube a un SMARTBITT o un APC.
+
+El dato concreto: FORZA para entrada rápida y rotación. SMARTBITT para el cliente que pide más. APC para el que no se arriesga. BLUETTI para el que necesita horas de respaldo. Y HAVIT para power banks de protección básica.
+
+Guarda este carrusel. La próxima vez que un cliente llegue con una laptop "que se apaga sola", ya sabes qué preguntarle primero.
+
+#proteccionelectrica #upsvenezuela #B2BVenezuela #mayoristatecnologia #FORZA
+
 ---
 
 ## PIEZA #4: BLUETTI vs Planta Eléctrica
@@ -111,6 +151,26 @@ Formato corto — listo para diseñadora
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Logos BLUETTI, FORZA, SMARTBITT. Fondo blanco.
+
+### CAPTION
+
+BLUETTI vs planta eléctrica. ¿Cuál le vendes a tu cliente? No es la misma conversación.
+
+Si hay un tema que genera confusión en el mostrador es este. El cliente sabe que necesita respaldo, pero no sabe si comprar una planta o una estación de energía. Y si tú no tienes el argumento listo, la venta se cae o se va a otro lado.
+
+Tres diferencias que cierran la venta:
+
+La primera es el ruido. Una planta suena. En un edificio, en una clínica, en una oficina compartida, el ruido es suficiente para que el cliente descarte la opción. BLUETTI es silencio total.
+
+La segunda es el mantenimiento. La planta requiere gasolina, aceite, filtros, servicio técnico. BLUETTI no. Se enchufa y ya. Eso le habla directo al dueño de tienda que no quiere dolores de cabeza post-venta.
+
+La tercera es la seguridad. La planta produce monóxido de carbono. No puede usarse en interiores sin ventilación forzada. BLUETTI se usa adentro, sin riesgo. Ese argumento es el que cierra la venta cuando el cliente duda.
+
+¿Todo esto significa que BLUETTI siempre gana? No. La planta sigue teniendo sentido para clientes con demanda muy alta o que ya tienen infraestructura de generación. Pero para el 80% de los casos, BLUETTI es la respuesta más limpia, fácil de vender y con mejor margen para ti.
+
+Guarda esta comparativa. Cuando tu cliente pregunte "planta o BLUETTI", tienes los tres argumentos listos.
+
+#BLUETTI #comparativa #energiaportatil #B2BVenezuela #mayoristatecnologia
 
 ---
 
@@ -153,6 +213,28 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid logos Acer, ASUS, Dell, HP, Lenovo. Fondo blanco.
 
+### CAPTION
+
+¿Qué laptop según el perfil de tu cliente? No es lo mismo venderle a un estudiante que a un gerente.
+
+El error más común en el mostrador es recomendar la misma laptop para todos. Y el cliente se va porque "en la otra tienda me ofrecieron algo más acorde a lo que necesito".
+
+La segmentación no es complicada. Son cuatro perfiles.
+
+El estudiante necesita office, navegador y videollamadas. No necesita una GPU dedicada ni 32GB de RAM. Un Acer AGO15IN con Ryzen 5 y 16GB sobra y el precio cierra rápido.
+
+El oficinista vive en CRM, multitarea y videollamadas. Ahí el ASUS VivoBook 15 con i7-13620H y 16GB marca la diferencia. Fluidez que el cliente nota desde el primer día.
+
+El gerente viajero necesita batería, portabilidad y resistencia profesional. El HP ProBook 4 G1i con Core Ultra 7 no es la laptop más barata del portafolio, pero es la que da menos devoluciones. Construida para movilidad.
+
+El creativo pide edición, diseño, trabajo pesado. El ASUS TUF Gaming A15 con Ryzen 7 y RTX3050 corre lo que sea. Ese cliente no regatea, busca rendimiento.
+
+Acer para entrada y volumen. ASUS para el punto medio. HP y Lenovo para el perfil corporativo. Dell para el que ya tiene marca de confianza.
+
+Guarda este carrusel. La próxima vez que alguien pregunte "¿qué laptop me recomiendas?", ya tienes las cuatro respuestas.
+
+#laptops #Acer #ASUS #HP #Lenovo #B2BVenezuela #mayoristatecnologia
+
 ---
 
 ## PIEZA #8: 4 tipos de clientes que necesitan BLUETTI
@@ -194,6 +276,26 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid 4 iconos + logos BLUETTI y SUPRICOM. Fondo blanco.
 
+### CAPTION
+
+4 tipos de clientes que necesitan BLUETTI. ¿Ya identificaste cuál es cada uno?
+
+BLUETTI no es un producto único. Son 8 modelos, cada uno con un perfil de cliente distinto. Y el arte de venderlos no está en conocer los specs — está en identificar rápido quién necesita cuál.
+
+El cliente de hogar no va a comprar un Apex 300. Necesita algo compacto que mantenga el router, el televisor y lo esencial. El AC50P es la respuesta. Argumento simple, precio accesible, rotación alta.
+
+El dueño de comercio necesita que el POS no se apague, que el internet no se caiga, que las cámaras sigan grabando. El AC70P es su modelo. Le habla de productividad, no de voltajes.
+
+La clínica no puede permitirse un apagón. El Premium 200 V2 con modo UPS es la única opción seria. Ese cliente no pregunta precio primero — pregunta si funciona sin fallar.
+
+El taller necesita portabilidad y potencia. El Elite 100 V2 alimenta herramientas y equipos de diagnóstico. Y se lleva a la siguiente obra.
+
+El punto clave: cuando identificas el perfil antes de recomendar, el cliente siente que entiendes su problema. Y eso es lo que cierra la venta, no una tabla de especificaciones.
+
+Guarda este carrusel. Úsalo como referencia en el mostrador.
+
+#BLUETTI #perfilesdecliente #B2BVenezuela #mayoristatecnologia #energiaportatil
+
 ---
 
 ## PIEZA #10: Inversión vs gasto: laptop con protección
@@ -229,6 +331,26 @@ Formato corto — listo para diseñadora
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** FORZA + SUPRICOM. Laptop con UPS. Fondo blanco.
+
+### CAPTION
+
+Laptop con UPS: ¿inversión o gasto? La respuesta define cómo vendes.
+
+Cuando un cliente compra una laptop de 700 dólares y no le ofreces protección, esa laptop tiene los días contados. No es alarmismo — es estadística en Venezuela.
+
+El escenario A: sin protección. El cliente llega, paga, se lleva la laptop. Dos semanas después vuelve porque "no enciende". Fuente dañada por fluctuación. La garantía del fabricante no cubre daños eléctricos. El cliente se molesta. Contigo o con la marca, pero alguien pierde.
+
+El escenario B: con un UPS FORZA NT-511 de 500VA. El cliente se lleva la laptop + el UPS. Inversión total: el precio del equipo más 30 dólares de protección. El cliente está cubierto. Vuelve contento. Y vuelve a comprar.
+
+El beneficio invisible: las fluctuaciones silentes dañan componentes aunque no haya apagón. El UPS FORZA con regulación AVR protege 24/7. Alarga la vida útil del equipo. Ese argumento no lo da ninguna etiqueta de precio.
+
+El dato para tu conversación: la garantía no cubre daños eléctricos. Repetir eso en el mostrador cierra la venta del UPS en 3 de cada 5 casos.
+
+Vender la laptop sola es una transacción. Vender la laptop con UPS es una solución. Adivina cuál deja mejor margen y cliente más satisfecho.
+
+Guarda este carrusel. Es el argumento que necesitas la próxima vez que vendas una laptop.
+
+#FORZA #proteccionelectrica #laptops #B2BVenezuela #mayoristatecnologia
 
 ---
 
@@ -270,6 +392,22 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Logos NEXXT HOME, HAVIT, TP-LINK. Estante con cajas de producto. Logo SUPRICOM.
 
+### CAPTION
+
+La categoría que tus clientes ya están buscando y quizás tú no tienes en vitrina.
+
+Seguridad es prioridad en Venezuela. No es una moda, es una necesidad. Y cuando un cliente entra a tu local preguntando por cámaras, no está haciendo un favor — está buscando resolver un problema. Si no lo resuelves tú, lo resuelve en otro lado.
+
+El dato que no está en el carrusel: el ticket promedio de una venta de cámaras es 3x más alto que el de un periférico. Y el cliente que compra una cámara vuelve. Por el NVR, por otra cámara, por el cableado, por la instalación. Es una categoría que construye recurrencia.
+
+NEXXT HOME tiene el portafolio más completo del mercado venezolano en este momento. Desde la NHC-O640 exterior hasta la NHC-OP10 PTZ con proyector. Once SKUs que cubren desde la casa hasta el comercio. HAVIT y TP-LINK complementan con opciones de entrada y reconocimiento de marca.
+
+El error más común: tener las cámaras en bodega pero no en la vitrina. El cliente no compra lo que no ve. Si las cámaras están visibles, el cliente las toca, pregunta y compra.
+
+Guarda este carrusel y revisa tu vitrina. ¿Tus clientes pueden ver que vendes seguridad?
+
+#camarasdeseguridad #NEXXTHOME #TPLink #HAVIT #B2BVenezuela #mayoristatecnologia
+
 ---
 
 ## PIEZA #13: Router vs Mesh: cuál ofrecer según el bolsillo de tu cliente
@@ -306,6 +444,24 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid logos HIKVISION, NEXXT, Linksys, Xiaomi con indicadores: volumen · equilibrio · premium.
 
+### CAPTION
+
+Router vs Mesh: el argumento de venta para cada presupuesto. No es lo mismo, y la diferencia está en el margen.
+
+El router tradicional es el pan de cada día del negocio tech. El HIKVISION DS-3WR12GC AC1200 entra, se vende solo, el cliente se va contento. Rotación rápida, argumento fácil, cliente que no pide más. Eso es volumen.
+
+El Mesh es otra conversación. El NEXXT BOLT MESH AX1800 2-PACK resuelve el problema que el router solo no puede: cobertura en toda la casa u oficina. El cliente que ha vivido con señal muerta en la segunda planta entiende el valor al primer swipe.
+
+Y luego está el cliente que quiere lo mejor. Linksys Velop MX20EC3 o Xiaomi AX3000T. Ahí el margen es otro, el cliente es recurrente, y la devolución es casi cero porque el producto cumple lo que promete.
+
+El dato que no está en los slides: el cliente que compra un Mesh no vuelve a comprar router en mucho tiempo. Pero el cliente que compra un router básico vuelve en 6 meses por el repetidor, y en un año por el Mesh. Las dos conversaciones son válidas. Depende de tu relación con el cliente.
+
+HIKVISION para volumen y entrada. NEXXT para el punto medio. Linksys y Xiaomi para el que pide premium. Tres gamas, tres márgenes, un solo portafolio.
+
+Guarda este carrusel. La próxima vez que un cliente pregunte por internet, ya sabes cuál de los tres argumentos usar.
+
+#routers #mesh #HIKVISION #NEXXT #Linksys #Xiaomi #B2BVenezuela
+
 ---
 
 ## PIEZA #14: El combo que triplica tu ticket: cámara + router + UPS
@@ -341,6 +497,30 @@ Formato corto — listo para diseñadora
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid con logos de todas las marcas de cámara, router y UPS. Logo SUPRICOM. Fondo blanco.
+
+### CAPTION
+
+El combo que más sube tu ticket promedio: cámara + router + UPS. Y no es casualidad.
+
+En Venezuela, tu cliente no necesita un producto. Necesita tres. Y si le vendes uno solo, le estás vendiendo menos de lo que realmente necesita.
+
+La cámara sin internet no transmite. El router sin UPS se apaga en el primer corte. El UPS sin nada que proteger es un gasto que el cliente no entiende. Los tres juntos son un ecosistema.
+
+El argumento que no está en las slides: cuando vendes el combo, no estás vendiendo tres productos. Estás vendiendo tranquilidad. El cliente sabe que su negocio está vigilado, conectado y respaldado. Eso vale más que la suma de los precios.
+
+¿Cómo armas el combo? Tú eliges las marcas según tu cliente.
+
+Cámaras: NEXXT HOME para portafolio completo, HAVIT para entrada, TP-LINK para el que pide marca conocida.
+
+Routers: HIKVISION para volumen, NEXXT para equilibrio, Linksys y Xiaomi para premium.
+
+UPS: FORZA para entrada y rotación, SMARTBITT para el punto medio, APC para el que no se arriesga, BLUETTI para el que necesita horas de respaldo.
+
+El cliente que compra el combo no se va a la competencia. Porque en ningún otro lado le ofrecen los tres juntos con un solo contacto.
+
+Guarda este carrusel. Úsalo como guía para armar tu próxima cotización.
+
+#combo #camaras #routers #UPS #B2BVenezuela #mayoristatecnologia
 
 ---
 
@@ -383,6 +563,26 @@ Formato corto — listo para diseñadora
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Logos NEXXT HOME, TP-LINK. Mano estrechada. Logo SUPRICOM.
 
+### CAPTION
+
+4 argumentos para que tu cliente se lleve la cámara hoy. No es técnico, es de ventas.
+
+El cliente no compra una cámara. Compra seguridad. Y si no traduces las especificaciones en beneficios, el cliente no entiende por qué debería pagar más.
+
+Argumento 1: "1080P es lo que necesitas. 2K es lo que quieres." La NHC-I710 de NEXXT HOME graba en 2K QHD. Cuando el cliente ve la diferencia en el monitor de prueba, la decisión se toma sola.
+
+Argumento 2: "24/7, incluso cuando no hay luz." La NHC-F610 con proyector integrado es el argumento que cierra la venta en comercios. Cámara + luz en un solo producto. El cliente entiende el valor sin que le expliques lúmenes.
+
+Argumento 3: "Puedes ver lo que pasó hace una semana." El VIGI NVR1008H de TP-LINK graba hasta 8 cámaras. Vender el NVR no es vender un accesorio — es vender un sistema completo.
+
+Argumento 4: "Vigila desde el celular." Las apps de NEXXT HOME y Tapo son gratuitas y funcionan. El cliente que revisa su negocio desde el teléfono se vuelve tu mejor recomendador.
+
+El dato clave: cada argumento resuelve una objeción distinta. Resolución para el que duda. Visión nocturna para el que pregunta por la oscuridad. Grabación para el que quiere pruebas. App para el que está fuera.
+
+Guarda estos argumentos. Úsalos en tu próximo cierre de cámara.
+
+#camarasdeseguridad #NEXXTHOME #TPLink #argumentosdeventa #B2BVenezuela
+
 ---
 
 ## PIEZA #18: 3 formas de vender NEXXT HOME (de menor a mayor ticket)
@@ -418,6 +618,24 @@ Formato corto — listo para diseñadora
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid productos NEXXT HOME. Escalera ascendente. Logo SUPRICOM.
+
+### CAPTION
+
+3 formas de vender NEXXT HOME según lo que tu cliente quiere gastar. Una sola marca, tres niveles de venta.
+
+NEXXT HOME es la marca más versátil del portafolio de SUPRICOM. Tiene entrada, crecimiento y techo. Y tú decides hasta dónde quieres llevar la venta.
+
+Opción 1 — venta rápida: el cliente que no quiere pensar, solo quiere una cámara que funcione. NHC-O640 exterior + NHC-I710 interior. Dos productos, un solo argumento: "vigila todo". Cliente contento, venta cerrada.
+
+Opción 2 — ticket medio: subes el ticket con domótica básica. Enchufe NHP-S610 + bombilla NHB-C110. "Controla luces y equipos desde el celular." El cliente que prueba un enchufe inteligente vuelve por el segundo.
+
+Opción 3 — ecosistema completo: cámaras + cerradura NHS-D100 + cinta LED NHB-S613. El cliente que compra todo no se va. La cerradura inteligente es el producto más infravalorado del portafolio: el cliente que la entiende, la compra al instante.
+
+El dato que no está en las slides: NEXXT HOME tiene más de 20 SKUs activos en el portafolio de SUPRICOM. Desde una bombilla de 5 dólares hasta kits de cámaras con NVR. Es una marca que te permite crecer con el cliente.
+
+Guarda este carrusel. La próxima vez que un cliente pregunte por NEXXT HOME, ya sabes cuál de los tres niveles ofrecerle.
+
+#NEXXTHOME #domotica #camaras #B2BVenezuela #mayoristatecnologia
 
 ---
 
@@ -482,6 +700,26 @@ No tenerlas en vitrina no es "ahorrar espacio en inventario". Es perder ventas r
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid 4 modelos MSI Cubi. Logo SUPRICOM.
 
+### CAPTION
+
+MSI Cubi: lo que una Mini PC puede hacer por tu negocio (y por el de tu cliente).
+
+Hay una categoría que muchos dueños de tienda subestiman: las Mini PC. Y sin embargo, es una de las conversaciones más rentables que puedes tener en el mostrador.
+
+El cliente típico llega pidiendo una torre porque "siempre ha tenido una torre". Pero cuando le pones una MSI Cubi al lado, el argumento cambia.
+
+La Cubi 5 cabe en cualquier escritorio. Literalmente en cualquier lado. El cliente que trabaja en espacios reducidos — recepciones, kioscos, puntos de venta — entiende el valor al verla. Más espacio, más orden, menos cables.
+
+La Cubi Z AI con Ryzen 7 corre edición, diseño y multitarea. No es una PC de escritorio compacta — es una estación de trabajo que no ocupa medio local.
+
+El dato que no está en los slides: la Cubi consume hasta un 70% menos de energía que una torre equivalente. En un país donde la electricidad es cara y escasa, ese argumento cierra la venta solo.
+
+MSI Cubi no compite con las laptops. Es una categoría nueva para ofrecerle al cliente que ya tiene monitor y teclado, pero necesita una PC que no le estorbe.
+
+Guarda este carrusel. La próxima vez que alguien pida una torre, muéstrale una Cubi.
+
+#MSI #MiniPC #Cubi #B2BVenezuela #mayoristatecnologia
+
 ---
 
 ## PIEZA #23: Usos de BLUETTI en Venezuela que quizás no habías considerado
@@ -517,6 +755,26 @@ No tenerlas en vitrina no es "ahorrar espacio en inventario". Es perder ventas r
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid 8 modelos BLUETTI con iconos de perfil. Logo SUPRICOM.
+
+### CAPTION
+
+Usos de BLUETTI en Venezuela que quizás no habías considerado. No es solo para el hogar.
+
+Cuando la mayoría de los dueños de tienda piensan en BLUETTI, imaginan a un cliente de hogar cargando un celular. Pero los usos reales van mucho más allá.
+
+Clínicas: el Premium 200 V2 con modo UPS mantiene monitores, bombas de infusión y equipos de diagnóstico funcionando durante cortes largos. El administrador de la clínica no pregunta precio — pregunta disponibilidad y confiabilidad.
+
+Talleres: el Elite 100 V2 alimenta taladros, compresores y equipos de diagnóstico automotriz. El mecánico que trabaja con BLUETTI no depende del horario de la electricidad. Eso es productividad.
+
+Eventos y ferias: el AC70P o el Elite 30 V2 se llevan a cualquier lado. El emprendedor que monta un stand en una feria necesita energía donde no la hay. BLUETTI es la respuesta.
+
+Oficinas: el AC180P mantiene routers, switches y servidores durante horas. Para una oficina que no puede perder conectividad, eso vale más que el costo del equipo.
+
+El dato concreto: cada uno de estos perfiles abre una conversación de venta distinta. No le vendes el mismo BLUETTI a una clínica que a un taller. Pero si no conoces estos usos, pierdes la oportunidad de recomendar el modelo correcto.
+
+Guarda este carrusel. Cuando un cliente de un sector que no habías considerado pregunte por energía, ya sabes qué ofrecerle.
+
+#BLUETTI #usosprofesionales #B2BVenezuela #mayoristatecnologia #energiaportatil
 
 ---
 
@@ -554,6 +812,26 @@ No tenerlas en vitrina no es "ahorrar espacio en inventario". Es perder ventas r
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** MSI + BLUETTI + SUPRICOM. Fondo blanco.
 
+### CAPTION
+
+MSI + BLUETTI: la sinergia que duplica tu ticket sin duplicar el esfuerzo.
+
+Hay combinaciones que simplemente funcionan. MSI Cubi + BLUETTI AC70P es una de ellas.
+
+El problema: una Mini PC sin respaldo se apaga en el peor momento. Corte de luz, trabajo perdido, cliente frustrado. Si vendes la Cubi sola y el cliente vuelve diciendo que "se le apagó", la culpa — justa o no — termina en tu mostrador.
+
+La solución: MSI Cubi para el día a día. BLUETTI AC70P para cuando la luz falla. Juntos, el cliente trabaja sin interrupciones. Productividad 24/7.
+
+El argumento de venta: "¿Y si se va la luz mientras trabajas?" Esa pregunta, hecha en el momento correcto, sube el ticket automáticamente. El cliente no esperaba la sugerencia, pero una vez que la escucha, no quiere otra cosa.
+
+El dato que no está en los slides: el cliente que compra la Cubi sola gasta X. El que compra la Cubi + BLUETTI gasta X + Y. El esfuerzo de venta es el mismo. El resultado es muy distinto.
+
+No es vender más. Es vender completo. La próxima vez que vendas una MSI Cubi, pregunta: "¿y si se va la luz?".
+
+Guarda este carrusel. Úsalo como guía de upsell.
+
+#MSI #BLUETTI #sinergia #MiniPC #B2BVenezuela #mayoristatecnologia
+
 ---
 
 ## PIEZA #26: Protección para cada presupuesto y cada riesgo
@@ -590,6 +868,26 @@ No tenerlas en vitrina no es "ahorrar espacio en inventario". Es perder ventas r
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** Grid 5 marcas con indicador de gama. Logo SUPRICOM.
 
+### CAPTION
+
+Protección para cada presupuesto y cada riesgo. Así guías a tu cliente sin perder la venta.
+
+No todos los clientes necesitan lo mismo. Y si tratas de venderle el mismo UPS a todos, pierdes — porque el de entrada se queda corto para unos y el premium espanta a otros.
+
+La solución es segmentar la conversación en tres gamas.
+
+Gama entrada: el cliente que quiere lo mínimo. Protección básica, presupuesto ajustado, venta rápida. Un UPS de 600VA a 800VA resuelve su necesidad inmediata. FORZA y SMARTBITT tienen opciones que rotan solas en esta gama.
+
+Gama media: el punto dulce. APC Back-UPS 650VA, FORZA 1000VA o SMARTBITT 1200VA. El cliente que no quiere lo más barato pero tampoco lo más caro. Aquí es donde ocurre la mayoría de las ventas de protección.
+
+Gama premium: el cliente que no se arriesga. APC Smart-UPS 1500VA o BLUETTI AC180/AC200P. Máximo respaldo, mejor margen para ti. El cliente que compra premium no regatea ni devuelve.
+
+El dato clave: el 40% de los clientes que compran un UPS de entrada vuelven en menos de un año a actualizar. Si les vendiste bien la primera vez, vuelven contigo. Si no, vuelven con otro.
+
+Guarda esta guía de gamas. La próxima vez que un cliente pida "un UPS", sabrás exactamente qué mostrarle primero.
+
+#proteccionelectrica #FORZA #SMARTBITT #APC #BLUETTI #B2BVenezuela
+
 ---
 
 ## PIEZA #28: El error de subdimensionar la protección en Venezuela
@@ -625,6 +923,26 @@ No tenerlas en vitrina no es "ahorrar espacio en inventario". Es perder ventas r
 - **CTA:** Disponible en Caracas y Valencia
 - **Marca:** SUPRICOM. Tu mayorista de confianza.
 - **Nota visual:** FORZA + SMARTBITT + BLUETTI. Logo SUPRICOM.
+
+### CAPTION
+
+El error de subdimensionar la protección en Venezuela (y cómo evitarlo).
+
+El escenario es más común de lo que parece: cliente nuevo llega al local, pide "el UPS más pequeño que tengas". El vendedor se lo vende. Una semana después el cliente vuelve — el UPS no aguanta, se sobrecarga, se apaga. Y claro, la culpa es de la tienda.
+
+El problema no es el UPS. Es que el UPS está mal dimensionado.
+
+La regla simple: el UPS debe tener al menos 2x el consumo del equipo que va a proteger. Si el equipo consume 300W, el UPS debe ser de 600VA o más. Menos que eso es dinero mal gastado.
+
+El problema específico de Venezuela: aquí los cortes duran horas, no minutos. Un UPS de 600VA da unos 10-15 minutos de respaldo. Suficiente para guardar y apagar. Pero si el cliente necesita seguir operando durante el corte, ese UPS no sirve.
+
+Para cortes largos, la conversación sube a un FORZA UPS 1000VA (~20 min) o directamente a un BLUETTI AC200P (horas de respaldo). El cliente que entiende la diferencia no regatea.
+
+El dato que cierra la venta: un UPS bien dimensionado = cero devoluciones, cero reclamos, cliente satisfecho que vuelve. Un UPS mal dimensionado es la queja asegurada y un cliente que no regresa.
+
+Guarda esta regla. La próxima vez que un cliente pida el UPS "más pequeño", ya sabes qué preguntarle antes de vender.
+
+#proteccionelectrica #FORZA #SMARTBITT #BLUETTI #B2BVenezuela #upsvenezuela
 
 ---
 
