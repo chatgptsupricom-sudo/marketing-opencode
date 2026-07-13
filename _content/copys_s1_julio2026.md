@@ -46,7 +46,6 @@ Ocho modelos BLUETTI. ¿Cuál va con cada cliente? No es casualidad.
 
 BLUETTI llegó a SUPRICOM y desde entonces la pregunta más frecuente es "¿cuál me llevo?". La respuesta no es única — por eso trajimos 8 modelos, para que tengas un argumento distinto según el perfil de cada cliente.
 
-Lo que no cupo en el carrusel:
 
 El AC50P y el Elite 30 V2 son los que más van a rotar en clientes de hogar y emprendedores. Son portátiles, buen precio, argumento fácil.
 
@@ -110,7 +109,7 @@ La señal #2 (reparaciones frecuentes) es la más rentable para ti. Cada vez que
 
 La señal #3 (el negocio se detiene) es la que más duele: un día sin caja registradora, sin facturación, sin responder clientes. Un UPS FORZA NT-511 de 500VA resuelve el problema base. Pero si el corte es largo, esa conversación sube a un SMARTBITT o un APC.
 
-El dato concreto: FORZA para entrada rápida y rotación. SMARTBITT para el cliente que pide más. APC para el que no se arriesga. BLUETTI para el que necesita horas de respaldo. Y HAVIT para power banks de protección básica.
+FORZA para entrada rápida y rotación. SMARTBITT para el cliente que pide más. APC para el que no se arriesga. BLUETTI para el que necesita horas de respaldo. Y HAVIT para power banks de protección básica.
 
 Guarda este carrusel. La próxima vez que un cliente llegue con una laptop "que se apaga sola", ya sabes qué preguntarle primero.
 
@@ -398,7 +397,7 @@ La categoría que tus clientes ya están buscando y quizás tú no tienes en vit
 
 Seguridad es prioridad en Venezuela. No es una moda, es una necesidad. Y cuando un cliente entra a tu local preguntando por cámaras, no está haciendo un favor — está buscando resolver un problema. Si no lo resuelves tú, lo resuelve en otro lado.
 
-El dato que no está en el carrusel: el ticket promedio de una venta de cámaras es 3x más alto que el de un periférico. Y el cliente que compra una cámara vuelve. Por el NVR, por otra cámara, por el cableado, por la instalación. Es una categoría que construye recurrencia.
+el ticket promedio de una venta de cámaras es 3x más alto que el de un periférico. Y el cliente que compra una cámara vuelve. Por el NVR, por otra cámara, por el cableado, por la instalación. Es una categoría que construye recurrencia.
 
 NEXXT HOME tiene el portafolio más completo del mercado venezolano en este momento. Desde la NHC-O640 exterior hasta la NHC-OP10 PTZ con proyector. Once SKUs que cubren desde la casa hasta el comercio. HAVIT y TP-LINK complementan con opciones de entrada y reconocimiento de marca.
 
@@ -454,7 +453,7 @@ El Mesh es otra conversación. El NEXXT BOLT MESH AX1800 2-PACK resuelve el prob
 
 Y luego está el cliente que quiere lo mejor. Linksys Velop MX20EC3 o Xiaomi AX3000T. Ahí el margen es otro, el cliente es recurrente, y la devolución es casi cero porque el producto cumple lo que promete.
 
-El dato que no está en los slides: el cliente que compra un Mesh no vuelve a comprar router en mucho tiempo. Pero el cliente que compra un router básico vuelve en 6 meses por el repetidor, y en un año por el Mesh. Las dos conversaciones son válidas. Depende de tu relación con el cliente.
+el cliente que compra un Mesh no vuelve a comprar router en mucho tiempo. Pero el cliente que compra un router básico vuelve en 6 meses por el repetidor, y en un año por el Mesh. Las dos conversaciones son válidas. Depende de tu relación con el cliente.
 
 HIKVISION para volumen y entrada. NEXXT para el punto medio. Linksys y Xiaomi para el que pide premium. Tres gamas, tres márgenes, un solo portafolio.
 
@@ -577,7 +576,7 @@ Argumento 3: "Puedes ver lo que pasó hace una semana." El VIGI NVR1008H de TP-L
 
 Argumento 4: "Vigila desde el celular." Las apps de NEXXT HOME y Tapo son gratuitas y funcionan. El cliente que revisa su negocio desde el teléfono se vuelve tu mejor recomendador.
 
-El dato clave: cada argumento resuelve una objeción distinta. Resolución para el que duda. Visión nocturna para el que pregunta por la oscuridad. Grabación para el que quiere pruebas. App para el que está fuera.
+cada argumento resuelve una objeción distinta. Resolución para el que duda. Visión nocturna para el que pregunta por la oscuridad. Grabación para el que quiere pruebas. App para el que está fuera.
 
 Guarda estos argumentos. Úsalos en tu próximo cierre de cámara.
 
@@ -631,7 +630,7 @@ Opción 2 — ticket medio: subes el ticket con domótica básica. Enchufe NHP-S
 
 Opción 3 — ecosistema completo: cámaras + cerradura NHS-D100 + cinta LED NHB-S613. El cliente que compra todo no se va. La cerradura inteligente es el producto más infravalorado del portafolio: el cliente que la entiende, la compra al instante.
 
-El dato que no está en las slides: NEXXT HOME tiene más de 20 SKUs activos en el portafolio de SUPRICOM. Desde una bombilla de 5 dólares hasta kits de cámaras con NVR. Es una marca que te permite crecer con el cliente.
+NEXXT HOME tiene más de 20 SKUs activos en el portafolio de SUPRICOM. Desde una bombilla de 5 dólares hasta kits de cámaras con NVR. Es una marca que te permite crecer con el cliente.
 
 Guarda este carrusel. La próxima vez que un cliente pregunte por NEXXT HOME, ya sabes cuál de los tres niveles ofrecerle.
 
@@ -712,7 +711,7 @@ La Cubi 5 cabe en cualquier escritorio. Literalmente en cualquier lado. El clien
 
 La Cubi Z AI con Ryzen 7 corre edición, diseño y multitarea. No es una PC de escritorio compacta — es una estación de trabajo que no ocupa medio local.
 
-El dato que no está en los slides: la Cubi consume hasta un 70% menos de energía que una torre equivalente. En un país donde la electricidad es cara y escasa, ese argumento cierra la venta solo.
+la Cubi consume hasta un 70% menos de energía que una torre equivalente. En un país donde la electricidad es cara y escasa, ese argumento cierra la venta solo.
 
 MSI Cubi no compite con las laptops. Es una categoría nueva para ofrecerle al cliente que ya tiene monitor y teclado, pero necesita una PC que no le estorbe.
 
@@ -770,7 +769,7 @@ Eventos y ferias: el AC70P o el Elite 30 V2 se llevan a cualquier lado. El empre
 
 Oficinas: el AC180P mantiene routers, switches y servidores durante horas. Para una oficina que no puede perder conectividad, eso vale más que el costo del equipo.
 
-El dato concreto: cada uno de estos perfiles abre una conversación de venta distinta. No le vendes el mismo BLUETTI a una clínica que a un taller. Pero si no conoces estos usos, pierdes la oportunidad de recomendar el modelo correcto.
+cada uno de estos perfiles abre una conversación de venta distinta. No le vendes el mismo BLUETTI a una clínica que a un taller. Pero si no conoces estos usos, pierdes la oportunidad de recomendar el modelo correcto.
 
 Guarda este carrusel. Cuando un cliente de un sector que no habías considerado pregunte por energía, ya sabes qué ofrecerle.
 
@@ -824,7 +823,7 @@ La solución: MSI Cubi para el día a día. BLUETTI AC70P para cuando la luz fal
 
 El argumento de venta: "¿Y si se va la luz mientras trabajas?" Esa pregunta, hecha en el momento correcto, sube el ticket automáticamente. El cliente no esperaba la sugerencia, pero una vez que la escucha, no quiere otra cosa.
 
-El dato que no está en los slides: el cliente que compra la Cubi sola gasta X. El que compra la Cubi + BLUETTI gasta X + Y. El esfuerzo de venta es el mismo. El resultado es muy distinto.
+el cliente que compra la Cubi sola gasta X. El que compra la Cubi + BLUETTI gasta X + Y. El esfuerzo de venta es el mismo. El resultado es muy distinto.
 
 No es vender más. Es vender completo. La próxima vez que vendas una MSI Cubi, pregunta: "¿y si se va la luz?".
 
@@ -882,7 +881,7 @@ Gama media: el punto dulce. APC Back-UPS 650VA, FORZA 1000VA o SMARTBITT 1200VA.
 
 Gama premium: el cliente que no se arriesga. APC Smart-UPS 1500VA o BLUETTI AC180/AC200P. Máximo respaldo, mejor margen para ti. El cliente que compra premium no regatea ni devuelve.
 
-El dato clave: el 40% de los clientes que compran un UPS de entrada vuelven en menos de un año a actualizar. Si les vendiste bien la primera vez, vuelven contigo. Si no, vuelven con otro.
+el 40% de los clientes que compran un UPS de entrada vuelven en menos de un año a actualizar. Si les vendiste bien la primera vez, vuelven contigo. Si no, vuelven con otro.
 
 Guarda esta guía de gamas. La próxima vez que un cliente pida "un UPS", sabrás exactamente qué mostrarle primero.
 
