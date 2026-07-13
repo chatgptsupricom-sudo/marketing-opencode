@@ -848,8 +848,8 @@ Guarda este carrusel. Úsalo como guía de upsell.
 
 ### SLIDE 2 — Entrada
 - **Texto imagen:** Gama entrada: protección básica, rotación alta
-- **Frase acompañante:** HAVIT UPS 600VA o FORZA UPS 600VA. Para el cliente que quiere lo mínimo. Venta rápida.
-- **Nota visual:** HAVIT + FORZA entrada. Flecha de rotación.
+- **Frase acompañante:** FORZA UPS 600VA o SMARTBITT UPS 800VA. Para el cliente que quiere lo mínimo. Venta rápida.
+- **Nota visual:** FORZA + SMARTBITT entrada. Flecha de rotación.
 
 ### SLIDE 3 — Media
 - **Texto imagen:** Gama media: equilibrio entre precio y prestaciones
