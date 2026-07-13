@@ -189,6 +189,10 @@
   .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 8px; }
   .piece .prods .pl .pi .sto { background: #e8f5e9; color: #1b5e20; font-family: monospace; font-size: 7.5px; font-weight: 700; margin-left: 3px; padding: 1px 4px; border-radius: 3px; white-space: nowrap; }
   .piece .prods .pl .pi .sto:empty { display: none; }
+  .piece .prods { background: #f8faff; border-radius: 0 0 8px 8px; padding: 8px; }
+  .piece .prods[open] { padding-bottom: 10px; }
+  .piece .prods summary { cursor: pointer; font-weight: 600; font-size: 12px; padding: 2px 0; color: var(--primary); user-select: none; }
+  .piece .prods summary:hover { opacity: .7; }
 
   /* ─── FOOTER ─── */
   footer {
@@ -378,7 +382,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«BLUETTI: las estaciones de energía disponibles en SUPRICOM».</strong> AC50P, AC70P, Elite 100 V2, Premium 200 V2 y más. El portafolio completo ya en Caracas y Valencia.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 8 modelos BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Portátil</span><span class="sku">Consultar</span><span class="sto">—</span></div>
@@ -400,7 +404,7 @@
         <div class="pillar">Diagnóstico</div>
         <div class="topic"><strong>«3 señales de que tu cliente necesita protección en Venezuela».</strong> Fluctuaciones de voltaje, apagones sin aviso, equipos dañados. El diagnóstico en mostrador.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 10 productos de protección</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -428,7 +432,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>FORZA.</strong> La marca que los comercios conocen y piden. Showcase visual de la línea de protección.</div>
         <div class="brands">FORZA</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 productos FORZA</summary>
           <div class="pl">
             <div class="pi"><span class="name">UPS FORZA 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -445,7 +449,7 @@
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«BLUETTI vs planta eléctrica».</strong> Ruido, mantenimiento, seguridad. Lo que necesitas saber para asesorar.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 modelos BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Portátil</span><span class="sku">Consultar</span><span class="sto">—</span></div>
@@ -467,7 +471,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic">Dato clave sobre protección eléctrica. Visualización educativa.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 productos destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -484,7 +488,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«Qué laptop según el perfil de tu cliente».</strong> Estudiante, oficinista, gerente, creativo. Cada uno con el modelo exacto del catálogo.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 laptops recomendadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">Acer Notebook AGO15IN R5/16GB</span><span class="sku">NXJG6AL001</span><span class="sto">CCS:1 VLN:1</span></div>
@@ -506,7 +510,7 @@
         <div class="pillar">Mix</div>
         <div class="topic"><strong>«Tu cliente compra una laptop. ¿Le ofreces protección?».</strong> Cómo aumentar el ticket cuidando la inversión del cliente.</div>
         <div class="brands">FORZA · Acer · ASUS · HP</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 5 productos del mix</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -524,7 +528,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«4 tipos de clientes que necesitan BLUETTI».</strong> Hogar, oficina, clínica, taller. Cada uno con el modelo exacto.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 BLUETTI por perfil</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Hogar</span><span class="sku">Consultar</span><span class="sto">—</span></div>
@@ -546,7 +550,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Lo que está pasando con la protección eléctrica en Venezuela».</strong> Análisis del contexto, tendencias de compra, Q3.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 productos de protección</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1800VA</span><span class="sku">NT-1801PRO</span><span class="sto">CCS:9 VLN:28</span></div>
@@ -563,7 +567,7 @@
         <div class="pillar">Inversión</div>
         <div class="topic"><strong>«Inversión vs gasto: laptop con protección».</strong> Dos escenarios: con y sin UPS. Ayuda a tu cliente a proteger su inversión.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo · FORZA</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 FORZA + laptops</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -599,7 +603,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic">NEXXT HOME + HAVIT + TP-LINK. Portafolio completo de seguridad. Showcase visual.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 6 cámaras</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -618,7 +622,7 @@
         <div class="pillar">Diagnóstico</div>
         <div class="topic"><strong>«La categoría que tus clientes ya están buscando: cámaras de seguridad».</strong> Demanda, rotación, ticket alto.</div>
         <div class="brands">NEXXT HOME · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 3 cámaras recomendadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -639,7 +643,7 @@
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«Router vs Mesh: el argumento de venta para cada presupuesto».</strong> Volumen, margen, según tu cliente.</div>
         <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 10 routers</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -663,7 +667,7 @@
         <div class="pillar">Solución</div>
         <div class="topic"><strong>«El combo que más sube tu ticket promedio: cámara + router + UPS».</strong> En Venezuela, el combo triplica tu ticket.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK / HIKVISION · NEXXT HOME · Linksys · Xiaomi · TP-LINK / FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 Cámaras + Routers + UPS</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -684,7 +688,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic">Dato clave sobre conectividad. Visualización educativa.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 3 routers destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -700,7 +704,7 @@
         <div class="pillar">Guía</div>
         <div class="topic"><strong>«4 argumentos para vender cámaras como un experto».</strong> Resolución, visión nocturna, almacenamiento, app.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 6 cámaras</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -724,7 +728,7 @@
         <div class="pillar">Ecosistema</div>
         <div class="topic"><strong>«Todo lo que tu cliente necesita para no perder vigilancia ni conectividad».</strong> El vocero arma el combo.</div>
         <div class="brands">NEXXT HOME · HIKVISION · Linksys · FORZA</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 productos del combo</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span><span class="sto">CCS:15 VLN:278</span></div>
@@ -741,7 +745,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«3 formas de vender NEXXT HOME (de menor a mayor ticket)».</strong> Básico, medio, ecosistema completo.</div>
         <div class="brands">NEXXT HOME</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 15 productos NEXXT HOME</summary>
           <div class="pl">
             <div class="pi"><span class="name">Smart Plug RGB NHP-S610</span><span class="sku">MM106NXT68</span><span class="sto">CCS:3 VLN:2</span></div>
@@ -773,7 +777,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«El futuro de la conectividad».</strong> WiFi 6, MESH, hogares inteligentes. Hacia dónde va.</div>
         <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 7 routers WiFi 6 / Mesh</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -793,7 +797,7 @@
         <div class="pillar">Inversión</div>
         <div class="topic"><strong>«Lo que pierdes si no tienes cámaras y routers en tu vitrina».</strong> Categorías de alta rotación que no pueden faltar.</div>
         <div class="brands">NEXXT HOME · HIKVISION · Linksys</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 3 productos destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span><span class="sto">CCS:15 VLN:278</span></div>
@@ -830,7 +834,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic">MSI Mini PC. Potencia compacta. Por qué los negocios migran a este formato.</div>
         <div class="brands">MSI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 MSI Mini PC</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -847,7 +851,7 @@
         <div class="pillar">Alternativa</div>
         <div class="topic"><strong>«MSI Cubi: lo que una Mini PC puede hacer por tu negocio».</strong> Recepción, kiosco, estación de trabajo.</div>
         <div class="brands">MSI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 MSI Mini PC</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -869,7 +873,7 @@
         <div class="pillar">Visión</div>
         <div class="topic"><strong>«Usos de BLUETTI en Venezuela que quizás no habías considerado».</strong> Oficinas, clínicas, talleres, eventos.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 6 BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">EB3A · Taller/Emprendimiento</span><span class="sku">BLU-EB3A</span><span class="sto">—</span></div>
@@ -889,7 +893,7 @@
         <div class="pillar">Sinergia</div>
         <div class="topic"><strong>«MSI + BLUETTI: trabaja sin interrupciones».</strong> Compacto + ininterrumpido. Productividad sin límites.</div>
         <div class="brands">MSI · BLUETTI · FORZA</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 3 productos del combo</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -910,7 +914,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«¿Cuánto dura un UPS en un apagón?».</strong> Clave para dimensionar correctamente.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 6 UPS por capacidad</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA ~10min</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -929,7 +933,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«Protección para cada presupuesto y cada riesgo».</strong> Gama entrada, media, premium. Cómo guiar al cliente.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 7 por gama</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA · Entrada</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -954,7 +958,7 @@
         <div class="pillar">Cierre</div>
         <div class="topic"><strong>«Prepara tu inventario para Q3».</strong> El vocero comparte su visión de cierre de mes.</div>
         <div class="brands">BLUETTI · FORZA · MSI</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 productos clave Q3</summary>
           <div class="pl">
             <div class="pi"><span class="name">BLUETTI AC180</span><span class="sku">BLU-AC180</span><span class="sto">—</span></div>
@@ -971,7 +975,7 @@
         <div class="pillar">Error común</div>
         <div class="topic"><strong>«El error de subdimensionar la protección en Venezuela».</strong> Cuando los cortes duran horas, un UPS pequeño no basta.</div>
         <div class="brands">FORZA · SMARTBITT</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 4 soluciones dimensionadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA · PC oficina</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -993,7 +997,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Q3: lo que viene en protección, conectividad y cómputo».</strong> Reflexión sobre el mercado.</div>
         <div class="brands">Todas</div>
-        <details class="prods">
+        <details class="prods" open>
           <summary>📦 Categorías clave</summary>
           <div class="pl">
             <div class="pi"><span class="name">BLUETTI · Estaciones de energía</span><span class="sku">BLU-AC180 + AC200P</span></div>
