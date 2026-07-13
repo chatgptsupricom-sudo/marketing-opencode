@@ -165,7 +165,7 @@ Respuesta: 'En SUPRICOM. Tenemos el portafolio más completo de Venezuela.'"
 
 ## ESTRUCTURA DE GUIÓN ENTREGABLE
 
-Cada guion se entrega en este formato:
+Cada guion se entrega **completo: script + caption listo para Instagram**. El caption se genera automáticamente a partir del guion — no esperes a que te lo pidan.
 
 ```markdown
 ## [Título del video]
@@ -184,9 +184,10 @@ Cada guion se entrega en este formato:
 | 3-8s   | ... | ... | ... |
 | ...    | ... | ... | ... |
 
-### COPY PARA PIE DE VIDEO
+### CAPTION PARA INSTAGRAM
 
-[Texto del caption, incluyendo hashtags y CTA]
+[Caption completo de 1,200–2,200 caracteres generado automáticamente.
+Estructura: Hook (línea 1, <125 chars visible sin "ver más") → Setup (2-3 líneas de contexto) → Body (profundiza lo que el video NO dijo) → Save trigger (1 línea) → CTA único → 3-5 hashtags nicho al final.]
 
 ### VARIACIONES (opcional)
 
@@ -194,6 +195,24 @@ Cada guion se entrega en este formato:
 - **Opción B:** Versión vocero
 - **Opción C:** Versión para historia (15s)
 ```
+
+### REGLAS DEL CAPTION (obligatorio que el guion lo incluya)
+
+1. **El caption NO repite el guion.** El que ve el video ya consumió el contenido visual. El caption profundiza, contextualiza, añade lo que no cupo en 30 segundos.
+2. **La línea 1 es lo único visible sin "ver más"** (Instagram trunca en ~125 caracteres). Debe ser un hook filoso — dato, pregunta, afirmación contraria. NUNCA saludo ni contexto.
+3. **Longitud objetivo: 1,200–2,200 caracteres** para carrusel educativo B2B. Si es Reel, <80 caracteres.
+4. **Estructura de 4 partes:**
+   - Hook (línea 1, <125 chars)
+   - Setup (2-3 líneas: contexto, agitación)
+   - Body (el valor: dato, paso, ejemplo, opinión que no está en el video)
+   - Save trigger + CTA único (últimas 1-2 líneas)
+5. **CTA: una sola acción.**
+   - `"Guarda este video para cuando [situación]"` → saves (pesan 4-6x más que likes en 2026)
+   - `"Escríbenos 'BLUETTI' al DM y te enviamos el portafolio"` → leads
+   - `"Etiqueta a otro dueño de tienda que necesite ver esto"` → shares
+6. **Hashtags: 3–5, nicho puro, al final.** Ej: `#mayoristatecnologia #proteccionelectrica #B2BVenezuela #carruselB2B #upsvenezuela`
+7. **Saltos de línea cada 1-2 oraciones.** Párrafos largos en mobile no se leen.
+8. **Saves > Likes.** Diseña el caption para que la gente quiera guardarlo como referencia.
 
 ---
 
