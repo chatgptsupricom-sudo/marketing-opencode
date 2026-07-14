@@ -309,6 +309,13 @@
   }
   .copy-caption-btn:hover { background: #00b37a; }
   .copy-caption-btn.copied { background: #0056DB; }
+  .drive-btn {
+    display: block; width: 100%; margin-top: 8px; padding: 10px;
+    background: var(--white); color: var(--primary); border: 2px solid var(--primary);
+    border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all .2s;
+  }
+  .drive-btn:hover { background: var(--primary); color: white; }
   .toast {
     position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
     background: #1a1a2e; color: #fff; padding: 10px 24px; border-radius: 8px;
@@ -1053,6 +1060,7 @@
         <button id="modalNext" onclick="navigateSlide(1)">Siguiente →</button>
       </div>
       <button class="copy-caption-btn" id="copyCaptionBtn" onclick="copyCaption()">📋 Copiar Caption</button>
+      <button class="drive-btn" id="driveBtn" onclick="openDriveFolder()">📁 Ver diseño</button>
     </div>
   </div>
 </div>
@@ -1187,6 +1195,47 @@ function copyCaption() {
   }).catch(() => {
     showToast('Error al copiar. Intenta de nuevo.');
   });
+}
+
+// ─── DRIVE FOLDERS ───
+const DRIVE_FOLDERS = {
+  1:  "1sNyusZM2zzIlgha7BksMi8ZohjoaMH7x",
+  2:  "1ziS-a3TrXQ1UlU40ATeg8whRKt_LzMFS",
+  4:  "1jQwG_Sivyt8-XjB16kbxrkhVrPT5KnoZ",
+  6:  "1sy6bVyoGuO2-agywLyxP0iCD5mlZsPET",
+  8:  "1TX0vfWQo-uFU8FIPhwu8p6pfuakyKhcX",
+  10: "1Sf3Pneq2twZHoSHxIqF4DaiW9jDjq1Yt",
+  12: "1Tetfm-CtMLYZqrTi9n8n8uxUB4lg14-D",
+  13: "119VwQB7jfdzPTkjWsGBHxL9fWUwMY7PA",
+  14: "1AnAzoFVbSJVPyB7ZWysFxXP9etioGIbh",
+  16: "1TOfHb8wH7fM1V4DyVOrAXOIC5KKGSeIG",
+  18: "1DiGX5NVxmwnrPnViBqPAWmUoXYkciHBp",
+  22: "1hl6FaTpQ5QVD9hT93AO7BQ1Ed3I1lLS2",
+  23: "1eJC3a_Ccsu1AxpBM0V0rYdWQYnX_KOzK",
+  24: "1lqhZN24cl1xin0yhlrFAv5KcnudHQGxl",
+  26: "1-mpBgkD5oE6-ul8qqoIA1SDHTudD4_b_",
+  28: "1pTiHTCxNP-X6xfkaxnKVjSxK5MRD4Ex8",
+  20: "1r-DgWzfHpMRR4Yrf8RPOVO77DE6T_HEZ",
+  30: "1OUUMCkGTYh9Y9_MXYl1-ak6Gap8JGhZZ",
+  3:  "19TNQDW4n6E27mbm1FH0Nuc4nhMcEf2of",
+  5:  "12hbmt9djhB-SFGMnIMOxP_IoE-_MWeOy",
+  7:  "1cPm7hR3P2KecQD3xjm8w6aQEUJQNHFPn",
+  9:  "1b8Xxn9RbI60_ziqLDVNzaa3GbCvYNFkY",
+  11: "1vyXaTneGGxjLUFwD0Gdc6eztq9ZFzzwc",
+  15: "1rsJKSDIV9Iz7coLhmEPHk5qflK-198Qa",
+  17: "1OSDwcT5GWAV2X0EyxhnTP5heI-TmFy3D",
+  19: "1OH72XIfq2BSPEigyZ-rNF7gd_9MYIv_E",
+  21: "1zB3yY71EABR5r3Ay4gbRq22DURRV-8iw",
+  25: "1rgockfO0SAa-aFcE9XMBRc5v6PsNxu7o",
+  27: "1Nes4EKj2Cdzb0ciEd9dJlhIdnWr-ky32",
+  29: "1OJQdha2nLgMFdEVhp03kyYimZVnOLmCf"
+};
+
+function openDriveFolder() {
+  const fid = DRIVE_FOLDERS[currentPiece];
+  if (!fid) { showToast('Esta pieza no tiene carpeta en Drive'); return; }
+  window.open('https://drive.google.com/drive/folders/' + fid, '_blank');
+  showToast('Abriendo carpeta en Drive...');
 }
 
 function showToast(msg) {

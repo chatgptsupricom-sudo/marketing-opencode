@@ -120,6 +120,18 @@ gh repo create <name> --public --push --source=.
 | **MEDIO** | Solo online o solo física, 500-1000 seguidores |
 | **BAJO** | <500 seguidores, sin tienda física, sin web |
 
+## Drive structure (Google Drive for Desktop)
+
+| Path | Contents |
+|------|----------|
+| `G:\Mi unidad\CONTENIDO MARKETNG\MES JULIO\CARRUSELES\#NN - Título` | Diseños carrusel (16 piezas) |
+| `G:\Mi unidad\CONTENIDO MARKETNG\MES JULIO\POST\#NN - Título` | Diseños post (2 piezas) |
+| `G:\Mi unidad\CONTENIDO MARKETNG\MES JULIO\VIDEOS\#NN - Título` | Diseños/deliverables video (12 piezas) |
+
+**Botón "📁 Ver diseño"** en modal HTML (`plan_julio2026.html:1063`) abre la carpeta Drive correspondiente vía `https://drive.google.com/drive/folders/FOLDER_ID`.  
+Mapeo completo en `DRIVE_FOLDERS` (JS object, 30 entries con IDs reales de Drive).  
+Carpeta pública MES JULIO: https://drive.google.com/drive/folders/12c5arlbbx3Fg7birAzZVPzTBOA4pdKL2
+
 ## Venezuela context dosage
 
 - S1: lun (#2 diagnóstico) + vie (#9 tendencia)
