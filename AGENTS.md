@@ -13,7 +13,7 @@ Marketing strategy & content hub for **SUPRICOM**, a B2B tech wholesaler in Vene
 | `_prospecting/` | Lead lists, prospecting reports, dossiers |
 | `_campaigns/bluetti/` | BLUETTI campaign copys, messaging guides |
 | `_scripts/` | Python scripts (`md_to_docx.py`, `generar_propuesta_mi_gran_idea.py`) |
-| `_catalogs/` | Supplier catalogs (Valencia PDF) |
+| `_catalogs/` | Supplier catalogs (CATALOGO_SUPRICOM_13-07.md) |
 | `_content/` | Content plans (`.md` + `.docx`), topic bases, proposals |
 | `.opencode/skills/` | OpenCode skills (prospector-tiendas, presenter-html, layout-copywriter) |
 
@@ -28,7 +28,7 @@ Marketing strategy & content hub for **SUPRICOM**, a B2B tech wholesaler in Vene
 | `_prospecting/nuevos_leads_*.md` | New leads (generated daily) |
 | `_prospecting/reporte_prospeccion_*.md` | Prospecting reports |
 | `_campaigns/bluetti/` | BLUETTI brand messaging & copy guide |
-| `_catalogs/Catalogo_Completo_SUPRICOM VALENCIA.pdf` | Valencia branch product catalog with SKUs |
+| `_catalogs/CATALOGO_SUPRICOM_13-07.md` | Complete product catalog (Caracas + Valencia) with SKUs, stock, prices |
 | `ESTRATEGA/CONTEXTO_MAESTRO.md` | Complete business context, buyer persona, frameworks |
 | `ESTRATEGA/plan_julio2026.html` | Visual calendar HTML (30 pieces, Jul 2026) |
 
