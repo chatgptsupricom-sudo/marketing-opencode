@@ -187,8 +187,10 @@
     border-radius: 3px; display: flex; justify-content: space-between;
   }
   .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 8px; }
-  .piece .prods .pl .pi .sto { background: #e8f5e9; color: #1b5e20; font-family: monospace; font-size: 7.5px; font-weight: 700; margin-left: 3px; padding: 1px 4px; border-radius: 3px; white-space: nowrap; }
-  .piece .prods .pl .pi .sto:empty { display: none; }
+  .piece .prods .pl .pi .sto { display: none; }
+  .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; }
+  .copy-prod-btn:hover { opacity: 1; }
+  .copy-prod-btn.copied { opacity: 1; }
   .piece .prods { background: #f8faff; border-radius: 0 0 8px 8px; padding: 8px; }
   .piece .prods[open] { padding-bottom: 10px; }
   .piece .prods summary { cursor: pointer; font-weight: 600; font-size: 12px; padding: 2px 0; color: var(--primary); user-select: none; }
@@ -1249,6 +1251,30 @@ function openDriveFolder() {
   window.open('https://drive.google.com/drive/folders/' + fid, '_blank');
   showToast('Abriendo carpeta en Drive...');
 }
+
+// ─── COPY PRODUCT NAME+SKU ───
+function copyProduct(btn) {
+  const pi = btn.closest('.pi');
+  const name = pi.querySelector('.name').textContent.trim();
+  const sku = pi.querySelector('.sku').textContent.trim();
+  const text = name + ' (' + sku + ')';
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋'; btn.classList.remove('copied'); }, 1500);
+  }).catch(() => showToast('Error al copiar'));
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.pi').forEach(function(pi) {
+    if (pi.querySelector('.copy-prod-btn')) return;
+    var btn = document.createElement('button');
+    btn.className = 'copy-prod-btn';
+    btn.textContent = '📋';
+    btn.title = 'Copiar nombre y SKU';
+    btn.onclick = function(e) { e.stopPropagation(); copyProduct(this); };
+    pi.appendChild(btn);
+  });
+});
 
 function showToast(msg) {
   const t = document.getElementById('toast');
