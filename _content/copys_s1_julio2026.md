@@ -968,4 +968,97 @@ Cerramos julio. Agosto viene con más.
 
 ---
 
+---
+
+# HP — 3 carruseles de impresoras (adicionales)
+
+---
+
+## PIEZA #31: HP LaserJet MFP M236sdw — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP LaserJet MFP M236sdw (9YG09A) · Tóner HP 136A (W1360A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP LaserJet MFP M236sdw. Impresión, copia y escaneo.
+- **Frase acompañante:** Velocidad de 29 ppm, dúplex automático y conectividad Wi-Fi. Lo que tu cliente busca en una impresora láser.
+- **Nota visual:** Fondo blanco. HP LaserJet MFP M236sdw. Nombre del modelo grande. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** Rendimiento profesional: 29 ppm, dúplex, alimentador de 40 hojas.
+- **Frase acompañante:** Primera página en 6,9 segundos. Ciclo mensual de 20.000 páginas. Construida para jornadas largas.
+- **Nota visual:** Iconos: 29ppm, dúplex, alimentador 40 hojas. Resolución 600x600 dpi.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Tóner HP 136A: rendimiento de hasta 1.150 páginas.
+- **Frase acompañante:** También en versión de alto rendimiento 136X. Tu cliente vuelve por el repuesto.
+- **Nota visual:** Tóner HP 136A (W1360A) y 136X (W1360X). Ciclo mensual 20.000 páginas.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi doble banda, Ethernet, USB. Y app HP Smart.
+- **Frase acompañante:** AirPrint, Mopria, HP Smart App. Tu cliente imprime desde cualquier dispositivo sin cables.
+- **Nota visual:** Iconos: Wi-Fi 2.4/5GHz, Ethernet, USB. Celular con HP Smart App. Wi-Fi Direct.
+
+---
+
+## PIEZA #32: HP Smart Tank 580 — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Smart Tank 580 (1F3Y2A) · Tinta HP GT53 (negro) · Tinta HP GT52 (color)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Smart Tank 580. Impresión, copia y escaneo. Tinta continua.
+- **Frase acompañante:** Hasta 18.000 páginas en negro incluidas. El costo por página más bajo del portafolio HP.
+- **Nota visual:** Fondo blanco. HP Smart Tank 580. Sistema de tinta continua visible. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 12 ppm negro, 5 ppm color. Resolución de hasta 4800x1200 dpi.
+- **Frase acompañante:** Pantalla LCD de 1,2 pulgadas. Hasta 3.000 páginas al mes. Para el cliente que imprime volumen.
+- **Nota visual:** Iconos: velocidad, resolución, pantalla LCD. Check de calidad.
+
+### SLIDE 3 — Tintas
+- **Texto imagen:** Sistema de tinta continua: GT53 (negro) y GT52 (color).
+- **Frase acompañante:** 18.000 páginas en negro o 6.000 a color incluidas con la compra. El repuesto que rota.
+- **Nota visual:** Botellas de tinta HP GT53 negro (135ml) y GT52 cyan, magenta, yellow (50ml c/u).
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, Wi-Fi Direct, USB. Impresión inalámbrica desde cualquier dispositivo.
+- **Frase acompañante:** HP Smart App, AirPrint, Mopria. Tu cliente configura e imprime desde el celular.
+- **Nota visual:** Iconos: Wi-Fi, Wi-Fi Direct, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #33: HP Laser MFP 137fnw — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Laser MFP 137fnw (4ZB84A) · Tóner HP 105A (W1105A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Laser MFP 137fnw. Imprime, copia, escanea y fax.
+- **Frase acompañante:** Multifuncional láser con conectividad completa. Para la oficina que lo necesita todo en un solo equipo.
+- **Nota visual:** Fondo blanco. HP Laser MFP 137fnw. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 20 ppm, primera página en 8,3 segundos. Alimentador de 40 hojas.
+- **Frase acompañante:** Resolución 1200x1200 dpi. Ciclo mensual de 10.000 páginas. Rendimiento probado.
+- **Nota visual:** Iconos: 20ppm, velocidad 8,3s, alimentador 40 hojas. Pantalla LCD 2 líneas.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Tóner HP 105A: rendimiento de hasta 1.000 páginas.
+- **Frase acompañante:** Disponible también en versión de alto rendimiento 105X. El cliente vuelve por el repuesto.
+- **Nota visual:** Tóner HP 105A (W1105A) y 105X (W1105X). Costo por página competitivo.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, Ethernet, USB, Wi-Fi Direct. Y fax integrado.
+- **Frase acompañante:** AirPrint, Mopria, HP Smart App. Tu cliente elige cómo conectarse.
+- **Nota visual:** Iconos: Wi-Fi, Ethernet, USB, fax. Celular con HP Smart App.
+
+---
+
 *SUPRICOM · C.A. · Documento interno de marketing · Julio 2026*
