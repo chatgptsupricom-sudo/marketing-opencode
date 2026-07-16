@@ -223,3 +223,107 @@ En SUPRICOM trabajamos al mayor con dueños de comercio. Tenemos las cuatro marc
 Guarda este video. Escríbenos al DM con la palabra "WIFI" y te enviamos el portafolio. 📱
 
 #conectividad #wifi6 #hogarinteligente #mayoristatecnologia #SUPRICOM
+
+---
+
+## #21 — S3 (Lun 27) — MSI Mini PC. Potencia compacta. Por qué los negocios migran a este formato.
+
+**Tipo:** brand (Supri)
+**Formato:** reel
+**Duración:** 35 seg (5 escenas × ~7 seg)
+**Estructura:** Timeline (evolución)
+
+### GUION
+
+#### Escena 1 (0-7s)
+[VISUAL]: Supri de pie junto a una torre de PC tradicional grande. La torre ocupa espacio visible en el escritorio. Supri tiene expresión de "esto es del pasado", señalando la torre y negando con la cabeza.
+[ACCION]: Supri toca la torre grande con desdén, gira la palma como diciendo "esto ya no va más". Mira a cámara con complicidad.
+[AUDIO]: Durante años el negocio de tecnología vendió torres grandes y ruidosas porque era lo único que había. Pero eso está cambiando.
+
+#### Escena 2 (7-14s)
+[VISUAL]: Corte a un escritorio minimalista. Supri coloca una MSI Cubi 5 en la palma de su mano, mostrando lo compacta que es. Fondo limpio, luz natural.
+[ACCION]: Supri sostiene la Cubi 5 en una mano mostrándola desde varios ángulos. Luego la coloca sobre el escritorio.
+[AUDIO]: MSI Cubi 5 entra en cualquier espacio. Recepción, kiosco, punto de venta. Ocupa menos que un teclado y se ve profesional.
+
+#### Escena 3 (7-14s)
+[VISUAL]: Primer plano de Supri señalando una MSI Cubi Z AI en un escritorio con dos monitores conectados. Se ven puertos USB. Ambiente moderno de oficina.
+[ACCION]: Supri señala los puertos disponibles enumerando con los dedos. Asiente aprobando.
+[AUDIO]: Y la Cubi Z AI con procesador Ryzen corre diseño, edición y multitarea sin problemas. Potencia de torre en formato compacto.
+
+#### Escena 4 (21-28s)
+[VISUAL]: Supri de pie, con las manos abiertas comparando dos espacios imaginarios: uno grande (torre) y uno pequeño (mini PC). Fondo dividido visualmente.
+[ACCION]: Supri abre los brazos para el espacio grande, luego junta las manos para el espacio pequeño. Hace gesto de equilibrio con las palmas.
+[AUDIO]: El negocio inteligente ya está migrando: menos espacio, menos consumo, menos ruido. Y el cliente lo nota desde el primer día.
+
+#### Escena 5 (28-35s)
+[VISUAL]: Supri de pie junto a una mesa con las cuatro MSI Cubi alineadas. Fondo con logo MSI y SUPRICOM. Sonrisa de cierre.
+[ACCION]: Supri pasa la mano por encima de las cuatro mini PCs presentándolas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente al final.
+[AUDIO]: Cuatro modelos MSI Cubi, desde el i5 de entrada hasta el Ryzen 9 con IA. Todos al mayor en SUPRICOM. Pregunta por el portafolio MSI. SUPRICOM. Tu mayorista de confianza.
+
+### CAPTION
+
+Durante años los comercios vendieron torres grandes y ruidosas porque era lo único que había. Pero eso está cambiando. 🔄
+
+MSI Cubi 5 cabe en cualquier espacio. Recepción, kiosco, punto de venta. Ocupa menos que un teclado. Y la Cubi Z AI con Ryzen corre diseño, edición y multitarea sin problema. Potencia de torre en formato compacto. 🖥️
+
+El negocio inteligente ya está migrando: menos espacio, menos consumo, menos ruido. Cuatro modelos MSI Cubi: desde el i5 de entrada hasta el Ryzen 9 con IA. Para cada perfil de cliente, hay una Cubi. 📦
+
+En SUPRICOM trabajamos al mayor con dueños de comercio. Pregunta por el portafolio MSI. 🤝
+
+Guarda este video. Escríbenos al DM con la palabra "MSI" y te enviamos el portafolio al mayor. 📱
+
+#MSI #MiniPC #computacioncompacta #mayoristatecnologia #SUPRICOM
+
+---
+
+## #25 — S3 (Mié 29) — ¿Cuánto dura un UPS en un apagón? Clave para dimensionar correctamente.
+
+**Tipo:** brand (Supri)
+**Formato:** reel
+**Duración:** 35 seg (5 escenas × ~7 seg)
+**Estructura:** Pregunta + 3 Opciones
+
+### GUION
+
+#### Escena 1 (0-7s)
+[VISUAL]: Supri de pie en una oficina, frente a un escritorio con un equipo de cómputo. Luces del fondo parpadean simulando corte. Expresión seria, mira el equipo y luego a cámara.
+[ACCION]: Supri señala el equipo, hace gesto de "se apaga" con las manos. Niega con la cabeza y mira a cámara con las palmas abiertas.
+[AUDIO]: ¿Cuánto dura realmente un UPS en un apagón? Esa es la pregunta que todo dueño de comercio debe saber responder. Porque una venta mal dimensionada es una devolución segura.
+
+#### Escena 2 (7-14s)
+[VISUAL]: Primer plano de un UPS FORZA 500VA sobre escritorio. Supri al lado sosteniendo un celular simulando temporizador. Luz tenue de respaldo.
+[ACCION]: Supri señala el UPS FORZA 500VA, muestra el celular marcando "18 min" con los dedos.
+[AUDIO]: FORZA NT-511 de 500VA: aproximadamente 18 minutos de respaldo. Tiempo suficiente para guardar el trabajo y apagar de forma segura. Protección básica, rotación alta.
+
+#### Escena 3 (14-21s)
+[VISUAL]: Supri con un FORZA 1000VA en una mano. Fondo con varios equipos: PC, monitor, router. Luces normales.
+[ACCION]: Supri levanta el FORZA 1000VA mostrándolo. Señala el router y monitor como equipos conectados.
+[AUDIO]: FORZA NT-1011 de 1000VA: 32 minutos de respaldo. El cliente puede terminar su trabajo sin prisas. Para oficinas y puestos de trabajo fijos.
+
+#### Escena 4 (21-28s)
+[VISUAL]: Supri junto a un BLUETTI EB55 y un BLUETTI AC180, más grandes y robustos. Luz cálida que sugiere espacio funcionando sin electricidad externa.
+[ACCION]: Supri apoya ambas manos sobre los BLUETTI como respaldándolos. Extiende los brazos indicando "horas". Asiente con seguridad.
+[AUDIO]: Y cuando los minutos no son suficientes, entran las estaciones de energía portátiles BLUETTI. Horas de respaldo para clínicas, talleres y oficinas que no pueden parar. No compiten con el UPS, lo complementan.
+
+#### Escena 5 (28-35s)
+[VISUAL]: Supri de pie con brazos abiertos frente a un exhibidor con FORZA, SMARTBITT, APC y BLUETTI alineados. Fondo con logos de las marcas. Sonrisa segura.
+[ACCION]: Supri barre con la mano el exhibidor mostrando todas las marcas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente.
+[AUDIO]: Cada cliente tiene un perfil y cada perfil tiene su solución ideal. UPS para minutos, BLUETTI para horas. En SUPRICOM está todo. Pregunta por el portafolio de protección. SUPRICOM. Tu mayorista de confianza.
+
+### CAPTION
+
+¿Cuánto dura realmente un UPS en un apagón? ⚡ Una venta mal dimensionada es una devolución segura. ⚠️
+
+FORZA NT-511 de 500VA: 18 minutos. Tiempo justo para guardar y apagar. Protección básica que más rota. 🔌
+
+FORZA NT-1011 de 1000VA: 32 minutos. Para el cliente que necesita terminar su trabajo sin prisas. El punto dulce de la categoría. ✅
+
+¿Y cuando 32 minutos no alcanzan? Ahí entran las estaciones de energía BLUETTI. No son un UPS, son otra categoría: horas de respaldo para clínicas, talleres y oficinas que no pueden parar. Lo complementan, no lo reemplazan. 🔋
+
+Cada cliente tiene un perfil y cada perfil su solución ideal. UPS para minutos, BLUETTI para horas. Si dimensionas bien, cero devoluciones.
+
+En SUPRICOM trabajamos al mayor con dueños de comercio. Tenemos todas las capacidades.
+
+Guarda este video. Escríbenos al DM con la palabra "DURACION" y te enviamos el portafolio al mayor. 📱
+
+#proteccionelectrica #upsvenezuela #dimensionamiento #mayoristatecnologia #SUPRICOM
