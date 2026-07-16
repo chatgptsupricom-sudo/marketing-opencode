@@ -64,23 +64,6 @@
   }
   nav .brand { font-weight: 700; font-size: 16px; letter-spacing: -.3px; }
   nav .brand span { color: #6BCBFF; }
-  nav .menu-toggle {
-    background: none; border: none; color: white; font-size: 24px; cursor: pointer;
-    display: none; padding: 4px;
-  }
-  nav ul { display: flex; list-style: none; gap: 2px; }
-  nav ul li a {
-    color: rgba(255,255,255,.7); text-decoration: none;
-    padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;
-    transition: all .2s;
-  }
-  nav ul li a:hover, nav ul li a.active {
-    color: white; background: rgba(255,255,255,.12);
-  }
-  nav ul li a .count {
-    display: inline-block; background: rgba(255,255,255,.15); border-radius: 10px;
-    padding: 0 7px; font-size: 10px; margin-left: 4px; line-height: 18px;
-  }
   .theme-toggle {
     background: none; border: 1px solid rgba(255,255,255,.25); color: white;
     cursor: pointer; font-size: 16px; padding: 4px 10px; border-radius: 6px;
@@ -260,13 +243,6 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    nav ul { display: none; }
-    nav .menu-toggle { display: block; }
-    nav ul.open {
-      display: flex; flex-direction: column; position: absolute;
-      top: 52px; left: 0; width: 100%; background: var(--primary);
-      padding: 8px 16px 16px;
-    }
     .hero h1 { font-size: 28px; }
     .hero .sub { font-size: 13px; }
     .hero .kpi-strip .kp { padding: 8px 14px; min-width: 60px; }
@@ -376,8 +352,25 @@
   .carrusel-with-copy .fmt.carrusel { background: #0d47a1; }
   .carrusel-with-copy .fmt.hp { background: #1e88e5; }
 
+  /* ─── MONTH TABS ─── */
+  .month-tabs {
+    display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px;
+    background: var(--white); border-radius: 12px; padding: 6px;
+    border: 1px solid var(--border);
+  }
+  .month-tabs .mtab {
+    font-size: 13px; padding: 6px 18px; border-radius: 8px;
+    cursor: pointer; transition: all .2s;
+    color: var(--text-light); font-weight: 600;
+    background: transparent; border: none; user-select: none;
+  }
+  .month-tabs .mtab:hover { color: var(--primary); background: rgba(0,86,219,.06); }
+  .month-tabs .mtab.active { background: var(--primary); color: white; }
+  .month-content { display: block; }
+  .month-content.hidden { display: none; }
+
   @media print {
-    nav, .menu-toggle { display: none !important; }
+    nav { display: none !important; }
     .hero { margin-top: 0; padding: 40px 24px; }
     .piece { break-inside: avoid; }
     .week-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
@@ -387,31 +380,36 @@
 <body>
 
 <nav>
-  <div class="brand">SUPRICOM <span>· Julio 2026</span></div>
-  <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
-  <ul>
-    <li><a href="#s1" class="active">S1 <span class="count">13–17</span></a></li>
-    <li><a href="#s2">S2 <span class="count">20–24</span></a></li>
-    <li><a href="#s3">S3 <span class="count">27–31</span></a></li>
-  </ul>
+  <div class="brand">SUPRICOM <span id="monthLabel">· Julio 2026</span></div>
   <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Cambiar tema">🌙</button>
 </nav>
 
 <div class="hero">
   <div class="badge">Plan de Contenido · Marketing</div>
-  <h1>Julio <span>2026</span></h1>
+  <h1 id="heroTitle">Julio <span>2026</span></h1>
   <div class="sub">SUPRICOM · C.A.</div>
   <div class="kpi-strip">
-    <div class="kp"><div class="num">30</div><div class="lb">Piezas</div></div>
-    <div class="kp"><div class="num">12</div><div class="lb">Videos</div></div>
-    <div class="kp"><div class="num">18</div><div class="lb">Diseño</div></div>
-    <div class="kp"><div class="num">3</div><div class="lb">Semanas</div></div>
-    <div class="kp"><div class="num">6</div><div class="lb">🇻🇪 Contexto</div></div>
+    <div class="kp"><div class="num" id="kpiPiezas">30</div><div class="lb">Piezas</div></div>
+    <div class="kp"><div class="num" id="kpiVideos">12</div><div class="lb">Videos</div></div>
+    <div class="kp"><div class="num" id="kpiDiseno">18</div><div class="lb">Diseño</div></div>
+    <div class="kp"><div class="num" id="kpiSemanas">3</div><div class="lb">Semanas</div></div>
+    <div class="kp"><div class="num" id="kpiContexto">6</div><div class="lb">🇻🇪 Contexto</div></div>
   </div>
 </div>
 
 <div class="main-wrapper">
 <main>
+
+<div class="month-tabs" id="monthTabs">
+  <button class="mtab active" data-month="2026-07">Julio</button>
+  <button class="mtab" data-month="2026-08">Agosto</button>
+  <button class="mtab" data-month="2026-09">Septiembre</button>
+  <button class="mtab" data-month="2026-10">Octubre</button>
+  <button class="mtab" data-month="2026-11">Noviembre</button>
+  <button class="mtab" data-month="2026-12">Diciembre</button>
+</div>
+
+<div class="month-content" id="mc-2026-07">
 
 <div class="filter-bar">
   <span>Filtrar:</span>
@@ -1241,6 +1239,15 @@
   </div>
 </div>
 
+</div>
+
+<!-- ═══════ AGO-DIC ═══════ -->
+<div class="month-content hidden" id="mc-2026-08"><div class="grid-placeholder" id="grid-2026-08"></div></div>
+<div class="month-content hidden" id="mc-2026-09"><div class="grid-placeholder" id="grid-2026-09"></div></div>
+<div class="month-content hidden" id="mc-2026-10"><div class="grid-placeholder" id="grid-2026-10"></div></div>
+<div class="month-content hidden" id="mc-2026-11"><div class="grid-placeholder" id="grid-2026-11"></div></div>
+<div class="month-content hidden" id="mc-2026-12"><div class="grid-placeholder" id="grid-2026-12"></div></div>
+
 </main>
 </div>
 
@@ -1275,13 +1282,66 @@
 </footer>
 
 <script>
+// ─── MONTH DATA ───
+const MONTHS = {
+  '2026-07': { label: 'Julio', year: 2026, pieces: 30, videos: 12, diseno: 18, semanas: 3, ctx: 6 },
+  '2026-08': { label: 'Agosto', year: 2026, pieces: 0, videos: 0, diseno: 0, semanas: 0, ctx: 0 },
+  '2026-09': { label: 'Septiembre', year: 2026, pieces: 0, videos: 0, diseno: 0, semanas: 0, ctx: 0 },
+  '2026-10': { label: 'Octubre', year: 2026, pieces: 0, videos: 0, diseno: 0, semanas: 0, ctx: 0 },
+  '2026-11': { label: 'Noviembre', year: 2026, pieces: 0, videos: 0, diseno: 0, semanas: 0, ctx: 0 },
+  '2026-12': { label: 'Diciembre', year: 2026, pieces: 0, videos: 0, diseno: 0, semanas: 0, ctx: 0 }
+};
+
+// ─── MONTH SWITCHING ───
+function switchMonth(monthId) {
+  // Month tab buttons
+  document.querySelectorAll('.mtab').forEach(b => {
+    b.classList.toggle('active', b.dataset.month === monthId);
+  });
+  // Month content
+  document.querySelectorAll('.month-content').forEach(c => {
+    c.classList.toggle('hidden', c.id !== 'mc-' + monthId);
+  });
+  // Brand label
+  const m = MONTHS[monthId];
+  document.getElementById('monthLabel').textContent = '· ' + m.label + ' ' + m.year;
+  document.getElementById('heroTitle').innerHTML = m.label + ' <span>' + m.year + '</span>';
+  document.getElementById('kpiPiezas').textContent = m.pieces;
+  document.getElementById('kpiVideos').textContent = m.videos;
+  document.getElementById('kpiDiseno').textContent = m.diseno;
+  document.getElementById('kpiSemanas').textContent = m.semanas;
+  document.getElementById('kpiContexto').textContent = m.ctx;
+  // Reset filter to "all"
+  document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
+  const allBtn = document.querySelector('#mc-' + monthId + ' [data-filter="all"]');
+  if (allBtn) allBtn.classList.add('active');
+  document.querySelectorAll('.month-content:not(.hidden) .piece').forEach(p => p.style.display = '');
+}
+
+// Wire up month tab buttons
+document.querySelectorAll('.mtab').forEach(b => {
+  b.addEventListener('click', () => switchMonth(b.dataset.month));
+});
+
+// ─── INIT EMPTY MONTHS ───
+['2026-08','2026-09','2026-10','2026-11','2026-12'].forEach(id => {
+  const el = document.getElementById('grid-' + id);
+  if (el) {
+    const m = MONTHS[id];
+    el.innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text-light)">' +
+      '<div style="font-size:48px;margin-bottom:12px;opacity:.3">📅</div>' +
+      '<div style="font-size:20px;font-weight:700;margin-bottom:8px">' + m.label + ' ' + m.year + '</div>' +
+      '<div style="font-size:14px">Plan de contenido no disponible todavía.<br>Crea el plan y compártelo conmigo para poblarlo.</div></div>';
+  }
+});
+
 // ─── FILTER ───
 document.querySelectorAll('[data-filter]').forEach(f => {
   f.addEventListener('click', () => {
     document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
     f.classList.add('active');
     const v = f.dataset.filter;
-    document.querySelectorAll('.piece').forEach(p => {
+    document.querySelectorAll('.month-content:not(.hidden) .piece').forEach(p => {
       if (v === 'all') { p.style.display = ''; return; }
       if (v === 've') { p.style.display = p.querySelector('.ve-badge') ? '' : 'none'; return; }
       if (v === 'hp') { p.style.display = p.dataset.brand === 'hp' ? '' : 'none'; return; }
@@ -1551,19 +1611,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') navigateSlide(-1);
 });
 
-// ─── SCROLLSPY ───
-const sections = document.querySelectorAll('.week-card[id]');
-const navLinks = document.querySelectorAll('nav ul li a');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const link = document.querySelector('nav ul li a[href="#' + entry.target.id + '"]');
-      if (link) link.classList.add('active');
-    }
-  });
-}, { threshold: .2 });
-sections.forEach(s => observer.observe(s));
 </script>
 
 </body>
