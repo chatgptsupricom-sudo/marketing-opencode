@@ -2,6 +2,7 @@
 
 **S1:** #1 · #2 · #4 · #6 · #8 · #10
 **S2:** #12 · #13 · #14 · #16 · #18 · #20
+**HP:** #31 · #32 · #33 · #34 · #35 · #36 · #37 · #38 · #39 · #40 · #41
 Formato corto — listo para diseñadora
 
 ---
@@ -1058,6 +1059,238 @@ Cerramos julio. Agosto viene con más.
 - **Texto imagen:** Wi-Fi, Ethernet, USB, Wi-Fi Direct. Y fax integrado.
 - **Frase acompañante:** AirPrint, Mopria, HP Smart App. Tu cliente elige cómo conectarse.
 - **Nota visual:** Iconos: Wi-Fi, Ethernet, USB, fax. Celular con HP Smart App.
+
+---
+
+## PIEZA #34: HP LaserJet Pro MFP 4103fdw — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP LaserJet Pro MFP 4103fdw (2Z629A) · Tóner HP 151A (W1510A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP LaserJet Pro MFP 4103fdw. Impresión láser profesional.
+- **Frase acompañante:** Velocidad de 40 ppm, dúplex automático y seguridad HP Wolf. Para el cliente que imprime sin parar.
+- **Nota visual:** Fondo blanco. HP LaserJet Pro MFP 4103fdw. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** Rendimiento superior: 40 ppm, primera página en 6,3 segundos.
+- **Frase acompañante:** Alimentador automático de 50 hojas. Ciclo mensual de 80.000 páginas. Para jornadas intensivas.
+- **Nota visual:** Iconos: 40ppm, dúplex, alimentador 50 hojas. Pantalla táctil 2,7 pulgadas.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Tóner HP 151A: rendimiento de hasta 3.500 páginas.
+- **Frase acompañante:** Versión de alto rendimiento 151X con 9.800 páginas. Menos cambios, más productividad.
+- **Nota visual:** Tóner HP 151A (W1510A) y 151X (W1510X). Costo por página optimizado.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi doble banda, Ethernet Gigabit, USB. Y HP Wolf Security.
+- **Frase acompañante:** HP Smart App, AirPrint, Mopria. Seguridad integrada para entornos corporativos.
+- **Nota visual:** Iconos: Wi-Fi 2.4/5GHz, Ethernet, USB. Escudo HP Wolf Security.
+
+---
+
+## PIEZA #35: HP Color LaserJet Pro MFP 4303fdw — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Color LaserJet Pro MFP 4303fdw (5HH67A) · Tóner HP 209A (W2090A-W2093A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Color LaserJet Pro MFP 4303fdw. Impresión a color profesional.
+- **Frase acompañante:** 33 ppm en color y negro, dúplex automático y pantalla táctil. Para el cliente que imprime con impacto.
+- **Nota visual:** Fondo blanco. HP Color LaserJet Pro MFP 4303fdw. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** Velocidad de 33 ppm, primera página en 7,3 segundos.
+- **Frase acompañante:** Alimentador automático de 50 hojas. Ciclo mensual de 50.000 páginas. Resolución 600x600 dpi.
+- **Nota visual:** Iconos: 33ppm, dúplex, alimentador 50 hojas. Pantalla táctil a color.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Sistema de 4 tóners HP 209A: negro y 3 colores.
+- **Frase acompañante:** Negro W2090A (3.500 páginas). Color W2091A-93A (3.000 páginas c/u). Repuestos que rotan.
+- **Nota visual:** 4 cartuchos HP 209A en fila: negro, cyan, magenta, amarillo.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi doble banda, Ethernet Gigabit, USB. Y HP Smart App.
+- **Frase acompañante:** AirPrint, Mopria, HP Wolf Security. Seguridad y facilidad en un solo equipo.
+- **Nota visual:** Iconos: Wi-Fi, Ethernet, USB. Celular con HP Smart App. Escudo HP Wolf Security.
+
+---
+
+## PIEZA #36: HP Smart Tank 581 — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Smart Tank 581 (4A8D4A) · Tinta HP GT53 (negro) · Tinta HP GT52 (color)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Smart Tank 581. Impresión, copia y escaneo. Tinta continua.
+- **Frase acompañante:** Hasta 18.000 páginas en negro incluidas. Pantalla LCD de 1,2 pulgadas. El costo por página más bajo.
+- **Nota visual:** Fondo blanco. HP Smart Tank 581. Sistema de tinta continua visible. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 12 ppm negro, 5 ppm color. Resolución de hasta 4800x1200 dpi.
+- **Frase acompañante:** Pantalla LCD de 1,2 pulgadas. Hasta 3.000 páginas al mes. Para el cliente que imprime volumen a bajo costo.
+- **Nota visual:** Iconos: velocidad, resolución, pantalla LCD. Check de calidad de impresión.
+
+### SLIDE 3 — Tintas
+- **Texto imagen:** Sistema de tinta continua: GT53 (negro) y GT52 (color).
+- **Frase acompañante:** 18.000 páginas en negro o 6.000 a color incluidas con la compra. El repuesto que rota constante.
+- **Nota visual:** Botellas de tinta HP GT53 negro (135ml) y GT52 cyan, magenta, yellow (50ml c/u).
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, Wi-Fi Direct, USB. Impresión inalámbrica desde cualquier dispositivo.
+- **Frase acompañante:** HP Smart App, AirPrint, Mopria. Tu cliente configura e imprime desde el celular sin cables.
+- **Nota visual:** Iconos: Wi-Fi, Wi-Fi Direct, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #37: HP Smart Tank 530 — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Smart Tank 530 (ASB24A) · Tinta HP GT53 (negro) · Tinta HP GT52 (color)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Smart Tank 530. Impresión, copia y escaneo. Tinta continua.
+- **Frase acompañante:** Hasta 15.000 páginas en negro incluidas. El costo por página más bajo del portafolio HP.
+- **Nota visual:** Fondo blanco. HP Smart Tank 530. Sistema de tinta continua. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 11 ppm negro, 5 ppm color. Resolución de hasta 4800x1200 dpi.
+- **Frase acompañante:** Hasta 3.000 páginas al mes. Diseño compacto. Para el cliente que busca costo por página mínimo.
+- **Nota visual:** Iconos: velocidad, resolución. Check de calidad. Diseño compacto.
+
+### SLIDE 3 — Tintas
+- **Texto imagen:** Sistema de tinta continua: GT53 (negro) y GT52 (color).
+- **Frase acompañante:** 15.000 páginas en negro o 6.000 a color incluidas. El tóner líquido de mayor rotación.
+- **Nota visual:** Botellas de tinta HP GT53 negro (135ml) y GT52 color (50ml c/u).
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, USB. Impresión inalámbrica desde cualquier dispositivo.
+- **Frase acompañante:** HP Smart App, AirPrint. Simple, rápida, sin complicaciones.
+- **Nota visual:** Iconos: Wi-Fi, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #38: HP LaserJet Pro M141w — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP LaserJet Pro M141w · Tóner HP 150A (W1500A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP LaserJet Pro M141w. Impresión láser compacta.
+- **Frase acompañante:** Velocidad de 21 ppm, Wi-Fi integrado. La impresora que no ocupa espacio en el escritorio.
+- **Nota visual:** Fondo blanco. HP LaserJet Pro M141w. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** Rendimiento de entrada: 21 ppm, primera página en 7,8 segundos.
+- **Frase acompañante:** Bandeja de 150 hojas. Resolución 600x600 dpi. Ciclo mensual de 8.000 páginas.
+- **Nota visual:** Iconos: 21ppm, bandeja 150 hojas. Diseño compacto.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Tóner HP 150A: rendimiento de hasta 1.000 páginas.
+- **Frase acompañante:** Versión de alto rendimiento 150X disponible. El repuesto que rota rápido en mostrador.
+- **Nota visual:** Tóner HP 150A (W1500A). Costo por página competitivo.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, USB. Impresión inalámbrica desde cualquier dispositivo.
+- **Frase acompañante:** HP Smart App, AirPrint. Simple, rápida, lista para usar en minutos.
+- **Nota visual:** Iconos: Wi-Fi, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #39: HP Smart Tank 583 — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Smart Tank 583 · Tinta HP GT53 (negro) · Tinta HP GT52 (color)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Smart Tank 583. Impresión, copia y escaneo. Tinta continua.
+- **Frase acompañante:** Hasta 18.000 páginas en negro incluidas. Conectividad Wi-Fi y diseño moderno.
+- **Nota visual:** Fondo blanco. HP Smart Tank 583. Sistema de tinta continua. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 12 ppm negro, 5 ppm color. Resolución de hasta 4800x1200 dpi.
+- **Frase acompañante:** Pantalla LCD. Hasta 3.000 páginas al mes. Para el cliente que imprime volumen a bajo costo.
+- **Nota visual:** Iconos: velocidad, resolución, pantalla LCD. Check de calidad.
+
+### SLIDE 3 — Tintas
+- **Texto imagen:** Sistema de tinta continua: GT53 (negro) y GT52 (color).
+- **Frase acompañante:** 18.000 páginas en negro o 6.000 a color incluidas. El repuesto que rota sin parar.
+- **Nota visual:** Botellas de tinta HP GT53 negro (135ml) y GT52 color (50ml c/u).
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, Wi-Fi Direct, USB. Impresión inalámbrica desde cualquier dispositivo.
+- **Frase acompañante:** HP Smart App, AirPrint, Mopria. Configuración rápida desde el celular.
+- **Nota visual:** Iconos: Wi-Fi, Wi-Fi Direct, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #40: HP Smart Tank 720 — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP Smart Tank 720 · Tinta HP GT53 (negro) · Tinta HP GT52 (color)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP Smart Tank 720. Impresión, copia y escaneo. Tinta continua de alto volumen.
+- **Frase acompañante:** Hasta 18.000 páginas en negro incluidas. Pantalla LCD y conectividad Ethernet.
+- **Nota visual:** Fondo blanco. HP Smart Tank 720. Sistema de tinta continua. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** 15 ppm negro, 8 ppm color. Resolución de hasta 4800x1200 dpi.
+- **Frase acompañante:** Pantalla LCD de 2,2 pulgadas. Hasta 5.000 páginas al mes. Para demanda media-alta.
+- **Nota visual:** Iconos: velocidad superior, pantalla grande, resolución.
+
+### SLIDE 3 — Tintas
+- **Texto imagen:** Sistema de tinta continua: GT53 (negro) y GT52 (color).
+- **Frase acompañante:** 18.000 páginas en negro o 6.000 a color incluidas. Mayor capacidad, menos cambios.
+- **Nota visual:** Botellas de tinta HP GT53 negro (135ml) y GT52 color (50ml c/u).
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi, Ethernet, USB. Conectividad profesional para entornos exigentes.
+- **Frase acompañante:** HP Smart App, AirPrint, Mopria. Ideal para redes de oficina.
+- **Nota visual:** Iconos: Wi-Fi, Ethernet, USB. Celular con HP Smart App.
+
+---
+
+## PIEZA #41: HP LaserJet Pro 4003dw — Showcase
+
+- **Formato:** Carrusel (4 slides)
+- **Pilar:** Showcase
+- **Productos:** HP LaserJet Pro 4003dw · Tóner HP 151A (W1510A)
+- **Contexto VE:** No
+
+### SLIDE 1 — Portada
+- **Texto imagen:** HP LaserJet Pro 4003dw. Impresión láser rápida.
+- **Frase acompañante:** 42 ppm, dúplex automático, bandeja de 350 hojas. Para el cliente que imprime sin esperar.
+- **Nota visual:** Fondo blanco. HP LaserJet Pro 4003dw. Logos HP + SUPRICOM.
+
+### SLIDE 2 — Características
+- **Texto imagen:** Rendimiento superior: 42 ppm, primera página en 6,2 segundos.
+- **Frase acompañante:** Bandeja de 350 hojas. Ciclo mensual de 80.000 páginas. Construida para alto volumen.
+- **Nota visual:** Iconos: 42ppm, dúplex, bandeja 350 hojas. Pantalla LCD.
+
+### SLIDE 3 — Tóner
+- **Texto imagen:** Tóner HP 151A: rendimiento de hasta 3.500 páginas.
+- **Frase acompañante:** También en versión de alto rendimiento 151X (9.800 páginas). Menos cambios, más productividad.
+- **Nota visual:** Tóner HP 151A (W1510A) y 151X (W1510X). Costo por página optimizado.
+
+### SLIDE 4 — Conectividad
+- **Texto imagen:** Wi-Fi doble banda, Ethernet Gigabit, USB. Y HP Smart App.
+- **Frase acompañante:** AirPrint, Mopria. Integración perfecta en cualquier red corporativa.
+- **Nota visual:** Iconos: Wi-Fi, Ethernet, USB. Celular con HP Smart App.
 
 ---
 

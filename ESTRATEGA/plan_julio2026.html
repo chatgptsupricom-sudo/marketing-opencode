@@ -16,11 +16,42 @@
     --white: #FFFFFF;
     --success: #00CC88;
     --border: #E0E0E8;
+    --card-shadow: 0 1px 6px rgba(0,0,0,.06);
+    --hero-badge: rgba(255,255,255,.15);
+    --nav-hover: rgba(255,255,255,.12);
   }
+  [data-theme="dark"] {
+    --primary: #0A3D91;
+    --primary-light: #58A6FF;
+    --bg: #0D1117;
+    --gradient-hero: linear-gradient(135deg, #0A3D91 0%, #0D1117 100%);
+    --gradient-section: linear-gradient(135deg, #161B22 0%, #0D1117 100%);
+    --text: #E6EDF3;
+    --text-light: #8B949E;
+    --white: #161B22;
+    --success: #3FB950;
+    --border: #30363D;
+    --card-shadow: 0 1px 6px rgba(0,0,0,.4);
+    --hero-badge: rgba(255,255,255,.08);
+    --nav-hover: rgba(255,255,255,.08);
+  }
+  [data-theme="dark"] .week-focus { background: #1C2128 !important; }
+  [data-theme="dark"] .piece { background: #1C2128 !important; }
+  [data-theme="dark"] .piece .prods { background: #161B22 !important; }
+  [data-theme="dark"] .piece .prods .pl .pi { background: #1C2128 !important; color: var(--text) !important; }
+  [data-theme="dark"] .piece .pillar { color: var(--primary-light) !important; }
+  [data-theme="dark"] .modal-slide .slide-title { color: var(--primary-light) !important; }
+  [data-theme="dark"] .modal-slide .slide-frase { background: #1C2128 !important; }
+  [data-theme="dark"] .piece .prods summary { color: var(--primary-light) !important; }
+  [data-theme="dark"] .piece .stats span { background: #1C2128 !important; }
+  [data-theme="dark"] .modal-body { background: #161B22 !important; }
+  [data-theme="dark"] .nav-slide { background: #1C2128 !important; }
+  [data-theme="dark"] #toast { background: #E6EDF3 !important; color: #0D1117 !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text); background: var(--bg); line-height: 1.5;
+    transition: background .3s, color .3s;
   }
 
   /* ─── NAV ─── */
@@ -40,7 +71,7 @@
   nav ul { display: flex; list-style: none; gap: 2px; }
   nav ul li a {
     color: rgba(255,255,255,.7); text-decoration: none;
-    padding: 7px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
+    padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;
     transition: all .2s;
   }
   nav ul li a:hover, nav ul li a.active {
@@ -50,6 +81,12 @@
     display: inline-block; background: rgba(255,255,255,.15); border-radius: 10px;
     padding: 0 7px; font-size: 10px; margin-left: 4px; line-height: 18px;
   }
+  .theme-toggle {
+    background: none; border: 1px solid rgba(255,255,255,.25); color: white;
+    cursor: pointer; font-size: 16px; padding: 4px 10px; border-radius: 6px;
+    margin-left: 8px; line-height: 1; transition: all .2s;
+  }
+  .theme-toggle:hover { background: rgba(255,255,255,.12); }
 
   /* ─── HERO ─── */
   .hero {
@@ -68,7 +105,7 @@
     color: white; padding: 3px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
     margin-bottom: 10px; border: 1px solid rgba(255,255,255,.15);
   }
-  .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -1px; }
+  .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; }
   .hero h1 span { color: #6BCBFF; }
   .hero .sub { font-size: 15px; opacity: .8; margin-top: 4px; }
   .hero .kpi-strip {
@@ -86,8 +123,8 @@
   .hero .kpi-strip .kp .lb { font-size: 10px; opacity: .65; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
 
   /* ─── MAIN ─── */
-  .main-wrapper { display: flex; max-width: 1200px; margin: 0 auto; }
-  main { flex: 1; padding: 28px 20px 60px; max-width: 100%; }
+  .main-wrapper { display: flex; max-width: 1400px; margin: 0 auto; }
+  main { flex: 1; padding: 28px 24px 60px; max-width: 100%; }
 
   /* ─── WEEK CARD ─── */
   .week-card {
@@ -98,14 +135,14 @@
     background: var(--primary); color: white; padding: 14px 20px;
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
   }
-  .week-card .week-top h2 { font-size: 18px; font-weight: 700; }
+  .week-card .week-top h2 { font-size: 20px; font-weight: 700; }
   .week-card .week-top .tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .week-card .week-top .tags span {
-    background: rgba(255,255,255,.15); padding: 3px 12px; border-radius: 10px;
-    font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,.15); padding: 4px 14px; border-radius: 10px;
+    font-size: 12px; font-weight: 600;
   }
   .week-card .week-focus {
-    padding: 10px 20px; font-size: 13px; color: var(--text-light);
+    padding: 12px 20px; font-size: 14px; color: var(--text-light);
     background: #F8FAFE; border-bottom: 1px solid var(--border);
   }
   .week-card .week-focus strong { color: var(--primary); }
@@ -118,20 +155,20 @@
   @media (max-width: 1000px) { .cal-grid { grid-template-columns: repeat(1, 1fr); } }
 
   .cal-col {
-    background: var(--white); padding: 12px; min-height: 360px;
-    display: flex; flex-direction: column; gap: 8px;
+    background: var(--white); padding: 14px; min-height: 360px;
+    display: flex; flex-direction: column; gap: 10px;
   }
   .cal-col .col-head {
     display: flex; align-items: baseline; gap: 6px; padding-bottom: 6px;
     border-bottom: 2px solid var(--primary-light); margin-bottom: 4px;
   }
-  .cal-col .col-head .day { font-weight: 700; font-size: 13px; color: var(--primary); text-transform: uppercase; letter-spacing: .3px; }
-  .cal-col .col-head .date { font-size: 11px; color: var(--text-light); }
+  .cal-col .col-head .day { font-weight: 700; font-size: 15px; color: var(--primary); text-transform: uppercase; letter-spacing: .3px; }
+  .cal-col .col-head .date { font-size: 13px; color: var(--text-light); }
 
   /* ─── CONTENT CARD ─── */
   .piece {
     background: #FAFBFC; border: 1px solid var(--border);
-    border-radius: 8px; padding: 8px; position: relative;
+    border-radius: 8px; padding: 10px; position: relative;
     transition: all .2s; cursor: pointer;
   }
   .piece:hover {
@@ -140,15 +177,16 @@
   .piece .num {
     position: absolute; top: 4px; right: 6px;
     background: var(--bg); border-radius: 50%;
-    width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
-    font-size: 9px; font-weight: 700; color: var(--text-light);
+    width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--text-light);
   }
   .piece .fmt {
-    display: inline-block; font-size: 8px; font-weight: 700; text-transform: uppercase;
-    padding: 1px 8px; border-radius: 8px; color: white; letter-spacing: .3px;
-    margin-bottom: 3px;
+    display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    padding: 2px 10px; border-radius: 8px; color: white; letter-spacing: .3px;
+    margin-bottom: 4px;
   }
   .piece .fmt.carrusel { background: #1565c0; }
+  .piece .fmt.hp { background: #42a5f5; }
   .piece .fmt.post { background: #e65100; }
   .piece .fmt.vs1 { background: #7b1fa2; }
   .piece .fmt.vs2 { background: #7b1fa2; }
@@ -156,37 +194,37 @@
   .piece .fmt.vo { background: #2e7d32; }
 
   .piece .pillar {
-    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
-    color: var(--primary); margin-bottom: 2px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+    color: var(--primary); margin-bottom: 3px;
   }
   .piece .topic {
-    font-size: 11px; line-height: 1.4; color: var(--text);
+    font-size: 14px; line-height: 1.5; color: var(--text);
     display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
   .piece.expanded .topic { display: block; }
-  .piece .brands { font-size: 9px; color: var(--text-light); margin-top: 2px; }
+  .piece .brands { font-size: 12px; color: var(--text-light); margin-top: 3px; }
 
   .piece .ve-badge {
-    display: inline-block; font-size: 7px; font-weight: 700;
-    background: #ffd700; color: #000; padding: 0 5px; border-radius: 3px;
-    margin-left: 3px; vertical-align: middle; line-height: 14px;
+    display: inline-block; font-size: 9px; font-weight: 700;
+    background: #ffd700; color: #000; padding: 0 6px; border-radius: 3px;
+    margin-left: 3px; vertical-align: middle; line-height: 16px;
   }
 
   /* ─── PRODUCT DROPDOWN ─── */
-  .piece .prods { margin-top: 5px; }
+  .piece .prods { margin-top: 6px; }
   .piece .prods summary {
-    cursor: pointer; font-size: 9px; font-weight: 600; color: var(--primary-light);
-    padding: 1px 0; user-select: none;
+    cursor: pointer; font-size: 11px; font-weight: 600; color: var(--primary-light);
+    padding: 2px 0; user-select: none;
   }
   .piece .prods summary::-webkit-details-marker { color: var(--primary-light); }
   .piece .prods .pl {
-    margin-top: 3px; display: flex; flex-direction: column; gap: 1px;
+    margin-top: 4px; display: flex; flex-direction: column; gap: 2px;
   }
   .piece .prods .pl .pi {
-    font-size: 9px; padding: 2px 6px; background: #F0F5FF;
-    border-radius: 3px; display: flex; justify-content: space-between;
+    font-size: 12px; padding: 4px 8px; background: #F0F5FF;
+    border-radius: 4px; display: flex; justify-content: space-between;
   }
-  .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 8px; }
+  .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 11px; }
   .piece .prods .pl .pi .sto { display: none; }
   .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; }
   .copy-prod-btn:hover { opacity: 1; }
@@ -199,7 +237,7 @@
   /* ─── FOOTER ─── */
   footer {
     background: var(--primary); color: rgba(255,255,255,.6);
-    text-align: center; padding: 28px 20px; font-size: 13px;
+    text-align: center; padding: 28px 20px; font-size: 15px;
   }
   footer strong { color: #6BCBFF; }
 
@@ -247,7 +285,7 @@
   }
   .modal-overlay.open { display: flex; }
   .modal-box {
-    background: white; border-radius: 16px; width: 90%; max-width: 680px;
+    background: white; border-radius: 16px; width: 92%; max-width: 780px;
     max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.3);
     animation: modalIn .25s ease;
   }
@@ -257,7 +295,7 @@
     display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 1; border-radius: 16px 16px 0 0;
   }
-  .modal-head h3 { font-size: 16px; font-weight: 700; }
+  .modal-head h3 { font-size: 18px; font-weight: 700; }
   .modal-head h3 span { color: #6BCBFF; }
   .modal-close {
     background: rgba(255,255,255,.15); border: none; color: white;
@@ -277,21 +315,21 @@
   .modal-slide.active { display: block; }
   @keyframes slideIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
   .modal-slide .slide-label {
-    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
     color: var(--primary-light); margin-bottom: 4px;
   }
   .modal-slide .slide-title {
-    font-size: 22px; font-weight: 800; color: var(--primary); line-height: 1.2;
-    margin-bottom: 8px;
+    font-size: 26px; font-weight: 800; color: var(--primary); line-height: 1.2;
+    margin-bottom: 10px;
   }
   .modal-slide .slide-frase {
-    font-size: 15px; color: var(--text); line-height: 1.4; margin-bottom: 12px;
+    font-size: 17px; color: var(--text); line-height: 1.5; margin-bottom: 14px;
     padding: 12px 16px; background: #F0F5FF; border-radius: 8px;
     border-left: 3px solid var(--primary-light);
   }
   .modal-slide .slide-nota {
-    font-size: 12px; color: var(--text-light); font-style: italic;
-    padding: 8px 12px; background: var(--bg); border-radius: 6px;
+    font-size: 14px; color: var(--text-light); font-style: italic;
+    padding: 10px 14px; background: var(--bg); border-radius: 6px;
   }
   .modal-slide .slide-nota::before { content: "🎨 "; }
   .modal-nav {
@@ -336,6 +374,7 @@
 
   .piece .fmt.carrusel { background: #1565c0; }
   .carrusel-with-copy .fmt.carrusel { background: #0d47a1; }
+  .carrusel-with-copy .fmt.hp { background: #1e88e5; }
 
   @media print {
     nav, .menu-toggle { display: none !important; }
@@ -355,6 +394,7 @@
     <li><a href="#s2">S2 <span class="count">20–24</span></a></li>
     <li><a href="#s3">S3 <span class="count">27–31</span></a></li>
   </ul>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Cambiar tema">🌙</button>
 </nav>
 
 <div class="hero">
@@ -379,9 +419,10 @@
   <span class="fil" data-filter="video">Video</span>
   <span class="fil" data-filter="carrusel">Carrusel</span>
   <span class="fil" data-filter="post">Post</span>
-  <span class="fil" data-filter="ve">🇻🇪 Venezuela</span>
+   <span class="fil" data-filter="ve">🇻🇪 Venezuela</span>
+   <span class="fil" data-filter="hp" style="border-color:#42a5f5;color:#42a5f5">HP</span>
   <span style="margin-left:auto"></span>
-  <span class="fil toggle-prods" id="toggleProds">📦 Productos: visible</span>
+  <span class="fil toggle-prods" id="toggleProds">📦 Productos: oculto</span>
 </div>
 
 <!-- ═══════ S1 ═══════ -->
@@ -406,7 +447,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«BLUETTI: las estaciones de energía disponibles en SUPRICOM».</strong> AC50P, AC70P, Elite 100 V2, Premium 200 V2 y más. El portafolio completo ya en Caracas y Valencia.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 8 modelos BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Portátil</span><span class="sku"></span><span class="sto">—</span></div>
@@ -428,7 +469,7 @@
         <div class="pillar">Diagnóstico</div>
         <div class="topic"><strong>«3 señales de que tu cliente necesita protección en Venezuela».</strong> Fluctuaciones de voltaje, apagones sin aviso, equipos dañados. El diagnóstico en mostrador.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 10 productos de protección</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -456,7 +497,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>FORZA.</strong> La marca que los comercios conocen y piden. Showcase visual de la línea de protección.</div>
         <div class="brands">FORZA</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 productos FORZA</summary>
           <div class="pl">
             <div class="pi"><span class="name">UPS FORZA 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -474,7 +515,7 @@
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«BLUETTI vs planta eléctrica».</strong> Ruido, mantenimiento, seguridad. Lo que necesitas saber para asesorar.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 modelos BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Portátil</span><span class="sku"></span><span class="sto">—</span></div>
@@ -496,7 +537,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic">Dato clave sobre protección eléctrica. Visualización educativa.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 productos destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -514,7 +555,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«Qué laptop según el perfil de tu cliente».</strong> Estudiante, oficinista, gerente, creativo. Cada uno con el modelo exacto del catálogo.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 laptops recomendadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">Acer Notebook AGO15IN R5/16GB</span><span class="sku">NXJG6AL001</span><span class="sto">CCS:1 VLN:1</span></div>
@@ -536,7 +577,7 @@
         <div class="pillar">Mix</div>
         <div class="topic"><strong>«Tu cliente compra una laptop. ¿Le ofreces protección?».</strong> Cómo aumentar el ticket cuidando la inversión del cliente.</div>
         <div class="brands">FORZA · Acer · ASUS · HP</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 5 productos del mix</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -555,7 +596,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«4 tipos de clientes que necesitan BLUETTI».</strong> Hogar, oficina, clínica, taller. Cada uno con el modelo exacto.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 BLUETTI por perfil</summary>
           <div class="pl">
             <div class="pi"><span class="name">AC50P · Hogar</span><span class="sku"></span><span class="sto">—</span></div>
@@ -567,13 +608,13 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"4 tipos de clientes que necesitan BLUETTI","frase":"Cada uno con el modelo exacto. Identifica y recomienda.","nota":"Fondo azul. 4 iconos: casa, oficina, cruz, taller."},{"slide":"Cliente #1: Hogar","texto":"Cliente #1: Nevera, router, televisor. Lo esencial.","frase":"BLUETTI AC50P: compacto, buen argumento para el cliente de hogar que busca respaldo sin obras.","nota":"Icono casa. Familia con BLUETTI."},{"slide":"Cliente #2: Oficina / Comercio","texto":"Cliente #2: POS, internet, cámaras. El negocio no para.","frase":"BLUETTI AC70P: potencia media para mantener todo encendido sin interrupciones.","nota":"Icono edificio. POS activo, afuera oscuro."},{"slide":"Cliente #3: Clínica","texto":"Cliente #3: Equipos médicos, medicamentos, historias digitales.","frase":"BLUETTI Premium 200 V2: alta capacidad, modo UPS, cero riesgos.","nota":"Icono cruz médica. Equipos funcionando."},{"slide":"Cliente #4: Taller","texto":"Cliente #4: Herramientas, diagnóstico, producción sin pausa.","frase":"BLUETTI Elite 100 V2: portátil, potente, sin planta ruidosa.","nota":"Icono herramientas. Taller con BLUETTI."},{"slide":"Cierre","texto":"Un cliente, una solución, un argumento.","frase":"Vende con criterio. BLUETTI disponible en Caracas y Valencia.","nota":"Grid 4 iconos + logos BLUETTI y SUPRICOM. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="31" onclick="openCopyModal(31, event)">
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="31" onclick="openCopyModal(31, event)">
         <div class="num">31</div>
-        <span class="fmt carrusel">Carrusel 📋</span>
+        <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP LaserJet MFP M236sdw».</strong> Impresión, copia y escaneo. 29 ppm, dúplex, Wi-Fi.</div>
         <div class="brands">HP</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 HP LaserJet MFP M236sdw</summary>
           <div class="pl">
             <div class="pi"><span class="name">HP LaserJet MFP M236sdw</span><span class="sku">9YG09A</span><span class="sto">CCS:206 VLN:383</span></div>
@@ -593,7 +634,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Lo que está pasando con la protección eléctrica en Venezuela».</strong> Análisis del contexto, tendencias de compra, Q3.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 productos de protección</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1800VA</span><span class="sku">NT-1801PRO</span><span class="sto">CCS:9 VLN:28</span></div>
@@ -611,7 +652,7 @@
         <div class="pillar">Inversión</div>
         <div class="topic"><strong>«Inversión vs gasto: laptop con protección».</strong> Dos escenarios: con y sin UPS. Ayuda a tu cliente a proteger su inversión.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo · FORZA</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 FORZA + laptops</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -621,13 +662,13 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Laptop con UPS: ¿inversión o gasto?","frase":"Dos escenarios. Lo único que cambia es si ofreces protección.","nota":"Fondo azul. Laptop + UPS FORZA. Escudo de protección."},{"slide":"Sin protección","texto":"Escenario A: Sin protección. El riesgo es real.","frase":"Cortes y fluctuaciones dañan componentes. Garantía no cubre daños eléctricos.","nota":"Laptop con rayo. Fondo rojo suave. Alerta."},{"slide":"Con protección","texto":"Escenario B: Con UPS FORZA. La laptop está segura.","frase":"Regulación AVR constante. Tiempo para guardar y apagar. El argumento que convence: protege su inversión.","nota":"Laptop + UPS FORZA. Fondo verde suave. Escudo."},{"slide":"Beneficio invisible","texto":"Protección 24/7: incluso cuando no hay apagón.","frase":"Fluctuaciones silentes dañan componentes día tras día. El UPS alarga la vida útil.","nota":"Reloj con escudo. Línea de tiempo, laptop siempre protegida."},{"slide":"Cierre","texto":"Vender protección es cuidar la inversión de tu cliente.","frase":"Un UPS FORZA es la diferencia entre vender un equipo y una solución completa.","nota":"FORZA + SUPRICOM. Laptop con UPS. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="32" onclick="openCopyModal(32, event)">
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="32" onclick="openCopyModal(32, event)">
         <div class="num">32</div>
-        <span class="fmt carrusel">Carrusel 📋</span>
+        <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Smart Tank 580».</strong> Impresión, copia y escaneo. Tinta continua de alto rendimiento.</div>
         <div class="brands">HP</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 HP Smart Tank 580</summary>
           <div class="pl">
             <div class="pi"><span class="name">HP Smart Tank 580</span><span class="sku">1F3Y2A</span><span class="sto">CCS:299 VLN:945</span></div>
@@ -664,7 +705,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic">NEXXT HOME + HAVIT + TP-LINK. Portafolio completo de seguridad. Showcase visual.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 6 cámaras</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -684,7 +725,7 @@
         <div class="pillar">Diagnóstico</div>
         <div class="topic"><strong>«La categoría que tus clientes ya están buscando: cámaras de seguridad».</strong> Demanda, rotación, ticket alto.</div>
         <div class="brands">NEXXT HOME · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 3 cámaras recomendadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -693,6 +734,25 @@
           </div>
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"La categoría que tus clientes ya están buscando: cámaras de seguridad","frase":"Seguridad es prioridad en Venezuela. Si no les ofreces cámaras, las compran en otro lado.","nota":"Fondo azul SUPRICOM. Icono de cámara con signo de demanda creciente (gráfico arriba)."},{"slide":"Demanda real","texto":"Tus clientes llegan al local preguntando por seguridad","frase":"Cámaras, kits, instalación. Es una categoría que rota sola si la tienes en vitrina.","nota":"Cliente preguntando en mostrador. Burbuja: \"¿tienes cámaras?\""},{"slide":"Ticket alto","texto":"Una cámara eleva el ticket promedio de tu venta","frase":"El cliente que compra una cámara vuelve por otra. Y por un NVR. Y por más.","nota":"Ticket de compra con items apilados (cámara → NVR → cableado → instalación)."},{"slide":"Portafolio completo","texto":"¿Interior, exterior, PTZ, con proyector? Tienes para todos","frase":"NEXXT HOME con SKU desde la NHC-O640 (MM106NXT36) hasta la NHC-OP10 PTZ (MM107NXT23).","nota":"Grid de 4 tipos de cámara NEXXT HOME. Diferencias visuales."},{"slide":"Cierre","texto":"Cámaras = rotación. No tenerlas = clientes que se van.","frase":"NEXXT HOME, HAVIT y TP-LINK en SUPRICOM. Pregunta por el portafolio y arma tu vitrina.","nota":"Logos NEXXT HOME, HAVIT, TP-LINK. Estante con cajas de producto. Logo SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="36" onclick="openCopyModal(36, event)">
+        <div class="num">36</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP Smart Tank 581».</strong> Impresión, copia y escaneo. Tinta continua con pantalla LCD. Hasta 18.000 páginas incluidas.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP Smart Tank 581</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP Smart Tank 581</span><span class="sku">4A8D4A</span><span class="sto">CCS:38 VLN:210</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro</span><span class="sku">GT53</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan</span><span class="sku">GT52-C</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Magenta</span><span class="sku">GT52-M</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo</span><span class="sku">GT52-Y</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP Smart Tank 581. Impresión, copia y escaneo. Tinta continua.","frase":"Hasta 18.000 páginas en negro incluidas. Pantalla LCD de 1,2 pulgadas. El costo por página más bajo.","nota":"Fondo blanco. HP Smart Tank 581. Sistema de tinta continua visible. Logos HP + SUPRICOM."},{"slide":"Características","texto":"12 ppm negro, 5 ppm color. Resolución de hasta 4800x1200 dpi.","frase":"Pantalla LCD de 1,2 pulgadas. Hasta 3.000 páginas al mes. Para el cliente que imprime volumen a bajo costo.","nota":"Iconos: velocidad, resolución, pantalla LCD. Check de calidad de impresión."},{"slide":"Tintas","texto":"Sistema de tinta continua: GT53 (negro) y GT52 (color).","frase":"18.000 páginas en negro o 6.000 a color incluidas con la compra. El repuesto que rota constante.","nota":"Botellas de tinta HP GT53 negro (135ml) y GT52 cyan, magenta, yellow (50ml c/u)."},{"slide":"Conectividad","texto":"Wi-Fi, Wi-Fi Direct, USB. Impresión inalámbrica desde cualquier dispositivo.","frase":"HP Smart App, AirPrint, Mopria. Tu cliente configura e imprime desde el celular sin cables.","nota":"Iconos: Wi-Fi, Wi-Fi Direct, USB. Celular con HP Smart App."}]</div>
       </div>
     </div>
 
@@ -705,7 +765,7 @@
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«Router vs Mesh: el argumento de venta para cada presupuesto».</strong> Volumen, margen, según tu cliente.</div>
         <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 10 routers</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -729,7 +789,7 @@
         <div class="pillar">Solución</div>
         <div class="topic"><strong>«El combo que más sube tu ticket promedio: cámara + router + UPS».</strong> En Venezuela, el combo triplica tu ticket.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK / HIKVISION · NEXXT HOME · Linksys · Xiaomi · TP-LINK / FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 Cámaras + Routers + UPS</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -740,21 +800,6 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"El combo que más sube tu ticket promedio: cámara + router + UPS","frase":"En Venezuela, tu cliente necesita los tres. Si le vendes uno, le estás vendiendo menos de lo que necesita.","nota":"Tres iconos (cámara + router + UPS) unidos. Flecha de ticket hacia arriba. Sin logos de marca."},{"slide":"El problema de vender suelto","texto":"Vender una cámara sola = ticket bajo, cliente insatisfecho","frase":"Sin router estable la cámara no transmite. Sin UPS, el apagón la deja ciega. El cliente vuelve a comprar lo que faltó… en otro lado.","nota":"Cámara sola con X roja. Cliente insatisfecho."},{"slide":"El combo que funciona","texto":"Cámara + Router + UPS. Tres productos, una venta, triple ticket.","frase":"Tú eliges las marcas según tu cliente. La fórmula es la misma: los tres juntos, el cliente contento.","nota":"Tres cajas genéricas (sin logos) conectadas. Ticket con 3 items marcados."},{"slide":"Por qué funciona","texto":"El UPS mantiene la cámara y el router encendidos durante cortes","frase":"Con un respaldo de 500VA o más, el ecosistema no se apaga. El cliente sigue vigilando y conectado.","nota":"Diagrama: electricidad → UPS → router + cámara funcionando. Check verde."},{"slide":"Cierre","texto":"Vender el combo es vender 3x más sin esforzarte el doble","frase":"Cámaras: NEXXT HOME, HAVIT, TP-LINK. Routers: HIKVISION, NEXXT, Linksys, Xiaomi, TP-LINK. UPS: FORZA, SMARTBITT, APC, BLUETTI, HAVIT. Todas en SUPRICOM.","nota":"Grid con logos de todas las marcas de cámara, router y UPS. Logo SUPRICOM. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="33" onclick="openCopyModal(33, event)">
-        <div class="num">33</div>
-        <span class="fmt carrusel">Carrusel 📋</span>
-        <div class="pillar">Showcase</div>
-        <div class="topic"><strong>«HP Laser MFP 137fnw».</strong> Imprime, copia, escanea y fax. Multifuncional láser con conectividad completa.</div>
-        <div class="brands">HP</div>
-        <details class="prods" open>
-          <summary>📦 HP Laser MFP 137fnw</summary>
-          <div class="pl">
-            <div class="pi"><span class="name">HP Laser MFP 137fnw</span><span class="sku">4ZB84A</span><span class="sto">CCS:34</span></div>
-            <div class="pi"><span class="name">Tóner HP 105A</span><span class="sku">W1105A</span><span class="sto">—</span></div>
-          </div>
-        </details>
-        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP Laser MFP 137fnw. Imprime, copia, escanea y fax.","frase":"Multifuncional láser con conectividad completa. Para la oficina que lo necesita todo en un solo equipo.","nota":"Fondo blanco. HP Laser MFP 137fnw. Logos HP + SUPRICOM."},{"slide":"Características","texto":"20 ppm, primera página en 8,3 segundos. Alimentador de 40 hojas.","frase":"Resolución 1200x1200 dpi. Ciclo mensual de 10.000 páginas. Rendimiento probado.","nota":"Iconos: 20ppm, velocidad 8,3s, alimentador 40 hojas. Pantalla LCD 2 líneas."},{"slide":"Tóner","texto":"Tóner HP 105A: rendimiento de hasta 1.000 páginas.","frase":"Disponible también en versión de alto rendimiento 105X. El cliente vuelve por el repuesto.","nota":"Tóner HP 105A (W1105A) y 105X (W1105X). Costo por página competitivo."},{"slide":"Conectividad","texto":"Wi-Fi, Ethernet, USB, Wi-Fi Direct. Y fax integrado.","frase":"AirPrint, Mopria, HP Smart App. Tu cliente elige cómo conectarse.","nota":"Iconos: Wi-Fi, Ethernet, USB, fax. Celular con HP Smart App."}]</div>
-      </div>
     </div>
 
     <div class="cal-col">
@@ -766,7 +811,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic">Dato clave sobre conectividad. Visualización educativa.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 3 routers destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -783,7 +828,7 @@
         <div class="pillar">Guía</div>
         <div class="topic"><strong>«4 argumentos para vender cámaras como un experto».</strong> Resolución, visión nocturna, almacenamiento, app.</div>
         <div class="brands">NEXXT HOME · HAVIT · TP-LINK</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 6 cámaras</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT Battery Cam NHC-O640</span><span class="sku">MM106NXT36</span><span class="sto">CCS:33 VLN:82</span></div>
@@ -796,6 +841,22 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"4 argumentos para que tu cliente se lleve la cámara hoy","frase":"Resolución, visión nocturna, almacenamiento, app. Lo que tu cliente necesita escuchar.","nota":"Fondo azul. 4 iconos como argumentos de venta."},{"slide":"Argumento 1: Resolución","texto":"Argumento 1: \"1080p es lo que necesitas. 2K es lo que quieres.\"","frase":"La NHC-I710 (MM106NXT46) graba en 2K QHD. El cliente que la ve en acción, la compra.","nota":"Comparación 1080p vs 2K. Cliente viendo imagen nítida."},{"slide":"Argumento 2: Visión nocturna","texto":"Argumento 2: \"24/7, incluso cuando no hay luz.\"","frase":"La NHC-F610 (MM106NXT95) combina proyector + cámara. El argumento que cierra la venta.","nota":"Cámara de noche con visión infrarroja activada."},{"slide":"Argumento 3: Almacenamiento","texto":"Argumento 3: \"¿Y si te digo que puedes ver lo que pasó hace una semana?\"","frase":"El VIGI NVR1008H de TP-LINK graba hasta 8 cámaras. Vender el NVR es vender un sistema, no un accesorio.","nota":"NVR conectado a cámaras. Línea de tiempo rebobinando."},{"slide":"Argumento 4: App","texto":"Argumento 4: \"Vigila tu negocio desde el celular, estés donde estés.\"","frase":"NEXXT HOME y Tapo tienen apps gratuitas. El cliente que revisa desde su casa, recomienda.","nota":"Celular con app. Dueño de comercio viendo su local desde otro lugar."},{"slide":"Cierre","texto":"El que sabe argumentar, vende más. Y tú sabes.","frase":"NEXXT HOME y TP-LINK en SUPRICOM. Pregunta por el portafolio y las fichas técnicas.","nota":"Logos NEXXT HOME, TP-LINK. Mano estrechada. Logo SUPRICOM."}]</div>
       </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="33" onclick="openCopyModal(33, event)">
+        <div class="num">33</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP Laser MFP 137fnw».</strong> Imprime, copia, escanea y fax. Multifuncional láser con conectividad completa.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP Laser MFP 137fnw</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP Laser MFP 137fnw</span><span class="sku">4ZB84A</span><span class="sto">CCS:34</span></div>
+            <div class="pi"><span class="name">Tóner HP 105A</span><span class="sku">W1105A</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP Laser MFP 137fnw. Imprime, copia, escanea y fax.","frase":"Multifuncional láser con conectividad completa. Para la oficina que lo necesita todo en un solo equipo.","nota":"Fondo blanco. HP Laser MFP 137fnw. Logos HP + SUPRICOM."},{"slide":"Características","texto":"20 ppm, primera página en 8,3 segundos. Alimentador de 40 hojas.","frase":"Resolución 1200x1200 dpi. Ciclo mensual de 10.000 páginas. Rendimiento probado.","nota":"Iconos: 20ppm, velocidad 8,3s, alimentador 40 hojas. Pantalla LCD 2 líneas."},{"slide":"Tóner","texto":"Tóner HP 105A: rendimiento de hasta 1.000 páginas.","frase":"Disponible también en versión de alto rendimiento 105X. El cliente vuelve por el repuesto.","nota":"Tóner HP 105A (W1105A) y 105X (W1105X). Costo por página competitivo."},{"slide":"Conectividad","texto":"Wi-Fi, Ethernet, USB, Wi-Fi Direct. Y fax integrado.","frase":"AirPrint, Mopria, HP Smart App. Tu cliente elige cómo conectarse.","nota":"Iconos: Wi-Fi, Ethernet, USB, fax. Celular con HP Smart App."}]</div>
+      </div>
     </div>
 
     <div class="cal-col">
@@ -807,7 +868,7 @@
         <div class="pillar">Ecosistema</div>
         <div class="topic"><strong>«Todo lo que tu cliente necesita para no perder vigilancia ni conectividad».</strong> El vocero arma el combo.</div>
         <div class="brands">NEXXT HOME · HIKVISION · Linksys · FORZA</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 productos del combo</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span><span class="sto">CCS:15 VLN:278</span></div>
@@ -825,7 +886,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«3 formas de vender NEXXT HOME (de menor a mayor ticket)».</strong> Básico, medio, ecosistema completo.</div>
         <div class="brands">NEXXT HOME</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 15 productos NEXXT HOME</summary>
           <div class="pl">
             <div class="pi"><span class="name">Smart Plug RGB NHP-S610</span><span class="sku">MM106NXT68</span><span class="sto">CCS:3 VLN:2</span></div>
@@ -846,6 +907,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"3 formas de vender NEXXT HOME según lo que tu cliente quiere gastar","frase":"Venta rápida, ticket medio o ecosistema completo. Tú eliges el argumento.","nota":"Fondo azul. Tres escalones: básico, medio, completo."},{"slide":"Perfil venta rápida","texto":"Opción 1: Venta rápida, cliente que no quiere pensar","frase":"NHC-O640 exterior (MM106NXT36) + NHC-I710 interior (MM106NXT46). Dos productos, un solo argumento: \"vigila todo.\"","nota":"Cámara exterior + interior. Relámpago de venta rápida."},{"slide":"Perfil ticket medio","texto":"Opción 2: Subes el ticket con domótica básica","frase":"Enchufe NHP-S610 (MM106NXT68) + bombilla NHB-C110 (MM106NXT71). \"Controla luces y equipos desde el celular.\"","nota":"Enchufe + bombilla inteligente. Ticket con items extras."},{"slide":"Perfil ecosistema completo","texto":"Opción 3: Ecosistema completo, máximo ticket","frase":"Cámaras + cerradura NHS-D100 (MM106NXT56) + cinta LED NHB-S613 (MM106NXT83). El cliente que compra todo, no se va.","nota":"Todos los productos NEXXT HOME conectados. Ticket alto."},{"slide":"Cierre","texto":"Una sola marca para tres niveles de venta","frase":"NEXXT HOME te da entrada, crecimiento y techo. ¿Cuál le ofreces hoy a tu cliente?","nota":"Grid productos NEXXT HOME. Escalera ascendente. Logo SUPRICOM."}]</div>
       </div>
+
     </div>
 
     <div class="cal-col">
@@ -857,7 +919,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«El futuro de la conectividad».</strong> WiFi 6, MESH, hogares inteligentes. Hacia dónde va.</div>
         <div class="brands">HIKVISION · NEXXT HOME · Linksys · Xiaomi</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 7 routers WiFi 6 / Mesh</summary>
           <div class="pl">
             <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">CCS:467 VLN:5,061</span></div>
@@ -878,7 +940,7 @@
         <div class="pillar">Inversión</div>
         <div class="topic"><strong>«Lo que pierdes si no tienes cámaras y routers en tu vitrina».</strong> Categorías de alta rotación que no pueden faltar.</div>
         <div class="brands">NEXXT HOME · HIKVISION · Linksys</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 3 productos destacados</summary>
           <div class="pl">
             <div class="pi"><span class="name">NEXXT PTZ NHC-OP10</span><span class="sku">MM107NXT23</span><span class="sto">CCS:15 VLN:278</span></div>
@@ -886,7 +948,26 @@
             <div class="pi"><span class="name">Linksys Velop AX2900</span><span class="sku">MX20EC3</span><span class="sto">CCS:94 VLN:1,447</span></div>
           </div>
         </details>
-        <div class="copy-data" style="display:none">[{"slide":"Post — Lo que pierdes si no tienes cámaras y routers en tu vitrina","texto":"Lo que pierdes si no tienes cámaras y routers en tu vitrina","frase":"Tener el portafolio es el primer paso. Tenerlo visible es lo que convierte visitas en ventas. Un cliente entra a tu local buscando una cámara. Si no la tienes, la busca en otro lado. Y ese cliente no vuelve solo por la cámara: vuelve por todo lo que necesite después. Cámaras y routers son categorías de alta rotación. El cliente que compra una cámara vuelve por el NVR, por otra cámara, por cableado. El que compra un router vuelve por el repetidor, por el switch, por el Mesh. No tenerlas en vitrina no es \"ahorrar espacio en inventario\". Es perder ventas recurrentes.","nota":"Cierre: ¿Ya tienes NEXXT HOME, HIKVISION y Linksys en tu vitrina? Pregunta por el portafolio en Caracas y Valencia."}]</div>
+        <div class="copy-data" style="display:none">[{"slide":"Post — Lo que pierdes si no tienes cámaras y routers en tu vitrina","texto":"Lo que pierdes si no tienes cámaras y routers en tu vitrina","frase":"Tener el portafolio es el primer paso. Tenerlo visible es lo que convierte visitas en ventas. Un cliente entra a tu local buscando una cámara. Si no la tienes, la busca en otro lado. Y ese cliente no vuelve solo por la cámara: vuelve por todo lo que necesite después. Cámaras y routers son categorías de alta rotación. El cliente que compra una cámara vuelve por el NVR, por otra cámara, por cableado. El que compra un router vuelve por el repetidor, por el switch, por el Mesh. No tenerlas en vitrina no es \"ahorrar espacio en inventario\". Es perder ventas recurrentes.","nota":"Cierre: ¿Ya tienes NEXXT HOME, HIKVISION y Linksys en tu vitrina? Pregunta por el portafolio en Caracas y Valencia."}]        </div>
+      </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="42" onclick="openCopyModal(42, event)">
+        <div class="num">42</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP Smart Tank 790».</strong> Impresión, copia, escaneo, fax. Tinta continua de alta capacidad. Pantalla táctil de 3 pulgadas.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP Smart Tank 790</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP Smart Tank 790</span><span class="sku">4WF66A</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro</span><span class="sku">GT53</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan</span><span class="sku">GT52-C</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Magenta</span><span class="sku">GT52-M</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo</span><span class="sku">GT52-Y</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP Smart Tank 790. Impresión, copia, escaneo, fax. Tinta continua de alta capacidad.","frase":"Hasta 12.000 páginas en negro incluidas. Pantalla táctil de 3 pulgadas, dúplex automático y alimentador de 35 hojas.","nota":"Fondo blanco. HP Smart Tank 790. Sistema de tinta continua. Logos HP + SUPRICOM."},{"slide":"Características","texto":"15 ppm negro, 9 ppm color (ISO). Hasta 23 ppm negro en borrador.","frase":"Pantalla táctil MGD de 3 pulgadas. Bandeja de 250 hojas. Hasta 6.000 páginas al mes.","nota":"Iconos: 15ppm negro, 9ppm color, pantalla táctil 3 pulgadas."},{"slide":"Dúplex + ADF","texto":"Impresión dúplex automática y alimentador automático de 35 hojas.","frase":"Ahorra papel con impresión a doble cara. Procesa lotes de documentos sin supervisión.","nota":"Iconos: dúplex automático, ADF 35 hojas."},{"slide":"Conectividad","texto":"Wi-Fi doble banda, Ethernet, USB, Bluetooth LE, fax.","frase":"Apple AirPrint, Mopria, HP Smart App, Wi-Fi Direct. Conectividad completa para cualquier entorno.","nota":"Iconos: Wi-Fi, Ethernet, USB, Bluetooth. Celular con HP Smart App."}]</div>
       </div>
     </div>
 
@@ -915,7 +996,7 @@
         <div class="pillar">Showcase</div>
         <div class="topic">MSI Mini PC. Potencia compacta. Por qué los negocios migran a este formato.</div>
         <div class="brands">MSI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 MSI Mini PC</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -933,7 +1014,7 @@
         <div class="pillar">Alternativa</div>
         <div class="topic"><strong>«MSI Cubi: lo que una Mini PC puede hacer por tu negocio».</strong> Recepción, kiosco, estación de trabajo.</div>
         <div class="brands">MSI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 MSI Mini PC</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -944,6 +1025,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"MSI Cubi: lo que una Mini PC puede hacer por tu negocio","frase":"Compacta, silenciosa, potente. Una categoría que tus clientes todavía no saben que necesitan.","nota":"MSI Cubi junto a una torre tradicional. Comparación de tamaño."},{"slide":"Espacio","texto":"¿El cliente tiene poco espacio en su escritorio?","frase":"La MSI Cubi 5 (12M-015BUS) cabe en cualquier lado. Más espacio, más orden.","nota":"Escritorio con torre grande vs escritorio con MSI Cubi."},{"slide":"Recepción","texto":"Recepción, kiosco, punto de venta. El escenario perfecto.","frase":"La Cubi consume menos, se ve mejor y no parece una PC. Ideal para cualquier mostrador.","nota":"MSI Cubi en mostrador de recepción."},{"slide":"Potencia","texto":"¿Necesita potencia real en formato compacto?","frase":"La Cubi Z AI R7 (8M-024BUS-BAR78) corre edición, diseño y multitarea. Sin ocupar medio escritorio.","nota":"MSI Cubi Z AI con monitor. Profesional trabajando."},{"slide":"Cierre","texto":"Mini PC = nueva categoría, nuevo margen, nuevo argumento.","frase":"MSI Cubi en SUPRICOM. Pregunta por los 4 modelos y empieza a mostrarlos.","nota":"Grid 4 modelos MSI Cubi. Logo SUPRICOM."}]</div>
       </div>
+
     </div>
 
     <div class="cal-col">
@@ -955,7 +1037,7 @@
         <div class="pillar">Visión</div>
         <div class="topic"><strong>«Usos de BLUETTI en Venezuela que quizás no habías considerado».</strong> Oficinas, clínicas, talleres, eventos.</div>
         <div class="brands">BLUETTI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 6 BLUETTI</summary>
           <div class="pl">
             <div class="pi"><span class="name">EB3A · Taller/Emprendimiento</span><span class="sku">BLU-EB3A</span><span class="sto">—</span></div>
@@ -975,7 +1057,7 @@
         <div class="pillar">Sinergia</div>
         <div class="topic"><strong>«MSI + BLUETTI: trabaja sin interrupciones».</strong> Compacto + ininterrumpido. Productividad sin límites.</div>
         <div class="brands">MSI · BLUETTI · FORZA</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 3 productos del combo</summary>
           <div class="pl">
             <div class="pi"><span class="name">MSI Cubi 5 i7</span><span class="sku">CUBI512M016B</span><span class="sto">CCS:30 VLN:23</span></div>
@@ -984,6 +1066,22 @@
           </div>
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"MSI + BLUETTI: la sinergia que tu cliente necesita","frase":"Compacto + ininterrumpido. Dos productos que juntos duplican tu ticket.","nota":"MSI Cubi + BLUETTI conectados. Flecha de sinergia."},{"slide":"El problema","texto":"Una Mini PC sin respaldo se apaga en el peor momento","frase":"Sin BLUETTI, la Cubi se queda ciega en un corte. Frustración y devolución.","nota":"MSI Cubi con signo de apagado."},{"slide":"La solución","texto":"MSI Cubi + BLUETTI AC70P: productividad sin límites","frase":"Para oficinas y recepciones que no pueden parar. Ticket duplicado.","nota":"MSI Cubi + BLUETTI AC70P. Check de compatibilidad."},{"slide":"Upsell","texto":"El cliente que compra una Cubi es candidato a BLUETTI","frase":"No es vender más. Es vender completo. \"¿Y si se va la luz mientras trabajas?\"","nota":"Vendedor haciendo la pregunta al cliente."},{"slide":"Cierre","texto":"MSI + BLUETTI. Véndelos juntos y duplica el ticket.","frase":"MSI Cubi y BLUETTI en SUPRICOM. Pregunta por el combo.","nota":"MSI + BLUETTI + SUPRICOM. Fondo blanco."}]</div>
+      </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="43" onclick="openCopyModal(43, event)">
+        <div class="num">43</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP LaserJet M111cw».</strong> Impresión láser compacta. La más pequeña de HP. Wi-Fi, 18 ppm.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP LaserJet M111cw</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP LaserJet M111cw</span><span class="sku">1Y7D2A</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tóner HP 150A</span><span class="sku">W1500A</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP LaserJet M111cw. Impresión láser compacta.","frase":"La impresora láser más pequeña de HP. 18 ppm, Wi-Fi integrado y calidad profesional.","nota":"Fondo blanco. HP LaserJet M111cw. Logos HP + SUPRICOM."},{"slide":"Características","texto":"18 ppm negro (ISO), primera página en 8,5 segundos.","frase":"Resolución de hasta 600x600 dpi. Ciclo mensual de 8.000 páginas. Diseño ultracompacto (346x189x159 mm).","nota":"Iconos: 18ppm, primera página 8,5s, 600x600 dpi."},{"slide":"Tóner","texto":"Tóner HP 150A: rendimiento de hasta 500 páginas.","frase":"Versión de alto rendimiento 150X disponible con 1.000 páginas. El repuesto que rota en mostrador.","nota":"Tóner HP 150A (W1500A). Costo por página competitivo."},{"slide":"Conectividad","texto":"Wi-Fi 802.11b/g/n 2.4GHz, USB 2.0 de alta velocidad.","frase":"Apple AirPrint, Mopria, HP Smart App, Wi-Fi Direct. Impresión inalámbrica sencilla desde cualquier dispositivo.","nota":"Iconos: Wi-Fi, USB. Celular con HP Smart App."}]</div>
       </div>
     </div>
 
@@ -996,7 +1094,7 @@
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«¿Cuánto dura un UPS en un apagón?».</strong> Clave para dimensionar correctamente.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 6 UPS por capacidad</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA ~10min</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -1016,7 +1114,7 @@
         <div class="pillar">Perfil</div>
         <div class="topic"><strong>«Protección para cada presupuesto y cada riesgo».</strong> Gama entrada, media, premium. Cómo guiar al cliente.</div>
         <div class="brands">FORZA · SMARTBITT · APC · BLUETTI · HAVIT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 7 por gama</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 500VA · Entrada</span><span class="sku">NT-511</span><span class="sto">VLN:184</span></div>
@@ -1030,6 +1128,8 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Protección para cada presupuesto y cada riesgo","frase":"Gama entrada, media, premium. Así guías a tu cliente sin perder la venta.","nota":"Tres escalones: entrada, media, premium."},{"slide":"Entrada","texto":"Gama entrada: protección básica, rotación alta","frase":"FORZA UPS 500VA. Para el cliente que quiere lo mínimo. Venta rápida.","nota":"FORZA entrada. Flecha de rotación."},{"slide":"Media","texto":"Gama media: equilibrio entre precio y prestaciones","frase":"APC Back-UPS 650VA, FORZA UPS 1000VA o SMARTBITT UPS 1200VA. El punto dulce.","nota":"Los 3 productos lado a lado."},{"slide":"Premium","texto":"Gama premium: máximo respaldo, mejor margen","frase":"APC Smart-UPS 1500VA, BLUETTI AC180 o BLUETTI AC200P. Para el que no se arriesga.","nota":"APC + BLUETTI lado a lado."},{"slide":"Cierre","texto":"Tres gamas, una conclusión: siempre hay opción para cada cliente.","frase":"FORZA, SMARTBITT, APC, BLUETTI y HAVIT en SUPRICOM. Pregunta por el portafolio completo.","nota":"Grid 5 marcas con indicador de gama. Logo SUPRICOM."}]</div>
       </div>
+
+
     </div>
 
     <div class="cal-col">
@@ -1041,7 +1141,7 @@
         <div class="pillar">Cierre</div>
         <div class="topic"><strong>«Prepara tu inventario para Q3».</strong> El vocero comparte su visión de cierre de mes.</div>
         <div class="brands">BLUETTI · FORZA · MSI</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 productos clave Q3</summary>
           <div class="pl">
             <div class="pi"><span class="name">BLUETTI AC180</span><span class="sku">BLU-AC180</span><span class="sto">—</span></div>
@@ -1059,7 +1159,7 @@
         <div class="pillar">Error común</div>
         <div class="topic"><strong>«El error de subdimensionar la protección en Venezuela».</strong> Cuando los cortes duran horas, un UPS pequeño no basta.</div>
         <div class="brands">FORZA · SMARTBITT</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 4 soluciones dimensionadas</summary>
           <div class="pl">
             <div class="pi"><span class="name">FORZA UPS 1000VA · PC oficina</span><span class="sku">NT-1011</span><span class="sto">VLN:49</span></div>
@@ -1068,7 +1168,26 @@
             <div class="pi"><span class="name">BLUETTI AC200P · Respaldo total</span><span class="sku">BLU-AC200P</span><span class="sto">—</span></div>
           </div>
         </details>
-        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"El error de subdimensionar la protección en Venezuela","frase":"Un UPS pequeño para cortes de horas. El error que termina en reclamo.","nota":"UPS pequeño vs necesidad grande. Desbalance."},{"slide":"El error","texto":"Tu cliente compra un UPS de 600VA para un equipo de 500W","frase":"Se sobrecarga y falla. Frustración y devolución asegurada.","nota":"UPS pequeño conectado a PC grande. Warning."},{"slide":"La regla","texto":"Regla simple: el UPS debe tener 2x el consumo del equipo","frase":"Para 300W, recomienda 600VA o más. Cliente satisfecho.","nota":"Fórmula visual: 300W → 600VA+. Check."},{"slide":"La solución","texto":"En Venezuela los cortes duran horas, no minutos.","frase":"FORZA UPS 1000VA da ~20 min. BLUETTI AC200P da respaldo de horas.","nota":"Línea de tiempo: duración de corte vs respaldo."},{"slide":"Cierre","texto":"Dimensionar bien = cero devoluciones, cliente satisfecho.","frase":"FORZA, SMARTBITT y BLUETTI en SUPRICOM. Pide las fichas técnicas.","nota":"FORZA + SMARTBITT + BLUETTI. Logo SUPRICOM."}]</div>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"El error de subdimensionar la protección en Venezuela","frase":"Un UPS pequeño para cortes de horas. El error que termina en reclamo.","nota":"UPS pequeño vs necesidad grande. Desbalance."},{"slide":"El error","texto":"Tu cliente compra un UPS de 600VA para un equipo de 500W","frase":"Se sobrecarga y falla. Frustración y devolución asegurada.","nota":"UPS pequeño conectado a PC grande. Warning."},{"slide":"La regla","texto":"Regla simple: el UPS debe tener 2x el consumo del equipo","frase":"Para 300W, recomienda 600VA o más. Cliente satisfecho.","nota":"Fórmula visual: 300W → 600VA+. Check."},{"slide":"La solución","texto":"En Venezuela los cortes duran horas, no minutos.","frase":"FORZA UPS 1000VA da ~20 min. BLUETTI AC200P da respaldo de horas.","nota":"Línea de tiempo: duración de corte vs respaldo."},{"slide":"Cierre","texto":"Dimensionar bien = cero devoluciones, cliente satisfecho.","frase":"FORZA, SMARTBITT y BLUETTI en SUPRICOM. Pide las fichas técnicas.","nota":"FORZA + SMARTBITT + BLUETTI. Logo SUPRICOM."}]        </div>
+      </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="44" onclick="openCopyModal(44, event)">
+        <div class="num">44</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP Smart Tank 520».</strong> Impresión, copia y escaneo. Tinta continua económica. Hasta 12.000 páginas incluidas.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP Smart Tank 520</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP Smart Tank 520</span><span class="sku">1F3W4A</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro</span><span class="sku">GT53</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan</span><span class="sku">GT52-C</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Magenta</span><span class="sku">GT52-M</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo</span><span class="sku">GT52-Y</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP Smart Tank 520. Impresión, copia y escaneo. Tinta continua económica.","frase":"Hasta 12.000 páginas en negro incluidas. La opción más accesible del portafolio HP Smart Tank.","nota":"Fondo blanco. HP Smart Tank 520. Sistema de tinta continua. Logos HP + SUPRICOM."},{"slide":"Características","texto":"12 ppm negro, 5 ppm color (ISO). Hasta 22 ppm negro en borrador.","frase":"Resolución de hasta 4800x1200 dpi optimizados. Bandeja de 100 hojas. Hasta 3.000 páginas al mes.","nota":"Iconos: 12ppm negro, 5ppm color, bandeja 100 hojas."},{"slide":"Tintas","texto":"Sistema de tinta continua: GT53 (negro) y GT52 (color).","frase":"12.000 páginas en negro o 6.000 a color incluidas. El costo por página más bajo del portafolio.","nota":"Botellas de tinta HP GT53 negro (135ml) y GT52 color (50ml c/u)."},{"slide":"Conectividad","texto":"USB 2.0 de alta velocidad.","frase":"Conexión por cable para escritorios fijos. Simple, confiable, sin complicaciones de red.","nota":"Iconos: USB."}]</div>
       </div>
     </div>
 
@@ -1081,7 +1200,7 @@
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Q3: lo que viene en protección, conectividad y cómputo».</strong> Reflexión sobre el mercado.</div>
         <div class="brands">Todas</div>
-        <details class="prods" open>
+        <details class="prods">
           <summary>📦 Categorías clave</summary>
           <div class="pl">
             <div class="pi"><span class="name">BLUETTI · Estaciones de energía</span><span class="sku">BLU-AC180 + AC200P</span></div>
@@ -1100,6 +1219,22 @@
         <div class="topic"><strong>«La independencia energética sigue siendo la tranquilidad de tu cliente».</strong> Cierre del mes.</div>
         <div class="brands">—</div>
         <div class="copy-data" style="display:none">[{"slide":"Post","texto":"La independencia energética sigue siendo la tranquilidad de tu cliente","frase":"Julio fue el mes de la protección. BLUETTI, FORZA, SMARTBITT, APC, HAVIT. Cada uno con su perfil, cada uno con su argumento. Pero el mensaje no cambia: tu cliente quiere saber que su negocio no se apaga cuando la luz se va. Eso es lo que vendes. No un aparato. Tranquilidad. Cerramos julio. Agosto viene con más.","nota":"Cierre: ¿Ya tienes todo listo para Q3? Pregunta por los portafolios en Caracas y Valencia."}]</div>
+      </div>
+
+      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="41" onclick="openCopyModal(41, event)">
+        <div class="num">41</div>
+        <span class="fmt hp">HP</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«HP LaserJet Pro 4003dw».</strong> Impresión láser rápida. 42 ppm, dúplex automático, alimentador de 350 hojas.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 HP LaserJet Pro 4003dw</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HP LaserJet Pro 4003dw</span><span class="sku">—</span><span class="sto">—</span></div>
+            <div class="pi"><span class="name">Tóner HP 151A</span><span class="sku">W1510A</span><span class="sto">—</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"HP LaserJet Pro 4003dw. Impresión láser rápida.","frase":"42 ppm, dúplex automático, bandeja de 350 hojas. Para el cliente que imprime sin esperar.","nota":"Fondo blanco. HP LaserJet Pro 4003dw. Logos HP + SUPRICOM."},{"slide":"Características","texto":"Rendimiento superior: 42 ppm, primera página en 6,2 segundos.","frase":"Bandeja de 350 hojas. Ciclo mensual de 80.000 páginas. Construida para alto volumen.","nota":"Iconos: 42ppm, dúplex, bandeja 350 hojas. Pantalla LCD."},{"slide":"Tóner","texto":"Tóner HP 151A: rendimiento de hasta 3.500 páginas.","frase":"También en versión de alto rendimiento 151X (9.800 páginas). Menos cambios, más productividad.","nota":"Tóner HP 151A (W1510A) y 151X (W1510X). Costo por página optimizado."},{"slide":"Conectividad","texto":"Wi-Fi doble banda, Ethernet Gigabit, USB. Y HP Smart App.","frase":"AirPrint, Mopria. Integración perfecta en cualquier red corporativa.","nota":"Iconos: Wi-Fi, Ethernet, USB. Celular con HP Smart App."}]</div>
       </div>
     </div>
 
@@ -1149,6 +1284,7 @@ document.querySelectorAll('[data-filter]').forEach(f => {
     document.querySelectorAll('.piece').forEach(p => {
       if (v === 'all') { p.style.display = ''; return; }
       if (v === 've') { p.style.display = p.querySelector('.ve-badge') ? '' : 'none'; return; }
+      if (v === 'hp') { p.style.display = p.dataset.brand === 'hp' ? '' : 'none'; return; }
       p.style.display = p.dataset.format === v ? '' : 'none';
     });
   });
@@ -1251,7 +1387,15 @@ const CAPTIONS = {
   "25": "¿Cuánto dura realmente un UPS en un apagón? Una venta mal dimensionada es una devolución segura.\n\nFORZA NT-511 de 500VA: 18 minutos. Tiempo justo para guardar y apagar. Protección básica que más rota.\n\nFORZA NT-1011 de 1000VA: 32 minutos. Para el cliente que necesita terminar su trabajo sin prisas. El punto dulce de la categoría.\n\n¿Y cuando 32 minutos no alcanzan? Ahí entran las estaciones de energía BLUETTI. No son un UPS, son otra categoría: horas de respaldo para clínicas, talleres y oficinas que no pueden parar. Lo complementan, no lo reemplazan.\n\nCada cliente tiene un perfil y cada perfil su solución ideal. UPS para minutos, BLUETTI para horas. Si dimensionas bien, cero devoluciones.\n\nEn SUPRICOM trabajamos al mayor con dueños de comercio. Tenemos todas las capacidades.\n\nGuarda este video. Escríbenos al DM con la palabra \"DURACION\" y te enviamos el portafolio al mayor.\n\n#proteccionelectrica #upsvenezuela #dimensionamiento #mayoristatecnologia #SUPRICOM",
   "31": "HP LaserJet MFP M236sdw. 29 ppm, dúplex automático, alimentador de 40 hojas y Wi-Fi de doble banda. Una multifuncional láser que resuelve impresión, copia y escaneo. Tóner HP 136A: rendimiento de hasta 1.150 páginas. Ideal para el cliente que necesita volumen sin complicaciones. Disponible en Caracas y Valencia.\n\n#HP #LaserJet #impresoras #B2BVenezuela #mayoristatecnologia",
   "32": "HP Smart Tank 580. Impresión, copia y escaneo con sistema de tinta continua. Hasta 18.000 páginas en negro incluidas. Costo por página imbatible. Conectividad Wi-Fi y HP Smart App. Ideal para el cliente que imprime volumen a bajo costo. Disponible en Caracas y Valencia.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
-  "33": "HP Laser MFP 137fnw. Multifuncional láser con impresión, copia, escaneo y fax. 20 ppm, alimentador de 40 hojas, conectividad Wi-Fi y Ethernet. Tóner HP 105A con rendimiento de hasta 1.000 páginas. La solución completa para la oficina que lo necesita todo en un solo equipo. Disponible en Caracas y Valencia.\n\n#HP #LaserJet #impresoras #multifuncional #B2BVenezuela #mayoristatecnologia"
+  "33": "HP Laser MFP 137fnw. Multifuncional láser con impresión, copia, escaneo y fax. 20 ppm, alimentador de 40 hojas, conectividad Wi-Fi y Ethernet. Tóner HP 105A con rendimiento de hasta 1.000 páginas. La solución completa para la oficina que lo necesita todo en un solo equipo. Disponible en Caracas y Valencia.\n\n#HP #LaserJet #impresoras #multifuncional #B2BVenezuela #mayoristatecnologia",
+  "34": "HP LaserJet Pro MFP 4103fdw. Impresión láser profesional con 40 ppm, dúplex automático, alimentador de 50 hojas y seguridad HP Wolf Security. Tóner HP 151A con rendimiento de hasta 3.500 páginas o 151X con 9.800 páginas. Para el cliente que imprime sin parar en entornos exigentes. Disponible en Caracas y Valencia.\n\n#HP #LaserJet #impresoras #B2BVenezuela #mayoristatecnologia",
+  "35": "HP Color LaserJet Pro MFP 4303fdw. Impresión a color profesional con 33 ppm en color y negro, dúplex automático y pantalla táctil. Sistema de 4 tóners HP 209A (negro W2090A, cyan W2091A, magenta W2092A, amarillo W2093A). Para el cliente que imprime con impacto visual. Disponible en Caracas y Valencia.\n\n#HP #ColorLaserJet #impresoras #B2BVenezuela #mayoristatecnologia",
+  "36": "HP Smart Tank 581. Impresión, copia y escaneo con sistema de tinta continua. Hasta 18.000 páginas en negro incluidas. Pantalla LCD de 1,2 pulgadas. Tintas HP GT53 (negro) y GT52 (color). El costo por página más bajo del portafolio HP. Disponible en Caracas y Valencia.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
+  "37": "HP Smart Tank 530. Impresión, copia y escaneo con sistema de tinta continua de entrada. Hasta 15.000 páginas en negro incluidas. Tintas HP GT53 (negro) y GT52 (color). Diseño compacto, Wi-Fi integrado. Para el cliente que busca el costo por página más bajo. Disponible en Caracas y Valencia.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
+  "38": "HP LaserJet Pro M141w. Impresión láser compacta con 21 ppm, Wi-Fi integrado y diseño que ahorra espacio. Tóner HP 150A con rendimiento de hasta 1.000 páginas. La solución de entrada para el cliente que busca una impresora láser confiable sin ocupar espacio. Disponible próximamente.\n\n#HP #LaserJet #impresoras #B2BVenezuela #mayoristatecnologia",
+  "39": "HP Smart Tank 583. Impresión, copia y escaneo con sistema de tinta continua. Hasta 18.000 páginas en negro incluidas. Conectividad Wi-Fi y pantalla LCD. Tintas HP GT53 (negro) y GT52 (color). Para el cliente que imprime volumen a bajo costo. Disponible próximamente.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
+  "40": "HP Smart Tank 720. Impresión, copia y escaneo con sistema de tinta continua de alto volumen. Hasta 18.000 páginas en negro incluidas. Pantalla LCD de 2,2 pulgadas y conectividad Ethernet. Tintas HP GT53 (negro) y GT52 (color). Para demanda media-alta. Disponible próximamente.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
+  "41": "HP LaserJet Pro 4003dw. Impresión láser rápida con 42 ppm, dúplex automático y bandeja de 350 hojas. Tóner HP 151A con rendimiento de hasta 3.500 páginas o 151X con 9.800 páginas. Para el cliente que imprime sin esperar en entornos de alto volumen. Disponible próximamente.\n\n#HP #LaserJet #impresoras #B2BVenezuela #mayoristatecnologia"
 };
 
 // ─── EXPAND/COLLAPSE (non-copy pieces) ───
@@ -1335,7 +1479,12 @@ const DRIVE_FOLDERS = {
    29: "1OJQdha2nLgMFdEVhp03kyYimZVnOLmCf",
   31: "1gLkZ14C2EhXfd4Pef4HYjjTX6PHPFVxq",
   32: "1pwfkqoK7ECHimCg3iguQBoHWUM804TzE",
-  33: "1riv-bjK7yr60yGlftm14mFvVk0fCkDrc"
+    33: "1riv-bjK7yr60yGlftm14mFvVk0fCkDrc",
+      36: "1oOIg3ixQX1ANMjdHZtxbqXB7QFR5z03z",
+      41: "1S7Ru2g7e5-eRzjuusgwJUyY-qJ1kgcEz",
+      42: "1xpjQyNnDORbcrCWmL6tGuzDgC-27OOlK",
+      43: "1DXVQ1EIt5CbYtZoR5MNmbFIEWwCpfJK3",
+      44: "1oUfGaAbp_VGmt9TBzyor91S4YUt48PgJ"
 };
 
 function openDriveFolder() {
@@ -1376,6 +1525,24 @@ function showToast(msg) {
   clearTimeout(t._timer);
   t._timer = setTimeout(() => t.classList.remove('show'), 3000);
 }
+
+// ─── DARK MODE ───
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? '' : 'dark');
+  localStorage.setItem('theme', isDark ? '' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+}
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = saved ? saved === 'dark' : prefersDark;
+  if (useDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeBtn').textContent = '☀️';
+  }
+})();
 
 // ─── CLOSE MODAL ON ESC ───
 document.addEventListener('keydown', e => {
