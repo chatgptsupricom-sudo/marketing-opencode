@@ -369,6 +369,22 @@
   .month-content { display: block; }
   .month-content.hidden { display: none; }
 
+  /* ─── EMAIL PANEL ─── */
+  .email-panel { padding: 4px 0; }
+  .email-panel h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--primary); }
+  .email-panel .sub { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+  .email-card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 16px; overflow: hidden; }
+  .email-card .ec-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--gradient-section); font-weight: 600; font-size: 14px; }
+  .email-card .ec-head .badge { font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 700; }
+  .email-card .ec-head .badge.ok { background: var(--success); color: #fff; }
+  .email-card .ec-head .badge.pending { background: var(--primary-light); color: #fff; }
+  .email-card .ec-body { padding: 14px 16px; }
+  .email-card .ec-body .subj { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .email-card .ec-body .subj::before { content: '✉️ '; }
+  .email-card .ec-body .msg { font-size: 13px; line-height: 1.7; color: var(--text); white-space: pre-wrap; font-family: inherit; }
+  .email-card .ec-body .img-sug { font-size: 12px; color: var(--text-light); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+  .email-card .ec-body .img-sug strong { color: var(--text); }
+
   /* ─── DESIGN PANEL ─── */
   #designPanel {
     position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
@@ -428,6 +444,7 @@
   <button class="mtab" data-month="2026-10">Octubre</button>
   <button class="mtab" data-month="2026-11">Noviembre</button>
   <button class="mtab" data-month="2026-12">Diciembre</button>
+  <button class="mtab" data-month="email" style="margin-left:auto;border:1px solid var(--primary-light);color:var(--primary-light)">📧 Email</button>
 </div>
 
 <div class="month-content" id="mc-2026-07">
@@ -1269,6 +1286,90 @@
 <div class="month-content hidden" id="mc-2026-11"><div class="grid-placeholder" id="grid-2026-11"></div></div>
 <div class="month-content hidden" id="mc-2026-12"><div class="grid-placeholder" id="grid-2026-12"></div></div>
 
+<div class="month-content hidden" id="mc-email">
+<div class="email-panel">
+  <h2>📧 Email Marketing</h2>
+  <div class="sub">2 envíos por semana · Alineado al plan de contenido</div>
+
+  <div class="email-card">
+    <div class="ec-head"><span>S2 · Jue 23/07</span><span class="badge pending">Pendiente</span></div>
+    <div class="ec-body">
+      <div class="subj">¿Estás vendiendo el combo que tu cliente realmente necesita?</div>
+      <div class="msg">Tu cliente no necesita un producto. Necesita tres.
+
+Cámara + Router + UPS. Ese es el combo que sube tu ticket promedio y que tu cliente va a agradecer.
+
+📷 La cámara sin internet no transmite.
+📡 El router sin UPS se apaga en el primer corte.
+⚡ El UPS sin nada que proteger es un gasto que no se entiende.
+
+Cuando vendes los tres juntos, no estás vendiendo tres productos. Estás vendiendo tranquilidad. Tu cliente sabe que su negocio está vigilado, conectado y respaldado.
+
+NEXXT HOME tiene el portafolio de cámaras más completo. HIKVISION y Linksys cubren redes. FORZA, SMARTBITT, APC y BLUETTI protegen todo.
+
+Disponible en Caracas y Valencia.
+
+SUPRICOM. Tu mayorista de confianza.</div>
+      <div class="img-sug"><strong>Imagen:</strong> Carrusel #18 redimensionado 600×400. Alternativa: slide central #14 (combo).</div>
+    </div>
+  </div>
+
+  <div class="email-card">
+    <div class="ec-head"><span>S3 · Lun 27/07</span><span class="badge pending">Pendiente</span></div>
+    <div class="ec-body">
+      <div class="subj">La categoría que ya está rotando en los comercios que se actualizaron</div>
+      <div class="msg">MSI Cubi. ¿Ya la tienes en tu vitrina?
+
+Hay una categoría que muchos dueños de tienda subestiman: las Mini PC. Y sin embargo, es una de las conversaciones más rentables que puedes tener en el mostrador.
+
+🖥️ La Cubi 5 cabe en cualquier escritorio. Recepción, kiosco, punto de venta.
+⚡ Consume hasta 70% menos energía que una torre.
+🚀 La Cubi Z AI con Ryzen 7 corre diseño, edición y multitarea sin problema.
+
+El cliente que hoy migra de una torre grande a una Mini PC no vuelve atrás.
+
+Cuatro modelos MSI Cubi: desde el i5 de entrada hasta el Ryzen 9 con IA.
+
+Disponible en Caracas y Valencia.
+
+SUPRICOM. Tu mayorista de confianza.</div>
+      <div class="img-sug"><strong>Imagen:</strong> Carrusel #22 redimensionado. Alternativa: slide de consumo energético.</div>
+    </div>
+  </div>
+
+  <div class="email-card">
+    <div class="ec-head"><span>S3 · Jue 30/07</span><span class="badge pending">Pendiente</span></div>
+    <div class="ec-body">
+      <div class="subj">Tu inventario para lo que viene: lo que no puede faltar</div>
+      <div class="msg">Julio fue un mes fuerte para la tecnología en Venezuela. ¿Tu inventario está listo?
+
+⚡ Protección eléctrica es la categoría que más está rotando:
+  • FORZA para entrada y volumen
+  • SMARTBITT para el punto medio
+  • APC para el cliente que no se arriesga
+  • BLUETTI para respaldo de horas
+
+⚠️ El error más común: subdimensionar la protección.
+Cada perfil tiene su solución. Si dimensionas bien, cero devoluciones.
+
+Además: MSI Cubi entró con fuerza.
+
+Protección + Mini PC + Conectividad. Todo en un solo mayorista.
+
+Disponible en Caracas y Valencia.
+
+SUPRICOM. Tu mayorista de confianza.</div>
+      <div class="img-sug"><strong>Imagen:</strong> Carrusel #28 redimensionado. Alternativa: portada video #27.</div>
+    </div>
+  </div>
+
+  <div class="email-card">
+    <div class="ec-head"><span>S2 · Lun 20/07</span><span class="badge ok">Enviado</span></div>
+    <div class="ec-body" style="color:var(--text-light);font-size:13px">Envío realizado. Pendiente registrar asunto y contenido utilizado.</div>
+  </div>
+</div>
+</div>
+
 </main>
 </div>
 
@@ -1326,6 +1427,17 @@ function switchMonth(monthId) {
   document.querySelectorAll('.month-content').forEach(c => {
     c.classList.toggle('hidden', c.id !== 'mc-' + monthId);
   });
+  if (monthId === 'email') {
+    document.getElementById('monthLabel').textContent = '· Email Marketing';
+    document.getElementById('heroTitle').innerHTML = 'Email <span>Marketing</span>';
+    document.getElementById('kpiPiezas').textContent = 4;
+    document.getElementById('kpiVideos').textContent = '—';
+    document.getElementById('kpiSemanas').textContent = '—';
+    document.getElementById('kpiContexto').textContent = '—';
+    document.getElementById('kpiDesign').textContent = '—';
+    document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
+    return;
+  }
   // Brand label
   const m = MONTHS[monthId];
   document.getElementById('monthLabel').textContent = '· ' + m.label + ' ' + m.year;
