@@ -47,6 +47,15 @@
   [data-theme="dark"] .modal-body { background: #161B22 !important; }
   [data-theme="dark"] .nav-slide { background: #1C2128 !important; }
   [data-theme="dark"] #toast { background: #E6EDF3 !important; color: #0D1117 !important; }
+  [data-theme="dark"] .email-card { background: #1C2128 !important; border-color: #30363D !important; }
+  [data-theme="dark"] .email-card .ec-head { background: #161B22 !important; }
+  [data-theme="dark"] .email-card .ec-body .msg { color: #E6EDF3 !important; }
+  [data-theme="dark"] .email-card .ec-body .img-sug strong { color: #E6EDF3 !important; }
+  [data-theme="dark"] .email-panel h2 { color: var(--primary-light) !important; }
+  [data-theme="dark"] .email-tabs .etab { color: var(--text-light) !important; }
+  [data-theme="dark"] .email-tabs .etab.active { background: var(--primary-light) !important; color: #fff !important; }
+  [data-theme="dark"] .email-tabs .etab:hover { color: var(--primary-light) !important; background: rgba(7,145,244,.1) !important; }
+  [data-theme="dark"] .email-back { color: var(--primary-light) !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -379,7 +388,7 @@
   .email-card .ec-head .badge.ok { background: var(--success); color: #fff; }
   .email-card .ec-head .badge.pending { background: var(--primary-light); color: #fff; }
   .email-card .ec-body { padding: 14px 16px; }
-  .email-card .ec-body .subj { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .email-card .ec-body .subj { font-size: 14px; font-weight: 700; color: var(--primary-light); margin-bottom: 8px; }
   .email-card .ec-body .subj::before { content: '✉️ '; }
   .email-card .ec-body .msg { font-size: 13px; line-height: 1.7; color: var(--text); white-space: pre-wrap; font-family: inherit; }
   .email-card .ec-body .img-sug { font-size: 12px; color: var(--text-light); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
@@ -1288,8 +1297,26 @@
 
 <div class="month-content hidden" id="mc-email">
 <div class="email-panel">
+  <a class="email-back" onclick="switchMonth('2026-07')" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--primary);margin-bottom:12px;text-decoration:none;font-weight:600">← Volver al plan de contenido</a>
   <h2>📧 Email Marketing</h2>
   <div class="sub">2 envíos por semana · Alineado al plan de contenido</div>
+
+  <div class="email-tabs" style="display:flex;gap:4px;margin-bottom:16px">
+    <button class="etab active" data-emonth="2026-07" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Julio</button>
+    <button class="etab" data-emonth="2026-08" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Agosto</button>
+    <button class="etab" data-emonth="2026-09" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Septiembre</button>
+    <button class="etab" data-emonth="2026-10" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Octubre</button>
+    <button class="etab" data-emonth="2026-11" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Noviembre</button>
+    <button class="etab" data-emonth="2026-12" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Diciembre</button>
+  </div>
+
+  <!-- ═══ JULIO ═══ -->
+  <div class="emonth-content" id="ec-2026-07">
+
+  <div class="email-card">
+    <div class="ec-head"><span>S2 · Lun 20/07</span><span class="badge ok">Enviado</span></div>
+    <div class="ec-body" style="color:var(--text-light);font-size:13px">Envío realizado. Pendiente registrar asunto y contenido utilizado.</div>
+  </div>
 
   <div class="email-card">
     <div class="ec-head"><span>S2 · Jue 23/07</span><span class="badge pending">Pendiente</span></div>
@@ -1362,11 +1389,15 @@ SUPRICOM. Tu mayorista de confianza.</div>
       <div class="img-sug"><strong>Imagen:</strong> Carrusel #28 redimensionado. Alternativa: portada video #27.</div>
     </div>
   </div>
-
-  <div class="email-card">
-    <div class="ec-head"><span>S2 · Lun 20/07</span><span class="badge ok">Enviado</span></div>
-    <div class="ec-body" style="color:var(--text-light);font-size:13px">Envío realizado. Pendiente registrar asunto y contenido utilizado.</div>
   </div>
+
+  <!-- ═══ AGO-DIC (placeholders) ═══ -->
+  <div class="emonth-content hidden" id="ec-2026-08"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Agosto.</p></div>
+  <div class="emonth-content hidden" id="ec-2026-09"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Septiembre.</p></div>
+  <div class="emonth-content hidden" id="ec-2026-10"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Octubre.</p></div>
+  <div class="emonth-content hidden" id="ec-2026-11"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Noviembre.</p></div>
+  <div class="emonth-content hidden" id="ec-2026-12"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Diciembre.</p></div>
+
 </div>
 </div>
 
@@ -1509,6 +1540,25 @@ document.addEventListener('click', function(e) {
 // Wire up month tab buttons
 document.querySelectorAll('.mtab').forEach(b => {
   b.addEventListener('click', () => switchMonth(b.dataset.month));
+});
+
+// Wire up email month tabs
+document.querySelectorAll('.etab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.etab').forEach(x => {
+      x.classList.remove('active');
+      x.style.background = 'transparent';
+      x.style.color = 'var(--text-light)';
+      x.style.borderColor = 'var(--border)';
+    });
+    b.classList.add('active');
+    b.style.background = 'var(--primary)';
+    b.style.color = '#fff';
+    b.style.borderColor = 'var(--primary)';
+    document.querySelectorAll('.emonth-content').forEach(c => {
+      c.classList.toggle('hidden', c.id !== 'ec-' + b.dataset.emonth);
+    });
+  });
 });
 
 // ─── INIT EMPTY MONTHS ───
