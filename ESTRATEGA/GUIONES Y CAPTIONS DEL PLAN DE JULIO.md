@@ -327,3 +327,83 @@ En SUPRICOM trabajamos al mayor con dueños de comercio. Tenemos todas las capac
 Guarda este video. Escríbenos al DM con la palabra "DURACION" y te enviamos el portafolio al mayor. 📱
 
 #proteccionelectrica #upsvenezuela #dimensionamiento #mayoristatecnologia #SUPRICOM
+
+---
+
+## #27 — S3 (Jue 30) — Prepara tu inventario para la segunda mitad del año
+
+**Tipo:** vocero
+**Formato:** reel
+**Duración:** 35 seg
+**Estructura:** Reflexión + Recomendación
+
+### GUION
+
+| Tiempo | Audio / Texto en pantalla |
+|--------|--------------------------|
+| 0-7s | **VOCERO:** Julio fue un mes fuerte para la tecnología en Venezuela. Protección eléctrica, Mini PC, conectividad. ¿Tu inventario está listo para lo que viene?
+**TEXTO:** Julio marcó el ritmo — ¿tu inventario está listo? |
+| 7-14s | **VOCERO:** Protección eléctrica es la categoría que más está rotando: FORZA para entrada y volumen, SMARTBITT para el punto medio, APC para el cliente que no se arriesga, BLUETTI para respaldo de horas. Todo está disponible.
+**TEXTO:** FORZA · SMARTBITT · APC · BLUETTI — las cuatro marcas rotando |
+| 14-21s | **VOCERO:** MSI Cubi está entrando con fuerza. Los comercios que ya las están mostrando están vendiendo una categoría que antes no existía en su mostrador. Mini PC es el nuevo argumento de venta.
+**TEXTO:** MSI Cubi — la nueva categoría que ya está rotando |
+| 21-28s | **VOCERO:** La jugada inteligente es tener el portafolio completo: protección para los cortes, Mini PC para los que migran de la torre grande, conectividad para los que se actualizan. Todo en un solo mayorista.
+**TEXTO:** Protección + Mini PC + Conectividad = portafolio completo |
+| 28-35s | **VOCERO:** En SUPRICOM trabajamos al mayor con dueños de comercio. FORZA, SMARTBITT, APC, BLUETTI, MSI y todo el portafolio. Escríbenos al DM con la palabra "INVENTARIO" y te armamos el portafolio. SUPRICOM. Tu mayorista de confianza.
+**TEXTO:** FORZA · SMARTBITT · APC · BLUETTI · MSI — Al mayor — DM abierto |
+
+### CAPTION
+
+Julio fue un mes fuerte para la tecnología en Venezuela. ¿Tu inventario está listo para lo que viene? 📦
+
+Protección eléctrica es la categoría que más está rotando: FORZA para entrada y volumen — sus reguladores FVR-901M y FVR-1011 son los que más salen. SMARTBITT para el punto medio con sus UPS de 600VA a 1200VA. APC para el cliente que no se arriesga con los Back-UPS y Smart-UPS. Y BLUETTI para respaldo de horas, no de minutos. ⚡
+
+MSI Cubi está entrando con fuerza. Los comercios que ya las están mostrando están descubriendo una categoría que antes no existía en su mostrador. Mini PC compactas con potencia de torre. El nuevo argumento de venta. 🖥️
+
+La jugada inteligente es tener el portafolio completo en un solo mayorista. Protección para los cortes, Mini PC para los que migran, conectividad para los que se actualizan. 🛡️
+
+En SUPRICOM trabajamos al mayor con dueños de comercio. Todo disponible, todo en un solo contacto. 🤝
+
+Guarda este video. Escríbenos al DM con la palabra "INVENTARIO" y te armamos el portafolio. 📱
+
+#inventario #proteccionelectrica #FORZA #SMARTBITT #APC #BLUETTI #MSI #mayoristatecnologia #SUPRICOM
+
+---
+
+## #29 — S3 (Vie 31) — Lo que viene en protección, conectividad y cómputo
+
+**Tipo:** brand (voz en off)
+**Formato:** reel
+**Duración:** 35 seg
+**Estructura:** Contraste (antes vs ahora)
+
+### GUION
+
+| Tiempo | Audio / Texto en pantalla |
+|--------|--------------------------|
+| 0-7s | **VOZ:** Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Y con eso bastaba. Hoy el cliente entra pidiendo otra cosa.
+**TEXTO:** Antes: torre + monitor + impresora. Hoy: otra cosa. |
+| 7-14s | **VOZ:** Ahora pregunta por protección porque cada apagón le cuesta plata. Pregunta por cámaras porque su negocio ya no es seguro sin vigilancia. Pregunta por Mesh porque el internet no le llega al fondo.
+**TEXTO:** Protección · Cámaras · Mesh — las nuevas prioridades del cliente |
+| 14-21s | **VOZ:** Y el comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita hoy.
+**TEXTO:** El portafolio de hace cinco años ya no alcanza |
+| 21-28s | **VOZ:** El negocio que se actualizó está vendiendo estaciones de energía BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el cliente que pide lo mejor.
+**TEXTO:** BLUETTI + laptop · FORZA + PC · APC + cliente premium |
+| 28-35s | **VOZ:** El mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. SUPRICOM. Tu mayorista de confianza.
+**TEXTO:** El mercado cambió — el portafolio también — Al mayor — DM abierto |
+
+### CAPTION
+
+Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Con eso bastaba. Hoy el cliente entra pidiendo otra cosa. 🔄
+
+Pregunta por protección eléctrica porque cada apagón le cuesta plata. Pregunta por cámaras de seguridad porque sin vigilancia el negocio no está completo. Pregunta por Mesh porque el internet no le llega al fondo de la casa o la oficina. 📡📷⚡
+
+El comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita. Y el cliente lo nota. ⚠️
+
+El negocio que se actualizó está vendiendo BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el que pide lo mejor. El ticket subió porque la conversación cambió. 📈
+
+El mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. 🤝
+
+Guarda este video como recordatorio de lo que ya no puedes dejar de tener en vitrina. 📱
+
+#tendencias #mercadotecnologia #proteccionelectrica #conectividad #seguridad #mayoristatecnologia #SUPRICOM
