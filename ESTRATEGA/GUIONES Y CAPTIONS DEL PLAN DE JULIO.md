@@ -301,7 +301,7 @@ Guarda este video. Escríbenos al DM con la palabra "MSI" y te enviamos el porta
 [AUDIO]: FORZA NT-1011 de 1000VA: 32 minutos de respaldo. El cliente puede terminar su trabajo sin prisas. Para oficinas y puestos de trabajo fijos.
 
 #### Escena 4 (21-28s)
-[VISUAL]: Supri junto a un BLUETTI EB55 y un BLUETTI AC180, más grandes y robustos. Luz cálida que sugiere espacio funcionando sin electricidad externa.
+[VISUAL]: Supri junto a un BLUETTI AC50P y un BLUETTI AC180P, más grandes y robustos. Luz cálida que sugiere espacio funcionando sin electricidad externa.
 [ACCION]: Supri apoya ambas manos sobre los BLUETTI como respaldándolos. Extiende los brazos indicando "horas". Asiente con seguridad.
 [AUDIO]: Y cuando los minutos no son suficientes, entran las estaciones de energía portátiles BLUETTI. Horas de respaldo para clínicas, talleres y oficinas que no pueden parar. No compiten con el UPS, lo complementan.
 
@@ -383,7 +383,7 @@ Guarda este video. Escríbenos al DM con la palabra "INVENTARIO" y te armamos el
 |--------|--------------------------|
 | 0-7s | **VOZ:** Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Y con eso bastaba. Hoy el cliente entra pidiendo otra cosa.
 **TEXTO:** Antes: torre + monitor + impresora. Hoy: otra cosa. |
-| 7-14s | **VOZ:** Ahora pregunta por protección porque cada apagón le cuesta plata. Pregunta por cámaras porque su negocio ya no es seguro sin vigilancia. Pregunta por Mesh porque el internet no le llega al fondo.
+| 7-14s | **VOZ:** Ahora pregunta por protección porque cada apagón le cuesta plata. Pregunta por cámaras porque su negocio ya no es seguro sin vigilancia. Pregunta por Mesh porque el internet no tiene cobertura.
 **TEXTO:** Protección · Cámaras · Mesh — las nuevas prioridades del cliente |
 | 14-21s | **VOZ:** Y el comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita hoy.
 **TEXTO:** El portafolio de hace cinco años ya no alcanza |

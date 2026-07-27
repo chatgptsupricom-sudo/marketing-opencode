@@ -858,7 +858,7 @@ Guarda este carrusel. Úsalo como guía de upsell.
 
 ### SLIDE 4 — Premium
 - **Texto imagen:** Gama premium: máximo respaldo, mejor margen
-- **Frase acompañante:** APC Smart-UPS 1500VA, BLUETTI AC180 o BLUETTI AC200P. Para el que no se arriesga.
+- **Frase acompañante:** APC Smart-UPS 1500VA, BLUETTI AC180P o BLUETTI AC200P L. Para el que no se arriesga.
 - **Nota visual:** APC + BLUETTI lado a lado.
 
 ### SLIDE 5 — Cierre
@@ -880,7 +880,7 @@ Gama entrada: el cliente que quiere lo mínimo. Protección básica, presupuesto
 
 Gama media: el punto dulce. APC Back-UPS 650VA, FORZA 1000VA o SMARTBITT 1200VA. El cliente que no quiere lo más barato pero tampoco lo más caro. Aquí es donde ocurre la mayoría de las ventas de protección.
 
-Gama premium: el cliente que no se arriesga. APC Smart-UPS 1500VA o BLUETTI AC180/AC200P. Máximo respaldo, mejor margen para ti. El cliente que compra premium no regatea ni devuelve.
+Gama premium: el cliente que no se arriesga. APC Smart-UPS 1500VA o BLUETTI AC180P/AC200P L. Máximo respaldo, mejor margen para ti. El cliente que compra premium no regatea ni devuelve.
 
 el 40% de los clientes que compran un UPS de entrada vuelven en menos de un año a actualizar. Si les vendiste bien la primera vez, vuelven contigo. Si no, vuelven con otro.
 
