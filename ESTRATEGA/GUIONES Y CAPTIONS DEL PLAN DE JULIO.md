@@ -230,35 +230,30 @@ Guarda este video. Escríbenos al DM con la palabra "WIFI" y te enviamos el port
 
 **Tipo:** brand (Supri)
 **Formato:** reel
-**Duración:** 35 seg (5 escenas × ~7 seg)
+**Duración:** 35 seg (4 escenas)
 **Estructura:** Timeline (evolución)
 
 ### GUION
 
 #### Escena 1 (0-7s)
-[VISUAL]: Supri de pie junto a una torre de PC tradicional grande. La torre ocupa espacio visible en el escritorio. Supri tiene expresión de "esto es del pasado", señalando la torre y negando con la cabeza.
-[ACCION]: Supri toca la torre grande con desdén, gira la palma como diciendo "esto ya no va más". Mira a cámara con complicidad.
-[AUDIO]: Durante años el negocio de tecnología vendió torres grandes y ruidosas porque era lo único que había. Pero eso está cambiando.
+[VISUAL]: Supri de pie junto a una torre de PC grande que ocupa medio escritorio. Brazos cruzados, expresión seria, mirando la torre.
+[ACCION]: Luces se atenúan. Supri descruza los brazos, toca la torre con desdén, gira la palma. Mira a cámara con complicidad y niega.
+[AUDIO]: Durante años el negocio vendió torres grandes porque era lo único que había. Pero eso está cambiando.
 
 #### Escena 2 (7-14s)
-[VISUAL]: Corte a un escritorio minimalista. Supri coloca una MSI Cubi 5 en la palma de su mano, mostrando lo compacta que es. Fondo limpio, luz natural.
-[ACCION]: Supri sostiene la Cubi 5 en una mano mostrándola desde varios ángulos. Luego la coloca sobre el escritorio.
-[AUDIO]: MSI Cubi 5 entra en cualquier espacio. Recepción, kiosco, punto de venta. Ocupa menos que un teclado y se ve profesional.
+[VISUAL]: Escritorio despejado. Supri sostiene una MSI Cubi 5 en la palma de la mano. Fondo minimalista, luz natural.
+[ACCION]: Zoom a la Cubi 5. Supri la gira mostrando ángulos, la coloca sobre el escritorio. Extiende la mano comparando espacio ocupado vs vacío.
+[AUDIO]: MSI Cubi 5 entra en cualquier espacio. Recepción, kiosco, punto de venta. Ocupa menos que un teclado.
 
-#### Escena 3 (7-14s)
-[VISUAL]: Primer plano de Supri señalando una MSI Cubi Z AI en un escritorio con dos monitores conectados. Se ven puertos USB. Ambiente moderno de oficina.
-[ACCION]: Supri señala los puertos disponibles enumerando con los dedos. Asiente aprobando.
-[AUDIO]: Y la Cubi Z AI con procesador Ryzen corre diseño, edición y multitarea sin problemas. Potencia de torre en formato compacto.
+#### Escena 3 (14-22s)
+[VISUAL]: Escritorio moderno con MSI Cubi Z AI conectada a dos monitores. Puertos USB visibles. Supri de pie señalando el equipo.
+[ACCION]: Supri se inclina, enumera con los dedos los puertos uno por uno. Se endereza, asiente y sonríe con seguridad.
+[AUDIO]: Cubi Z AI con Ryzen corre diseño, edición y multitarea. Potencia de torre en formato compacto.
 
-#### Escena 4 (21-28s)
-[VISUAL]: Supri de pie, con las manos abiertas comparando dos espacios imaginarios: uno grande (torre) y uno pequeño (mini PC). Fondo dividido visualmente.
-[ACCION]: Supri abre los brazos para el espacio grande, luego junta las manos para el espacio pequeño. Hace gesto de equilibrio con las palmas.
-[AUDIO]: El negocio inteligente ya está migrando: menos espacio, menos consumo, menos ruido. Y el cliente lo nota desde el primer día.
-
-#### Escena 5 (28-35s)
-[VISUAL]: Supri de pie junto a una mesa con las cuatro MSI Cubi alineadas. Fondo con logo MSI y SUPRICOM. Sonrisa de cierre.
-[ACCION]: Supri pasa la mano por encima de las cuatro mini PCs presentándolas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente al final.
-[AUDIO]: Cuatro modelos MSI Cubi, desde el i5 de entrada hasta el Ryzen 9 con IA. Todos al mayor en SUPRICOM. Pregunta por el portafolio MSI. SUPRICOM. Tu mayorista de confianza.
+#### Escena 4 (22-30s)
+[VISUAL]: Supri detrás de una mesa con cuatro MSI Cubi alineadas (i5, i7, R7, R9). Fondo con logos MSI y SUPRICOM.
+[ACCION]: Supri pasa la mano sobre las Cubi presentándolas. Gira a cámara, señala con la palma abierta, lleva la mano al pecho, asiente.
+[AUDIO]: Cuatro modelos, desde i5 de entrada hasta Ryzen 9 con IA. Todos al mayor en SUPRICOM. Pregunta por el portafolio MSI. SUPRICOM. Tu mayorista de confianza.
 
 ### CAPTION
 
@@ -280,35 +275,30 @@ Guarda este video. Escríbenos al DM con la palabra "MSI" y te enviamos el porta
 
 **Tipo:** brand (Supri)
 **Formato:** reel
-**Duración:** 35 seg (5 escenas × ~7 seg)
+**Duración:** 35 seg (4 escenas)
 **Estructura:** Pregunta + 3 Opciones
 
 ### GUION
 
 #### Escena 1 (0-7s)
-[VISUAL]: Supri de pie en una oficina, frente a un escritorio con un equipo de cómputo. Luces del fondo parpadean simulando corte. Expresión seria, mira el equipo y luego a cámara.
-[ACCION]: Supri señala el equipo, hace gesto de "se apaga" con las manos. Niega con la cabeza y mira a cámara con las palmas abiertas.
-[AUDIO]: ¿Cuánto dura realmente un UPS en un apagón? Esa es la pregunta que todo dueño de comercio debe saber responder. Porque una venta mal dimensionada es una devolución segura.
+[VISUAL]: Supri en una oficina frente a un escritorio con un equipo de cómputo encendido. Luces normales. Brazos apoyados en el escritorio, mira fijamente el equipo con expresión seria.
+[ACCION]: Luces del fondo parpadean simulando corte. Supri se incorpora, señala el equipo, junta las manos y las abre simulando "se apaga". Niega, mira a cámara con las palmas abiertas.
+[AUDIO]: ¿Cuánto dura un UPS en un apagón? Una venta mal dimensionada es una devolución segura.
 
 #### Escena 2 (7-14s)
-[VISUAL]: Primer plano de un UPS FORZA 500VA sobre escritorio. Supri al lado sosteniendo un celular simulando temporizador. Luz tenue de respaldo.
-[ACCION]: Supri señala el UPS FORZA 500VA, muestra el celular marcando "18 min" con los dedos.
-[AUDIO]: FORZA NT-511 de 500VA: aproximadamente 18 minutos de respaldo. Tiempo suficiente para guardar el trabajo y apagar de forma segura. Protección básica, rotación alta.
+[VISUAL]: UPS FORZA NT-511 de 500VA en primer plano sobre escritorio. Supri al lado, luz tenue de respaldo. Sostiene un celular.
+[ACCION]: Supri señala el UPS FORZA con la mano izquierda. Gira el celular a cámara mostrando "18 min" en pantalla. Asiente, baja la mano, cruza los brazos con seguridad.
+[AUDIO]: FORZA NT-511 de 500VA: 18 minutos de respaldo. Tiempo para guardar y apagar. Protección básica, rotación alta.
 
-#### Escena 3 (14-21s)
-[VISUAL]: Supri con un FORZA 1000VA en una mano. Fondo con varios equipos: PC, monitor, router. Luces normales.
-[ACCION]: Supri levanta el FORZA 1000VA mostrándolo. Señala el router y monitor como equipos conectados.
-[AUDIO]: FORZA NT-1011 de 1000VA: 32 minutos de respaldo. El cliente puede terminar su trabajo sin prisas. Para oficinas y puestos de trabajo fijos.
+#### Escena 3 (14-22s)
+[VISUAL]: Supri sosteniendo un FORZA NT-1011 de 1000VA con ambas manos. Al fondo, PC, monitor y router conectados. Ambiente de oficina.
+[ACCION]: Supri levanta el UPS a cámara. Gira el cuerpo, señala el router y el monitor enumerando equipos. Regresa la mirada a cámara, asiente.
+[AUDIO]: FORZA NT-1011 de 1000VA: 32 minutos de respaldo. Sin prisas. Para oficinas y puestos fijos.
 
-#### Escena 4 (21-28s)
-[VISUAL]: Supri junto a un BLUETTI AC50P y un BLUETTI AC180P, más grandes y robustos. Luz cálida que sugiere espacio funcionando sin electricidad externa.
-[ACCION]: Supri apoya ambas manos sobre los BLUETTI como respaldándolos. Extiende los brazos indicando "horas". Asiente con seguridad.
-[AUDIO]: Y cuando los minutos no son suficientes, entran las estaciones de energía portátiles BLUETTI. Horas de respaldo para clínicas, talleres y oficinas que no pueden parar. No compiten con el UPS, lo complementan.
-
-#### Escena 5 (28-35s)
-[VISUAL]: Supri de pie con brazos abiertos frente a un exhibidor con FORZA, SMARTBITT, APC y BLUETTI alineados. Fondo con logos de las marcas. Sonrisa segura.
-[ACCION]: Supri barre con la mano el exhibidor mostrando todas las marcas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente.
-[AUDIO]: Cada cliente tiene un perfil y cada perfil tiene su solución ideal. UPS para minutos, BLUETTI para horas. En SUPRICOM está todo. Pregunta por el portafolio de protección. SUPRICOM. Tu mayorista de confianza.
+#### Escena 4 (22-30s)
+[VISUAL]: Supri frente a exhibidor con FORZA, SMARTBITT, APC y BLUETTI alineados. Fondo con los cuatro logos. Iluminación cálida.
+[ACCION]: Supri abre los brazos abarcando el exhibidor. Señala FORZA y SMARTBITT a la izquierda, APC y BLUETTI a la derecha. Vuelve al centro, señala a cámara, lleva la mano al pecho, asiente.
+[AUDIO]: Cada cliente tiene un perfil y cada perfil su solución ideal. UPS para minutos, BLUETTI para horas. Pregunta por el portafolio de protección. SUPRICOM. Tu mayorista de confianza.
 
 ### CAPTION
 
