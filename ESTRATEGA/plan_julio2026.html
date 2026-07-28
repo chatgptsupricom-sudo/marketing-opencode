@@ -44,6 +44,7 @@
   [data-theme="dark"] .modal-slide .slide-frase { background: #1C2128 !important; }
   [data-theme="dark"] .piece .prods summary { color: var(--primary-light) !important; }
   [data-theme="dark"] .piece .stats span { background: #1C2128 !important; }
+  [data-theme="dark"] .piece[data-brand="hp"] .num { background: #1565c0 !important; }
   [data-theme="dark"] .modal-body { background: #161B22 !important; }
   [data-theme="dark"] .nav-slide { background: #1C2128 !important; }
   [data-theme="dark"] #toast { background: #E6EDF3 !important; color: #0D1117 !important; }
@@ -360,8 +361,9 @@
   .modal-nav .nav-dots .dot.active { background: var(--primary-light); transform: scale(1.3); }
 
   .piece .fmt.carrusel { background: #1565c0; }
-  .carrusel-with-copy .fmt.carrusel { background: #0d47a1; }
-  .carrusel-with-copy .fmt.hp { background: #1e88e5; }
+  .piece-with-copy .fmt.carrusel { background: #0d47a1; }
+  .piece-with-copy .fmt.hp { background: #1e88e5; }
+  .piece[data-brand="hp"] .num { background: #42a5f5 !important; font-size: 11px !important; letter-spacing: .5px; }
 
   /* ─── MONTH TABS ─── */
   .month-tabs {
@@ -417,6 +419,90 @@
   .dp-overlay { position: fixed; inset: 0; z-index: 199; background: rgba(0,0,0,.25); opacity: 0; pointer-events: none; transition: opacity .2s; }
   .dp-overlay.open { opacity: 1; pointer-events: auto; }
 
+  /* ─── CATÁLOGO MODAL ─── */
+  .cat-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.5); opacity: 0; pointer-events: none; transition: opacity .25s; display: flex; align-items: center; justify-content: center; }
+  .cat-overlay.open { opacity: 1; pointer-events: auto; }
+  .cat-modal {
+    background: var(--white); border-radius: 14px; width: 95vw; max-width: 1100px; height: 88vh;
+    display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 12px 50px rgba(0,0,0,.25);
+    border: 1px solid var(--border); transform: translateY(20px); transition: transform .25s;
+  }
+  .cat-overlay.open .cat-modal { transform: translateY(0); }
+  .cat-head {
+    display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 20px;
+    background: var(--gradient-hero); color: white; flex-shrink: 0;
+  }
+  .cat-head h2 { font-size: 17px; font-weight: 700; }
+  .cat-head .cat-date { font-size: 12px; opacity: .8; margin-top: 2px; }
+  .cat-head .cat-close { background: rgba(255,255,255,.15); border: none; color: white; font-size: 18px; cursor: pointer; border-radius: 6px; padding: 4px 10px; }
+  .cat-head .cat-close:hover { background: rgba(255,255,255,.3); }
+  .cat-tabs-bar {
+    display: flex; gap: 0; padding: 0 20px; background: var(--white); border-bottom: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  .cat-tab-btn {
+    padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; border: none;
+    background: transparent; color: var(--text-light); border-bottom: 3px solid transparent;
+    transition: all .2s; margin-bottom: -2px;
+  }
+  .cat-tab-btn:hover { color: var(--primary-light); }
+  .cat-tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+  .cat-toolbar {
+    display: flex; gap: 10px; padding: 12px 20px; flex-shrink: 0; flex-wrap: wrap; align-items: center;
+    border-bottom: 1px solid var(--border); background: var(--white);
+  }
+  .cat-search {
+    flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px; background: var(--bg); color: var(--text);
+  }
+  .cat-search:focus { outline: none; border-color: var(--primary-light); }
+  .cat-filter-select {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px;
+    background: var(--bg); color: var(--text); min-width: 160px;
+  }
+  .cat-count { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+  .cat-body { flex: 1; overflow-y: auto; padding: 0; }
+  .cat-section { padding: 0 20px 16px; }
+  .cat-section-title {
+    font-size: 14px; font-weight: 700; color: var(--primary); padding: 12px 0 6px;
+    border-bottom: 2px solid var(--primary-light); margin-bottom: 8px; position: sticky; top: 0;
+    background: var(--white); z-index: 2;
+  }
+  .cat-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .cat-table th {
+    text-align: left; padding: 7px 10px; background: var(--bg); font-weight: 700;
+    color: var(--text-light); font-size: 11px; text-transform: uppercase; letter-spacing: .3px;
+    position: sticky; top: 34px; z-index: 1;
+  }
+  .cat-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .cat-table tr:hover td { background: rgba(7,145,244,.04); }
+  .cat-table .sku { font-family: monospace; font-size: 11px; color: var(--text-light); }
+  .cat-table .qty { font-weight: 700; }
+  .cat-table .qty.low { color: #E53935; }
+  .cat-table .qty.ok { color: var(--success); }
+  .cat-table .price { font-weight: 600; color: var(--primary); }
+  .cat-empty { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 14px; }
+  [data-theme="dark"] .cat-overlay .cat-modal { background: #161B22; }
+  [data-theme="dark"] .cat-tabs-bar { background: #161B22; border-bottom-color: #30363D; }
+  [data-theme="dark"] .cat-toolbar { background: #161B22; border-bottom-color: #30363D; }
+  [data-theme="dark"] .cat-search { background: #0D1117; border-color: #30363D; color: var(--text); }
+  [data-theme="dark"] .cat-filter-select { background: #0D1117; border-color: #30363D; color: var(--text); }
+  [data-theme="dark"] .cat-body { background: #0D1117; }
+  [data-theme="dark"] .cat-section-title { background: #0D1117; }
+  [data-theme="dark"] .cat-table th { background: #161B22; }
+  [data-theme="dark"] .cat-table td { border-bottom-color: #30363D; }
+  [data-theme="dark"] .cat-table tr:hover td { background: rgba(88,166,255,.06); }
+  [data-theme="dark"] .cat-tab-btn { color: var(--text-light); }
+  [data-theme="dark"] .cat-tab-btn.active { color: var(--primary-light); border-bottom-color: var(--primary-light); }
+
+  /* nav catalog button */
+  .cat-nav-btn {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: white;
+    cursor: pointer; font-size: 13px; padding: 4px 12px; border-radius: 6px;
+    margin-left: 8px; font-weight: 600; transition: all .2s; display: inline-flex; align-items: center; gap: 5px;
+  }
+  .cat-nav-btn:hover { background: rgba(255,255,255,.25); }
+
   @media print {
     nav { display: none !important; }
     .hero { margin-top: 0; padding: 40px 24px; }
@@ -429,8 +515,40 @@
 
 <nav>
   <div class="brand">SUPRICOM <span id="monthLabel">· Julio 2026</span></div>
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Cambiar tema">🌙</button>
+  <div style="display:flex;align-items:center;gap:4px">
+    <button class="cat-nav-btn" onclick="openCatalog()" title="Ver catálogo de productos">📦 Catálogo</button>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Cambiar tema">🌙</button>
+  </div>
 </nav>
+
+<!-- ─── CATÁLOGO MODAL ─── -->
+<div class="cat-overlay" id="catOverlay" onclick="if(event.target===this)closeCatalog()">
+  <div class="cat-modal">
+    <div class="cat-head">
+      <div>
+        <h2>📦 Catálogo SUPRICOM</h2>
+        <div class="cat-date">Actualizado: 28 jul 2026</div>
+      </div>
+      <button class="cat-close" onclick="closeCatalog()">✕</button>
+    </div>
+    <div class="cat-tabs-bar">
+      <button class="cat-tab-btn active" data-ctab="GENERAL" onclick="switchCatTab('GENERAL',this)">Inventario General</button>
+      <button class="cat-tab-btn" data-ctab="CARACAS" onclick="switchCatTab('CARACAS',this)">Caracas</button>
+      <button class="cat-tab-btn" data-ctab="VALENCIA" onclick="switchCatTab('VALENCIA',this)">Valencia</button>
+    </div>
+    <div class="cat-toolbar">
+      <input class="cat-search" id="catSearch" type="text" placeholder="Buscar por SKU, nombre o marca..." oninput="filterCatalog()">
+      <select class="cat-filter-select" id="catCategory" onchange="filterCatalog()">
+        <option value="">Todas las categorías</option>
+      </select>
+      <select class="cat-filter-select" id="catBrand" onchange="filterCatalog()">
+        <option value="">Todas las marcas</option>
+      </select>
+      <span class="cat-count" id="catCount"></span>
+    </div>
+    <div class="cat-body" id="catBody"></div>
+  </div>
+</div>
 
 <div class="hero">
   <div class="badge">Plan de Contenido · Marketing</div>
@@ -488,7 +606,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">13</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="1" onclick="openCopyModal(1, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="1" onclick="openCopyModal(1, event)">
         <div class="num">1</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Showcase</div>
@@ -511,7 +629,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"BLUETTI: las estaciones de energía disponibles en SUPRICOM","frase":"Ocho modelos. Cada cliente tiene el suyo. Ya en Caracas y Valencia.","nota":"Fondo azul degradado. Logo BLUETTI + SUPRICOM. Silueta de estación de energía."},{"slide":"Línea portátil","texto":"Para el día a día: compactas y ligeras","frase":"BLUETTI AC50P y Elite 30 V2. Para el cliente que busca portabilidad sin perder potencia. Buena rotación.","nota":"Icono mochila. AC50P y Elite 30 V2 lado a lado."},{"slide":"Línea media","texto":"Para el comercio y la oficina: potencia balanceada","frase":"BLUETTI AC70P, Elite 100 V2 y AC180P. Respaldo sólido para POS, router y equipos.","nota":"Icono edificio. AC70P, Elite 100 V2, AC180P en fila."},{"slide":"Línea alta capacidad","texto":"Para clínicas, talleres y demanda intensiva","frase":"BLUETTI Premium 200 V2, AC200P L y Apex 300. Máxima capacidad y modo UPS.","nota":"Icono cruz + herramientas. Premium 200 V2, AC200P L, Apex 300."},{"slide":"Cierre","texto":"El portafolio BLUETTI completo, ya disponible.","frase":"Ocho modelos para ocho perfiles de cliente. Pregunta por el que necesitas.","nota":"Todos los modelos BLUETTI en grid. Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="2" onclick="openCopyModal(2, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="2" onclick="openCopyModal(2, event)">
         <div class="num">2</div>
         <span class="fmt carrusel">Carrusel 📋 <span class="ve-badge">VE</span></span>
         <div class="pillar">Diagnóstico</div>
@@ -539,7 +657,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">14</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="3" onclick="openCopyModal(3, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="3" onclick="openCopyModal(3, event)">
         <div class="num">3</div>
         <span class="fmt vs1">Video Supri #1</span>
         <div class="pillar">Showcase</div>
@@ -557,7 +675,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Video","texto":"FORZA. La marca que los comercios conocen y piden. Showcase visual de la línea de protección.","frase":"Guion próximamente","nota":"Video — pendiente guión"}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="4" onclick="openCopyModal(4, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="4" onclick="openCopyModal(4, event)">
         <div class="num">4</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Comparativa</div>
@@ -579,7 +697,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">15</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="5" onclick="openCopyModal(5, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="5" onclick="openCopyModal(5, event)">
         <div class="num">5</div>
         <span class="fmt vs2">Video Supri #2</span>
         <div class="pillar">Educativo</div>
@@ -597,7 +715,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Video","texto":"Dato clave sobre protección eléctrica. Visualización educativa.","frase":"Guion próximamente","nota":"Video — pendiente guión"}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="6" onclick="openCopyModal(6, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="6" onclick="openCopyModal(6, event)">
         <div class="num">6</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Perfil</div>
@@ -619,7 +737,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">16</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="7" onclick="openCopyModal(7, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="7" onclick="openCopyModal(7, event)">
         <div class="num">7</div>
         <span class="fmt vocero">Video Vocero</span>
         <div class="pillar">Mix</div>
@@ -638,7 +756,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Video","texto":"«Tu cliente compra una laptop. ¿Le ofreces protección?». Cómo aumentar el ticket cuidando la inversión del cliente.","frase":"Guion próximamente","nota":"Video — pendiente guión"}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="8" onclick="openCopyModal(8, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="8" onclick="openCopyModal(8, event)">
         <div class="num">8</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Perfil</div>
@@ -656,8 +774,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"4 tipos de clientes que necesitan BLUETTI","frase":"Cada uno con el modelo exacto. Identifica y recomienda.","nota":"Fondo azul. 4 iconos: casa, oficina, cruz, taller."},{"slide":"Cliente #1: Hogar","texto":"Cliente #1: Nevera, router, televisor. Lo esencial.","frase":"BLUETTI AC50P: compacto, buen argumento para el cliente de hogar que busca respaldo sin obras.","nota":"Icono casa. Familia con BLUETTI."},{"slide":"Cliente #2: Oficina / Comercio","texto":"Cliente #2: POS, internet, cámaras. El negocio no para.","frase":"BLUETTI AC70P: potencia media para mantener todo encendido sin interrupciones.","nota":"Icono edificio. POS activo, afuera oscuro."},{"slide":"Cliente #3: Clínica","texto":"Cliente #3: Equipos médicos, medicamentos, historias digitales.","frase":"BLUETTI Premium 200 V2: alta capacidad, modo UPS, cero riesgos.","nota":"Icono cruz médica. Equipos funcionando."},{"slide":"Cliente #4: Taller","texto":"Cliente #4: Herramientas, diagnóstico, producción sin pausa.","frase":"BLUETTI Elite 100 V2: portátil, potente, sin planta ruidosa.","nota":"Icono herramientas. Taller con BLUETTI."},{"slide":"Cierre","texto":"Un cliente, una solución, un argumento.","frase":"Vende con criterio. BLUETTI disponible en Caracas y Valencia.","nota":"Grid 4 iconos + logos BLUETTI y SUPRICOM. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="31" onclick="openCopyModal(31, event)">
-        <div class="num">31</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="31" onclick="openCopyModal(31, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP LaserJet MFP M236sdw. Impresión, copia y escaneo.».</strong> Impresión, copia y escaneo. 29 ppm, dúplex, Wi-Fi.</div>
@@ -676,7 +794,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">17</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="9" onclick="openCopyModal(9, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="9" onclick="openCopyModal(9, event)">
         <div class="num">9</div>
         <span class="fmt vo">Video Voz en off <span class="ve-badge">VE</span></span>
         <div class="pillar">Tendencia</div>
@@ -694,7 +812,7 @@
         <div class="copy-data" style="display:none">[{"slide":"0-3s","texto":"Hook: 78% de hogares con apagones","frase":"VOZ: Si eres dueño de un comercio de tecnología, esto te interesa. 78% de los hogares en Venezuela sufre apagones a diario.\nTEXTO: 78% de hogares — apagones a diario","nota":"Fondo con dato impactante. Texto grande: 78%."},{"slide":"3-8s","texto":"Agitación: 7/10 no venden protección","frase":"VOZ: Y sin embargo, 7 de cada 10 comercios como el tuyo siguen sin ofrecer protección eléctrica. Eso significa que 7 de cada 10 están dejando ventas en la mesa.\nTEXTO: 7 de cada 10 comercios no venden protección → están perdiendo ventas","nota":"Gráfico de barras. Contraste: comercios sin vs con protección."},{"slide":"8-16s","texto":"Visualización: el portafolio SUPRICOM","frase":"VOZ: En SUPRICOM somos mayoristas. Trabajamos al mayor con dueños de comercio como tú. Y lo que estamos viendo es que los negocios que ya entendieron el momento están comprando FORZA para entrada rápida, SMARTBITT para el cliente que pide más, APC para el que no negocia confiabilidad, y BLUETTI para el que necesita horas de respaldo.\nTEXTO: SUPRICOM — Mayorista de tecnología — FORZA · SMARTBITT · APC · BLUETTI","nota":"Grid de productos con logos de marca. Fondo azul SUPRICOM."},{"slide":"16-24s","texto":"Proof: UPS + BLUETTI = doble ticket","frase":"VOZ: La jugada inteligente de este trimestre es tener ambas: el UPS protege equipos críticos durante minutos. BLUETTI mantiene el negocio encendido cuando el corte se alarga. Vendes los dos, duplicas el ticket.\nTEXTO: UPS + BLUETTI = doble ticket","nota":"Dos productos lado a lado. Flecha de ticket subiendo."},{"slide":"24-32s","texto":"Urgencia: pregúntale primero","frase":"VOCERO: Si tienes local de tecnología y todavía no estás vendiendo protección, esto es urgente: tu cliente ya la está buscando. Si no la encuentra en tu negocio, la compra donde tu competencia. Pregúntale primero tú y gana esa venta.\nTEXTO: ¿Ya tienes protección en tu vitrina?","nota":"Vocero directo a cámara. Fondo con estantes de tienda."},{"slide":"32-35s","texto":"CTA: portafolio completo","frase":"VOCERO: FORZA, SMARTBITT, APC, BLUETTI, HAVIT. Todo al mayor, todo disponible. Escríbenos al DM y te armamos el portafolio. SUPRICOM. Tu mayorista de confianza.\nTEXTO: FORZA · SMARTBITT · APC · BLUETTI · HAVIT — Al mayor — DM abierto","nota":"Logos de las 5 marcas. Logo SUPRICOM. CTA: DM abierto."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="10" onclick="openCopyModal(10, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="10" onclick="openCopyModal(10, event)">
         <div class="num">10</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Inversión</div>
@@ -710,8 +828,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Laptop con UPS: ¿inversión o gasto?","frase":"Dos escenarios. Lo único que cambia es si ofreces protección.","nota":"Fondo azul. Laptop + UPS FORZA. Escudo de protección."},{"slide":"Sin protección","texto":"Escenario A: Sin protección. El riesgo es real.","frase":"Cortes y fluctuaciones dañan componentes. Garantía no cubre daños eléctricos.","nota":"Laptop con rayo. Fondo rojo suave. Alerta."},{"slide":"Con protección","texto":"Escenario B: Con UPS FORZA. La laptop está segura.","frase":"Regulación AVR constante. Tiempo para guardar y apagar. El argumento que convence: protege su inversión.","nota":"Laptop + UPS FORZA. Fondo verde suave. Escudo."},{"slide":"Beneficio invisible","texto":"Protección 24/7: incluso cuando no hay apagón.","frase":"Fluctuaciones silentes dañan componentes día tras día. El UPS alarga la vida útil.","nota":"Reloj con escudo. Línea de tiempo, laptop siempre protegida."},{"slide":"Cierre","texto":"Vender protección es cuidar la inversión de tu cliente.","frase":"Un UPS FORZA es la diferencia entre vender un equipo y una solución completa.","nota":"FORZA + SUPRICOM. Laptop con UPS. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="32" onclick="openCopyModal(32, event)">
-        <div class="num">32</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="32" onclick="openCopyModal(32, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Smart Tank 580. Impresión, copia y escaneo. Tinta continua.».</strong> Impresión, copia y escaneo. Tinta continua de alto rendimiento.</div>
@@ -747,7 +865,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">20</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="11" onclick="openCopyModal(11, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="11" onclick="openCopyModal(11, event)">
         <div class="num">11</div>
         <span class="fmt vs1">Video Supri #1</span>
         <div class="pillar">Showcase</div>
@@ -767,7 +885,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-7s)","texto":"El secreto: la categoría que más crece","frase":"¿Sabías que la categoría de seguridad es la que más está creciendo este año en los comercios de tecnología? Y muchos todavía no la tienen en vitrina.","nota":"[VISUAL]: Supri de pie junto a la entrada de un local tech, con las luces del local ligeramente tenues. Al fondo se ven estantes con productos. Supri tiene una expresión de \"te voy a contar un secreto\", con una mano levantada y el índice extendido.\n[ACCION]: Supri camina un paso hacia la cámara, levanta la mano señalando hacia los estantes vacíos del local. Gira la cabeza con complicidad hacia la cámara mientras baja la mano y la lleva al pecho."},{"slide":"Escena 2 (7-14s)","texto":"Revelación: NEXXT HOME, 11 modelos","frase":"NEXXT HOME tiene el portafolio más completo: cámaras para interior, para exterior, con visión nocturna y hasta PTZ con proyector. Once modelos distintos.","nota":"[VISUAL]: Primer plano de Supri frente a un exhibidor limpio donde se ven tres cámaras NEXXT HOME alineadas: una cámara exterior blanca (NHC-O640), una PTZ (NHC-OP10) y una interior pequeña (NHC-I710). Fondo de pared azul corporativo suave. Etiqueta \"NEXXT HOME\" visible en el exhibidor.\n[ACCION]: Supri pasa la mano señalando cada cámara de izquierda a derecha mientras habla. Al mencionar \"interior o exterior\", abre los brazos para indicar ambas opciones. Sonríe con seguridad."},{"slide":"Escena 3 (14-21s)","texto":"Completan: HAVIT y TP-LINK","frase":"Y si tu cliente busca una opción de entrada, HAVIT y TP-LINK completan el portafolio. Tres marcas, un solo mayorista.","nota":"[VISUAL]: Misma locación. Ahora Supri está junto a otro segmento del exhibidor donde se ven dos cámaras: una HAVIT IP Camera blanca y una TP-LINK Tapo C310. Separadas pero en el mismo contexto visual. Fondo con blur suave.\n[ACCION]: Supri toca ligeramente la cámara HAVIT con la mano derecha mientras la presenta, luego gira la palma hacia la cámara TP-LINK. Hace un gesto de \"todas están aquí\" barriendo el exhibidor con la mano."},{"slide":"Escena 4 (21-28s)","texto":"El beneficio: vender más caro","frase":"El comercio que ya tiene cámaras en vitrina no solo vende más, vende más caro. Y el cliente que compra una, vuelve por otra.","nota":"[VISUAL]: Supri de pie, brazos ligeramente cruzados, mirando directo a cámara con expresión seria pero positiva. Al fondo se ve el logo de SUPRICOM sutil en la pared. Iluminación cálida y profesional.\n[ACCION]: Supri descruza los brazos y extiende la mano derecha con la palma abierta hacia la cámara mientras dice \"el que las tiene\". Luego señala hacia abajo con ambas manos marcando cada palabra."},{"slide":"Escena 5 (28-35s)","texto":"CTA: pregunta por el portafolio","frase":"En SUPRICOM trabajamos al mayor con dueños de comercio como tú. Pregunta por el portafolio de seguridad. Todo disponible. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Supri en plano medio, con una mano apoyada en el exhibidor de cámaras y la otra señalando suavemente hacia la cámara. Fondo con los logos de NEXXT HOME, HAVIT y TP-LINK alineados. Sonrisa de cierre.\n[ACCION]: Supri da un paso al frente, lleva la mano al pecho en señal de \"esto es serio\", luego extiende el brazo hacia la cámara señalando con la palma abierta. Asiente al final con seguridad."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="12" onclick="openCopyModal(12, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="12" onclick="openCopyModal(12, event)">
         <div class="num">12</div>
         <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
         <div class="pillar">Diagnóstico</div>
@@ -784,8 +902,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"La categoría que tus clientes ya están buscando: cámaras de seguridad","frase":"Seguridad es prioridad en Venezuela. Si no les ofreces cámaras, las compran en otro lado.","nota":"Fondo azul SUPRICOM. Icono de cámara con signo de demanda creciente (gráfico arriba)."},{"slide":"Demanda real","texto":"Tus clientes llegan al local preguntando por seguridad","frase":"Cámaras, kits, instalación. Es una categoría que rota sola si la tienes en vitrina.","nota":"Cliente preguntando en mostrador. Burbuja: \"¿tienes cámaras?\""},{"slide":"Ticket alto","texto":"Una cámara eleva el ticket promedio de tu venta","frase":"El cliente que compra una cámara vuelve por otra. Y por un NVR. Y por más.","nota":"Ticket de compra con items apilados (cámara → NVR → cableado → instalación)."},{"slide":"Portafolio completo","texto":"¿Interior, exterior, PTZ, con proyector? Tienes para todos","frase":"NEXXT HOME: desde la NHC-O640 exterior hasta la NHC-OP10 PTZ con proyector.","nota":"Grid de 4 tipos de cámara NEXXT HOME. Diferencias visuales."},{"slide":"Cierre","texto":"Cámaras = rotación. No tenerlas = clientes que se van.","frase":"NEXXT HOME, HAVIT y TP-LINK en SUPRICOM. Pregunta por el portafolio y arma tu vitrina.","nota":"Logos NEXXT HOME, HAVIT, TP-LINK. Estante con cajas de producto. Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="36" onclick="openCopyModal(36, event)">
-        <div class="num">36</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="36" onclick="openCopyModal(36, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Smart Tank 581. Impresión, copia y escaneo. Tinta continua.».</strong> Impresión, copia y escaneo. Tinta continua con pantalla LCD. Hasta 18.000 páginas incluidas.</div>
@@ -807,7 +925,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">21</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="13" onclick="openCopyModal(13, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="13" onclick="openCopyModal(13, event)">
         <div class="num">13</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Comparativa</div>
@@ -831,7 +949,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Router vs Mesh: el argumento de venta para cada presupuesto","frase":"El router tradicional rota más. El Mesh deja mejor margen. Tú decides según tu cliente.","nota":"Fondo azul SUPRICOM. Router vs Mesh. Balanza inclinada."},{"slide":"Router tradicional","texto":"Router tradicional: rápida rotación, fácil de vender","frase":"El HIKVISION DS-3WR12GC (AC1200). Cliente entra, cliente sale con su router. Alto volumen.","nota":"Router HIKVISION DS-3WR12GC. Flecha de rotación rápida. Mostrador."},{"slide":"Mesh","texto":"Mesh: ticket más alto, cliente más satisfecho","frase":"El NEXXT BOLT MESH AX1800 2-PACK (NW231NXT33). Cobertura total, menos devoluciones por señal débil.","nota":"Dos nodos Mesh NEXXT. Check de cobertura total. Ticket con monto alto."},{"slide":"Premium","texto":"¿El cliente quiere lo mejor? Sube a Linksys o Xiaomi AX","frase":"Linksys Velop MX20EC3 (AX2900) o Xiaomi AX3000T. Mayor margen, cliente recurrente.","nota":"Linksys Velop y Xiaomi AX3000T lado a lado. Icono de margen/rentabilidad."},{"slide":"Cierre","texto":"Tres gamas, tres márgenes, un solo portafolio","frase":"HIKVISION para volumen. NEXXT para equilibrio. Linksys y Xiaomi para margen premium.","nota":"Grid logos HIKVISION, NEXXT, Linksys, Xiaomi con indicadores: volumen · equilibrio · premium."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="14" onclick="openCopyModal(14, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="14" onclick="openCopyModal(14, event)">
         <div class="num">14</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Solución</div>
@@ -853,7 +971,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">22</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="15" onclick="openCopyModal(15, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="15" onclick="openCopyModal(15, event)">
         <div class="num">15</div>
         <span class="fmt vs2">Video Supri #2</span>
         <div class="pillar">Educativo</div>
@@ -870,7 +988,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-7s)","texto":"El error: vender solo por precio","frase":"¿Sigues vendiendo routers solo por precio? Ese es el error más común y el que más devoluciones genera.","nota":"[VISUAL]: Supri de pie frente a un estante con varios routers en caja. Algunas cajas HIKVISION azules, otras Linksys negras y Xiaomi blancas. Supri tiene los brazos cruzados y una expresión de \"esto está mal\", negando lentamente con la cabeza.\n[ACCION]: Supri descruza los brazos, toma una caja de router genérica del estante, la mira con escepticismo y la vuelve a colocar. Luego se gira hacia la cámara con las palmas abiertas en señal de pregunta."},{"slide":"Escena 2 (7-14s)","texto":"Solución #1: HIKVISION WiFi 6","frase":"HIKVISION con su línea de routers WiFi 6 es la marca de mayor rotación. Tus clientes la conocen, la piden y se vende sola.","nota":"[VISUAL]: Supri en un escritorio moderno con un router HIKVISION con luces LED azules visibles. Al lado un celular mostrando una interfaz de configuración. Ambiente de oficina con luz cálida.\n[ACCION]: Supri señala el router HIKVISION con una mano, luego levanta un dedo haciendo énfasis. Señala el celular para indicar que es fácil de configurar."},{"slide":"Escena 3 (14-21s)","texto":"Solución #2: Xiaomi, doble rendimiento","frase":"Xiaomi duplica el rendimiento por un precio similar. Para el cliente que quiere velocidad sin pagar premium.","nota":"[VISUAL]: Mismo escritorio. Supri ahora sostiene un router Xiaomi en la mano, mostrándolo a cámara. Fondo con un monitor que muestra un gráfico de velocidad de internet.\n[ACCION]: Supri levanta el router Xiaomi con la mano derecha como mostrando un objeto de valor. Con la izquierda hace un gesto de \"mira esto\" señalando el monitor con el gráfico de velocidad."},{"slide":"Escena 4 (21-28s)","texto":"Solución #3: Linksys Velop Mesh","frase":"Linksys Velop Mesh elimina las zonas muertas. Para el cliente que tiene una casa grande, una oficina o varias habitaciones. Cobertura total.","nota":"[VISUAL]: Supri de pie en una sala más amplia, sosteniendo una caja del Linksys Velop (pack de 3). Al fondo se ven dos habitaciones simuladas, sugiriendo una casa grande u oficina.\n[ACCION]: Supri extiende los brazos simulando un espacio grande, abriéndolos para indicar cobertura total. Toca la caja del Velop con ambas manos para indicar que es la solución para espacios grandes."},{"slide":"Escena 5 (28-35s)","texto":"CTA: tres marcas, un mayorista","frase":"Tres marcas, tres perfiles de cliente, un solo mayorista. En SUPRICOM los tenemos todos al mayor. Pregunta por el portafolio de routers. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Supri de pie con tres routers alineados en una mesa frente a él: HIKVISION, Xiaomi, Linksys Velop. Fondo con los tres logos de las marcas alineados. Supri sonríe con confianza mirando a cámara.\n[ACCION]: Supri señala cada router de izquierda a derecha mientras los nombra. Luego junta las manos en el centro indicando que todos están en un solo lugar. Al final lleva la mano al pecho y asiente."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="16" onclick="openCopyModal(16, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="16" onclick="openCopyModal(16, event)">
         <div class="num">16</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Guía</div>
@@ -890,8 +1008,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"4 argumentos para que tu cliente se lleve la cámara hoy","frase":"Resolución, visión nocturna, almacenamiento, app. Lo que tu cliente necesita escuchar.","nota":"Fondo azul. 4 iconos como argumentos de venta."},{"slide":"Argumento 1: Resolución","texto":"Argumento 1: \"1080p es lo que necesitas. 2K es lo que quieres.\"","frase":"La NHC-I710 (MM106NXT46) graba en 2K QHD. El cliente que la ve en acción, la compra.","nota":"Comparación 1080p vs 2K. Cliente viendo imagen nítida."},{"slide":"Argumento 2: Visión nocturna","texto":"Argumento 2: \"24/7, incluso cuando no hay luz.\"","frase":"La NHC-F610 (MM106NXT95) combina proyector + cámara. El argumento que cierra la venta.","nota":"Cámara de noche con visión infrarroja activada."},{"slide":"Argumento 3: Almacenamiento","texto":"Argumento 3: \"¿Y si te digo que puedes ver lo que pasó hace una semana?\"","frase":"El VIGI NVR1008H de TP-LINK graba hasta 8 cámaras. Vender el NVR es vender un sistema, no un accesorio.","nota":"NVR conectado a cámaras. Línea de tiempo rebobinando."},{"slide":"Argumento 4: App","texto":"Argumento 4: \"Vigila tu negocio desde el celular, estés donde estés.\"","frase":"NEXXT HOME y Tapo tienen apps gratuitas. El cliente que revisa desde su casa, recomienda.","nota":"Celular con app. Dueño de comercio viendo su local desde otro lugar."},{"slide":"Cierre","texto":"El que sabe argumentar, vende más. Y tú sabes.","frase":"NEXXT HOME y TP-LINK en SUPRICOM. Pregunta por el portafolio y las fichas técnicas.","nota":"Logos NEXXT HOME, TP-LINK. Mano estrechada. Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="33" onclick="openCopyModal(33, event)">
-        <div class="num">33</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="33" onclick="openCopyModal(33, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Laser MFP 137fnw. Imprime, copia, escanea y fax.».</strong> Imprime, copia, escanea y fax. Multifuncional láser con conectividad completa.</div>
@@ -910,7 +1028,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">23</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="17" onclick="openCopyModal(17, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="17" onclick="openCopyModal(17, event)">
         <div class="num">17</div>
         <span class="fmt vocero">Video Vocero</span>
         <div class="pillar">Ecosistema</div>
@@ -928,7 +1046,7 @@
         <div class="copy-data" style="display:none">[{"slide":"0-7s","texto":"El problema: vender solo la cámara","frase":"VOCERO: Si vendes solo la cámara de seguridad sin pensar en el internet ni en la luz, esa cámara no le va a servir a tu cliente.\nTEXTO: Vender solo la cámara no es suficiente","nota":"Vocero directo. Fondo con cámara solitaria. Texto de alerta."},{"slide":"7-14s","texto":"El error: cliente insatisfecho","frase":"VOCERO: Ese es el error más común. El cliente compra la cámara, la instala, pero sin un router estable la imagen no se ve. Y al primer apagón se queda ciego.\nTEXTO: Cámara sola → cliente insatisfecho","nota":"Icono de cámara con X. Transición a router y UPS."},{"slide":"14-21s","texto":"La solución: el combo completo","frase":"VOCERO: Por eso el negocio inteligente vende el combo completo. Cámara NEXXT HOME, router HIKVISION AX1500 o Linksys Velop para que todo fluya, y un UPS FORZA de 1000VA para que nada se apague.\nTEXTO: Cámara + Router + UPS = solución completa","nota":"Tres productos alineados: cámara NEXXT, router HIKVISION/Linksys, UPS FORZA."},{"slide":"21-28s","texto":"El resultado: triple ticket","frase":"VOCERO: Tres productos, una sola venta. El cliente queda satisfecho, no devuelve nada y vuelve a comprar. Duplicas el ticket sin duplicar el esfuerzo.\nTEXTO: Triple ticket. Cero devoluciones.","nota":"Ticket con tres items. Check verde. Cliente satisfecho."},{"slide":"28-35s","texto":"CTA: DM abierto","frase":"VOCERO: Cámara NEXXT HOME, router HIKVISION o Linksys, UPS FORZA. En SUPRICOM están los tres disponibles al mayor. Escríbenos al DM y te armamos el portafolio. SUPRICOM. Tu mayorista de confianza.\nTEXTO: NEXXT HOME · HIKVISION · Linksys · FORZA — Al mayor — DM abierto","nota":"Logos NEXXT HOME, HIKVISION, Linksys, FORZA. Fondo SUPRICOM. CTA."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="18" onclick="openCopyModal(18, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="18" onclick="openCopyModal(18, event)">
         <div class="num">18</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Perfil</div>
@@ -961,7 +1079,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">24</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="19" onclick="openCopyModal(19, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="19" onclick="openCopyModal(19, event)">
         <div class="num">19</div>
         <span class="fmt vo">Video Voz en off</span>
         <div class="pillar">Tendencia</div>
@@ -982,7 +1100,7 @@
         <div class="copy-data" style="display:none">[{"slide":"0-7s","texto":"Hook: la conectividad está cambiando","frase":"VOZ: La forma en que tus clientes se conectan está cambiando más rápido de lo que muchos comercios creen. Y el que no se actualiza, se queda atrás.\nTEXTO: La conectividad está cambiando — ¿tu portafolio también?","nota":"Fondo dinámico con ondas de WiFi. Texto de transición."},{"slide":"7-14s","texto":"El problema: 20 dispositivos por hogar","frase":"VOZ: Hasta hace poco un router básico era suficiente. Pero hoy tus clientes tienen 10, 15, hasta 20 dispositivos conectados. Un router de hace tres años ya no da abasto.\nTEXTO: 20 dispositivos por hogar — el router viejo no da abasto","nota":"Iconos de dispositivos (celular, laptop, TV, cámara). Router antiguo con alerta."},{"slide":"14-21s","texto":"WiFi 6: el presente","frase":"VOZ: WiFi 6 ya no es el futuro, es el presente. HIKVISION con su línea AX y Xiaomi con sus routers de alto rendimiento son lo que los clientes están pidiendo hoy. Más velocidad, más dispositivos, menos problemas.\nTEXTO: WiFi 6 ya es el presente — HIKVISION · Xiaomi","nota":"Routers HIKVISION y Xiaomi. Icono WiFi 6. Texto: velocidad, dispositivos, sin problemas."},{"slide":"21-28s","texto":"Mesh: cobertura total","frase":"VOZ: Y el siguiente paso es Mesh. Linksys Velop y NEXXT Bolt eliminan las zonas muertas. Cobertura total en cada rincón del hogar o la oficina.\nTEXTO: Mesh = cobertura total — Linksys · NEXXT HOME","nota":"Dos nodos Mesh conectados. Mapa de cobertura. Sin zonas muertas."},{"slide":"28-35s","texto":"CTA: portafolio completo","frase":"VOZ: La tendencia es clara: el cliente que hoy compra un router WiFi 6, mañana va a querer Mesh. Ten el portafolio completo. En SUPRICOM están todas. SUPRICOM. Tu mayorista de confianza.\nTEXTO: HIKVISION · NEXXT HOME · Linksys · Xiaomi — Al mayor — DM abierto","nota":"Logos HIKVISION, NEXXT HOME, Linksys, Xiaomi. Fondo SUPRICOM. CTA."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="post" data-piece="20" onclick="openCopyModal(20, event)">
+      <div class="piece piece-with-copy" data-format="post" data-piece="20" onclick="openCopyModal(20, event)">
         <div class="num">20</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Inversión</div>
@@ -999,8 +1117,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Post — Lo que pierdes si no tienes cámaras y routers en tu vitrina","texto":"Lo que pierdes si no tienes cámaras y routers en tu vitrina","frase":"Tener el portafolio es el primer paso. Tenerlo visible es lo que convierte visitas en ventas. Un cliente entra a tu local buscando una cámara. Si no la tienes, la busca en otro lado. Y ese cliente no vuelve solo por la cámara: vuelve por todo lo que necesite después. Cámaras y routers son categorías de alta rotación. El cliente que compra una cámara vuelve por el NVR, por otra cámara, por cableado. El que compra un router vuelve por el repetidor, por el switch, por el Mesh. No tenerlas en vitrina no es \"ahorrar espacio en inventario\". Es perder ventas recurrentes.","nota":"Cierre: ¿Ya tienes NEXXT HOME, HIKVISION y Linksys en tu vitrina? Pregunta por el portafolio en Caracas y Valencia."}]        </div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="42" onclick="openCopyModal(42, event)">
-        <div class="num">42</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="42" onclick="openCopyModal(42, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Smart Tank 790. Impresión, copia, escaneo, fax. Tinta continua de alta capacidad.».</strong> Impresión, copia, escaneo, fax. Tinta continua de alta capacidad. Pantalla táctil de 3 pulgadas.</div>
@@ -1038,7 +1156,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">27</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="21" onclick="openCopyModal(21, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="21" onclick="openCopyModal(21, event)">
         <div class="num">21</div>
         <span class="fmt vs1">Video Supri #1</span>
         <div class="pillar">Showcase</div>
@@ -1056,7 +1174,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-7s)","texto":"El problema: torres grandes y ruidosas","frase":"Durante años el negocio de tecnología vendió torres grandes y ruidosas porque era lo único que había. Pero eso está cambiando.","nota":"[VISUAL]: Supri de pie junto a una torre de PC tradicional grande. La torre ocupa espacio visible en el escritorio. Supri tiene expresión de \"esto es del pasado\", señalando la torre y negando con la cabeza.\n[ACCION]: Supri toca la torre grande con desdén, gira la palma como diciendo \"esto ya no va más\". Mira a cámara con complicidad."},{"slide":"Escena 2 (7-14s)","texto":"Solución: MSI Cubi 5, compacta total","frase":"MSI Cubi 5 entra en cualquier espacio. Recepción, kiosco, punto de venta. Ocupa menos que un teclado y se ve profesional.","nota":"[VISUAL]: Corte a un escritorio minimalista. Supri coloca una MSI Cubi 5 en la palma de su mano, mostrando lo compacta que es. Fondo limpio, luz natural.\n[ACCION]: Supri sostiene la Cubi 5 en una mano mostrándola desde varios ángulos. Luego la coloca sobre el escritorio."},{"slide":"Escena 3 (14-21s)","texto":"Potencia real: MSI Cubi Z AI","frase":"Y la Cubi Z AI con procesador Ryzen corre diseño, edición y multitarea sin problemas. Potencia de torre en formato compacto.","nota":"[VISUAL]: Primer plano de Supri señalando una MSI Cubi Z AI en un escritorio con dos monitores conectados. Se ven puertos USB. Ambiente moderno de oficina.\n[ACCION]: Supri señala los puertos disponibles enumerando con los dedos. Asiente aprobando."},{"slide":"Escena 4 (21-28s)","texto":"El beneficio: menos espacio, menos consumo","frase":"El negocio inteligente ya está migrando: menos espacio, menos consumo, menos ruido. Y el cliente lo nota desde el primer día.","nota":"[VISUAL]: Supri de pie, con las manos abiertas comparando dos espacios imaginarios: uno grande (torre) y uno pequeño (mini PC). Fondo dividido visualmente.\n[ACCION]: Supri abre los brazos para el espacio grande, luego junta las manos para el espacio pequeño. Hace gesto de equilibrio con las palmas."},{"slide":"Escena 5 (28-35s)","texto":"CTA: cuatro modelos MSI Cubi","frase":"Cuatro modelos MSI Cubi, desde el i5 de entrada hasta el Ryzen 9 con IA. Todos al mayor en SUPRICOM. Pregunta por el portafolio MSI. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Supri de pie junto a una mesa con las cuatro MSI Cubi alineadas. Fondo con logo MSI y SUPRICOM. Sonrisa de cierre.\n[ACCION]: Supri pasa la mano por encima de las cuatro mini PCs presentándolas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente al final."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="22" onclick="openCopyModal(22, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="22" onclick="openCopyModal(22, event)">
         <div class="num">22</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Alternativa</div>
@@ -1079,7 +1197,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">28</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="23" onclick="openCopyModal(23, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="23" onclick="openCopyModal(23, event)">
         <div class="num">23</div>
         <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
         <div class="pillar">Visión</div>
@@ -1099,7 +1217,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Usos de BLUETTI en Venezuela que quizás no habías considerado","frase":"Clínicas, talleres, eventos, oficinas. Cada uno con su modelo ideal.","nota":"Mapa de Venezuela. Iconos de diferentes perfiles alrededor."},{"slide":"Clínica","texto":"Clínicas: equipos médicos que no pueden apagarse","frase":"BLUETTI Premium 200 V2 con modo UPS mantiene monitores funcionando en cortes largos.","nota":"Clínica con BLUETTI. Equipo médico encendido."},{"slide":"Taller","texto":"Talleres: herramientas eléctricas sin depender de la red","frase":"Elite 100 V2 alimenta taladros, compresores y diagnóstico. El taller no para.","nota":"Taller con herramientas conectadas a BLUETTI."},{"slide":"Eventos","texto":"Eventos, ferias, pop-ups: energía donde no la hay","frase":"AC70P o Elite 30 V2 se lleva a cualquier lado. Para el emprendedor que vende fuera del local.","nota":"Stand de feria con BLUETTI."},{"slide":"Cierre","texto":"Usos que abren conversaciones de venta que no sabías que tenías.","frase":"8 modelos BLUETTI, cada uno con su perfil. Pregunta por el portafolio.","nota":"Grid 8 modelos BLUETTI con iconos de perfil. Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="24" onclick="openCopyModal(24, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="24" onclick="openCopyModal(24, event)">
         <div class="num">24</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Sinergia</div>
@@ -1116,8 +1234,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"MSI + BLUETTI: la sinergia que tu cliente necesita","frase":"Compacto + ininterrumpido. Dos productos que juntos duplican tu ticket.","nota":"MSI Cubi + BLUETTI conectados. Flecha de sinergia."},{"slide":"El problema","texto":"Una Mini PC sin respaldo se apaga en el peor momento","frase":"Sin BLUETTI, la Cubi se queda ciega en un corte. Frustración y devolución.","nota":"MSI Cubi con signo de apagado."},{"slide":"La solución","texto":"MSI Cubi + BLUETTI AC70P: productividad sin límites","frase":"Para oficinas y recepciones que no pueden parar. Ticket duplicado.","nota":"MSI Cubi + BLUETTI AC70P. Check de compatibilidad."},{"slide":"Upsell","texto":"El cliente que compra una Cubi es candidato a BLUETTI","frase":"No es vender más. Es vender completo. \"¿Y si se va la luz mientras trabajas?\"","nota":"Vendedor haciendo la pregunta al cliente."},{"slide":"Cierre","texto":"MSI + BLUETTI. Véndelos juntos y duplica el ticket.","frase":"MSI Cubi y BLUETTI en SUPRICOM. Pregunta por el combo.","nota":"MSI + BLUETTI + SUPRICOM. Fondo blanco."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="43" onclick="openCopyModal(43, event)">
-        <div class="num">43</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="43" onclick="openCopyModal(43, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP LaserJet M111cw. Impresión láser compacta.».</strong> Impresión láser compacta. La más pequeña de HP. Wi-Fi, 18 ppm.</div>
@@ -1136,7 +1254,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">29</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="25" onclick="openCopyModal(25, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="25" onclick="openCopyModal(25, event)">
         <div class="num">25</div>
         <span class="fmt vs2">Video Supri #2</span>
         <div class="pillar">Educativo</div>
@@ -1156,7 +1274,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-7s)","texto":"La pregunta clave: ¿cuánto dura un UPS?","frase":"¿Cuánto dura realmente un UPS en un apagón? Esa es la pregunta que todo dueño de comercio debe saber responder. Porque una venta mal dimensionada es una devolución segura.","nota":"[VISUAL]: Supri de pie en una oficina, frente a un escritorio con un equipo de cómputo. Luces del fondo parpadean simulando corte. Expresión seria, mira el equipo y luego a cámara.\n[ACCION]: Supri señala el equipo, hace gesto de \"se apaga\" con las manos. Niega con la cabeza y mira a cámara con las palmas abiertas."},{"slide":"Escena 2 (7-14s)","texto":"Opción 1: FORZA 500VA, 18 min","frase":"FORZA NT-511 de 500VA: aproximadamente 18 minutos de respaldo. Tiempo suficiente para guardar el trabajo y apagar de forma segura. Protección básica, rotación alta.","nota":"[VISUAL]: Primer plano de un UPS FORZA 500VA sobre escritorio. Supri al lado sosteniendo un celular simulando temporizador. Luz tenue de respaldo.\n[ACCION]: Supri señala el UPS FORZA 500VA, muestra el celular marcando \"18 min\" con los dedos."},{"slide":"Escena 3 (14-21s)","texto":"Opción 2: FORZA 1000VA, 32 min","frase":"FORZA NT-1011 de 1000VA: 32 minutos de respaldo. El cliente puede terminar su trabajo sin prisas. Para oficinas y puestos de trabajo fijos.","nota":"[VISUAL]: Supri con un FORZA 1000VA en una mano. Fondo con varios equipos: PC, monitor, router. Luces normales.\n[ACCION]: Supri levanta el FORZA 1000VA mostrándolo. Señala el router y monitor como equipos conectados."},{"slide":"Escena 4 (21-28s)","texto":"Opción 3: BLUETTI, horas de respaldo","frase":"Y cuando los minutos no son suficientes, entran las estaciones de energía portátiles BLUETTI. Horas de respaldo para clínicas, talleres y oficinas que no pueden parar. No compiten con el UPS, lo complementan.","nota":"[VISUAL]: Supri junto a un BLUETTI AC50P y un BLUETTI AC180P, más grandes y robustos. Luz cálida que sugiere espacio funcionando sin electricidad externa.\n[ACCION]: Supri apoya ambas manos sobre los BLUETTI como respaldándolos. Extiende los brazos indicando \"horas\". Asiente con seguridad."},{"slide":"Escena 5 (28-35s)","texto":"CTA: cada perfil, su solución ideal","frase":"Cada cliente tiene un perfil y cada perfil tiene su solución ideal. UPS para minutos, BLUETTI para horas. En SUPRICOM está todo. Pregunta por el portafolio de protección. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Supri de pie con brazos abiertos frente a un exhibidor con FORZA, SMARTBITT, APC y BLUETTI alineados. Fondo con logos de las marcas. Sonrisa segura.\n[ACCION]: Supri barre con la mano el exhibidor mostrando todas las marcas. Señala con la palma abierta hacia cámara, lleva la mano al pecho. Asiente."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="26" onclick="openCopyModal(26, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="26" onclick="openCopyModal(26, event)">
         <div class="num">26</div>
         <span class="fmt carrusel">Carrusel</span>
         <div class="pillar">Perfil</div>
@@ -1183,7 +1301,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">30</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="27" onclick="openCopyModal(27, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="27" onclick="openCopyModal(27, event)">
         <div class="num">27</div>
         <span class="fmt vocero">Video Vocero</span>
         <div class="pillar">Cierre</div>
@@ -1201,7 +1319,7 @@
         <div class="copy-data" style="display:none">[{"slide":"0-7s","texto":"Julio marcó el ritmo — ¿tu inventario está listo?","frase":"VOCERO: Julio fue un mes fuerte para la tecnología en Venezuela. Protección eléctrica, Mini PC, conectividad. ¿Tu inventario está listo para lo que viene?\nTEXTO: Julio marcó el ritmo — ¿tu inventario está listo?","nota":"Vocero en plano medio. Texto en pantalla: Julio marcó el ritmo — ¿tu inventario está listo?"},{"slide":"7-14s","texto":"Protección eléctrica: las cuatro marcas rotando","frase":"VOCERO: Protección eléctrica es la categoría que más está rotando: FORZA para entrada y volumen, SMARTBITT para el punto medio, APC para el cliente que no se arriesga, BLUETTI para respaldo de horas. Todo está disponible.\nTEXTO: FORZA · SMARTBITT · APC · BLUETTI — las cuatro marcas rotando","nota":"Grid de logos FORZA, SMARTBITT, APC, BLUETTI. Vocero a un lado."},{"slide":"14-21s","texto":"MSI Cubi — la nueva categoría","frase":"VOCERO: MSI Cubi está entrando con fuerza. Los comercios que ya las están mostrando están vendiendo una categoría que antes no existía en su mostrador. Mini PC es el nuevo argumento de venta.\nTEXTO: MSI Cubi — la nueva categoría que ya está rotando","nota":"MSI Cubi en primer plano. Vocero señalando. Texto: MSI Cubi."},{"slide":"21-28s","texto":"Portafolio completo en un solo mayorista","frase":"VOCERO: La jugada inteligente es tener el portafolio completo: protección para los cortes, Mini PC para los que migran de la torre grande, conectividad para los que se actualizan. Todo en un solo mayorista.\nTEXTO: Protección + Mini PC + Conectividad = portafolio completo","nota":"Tres íconos: rayo (protección), PC (Mini PC), router (conectividad). Flecha hacia SUPRICOM."},{"slide":"28-35s","texto":"Cierre: escríbenos al DM","frase":"VOCERO: En SUPRICOM trabajamos al mayor con dueños de comercio. FORZA, SMARTBITT, APC, BLUETTI, MSI y todo el portafolio. Escríbenos al DM con la palabra INVENTARIO y te armamos el portafolio. SUPRICOM. Tu mayorista de confianza.\nTEXTO: FORZA · SMARTBITT · APC · BLUETTI · MSI — Al mayor — DM abierto","nota":"Vocero directo a cámara. Logo SUPRICOM. Texto: Tu mayorista de confianza."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-piece="28" onclick="openCopyModal(28, event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="28" onclick="openCopyModal(28, event)">
         <div class="num">28</div>
         <span class="fmt carrusel">Carrusel <span class="ve-badge">VE</span></span>
         <div class="pillar">Error común</div>
@@ -1219,8 +1337,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"El error de subdimensionar la protección en Venezuela","frase":"Un UPS pequeño para cortes de horas. El error que termina en reclamo.","nota":"UPS pequeño vs necesidad grande. Desbalance."},{"slide":"El error","texto":"Tu cliente compra un UPS de 600VA para un equipo de 500W","frase":"Se sobrecarga y falla. Frustración y devolución asegurada.","nota":"UPS pequeño conectado a PC grande. Warning."},{"slide":"La regla","texto":"Regla simple: el UPS debe tener 2x el consumo del equipo","frase":"Para 300W, recomienda 600VA o más. Cliente satisfecho.","nota":"Fórmula visual: 300W → 600VA+. Check."},{"slide":"La solución","texto":"En Venezuela los cortes duran horas, no minutos.","frase":"FORZA UPS 1000VA da ~20 min. BLUETTI AC200P L da respaldo de horas.","nota":"Línea de tiempo: duración de corte vs respaldo."},{"slide":"Cierre","texto":"Dimensionar bien = cero devoluciones, cliente satisfecho.","frase":"FORZA, SMARTBITT y BLUETTI en SUPRICOM. Pide las fichas técnicas.","nota":"FORZA + SMARTBITT + BLUETTI. Logo SUPRICOM."}]        </div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="44" onclick="openCopyModal(44, event)">
-        <div class="num">44</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="44" onclick="openCopyModal(44, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP Smart Tank 520. Impresión, copia y escaneo. Tinta continua económica.».</strong> Impresión, copia y escaneo. Tinta continua económica. Hasta 12.000 páginas incluidas.</div>
@@ -1242,7 +1360,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">31</span></div>
 
-      <div class="piece carrusel-with-copy" data-format="video" data-piece="29" onclick="openCopyModal(29, event)">
+      <div class="piece piece-with-copy" data-format="video" data-piece="29" onclick="openCopyModal(29, event)">
         <div class="num">29</div>
         <span class="fmt vo">Video Voz en off</span>
         <div class="pillar">Tendencia</div>
@@ -1260,7 +1378,7 @@
         <div class="copy-data" style="display:none">[{"slide":"0-7s","texto":"Antes vs ahora: el portafolio cambió","frase":"VOZ: Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Y con eso bastaba. Hoy el cliente entra pidiendo otra cosa.\nTEXTO: Antes: torre + monitor + impresora. Hoy: otra cosa.","nota":"Split screen: izquierda antes (torre, monitor, impresora), derecha hoy (signo de interrogación). Transición gradual."},{"slide":"7-14s","texto":"Las nuevas prioridades del cliente","frase":"VOZ: Ahora pregunta por protección porque cada apagón le cuesta plata. Pregunta por cámaras porque su negocio ya no es seguro sin vigilancia. Pregunta por Mesh porque el internet no tiene cobertura.\nTEXTO: Protección · Cámaras · Mesh — las nuevas prioridades del cliente","nota":"Tres íconos apareciendo: rayo, cámara, router. Texto debajo de cada uno."},{"slide":"14-21s","texto":"El portafolio de antes ya no alcanza","frase":"VOZ: Y el comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita hoy.\nTEXTO: El portafolio de hace cinco años ya no alcanza","nota":"Estantería vacía. Productos antiguos desvaneciéndose. Tonos sepia."},{"slide":"21-28s","texto":"Lo que el negocio actualizado vende hoy","frase":"VOZ: El negocio que se actualizó está vendiendo estaciones de energía BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el cliente que pide lo mejor.\nTEXTO: BLUETTI + laptop · FORZA + PC · APC + cliente premium","nota":"Combo visual: BLUETTI junto a laptop. FORZA junto a PC. APC con badge premium."},{"slide":"28-35s","texto":"El mercado cambió — el portafolio también","frase":"VOZ: El mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. SUPRICOM. Tu mayorista de confianza.\nTEXTO: El mercado cambió — el portafolio también — Al mayor — DM abierto","nota":"Mosaico de productos SUPRICOM. Logo final. Texto: Tu mayorista de confianza."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="post" data-piece="30" onclick="openCopyModal(30, event)">
+      <div class="piece piece-with-copy" data-format="post" data-piece="30" onclick="openCopyModal(30, event)">
         <div class="num">30</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Inversión + Cierre</div>
@@ -1269,8 +1387,8 @@
         <div class="copy-data" style="display:none">[{"slide":"Post","texto":"La independencia energética sigue siendo la tranquilidad de tu cliente","frase":"Julio fue el mes de la protección. BLUETTI, FORZA, SMARTBITT, APC, HAVIT. Cada uno con su perfil, cada uno con su argumento. Pero el mensaje no cambia: tu cliente quiere saber que su negocio no se apaga cuando la luz se va. Eso es lo que vendes. No un aparato. Tranquilidad. Cerramos julio. Agosto viene con más.","nota":"Cierre: ¿Ya tienes todo listo para Q3? Pregunta por los portafolios en Caracas y Valencia."}]</div>
       </div>
 
-      <div class="piece carrusel-with-copy" data-format="carrusel" data-brand="hp" data-piece="41" onclick="openCopyModal(41, event)">
-        <div class="num">41</div>
+      <div class="piece piece-with-copy" data-format="carrusel" data-brand="hp" data-piece="41" onclick="openCopyModal(41, event)">
+        <div class="num">HP</div>
         <span class="fmt hp">HP</span>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«HP LaserJet Pro 4003dw. Impresión láser rápida.».</strong> Impresión láser rápida. 42 ppm, dúplex automático, alimentador de 350 hojas.</div>
@@ -1609,7 +1727,7 @@ let slidesData = [];
 
 function openCopyModal(pieceNum, ev) {
   if (ev && ev.target && ev.target.closest && ev.target.closest('.prods, summary')) return;
-  const el = document.querySelector(`.carrusel-with-copy[data-piece="${pieceNum}"]`);
+  const el = document.querySelector(`.piece-with-copy[data-piece="${pieceNum}"]`);
   if (!el) return;
   const data = el.querySelector('.copy-data');
   if (!data) return;
@@ -1853,7 +1971,79 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeCopyModal();
   if (e.key === 'ArrowRight') navigateSlide(1);
   if (e.key === 'ArrowLeft') navigateSlide(-1);
+  if (e.key === 'Escape') closeCatalog();
 });
+
+</script>
+<script src="../_scripts/catalogo_data.js"></script>
+<script>
+// ─── CATÁLOGO VIEWER ───
+let catTab = 'GENERAL';
+let catBrands = [];
+
+function openCatalog() {
+  document.getElementById('catOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  populateCatFilters();
+  filterCatalog();
+}
+function closeCatalog() {
+  document.getElementById('catOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function switchCatTab(tab, btn) {
+  catTab = tab;
+  document.querySelectorAll('.cat-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  populateCatFilters();
+  filterCatalog();
+}
+function populateCatFilters() {
+  const data = CATALOGO[catTab] || {};
+  const cats = Object.keys(data).sort();
+  const sel = document.getElementById('catCategory');
+  const prev = sel.value;
+  sel.innerHTML = '<option value="">Todas las categorías</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
+  sel.value = prev;
+  catBrands = [];
+  cats.forEach(c => { data[c].forEach(p => { if (!catBrands.includes(p.marca)) catBrands.push(p.marca); }); });
+  catBrands.sort();
+  const bSel = document.getElementById('catBrand');
+  const prevB = bSel.value;
+  bSel.innerHTML = '<option value="">Todas las marcas</option>' + catBrands.map(b => `<option value="${b}">${b}</option>`).join('');
+  bSel.value = prevB;
+}
+function filterCatalog() {
+  const data = CATALOGO[catTab] || {};
+  const q = document.getElementById('catSearch').value.toLowerCase();
+  const catFilter = document.getElementById('catCategory').value;
+  const brandFilter = document.getElementById('catBrand').value;
+  const body = document.getElementById('catBody');
+  let html = '';
+  let totalProducts = 0;
+  let totalQty = 0;
+  const cats = catFilter ? [catFilter] : Object.keys(data).sort();
+  cats.forEach(cat => {
+    let items = data[cat] || [];
+    if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
+    if (brandFilter) items = items.filter(p => p.marca === brandFilter);
+    if (items.length === 0) return;
+    totalProducts += items.length;
+    const catQty = items.reduce((s, p) => s + p.cantidad, 0);
+    totalQty += catQty;
+    html += `<div class="cat-section">`;
+    html += `<div class="cat-section-title">${cat} <span style="font-weight:400;font-size:12px;color:var(--text-light);margin-left:8px">${items.length} productos · ${catQty.toLocaleString()} uds</span></div>`;
+    html += `<table class="cat-table"><thead><tr><th>SKU</th><th>Producto</th><th>Marca</th><th style="text-align:right">Cant.</th><th style="text-align:right">Precio ($)</th></tr></thead><tbody>`;
+    items.sort((a, b) => a.nombre.localeCompare(b.nombre)).forEach(p => {
+      const qtyClass = p.cantidad < 5 ? 'low' : 'ok';
+      html += `<tr><td class="sku">${p.sku}</td><td>${p.nombre}</td><td>${p.marca}</td><td class="qty ${qtyClass}" style="text-align:right">${p.cantidad.toLocaleString()}</td><td class="price" style="text-align:right">$${p.precio.toFixed(2)}</td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  });
+  if (!html) html = '<div class="cat-empty">No se encontraron productos con esos filtros.</div>';
+  body.innerHTML = html;
+  document.getElementById('catCount').textContent = `${totalProducts} productos · ${totalQty.toLocaleString()} unidades`;
+}
 
 </script>
 
