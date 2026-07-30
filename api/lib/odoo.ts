@@ -243,7 +243,7 @@ export async function fetchCatalogo(): Promise<CatalogoData> {
     'product.product',
     'search_read',
     [[]],
-    { fields, limit: 2000, order: 'name asc' },
+    { fields, limit: 5000, order: 'name asc' },
   ]);
 
   const rawProducts = parseResponse(resp);
@@ -266,8 +266,8 @@ export async function fetchCatalogo(): Promise<CatalogoData> {
     const cat = catName.toUpperCase().trim() || 'SIN CATEGORIA';
 
     // Filter out internal Odoo categories
-    const excluded = ['ALL', 'SERVICIO', 'JUGUETES', 'ALL / SALEABLE / BOOKING FEES', 'ALL / SALEABLE / POS'];
-    if (excluded.includes(cat)) continue;
+    const excluded = ['ALL', 'SERVICIO', 'JUGUETES', 'BOOKING FEES', 'POS', 'DELIVERIES', 'EXPENSES', 'SALEABLE', 'SOFTWARE'];
+    if (excluded.some(e => cat.includes(e))) continue;
 
     // x_studio_marca: [id, name] or just name
     let marcaName = '';
