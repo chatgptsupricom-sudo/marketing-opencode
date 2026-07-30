@@ -629,6 +629,7 @@
     .week-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
   }
 </style>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -664,7 +665,7 @@
         <option value="">Todas las marcas</option>
       </select>
       <span class="cat-count" id="catCount"></span>
-      <button class="cat-export-btn" onclick="exportCatalogCSV()" title="Exportar a Excel (CSV)">📥 Exportar</button>
+      <button class="cat-export-btn" onclick="exportCatalogCSV()" title="Exportar a Excel (.xlsx)">📥 Excel</button>
     </div>
     <div class="cat-body" id="catBody">
       <div class="cat-loader" id="catLoader">
@@ -2499,32 +2500,36 @@ function filterCatalog() {
 }
 
 function exportCatalogCSV() {
-  if (!CATALOGO || !CATALOGO[catTab]) return;
+  if (!CATALOGO || !CATALOGO[catTab] || typeof XLSX === 'undefined') return;
   const data = CATALOGO[catTab];
   const cats = Object.keys(data).sort();
   const q = document.getElementById('catSearch').value.toLowerCase();
   const catFilter = document.getElementById('catCategory').value;
   const brandFilter = document.getElementById('catBrand').value;
-  const rows = [['Categoría', 'SKU', 'Producto', 'Marca', 'Cantidad', 'Precio ($)']];
+  const wb = XLSX.utils.book_new();
+  let totalRows = 0;
   cats.forEach(cat => {
     if (catFilter && cat !== catFilter) return;
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
     if (brandFilter) items = items.filter(p => p.marca === brandFilter);
-    items.sort((a, b) => a.nombre.localeCompare(b.nombre)).forEach(p => {
-      rows.push([cat, p.sku, `"${p.nombre.replace(/"/g, '""')}"`, p.marca, p.cantidad, p.precio.toFixed(2)]);
-    });
+    if (items.length === 0) return;
+    const rows = items.sort((a, b) => a.nombre.localeCompare(b.nombre)).map(p => ({
+      'SKU': p.sku,
+      'Producto': p.nombre,
+      'Marca': p.marca,
+      'Cantidad': p.cantidad,
+      'Precio ($)': p.precio
+    }));
+    const sheetName = cat.substring(0, 31).replace(/[\\\/\*\?\[\]:]/g, '');
+    const ws = XLSX.utils.json_to_sheet(rows);
+    ws['!cols'] = [{ wch: 18 }, { wch: 50 }, { wch: 16 }, { wch: 10 }, { wch: 12 }];
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+    totalRows += rows.length;
   });
-  if (rows.length <= 1) return;
-  const csv = rows.map(r => r.join('\t')).join('\n');
-  const blob = new Blob(['\uFEFF' + csv], { type: 'text/tab-separated-values;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
+  if (totalRows === 0) return;
   const tabNames = { GENERAL: 'Inventario_General', CARACAS: 'Caracas', VALENCIA: 'Valencia' };
-  a.download = `Catalogo_SUPRICOM_${tabNames[catTab] || catTab}_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
-  URL.revokeObjectURL(url);
+  XLSX.writeFile(wb, `Catalogo_SUPRICOM_${tabNames[catTab] || catTab}_${new Date().toISOString().slice(0,10)}.xlsx`);
 }
 
 </script>
