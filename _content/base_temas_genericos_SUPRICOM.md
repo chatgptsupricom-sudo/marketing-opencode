@@ -270,76 +270,92 @@
 | 144 | [X] razones por las que tus clientes van a agradecerte que les recomiendes [producto] | Cualquier producto | Carrusel |
 | 145 | Lo simple de [producto]: enchufa y funciona | Productos plug-and-play | Post + reel |
 
-### ARQUETIPO 15: INTERACCIÓN / "ENGAGEMENT DIRECTO"
-*Fórmula: pregunta + participación + comunidad*
-
-| # | Título genérico | Aplica a | Formato recomendado |
-|---|-----------------|----------|---------------------|
-| 146 | ¿Ya vendes [categoría]? Cuéntanos cuál es el que más te piden | Cualquier categoría | Post encuesta |
-| 147 | ¿Cuál de estos [producto] crees que se vende más? Te sorprenderá la respuesta | Cualquier producto | Post votación |
-| 148 | ¿Qué objeción escuchas más cuando ofreces [producto]? Responde y te damos el argumento | Interacción | Post |
-| 149 | ¿Cuánto crees que cuesta [producto]? Adivina el precio | Gamificación | Post + Stories |
-| 150 | Cuéntanos: ¿cuál fue tu mayor venta de [categoría] esta semana? | Comunidad | Post |
-| 151 | ¿Prefieres vender [marca A] o [marca B]? ¿Por qué? | Marcas | Post |
-| 152 | Marca la opción: ¿tu cliente compra [producto] por precio o por calidad? | Encuesta | Post |
-| 153 | Recomiéndale [categoría] a otro dueño de tienda — ¿cuál le sugerirías? | Peer-to-peer | Post |
-| 154 | ¿Qué te gustaría aprender a vender mejor este mes? | Feedback | Post |
-| 155 | De dueño de tienda a dueño de tienda: ¿qué [producto] te ha dado mejor resultado? | Testimonial entre pares | Post |
-
-### ARQUETIPO 16: CONTENIDO GENERATIVO / "IA Y FUTURO"
+### ARQUETIPO 15: CONTENIDO GENERATIVO / "IA Y FUTURO"
 *Fórmula: tendencia tecnológica + implicación para la tienda*
 
 | # | Título genérico | Aplica a | Formato recomendado |
 |---|-----------------|----------|---------------------|
-| 156 | Cómo la IA está cambiando lo que tus clientes piden en [categoría] | Cualquier categoría | Post + carrusel |
-| 157 | Lo que los compradores B2B están buscando en ChatGPT (y cómo aparecer ahí) | Marca SUPRICOM | Carrusel |
-| 158 | ¿Tus clientes investigan antes de comprar? Esto encuentran sobre [categoría] | Categorías | Carrusel |
-| 159 | El futuro de [categoría]: hacia dónde va el mercado | Proyección | Carrusel 10 slides |
-| 160 | Las [categoría] del futuro que ya están aquí | Innovación | Post + carrusel |
+| 146 | Cómo la IA está cambiando lo que tus clientes piden en [categoría] | Cualquier categoría | Post + carrusel |
+| 147 | Lo que los compradores B2B están buscando en ChatGPT (y cómo aparecer ahí) | Marca SUPRICOM | Carrusel |
+| 148 | ¿Tus clientes investigan antes de comprar? Esto encuentran sobre [categoría] | Categorías | Carrusel |
+| 149 | El futuro de [categoría]: hacia dónde va el mercado | Proyección | Carrusel 10 slides |
+| 150 | Las [categoría] del futuro que ya están aquí | Innovación | Post + carrusel |
 
-### ARQUETIPO 17: LIQUIDACIÓN Y OPORTUNIDAD
-*Fórmula: oportunidad + tiempo limitado + acción*
+### ARQUETIPO 16: CONTEXTO VENEZUELA
+*Fórmula: situación país + implicación para la tienda + oportunidad*
 
 | # | Título genérico | Aplica a | Formato recomendado |
 |---|-----------------|----------|---------------------|
-| 161 | Últimas unidades de [producto] — una vez que se acaben, no sabemos cuándo vuelven | Productos con stock bajo | Post + Stories |
-| 162 | [Producto] a precio especial esta semana | Cualquier producto | Post |
-| 163 | Lote especial de [categoría] con condiciones preferenciales | Categorías | Post + carrusel |
-| 164 | Oferta por volumen en [producto]: mientras más llevas, mejor el precio | Productos con margen | Post |
-| 165 | Descuento por pronta compra en [categoría] — solo [X] días | Categorías | Post + Stories |
+| 151 | Cómo la [situación eléctrica/coyuntura] afecta la demanda de [categoría] en Venezuela | Categorías sensibles a contexto | Carrusel |
+| 152 | Lo que todo dueño de tienda debe saber sobre [tema país] y su impacto en [categoría] | Cualquier categoría | Post |
+| 153 | Por qué la [situación país] hace que [categoría] sea prioridad para tu cliente | Categorías críticas | Carrusel |
+| 154 | [Mes]: el mes en que [situación país] tradicionalmente afecta a [categoría] | Estacional contexto | Post |
+| 155 | ¿Cómo proteger el inventario de tu tienda ante [situación país]? | Gestión | Carrusel |
+| 156 | Lo que los comercios venezolanos están haciendo para adaptarse a [situación país] | Resiliencia | Post + carrusel |
+| 157 | [Categoría] en Venezuela: lo que cambió en los últimos [X] meses | Evolución mercado | Carrusel |
+| 158 | La [situación país] está redefiniendo lo que los clientes finales compran | Cambio demanda | Post |
+| 159 | Por qué [categoría] es la respuesta a [problema del país] que tu cliente tiene hoy | Solución coyuntural | Carrusel |
+| 160 | El dato de [contexto Venezuela] que todo revendedor debería usar en su argumento de venta | Argumento | Post |
 
-### ARQUETIPO 18: CONTENIDO REPROCESABLE / "PREGUNTAS FRECUENTES"
+### ARQUETIPO 17: ECOSISTEMA / INTEGRACIÓN DE CATEGORÍAS
+*Fórmula: necesidad del cliente final + solución integrada + componentes*
+
+| # | Título genérico | Aplica a | Formato recomendado |
+|---|-----------------|----------|---------------------|
+| 161 | Tu cliente no compra un [producto], compra [solución]: el ecosistema completo | Categorías complementarias | Carrusel |
+| 162 | Cómo armar una solución completa de [necesidad] con 3 productos de nuestro catálogo | Kits por necesidad | Carrusel |
+| 163 | De [producto suelto] a [solución integrada]: el argumento que sube tu ticket | Escalabilidad | Carrusel |
+| 164 | Los [X] componentes de un [sistema] que tu cliente necesita y tú puedes venderle | Sistemas | Carrusel 8 slides |
+| 165 | [Producto] no funciona solo: lo que tu cliente necesita COMPLEMENTARIO para que [beneficio] | Complementos | Post |
+| 166 | La diferencia entre vender un [producto] y vender una [solución]: cómo explicarlo | Mentalidad | Post |
+| 167 | El ecosistema [marca]: cómo los productos de una misma marca se potencian entre sí | Marcas con portafolio amplio | Carrusel |
+| 168 | 3 necesidades comunes del cliente final que requieren 2+ categorías de nuestro portafolio | Necesidades cruzadas | Carrusel |
+| 169 | [Producto A] + [Producto B] + [Producto C]: el triángulo de venta de [sector/vertical] | Vertical específica | Carrusel |
+| 170 | Por qué el cliente que compra una [solución completa] no devuelve nada | Retención | Post |
+
+### ARQUETIPO 18: OPORTUNIDAD DE STOCK
+*Fórmula: disponibilidad + beneficio de comprar ahora*
+
+| # | Título genérico | Aplica a | Formato recomendado |
+|---|-----------------|----------|---------------------|
+| 171 | [Producto] con stock disponible hoy — entrega inmediata | Cualquier producto | Post |
+| 172 | Repusimos stock de [marca] — vuelve a estar disponible | Marcas con re-stock | Post |
+| 173 | [Producto]: disponibilidad confirmada para la semana | Productos con stock estable | Post |
+| 174 | Lote disponible de [categoría] — consulta unidades por modelo | Categorías con variedad | Post |
+| 175 | Pedido especial de [producto] con entrega programada | Productos a pedido | Post |
+
+### ARQUETIPO 19: CONTENIDO REPROCESABLE / "PREGUNTAS FRECUENTES"
 *Fórmula: duda común + respuesta clara + CTA*
 
 | # | Título genérico | Aplica a | Formato recomendado |
 |---|-----------------|----------|---------------------|
-| 166 | Lo que todo dueño de tienda pregunta antes de comprar [categoría] (respondemos) | Categorías | Carrusel |
-| 167 | Las [X] preguntas más frecuentes sobre [producto] en SUPRICOM | Productos | Carrusel 8 slides |
-| 168 | Mitos y verdades sobre [categoría] que todo revendedor debe conocer | Categorías con mitos | Carrusel |
-| 169 | ¿Cómo se compara [producto] con lo que ya tienes en tu tienda? | Sustitución | Post |
-| 170 | Lo que nadie te dice de [categoría] y nosotros sí | Transparencia | Carrusel |
+| 176 | Lo que todo dueño de tienda pregunta antes de comprar [categoría] (respondemos) | Categorías | Carrusel |
+| 177 | Las [X] preguntas más frecuentes sobre [producto] en SUPRICOM | Productos | Carrusel 8 slides |
+| 178 | Mitos y verdades sobre [categoría] que todo revendedor debe conocer | Categorías con mitos | Carrusel |
+| 179 | ¿Cómo se compara [producto] con lo que ya tienes en tu tienda? | Sustitución | Post |
+| 180 | Lo que nadie te dice de [categoría] y nosotros sí | Transparencia | Carrusel |
 
-### ARQUETIPO 19: INSPIRACIONAL / "EL POTENCIAL"
+### ARQUETIPO 20: INSPIRACIONAL / "EL POTENCIAL"
 *Fórmula: visión + posibilidad + llamado a crecer*
 
 | # | Título genérico | Aplica a | Formato recomendado |
 |---|-----------------|----------|---------------------|
-| 171 | Si solo pudieras vender una [categoría] esta semana, que sea esta | Priorización | Post |
-| 172 | El potencial de [categoría] que la mayoría de tiendas está ignorando | Oportunidad | Carrusel |
-| 173 | Lo que [marca] puede hacer por tu tienda | Visión partner | Post |
-| 174 | Así se ve una tienda que entiende [categoría]: vitrina, precio y argumento | Aspiracional | Carrusel |
-| 175 | ¿Y si este mes pruebas con [categoría]? | Reto/desafío | Post |
+| 181 | Si solo pudieras vender una [categoría] esta semana, que sea esta | Priorización | Post |
+| 182 | El potencial de [categoría] que la mayoría de tiendas está ignorando | Oportunidad | Carrusel |
+| 183 | Lo que [marca] puede hacer por tu tienda | Visión partner | Post |
+| 184 | Así se ve una tienda que entiende [categoría]: vitrina, precio y argumento | Aspiracional | Carrusel |
+| 185 | ¿Y si este mes pruebas con [categoría]? | Reto/desafío | Post |
 
-### ARQUETIPO 20: RECORDATORIO / "NO OLVIDES"
+### ARQUETIPO 21: RECORDATORIO / "NO OLVIDES"
 *Fórmula: necesidad básica + producto esencial*
 
 | # | Título genérico | Aplica a | Formato recomendado |
 |---|-----------------|----------|---------------------|
-| 176 | No olvides tener [producto] en tu inventario esta semana | Productos básicos | Post |
-| 177 | Checklist semanal de [categoría]: lo que no puede faltar | Lista | Post imagen |
-| 178 | Revisa tu stock de [categoría]: esto es lo que deberías tener según tus ventas | Planificación | Post + carrusel |
-| 179 | Si tienes clientes de [sector], no olvides ofrecerles [producto] | Recordatorio | Post |
-| 180 | 3 [producto] que siempre deberías tener en tu vitrina (pase lo que pase) | Imprescindibles | Post |
+| 186 | No olvides tener [producto] en tu inventario esta semana | Productos básicos | Post |
+| 187 | Checklist semanal de [categoría]: lo que no puede faltar | Lista | Post imagen |
+| 188 | Revisa tu stock de [categoría]: esto es lo que deberías tener según tus ventas | Planificación | Post + carrusel |
+| 189 | Si tienes clientes de [sector], no olvides ofrecerles [producto] | Recordatorio | Post |
+| 190 | 3 [producto] que siempre deberías tener en tu vitrina (pase lo que pase) | Imprescindibles | Post |
 
 ---
 
@@ -363,22 +379,24 @@ Para usar esta base de datos, toma cualquier arquetipo + cualquier variable:
 
 ## FRECUENCIA SUGERIDA POR ARQUETIPO (semanal)
 
-| Arquetipo | Posts/semana | Propósito |
-|-----------|-------------|-----------|
-| Prueba social / "Lo que se vende" | 2 | Urgencia + validación |
-| Caso de negocio / "Por qué tenerlo" | 1 | Conversión |
-| Educación / "Cómo venderlo" | 2 | Autoridad + utilidad |
-| Inteligencia de mercado | 1 | Pensamiento líder |
-| Stock y disponibilidad | 1 | Operacional |
-| Comparativas | 1 | Decisión |
+| Arquetipo | Piezas/mes | Propósito |
+|-----------|-----------|-----------|
+| Prueba social / "Lo que se vende" | 3 | Urgencia + validación |
+| Caso de negocio / "Por qué tenerlo" | 2 | Conversión |
+| Educación / "Cómo venderlo" | 4 | Autoridad + utilidad (Awareness) |
+| Inteligencia de mercado | 2 | Pensamiento líder |
+| Stock y disponibilidad | 2 | Operacional |
+| Comparativas | 2 | Decisión (Interest) |
 | Estacional | 1 | Timing |
 | Detrás del mayorista | 1 | Confianza |
-| Rentabilidad | 1 | ROI |
-| Kits y combos | 1 | Ticket promedio |
-| Objeciones | 1 | Cierre |
-| Interacción | 1 | Comunidad |
+| Rentabilidad | 2 | ROI (Education) |
+| Kits y combos | 3 | Ticket promedio (Sales) |
+| Objeciones | 2 | Cierre |
+| Contexto Venezuela | 2 | Relevancia país |
+| Ecosistema | 2 | Integración (Sales) |
+| Beneficio simple | 2 | Alcance amplio |
 
-**Total semanal aprox:** 14 posts (2/día promedio)
+**Total mensual aprox:** 30 piezas (alineado con AGES: 30% Awareness · 30% Interest · 25% Education · 15% Sales)
 
 ---
 
@@ -397,5 +415,5 @@ Para convertir cualquier tema genérico en contenido concreto:
 ---
 
 *Documento generado: Julio 2026*
-*Base: 180 temas genéricos × 23 categorías = 4,140 combinaciones posibles*
+*Base: 190 temas genéricos × 23 categorías = 4,370 combinaciones posibles*
 *Actualizable: se pueden agregar más arquetipos según necesidades del negocio*
