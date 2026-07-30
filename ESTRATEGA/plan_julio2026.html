@@ -483,6 +483,10 @@
   .cat-table .qty.ok { color: var(--success); }
   .cat-table .price { font-weight: 600; color: var(--primary); }
   .cat-empty { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 14px; }
+  .cat-loader { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px; padding: 40px; }
+  .cat-loader .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin .8s linear infinite; }
+  .cat-loader .loader-text { font-size: 14px; color: var(--text-light); }
+  @keyframes spin { to { transform: rotate(360deg); } }
   [data-theme="dark"] .cat-overlay .cat-modal { background: #161B22; }
   [data-theme="dark"] .cat-tabs-bar { background: #161B22; border-bottom-color: #30363D; }
   [data-theme="dark"] .cat-toolbar { background: #161B22; border-bottom-color: #30363D; }
@@ -653,7 +657,12 @@
       </select>
       <span class="cat-count" id="catCount"></span>
     </div>
-    <div class="cat-body" id="catBody"></div>
+    <div class="cat-body" id="catBody">
+      <div class="cat-loader" id="catLoader">
+        <div class="spinner"></div>
+        <div class="loader-text">Conectando con Odoo...</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -2411,7 +2420,14 @@ let catBrands = [];
 async function openCatalog() {
   document.getElementById('catOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-  if (!CATALOJO) await loadCatalogo();
+  const loader = document.getElementById('catLoader');
+  const body = document.getElementById('catBody');
+  if (!CATALOGO) {
+    if (loader) loader.style.display = 'flex';
+    body.querySelectorAll('.cat-section, .cat-empty').forEach(el => el.remove());
+    await loadCatalogo();
+  }
+  if (loader) loader.style.display = 'none';
   populateCatFilters();
   filterCatalog();
 }
