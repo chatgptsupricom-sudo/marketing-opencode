@@ -647,7 +647,7 @@
     <div class="cat-head">
       <div>
         <h2>📦 Catálogo SUPRICOM</h2>
-        <div class="cat-date">Actualizado: 28 jul 2026</div>
+        <div class="cat-date" id="catDate">Actualizado: ...</div>
       </div>
       <button class="cat-close" onclick="closeCatalog()">✕</button>
     </div>
@@ -2397,13 +2397,22 @@ let CATALOGO = null;
 const SUPRICOM_API_URL = 'https://dashboard-apijose.larlxe.easypanel.host/api/catalogo';
 const SUPRICOM_API_KEY = 'supricom2026!api';
 
+function updateCatDate(isoStr) {
+  const el = document.getElementById('catDate');
+  if (!el || !isoStr) return;
+  const d = new Date(isoStr);
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  el.textContent = 'Actualizado: ' + d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear();
+}
+
 async function loadCatalogo() {
   const cache = localStorage.getItem('supricom_catalogo');
   if (cache) {
     try {
-      const { data, ts } = JSON.parse(cache);
+      const { data, ts, actualizado } = JSON.parse(cache);
       if (Date.now() - ts < 86400000) {
         CATALOGO = data;
+        updateCatDate(actualizado || new Date(ts).toISOString());
         return;
       }
     } catch(e) { localStorage.removeItem('supricom_catalogo'); }
@@ -2414,7 +2423,8 @@ async function loadCatalogo() {
     });
     const json = await res.json();
     CATALOGO = json.productos;
-    localStorage.setItem('supricom_catalogo', JSON.stringify({ data: CATALOGO, ts: Date.now() }));
+    localStorage.setItem('supricom_catalogo', JSON.stringify({ data: CATALOGO, ts: Date.now(), actualizado: json.actualizado }));
+    updateCatDate(json.actualizado);
   } catch (e) {
     console.warn('API no disponible, catálogo offline');
     CATALOGO = {};
