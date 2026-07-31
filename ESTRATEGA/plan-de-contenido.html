@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -720,7 +720,7 @@
 <div class="enhanced-toolbar">
   <div class="toolbar-group">
     <label>📐 Pillar</label>
-    <select id="filterPillar" onchange="applyEnhancedFilters()">
+    <select id="filterPillar-2026-08" onchange="applyEnhancedFilters()">
       <option value="">Todos</option>
       <option value="Showcase">Showcase</option>
       <option value="Diagnóstico">Diagnóstico</option>
@@ -748,8 +748,8 @@
   <div class="toolbar-group">
     <label>Vista</label>
     <div class="view-toggle">
-      <button id="viewColumns" class="active" onclick="setView('columns')">Columnas</button>
-      <button id="viewCalendar" onclick="setView('calendar')">Calendario</button>
+      <button id="viewColumns-2026-07" class="active" onclick="setView('columns')">Columnas</button>
+      <button id="viewCalendar-2026-07" onclick="setView('calendar')">Calendario</button>
     </div>
   </div>
   <div class="export-btns">
@@ -1602,7 +1602,1028 @@
 </div>
 
 <!-- ═══════ AGO-DIC ═══════ -->
-<div class="month-content hidden" id="mc-2026-08"><div class="grid-placeholder" id="grid-2026-08"></div></div>
+<div class="month-content hidden" id="mc-2026-08">
+
+<div class="filter-bar">
+  <span>Filtrar:</span>
+  <span class="fil active" data-filter="all">Todo</span>
+  <span class="fil" data-filter="video">Video</span>
+  <span class="fil" data-filter="carrusel">Carrusel</span>
+  <span class="fil" data-filter="post">Post</span>
+  <span class="fil" data-filter="ve">🇻🇪 Venezuela</span>
+  <span style="margin-left:auto"></span>
+  <span class="fil toggle-prods" id="toggleProds">📦 Productos: oculto</span>
+</div>
+
+<div class="enhanced-toolbar">
+  <div class="toolbar-group">
+    <label>📐 Pillar</label>
+    <select id="filterPillar" onchange="applyEnhancedFilters()">
+      <option value="">Todos</option>
+      <option value="Showcase">Showcase</option>
+      <option value="Diagnóstico">Diagnóstico</option>
+      <option value="Comparativa">Comparativa</option>
+      <option value="Perfil">Perfil</option>
+      <option value="Solución">Solución</option>
+      <option value="Guía">Guía</option>
+      <option value="Tendencia">Tendencia</option>
+      <option value="Inversión">Inversión</option>
+      <option value="Educativo">Educativo</option>
+      <option value="Ecosistema">Ecosistema</option>
+      <option value="Visión">Visión</option>
+      <option value="Error común">Error común</option>
+      <option value="Sinergia">Sinergia</option>
+      <option value="Cierre">Cierre</option>
+      <option value="Alternativa">Alternativa</option>
+    </select>
+  </div>
+  <div class="toolbar-group">
+    <label>🔍 Buscar</label>
+    <input type="text" id="filterSearch-2026-08" placeholder="topic, marca..." oninput="applyEnhancedFilters()">
+  </div>
+  <div class="search-results" id="searchResults-2026-08"></div>
+  <div class="toolbar-sep"></div>
+  <div class="toolbar-group">
+    <label>Vista</label>
+    <div class="view-toggle">
+      <button id="viewColumns-2026-08" class="active" onclick="setView('columns')">Columnas</button>
+      <button id="viewCalendar-2026-08" onclick="setView('calendar')">Calendario</button>
+    </div>
+  </div>
+  <div class="export-btns">
+    <button class="export-btn" onclick="copySummary()">📋 Resumen</button>
+    <button class="export-btn" onclick="exportJSON()">💾 JSON</button>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="week-card collapsed" id="aug-s1">
+  <div class="week-top" onclick="toggleWeek('aug-s1')">
+    <div class="week-top-left">
+      <span class="week-badge current">EN CURSO</span>
+      <h2>S1 · 3 al 7 de agosto</h2>
+      <span class="week-summary">10 piezas · 5 videos</span>
+      <span class="week-arrow">▾</span>
+    </div>
+    <div class="tags">
+      <span>🎬 5 videos</span>
+      <span style="background:#6BCBFF;color:#003">Logitech</span>
+      <span>📦 Brands list</span>
+    </div>
+  </div>
+  <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-comparativa)" title="Comparativa: 1"></div><div style="width:10%;background:var(--c-tendencia)" title="Demanda: 1"></div><div style="width:10%;background:var(--c-sinergia)" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Sales: 1"></div></div>
+  <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Comparativa (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Demanda (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-sinergia)"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Sales (1)</span></div>
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+  <div class="week-focus"><strong>Foco:</strong> Logitech showcase · Routers · BLUETTI explicativo · Consumibles HP · Laptops · Mini PC MSI</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">3</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG1" onclick="openCopyModal('AUG1', event)">
+        <div class="num">1</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«Logitech en SUPRICOM: lo que tu vitrina debería tener».</strong> Mouse, teclados y audífonos. Portafolio completo disponible.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📦 7 productos Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Logitech M170</span><span class="sku">LOGITECH-M170</span><span class="sto">608</span></div>
+            <div class="pi"><span class="name">Mouse Logitech M240</span><span class="sku">LOGITECH-M240</span><span class="sto">342</span></div>
+            <div class="pi"><span class="name">Mouse Gaming Logitech G203</span><span class="sku">LOGITECH-G203</span><span class="sto">1169</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K270</span><span class="sku">LOGITECH-K270</span><span class="sto">212</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K380S</span><span class="sku">LOGITECH-K380S</span><span class="sto">84</span></div>
+            <div class="pi"><span class="name">Audífonos Logitech H111</span><span class="sku">LOGITECH-H111</span><span class="sto">221</span></div>
+            <div class="pi"><span class="name">Audífonos Gaming Logitech G335</span><span class="sku">LOGITECH-G335</span><span class="sto">106</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Logitech en SUPRICOM: lo que tu vitrina debería tener","frase":"Ocho modelos. Cada cliente tiene el suyo. Ya disponible en SUPRICOM.","nota":"Fondo azul degradado. Logo Logitech + SUPRICOM."},{"slide":"Mouse para cada cliente","texto":"Para el día a día: mouse que se venden solos","frase":"M170 y M240. Compactos, confiables. Buena rotación para el cliente de oficina.","nota":"Icono escritorio. M170 y M240 lado a lado."},{"slide":"Teclados que se venden solos","texto":"Teclados: del básico al multifunción","frase":"K270 inalámbrico para oficina. K380S multi-dispositivo para el que cambia entre celular y laptop.","nota":"Icono teclado. K270 y K380S en fila."},{"slide":"Audífonos y gaming","texto":"Audífonos: oficina y gaming","frase":"H111 para videollamadas. G335 para gaming. Dos segmentos, un solo proveedor.","nota":"Icono audífonos. H111 y G335."},{"slide":"Cierre","texto":"El portafolio Logitech completo, ya disponible.","frase":"Mouse, teclados, audífonos. Pregunta por el que necesitas.","nota":"Todos los modelos Logitech en grid. Logo SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG2" onclick="openCopyModal('AUG2', event)">
+        <div class="num">2</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Demanda</div>
+        <div class="topic"><strong>«El router que tu tienda debería tener hoy».</strong> HIKVISION, Linksys y Xiaomi. Los routers que más rotan.</div>
+        <div class="brands">HIKVISION · Linksys · Xiaomi</div>
+        <details class="prods">
+          <summary>📦 4 routers</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">Linksys E5600 AC1200</span><span class="sku">LINKSYS-E5600</span><span class="sto">647</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3000</span><span class="sku">XIAOMI-AX3000</span><span class="sto">956</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"El router que tu tienda debería tener hoy","frase":"El router es la categoría que rota sola si la tienes en vitrina. HIKVISION DS-3WR12GC (AC1200) para el cliente de entrada. HIKVISION DS-3WR15X (AX1500 WiFi 6) para el que quiere velocidad. Linksys E5600 para el que conoce la marca. Xiaomi AX3000 para el que busca rendimiento sin pagar premium. Cuatro opciones, un solo mayorista. Si tu vitrina no tiene router, tu cliente lo busca en otro lado. Y ese cliente no vuelve solo por el router: vuelve por el switch, por el repetidor, por el Mesh.","nota":"Grid de 4 routers con logos de marca. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">4</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG3" onclick="openCopyModal('AUG3', event)">
+        <div class="num">3</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«De básico a premium: así se ve el surtido de routers en SUPRICOM».</strong> Showcase visual del portafolio de routers.</div>
+        <div class="brands">HIKVISION · Linksys · Xiaomi · NEXXT HOME</div>
+        <details class="prods">
+          <summary>📦 5 routers</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+            <div class="pi"><span class="name">Linksys E5600 AC1200</span><span class="sku">LINKSYS-E5600</span><span class="sto">647</span></div>
+            <div class="pi"><span class="name">NEXXT HOME AX1800</span><span class="sku">NEXXT-AX1800</span><span class="sto">13</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"El router que tu tienda debería tener","frase":"¿Tu vitrina tiene router? Si no lo tiene, tu cliente lo compra en otro lado.","nota":"[VISUAL]: Supri de pie frente a un exhibidor vacío de routers. Expresión de \"esto falta\".\n[ACCION]: Supri señala el espacio vacío con los brazos abiertos."},{"slide":"Escena 2 (8-16s)","texto":"Entrada: HIKVISION AC1200","frase":"DS-3WR12GC. Alta rotación, precio contenido. El router que se vende solo.","nota":"[VISUAL]: Primer plano del router HIKVISION DS-3WR12GC. Luces LED activas.\n[ACCION]: Supri señala el router con la mano."},{"slide":"Escena 3 (16-26s)","texto":"WiFi 6: DS-3WR15X y Linksys E5600","frase":"WiFi 6 ya es el presente. Más velocidad, más dispositivos, menos problemas.","nota":"[VISUAL]: Dos routers lado a lado: HIKVISION AX1500 y Linksys E5600.\n[ACCION]: Supri compara ambos con las manos."},{"slide":"Escena 4 (26-35s)","texto":"El portafolio completo: de básico a premium","frase":"Tres gamas, tres clientes, un solo proveedor. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Grid de routers con logos de marca. Logo SUPRICOM.\n[ACCION]: Supri cierra con gesto de \"aquí está todo\"."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-sinergia" data-format="post" data-piece="AUG4" onclick="openCopyModal('AUG4', event)">
+        <div class="num">4</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Venta cruzada</div>
+        <div class="topic"><strong>«El complemento que todo cliente de impresora va a buscar».</strong> Tinta, cartuchos HP. Consumibles que siempre tienen demanda.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 6 consumibles HP</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan (PROMO)</span><span class="sku">HP-GT52-CYAN-PROMO</span><span class="sto">627</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Magenta (PROMO)</span><span class="sku">HP-GT52-MAGENTA-PROMO</span><span class="sto">525</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo (PROMO)</span><span class="sku">HP-GT52-YELLOW-PROMO</span><span class="sto">412</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (PROMO)</span><span class="sku">HP-GT53-BLACK-PROMO</span><span class="sto">876</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Color</span><span class="sku">HP-CARTUCHO-664-COLOR</span><span class="sto">81</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Negro</span><span class="sku">HP-CARTUCHO-664-NEGRO</span><span class="sto">76</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"El complemento que todo cliente de impresora va a buscar","frase":"Cada cliente de impresora vuelve por el consumible. GT52 y GT53 para Smart Tank. Cartuchos 664 para las DeskJet. Si no los tienes en vitrina, el cliente los compra donde tenga la impresora. Consumibles HP son demanda constante: no rotan rápido porque el cliente busca cuando necesita, pero cuando busca, compra. No tenerlos es perder la segunda venta. Y la segunda venta es más rentable que la primera.","nota":"Grid de consumibles HP. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">5</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG5" onclick="openCopyModal('AUG5', event)">
+        <div class="num">5</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«En 30 segundos: qué es BLUETTI y qué resuelve para tu cliente».</strong> Explicativo rápido del producto BLUETTI.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 3 modelos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC50P</span><span class="sku">P-AC50P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC70P</span><span class="sku">P-AC70P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180P</span><span class="sku">P-AC180P</span><span class="sto">EN CAMIÓN</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"¿Qué es BLUETTI?","frase":"BLUETTI es una estación de energía portátil. Sin gasolina, sin humo, sin ruido. Enchufa y ya.","nota":"[VISUAL]: Supri sosteniendo un BLUETTI AC70P. Fondo limpio.\n[ACCION]: Supri levanta el equipo mostrándolo a cámara."},{"slide":"Escena 2 (8-16s)","texto":"¿Qué resuelve?","frase":"Corte de luz: tu cliente mantiene la nevera, el router, la caja, la PC. Todo encendido.","nota":"[VISUAL]: Cuatro iconos: nevera, router, caja, PC. Conectados al BLUETTI.\n[ACCION]: Supri señala cada icono con la mano."},{"slide":"Escena 3 (16-26s)","texto":"¿Para quién es?","frase":"Hogar, oficina, clínica, taller. Cada perfil tiene su modelo.","nota":"[VISUAL]: Grid de 4 perfiles con su modelo BLUETTI.\n[ACCION]: Supri apunta a cada perfil."},{"slide":"Escena 4 (26-35s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"BLUETTI disponible en SUPRICOM. Pregunta por el modelo que necesitas.","nota":"[VISUAL]: Logo SUPRICOM + BLUETTI.\n[ACCION]: Supri cierra con gesto de confianza."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG6" onclick="openCopyModal('AUG6', event)">
+        <div class="num">6</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Venta cruzada</div>
+        <div class="topic"><strong>«3 combos de Logitech que puedes armar para vender más».</strong> Oficina y gaming. El argumento del combo.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📦 6 productos Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Combo Logitech MK345</span><span class="sku">LOGITECH-MK345</span><span class="sto">87</span></div>
+            <div class="pi"><span class="name">Combo Logitech MK295</span><span class="sku">LOGITECH-MK295</span><span class="sto">162</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K270</span><span class="sku">LOGITECH-K270</span><span class="sto">212</span></div>
+            <div class="pi"><span class="name">Mouse Gaming Logitech G203</span><span class="sku">LOGITECH-G203</span><span class="sto">1169</span></div>
+            <div class="pi"><span class="name">Teclado Gaming Logitech G213</span><span class="sku">LOGITECH-G213</span><span class="sto">55</span></div>
+            <div class="pi"><span class="name">Audífonos Gaming Logitech G335</span><span class="sku">LOGITECH-G335</span><span class="sto">106</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"3 combos de Logitech que puedes armar para vender más","frase":"Combo oficina y combo gaming. Tú armas, tu cliente se lleva más.","nota":"Fondo azul. Tres combos representados."},{"slide":"Combo oficina","texto":"Combo oficina: teclado + mouse","frase":"MK345 o MK295 con K270. Teclado y mouse inalámbricos. Para el cliente que quiere orden.","nota":"MK345, MK295, K270 en escritorio."},{"slide":"Combo gaming","texto":"Combo gaming: mouse + teclado + audífonos","frase":"G203 + G213 + G335. Trío completo para gaming. Ticket más alto, cliente más contento.","nota":"G203, G213, G335 con iluminación RGB."},{"slide":"Cierre","texto":"Armar combos es vender más sin esforzarte el doble","frase":"Logitech en SUPRICOM. Pide los combos por separado o en conjunto.","nota":"Grid Logitech + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">6</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG7" onclick="openCopyModal('AUG7', event)">
+        <div class="num">7</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«3 errores que cometen los vendedores de laptops (y cómo evitarlos)».</strong> Educación para el vendedor de laptops.</div>
+        <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
+        <details class="prods">
+          <summary>📦 5 laptops</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">HP 245 G10</span><span class="sku">HP-245-G10</span><span class="sto">256</span></div>
+            <div class="pi"><span class="name">ASUS VivoBook 15</span><span class="sku">ASUS-VIVOBOOK-15</span><span class="sto">155</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15</span><span class="sku">DELL-INSPIRON-15</span><span class="sto">130</span></div>
+            <div class="pi"><span class="name">Lenovo IdeaPad 3</span><span class="sku">LENOVO-IDEAPAD-3</span><span class="sto">119</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"3 errores que cometen los vendedores de laptops","frase":"VOCERO: Si vendes laptops y cometes estos errores, estás perdiendo ventas todos los días.","nota":"Vocero directo. Texto de alerta."},{"slide":"Problem (5-15s)","texto":"Error #1: vender solo por precio","frase":"VOCERO: El cliente que busca la laptop más barata siempre va a encontrar una más barata. Si compites por precio, pierdes.","nota":"Gráfico de precios descendentes. X en la estrategia."},{"slide":"Agitation 1 (15-25s)","texto":"Error #2: no preguntar para qué la necesita","frase":"VOCERO: Si no sabes si es para oficina, estudio o diseño, estás adivinando. Y las adivinanzas generan devoluciones.","nota":"Icono de pregunta sobre laptop."},{"slide":"Agitation 2 (25-35s)","texto":"Error #3: no ofrecer el complemento","frase":"VOCERO: Laptop sin bolso, sin mouse, sin protección. El cliente vuelve por lo que faltó... en otro lado.","nota":"Laptop sola vs laptop con complementos."},{"slide":"Solution + CTA (35-50s)","texto":"Cómo evitarlos: preguntar, asesorar, complementar","frase":"VOCERO: Pregunta para qué la necesita. Asesora según el perfil. Ofrece bolso, mouse y protección. Eso es vender laptop. SUPRICOM. Tu mayorista de confianza.","nota":"Tres checks: preguntar, asesorar, complementar. Logo SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG8" onclick="openCopyModal('AUG8', event)">
+        <div class="num">8</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Sales</div>
+        <div class="topic"><strong>«El artículo que nunca debe faltar en tu vitrina».</strong> Routers HIKVISION. Los que más rotan.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📦 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"El artículo que nunca debe faltar en tu vitrina","frase":"Router. Cada cliente que entra a tu local necesita uno. Si no lo tienes, lo compra en otro lado. HIKVISION tiene el portafolio que rota: DS-3WR12GC (AC1200) para el cliente de entrada. DS-3WR15X (AX1500 WiFi 6) para el que quiere velocidad. DS-3WR18X (AX1800) para el que pide lo mejor. Tres opciones, un solo proveedor. El router es el producto que abre la puerta a más ventas: switch, repetidor, cable, Mesh. No tenerlo es perder la primera venta. Y la primera venta es la que abre la puerta a las demás.","nota":"Grid 3 routers HIKVISION con stock. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">7</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG9" onclick="openCopyModal('AUG9', event)">
+        <div class="num">9</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«Cómo aumentar el ticket promedio vendiendo el complemento correcto».</strong> Antes/después de ofrecer complementos.</div>
+        <div class="brands">Targus</div>
+        <details class="prods">
+          <summary>📦 4 productos Targus</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Bolso Targus Octave III Negro</span><span class="sku">TARGUS-OCTAVE-III-NEGRO</span><span class="sto">709</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Beige</span><span class="sku">TARGUS-OCTAVE-III-BEIGE</span><span class="sto">644</span></div>
+            <div class="pi"><span class="name">Bolso Targus Deportivo</span><span class="sku">TARGUS-DEPORTIVO</span><span class="sto">177</span></div>
+            <div class="pi"><span class="name">Mouse Targus AMW50US</span><span class="sku">TARGUS-AMW50US</span><span class="sto">166</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Cómo aumentar el ticket promedio","frase":"VOCERO: Si solo vendes la laptop, estás dejando dinero en la mesa.","nota":"Vocero con laptop en mano. Flecha de ticket subiendo."},{"slide":"Antes (5-15s)","texto":"Antes: laptop sola = ticket bajo","frase":"VOCERO: El cliente compra la laptop y se va. Ticket promedio: X. Sin complementos, sin segunda venta.","nota":"Laptop sola. Ticket bajo. Cliente se va."},{"slide":"Antes 2 (15-25s)","texto":"El error: no ofrecer el complemento","frase":"VOCERO: Si no le ofreces el bolso, el mouse o la protección, él no lo pide. Y no vuelve a pedirlo.","nota":"Bolso, mouse, UPS tachados. Cliente ignorando."},{"slide":"Después (25-40s)","texto":"Después: laptop + bolso + mouse = ticket doble","frase":"VOCERO: Bolso Targus Octave III + mouse Targus AMW50US. Dos complementos, ticket duplicado. El cliente contento porque lo necesita.","nota":"Laptop + bolso + mouse. Ticket doble. Cliente sonriente."},{"slide":"CTA (40-45s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: Targus en SUPRICOM. Bolso, mouse, accesorios. Vende el complemento y duplica el ticket.","nota":"Logo Targus + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG10" onclick="openCopyModal('AUG10', event)">
+        <div class="num">10</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Comparativa</div>
+        <div class="topic"><strong>«Mini PC vs escritorio: por qué los negocios migran a este formato».</strong> Comparativa visual de ambos formatos.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📦 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i5 12th</span><span class="sku">MSI-CUBI5-12M-015</span><span class="sto">32</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">MSI-CUBI5-12M-016</span><span class="sto">51</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">MSI-CUBIZ-RYZEN7</span><span class="sto">33</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">MSI-CUBIZ-RYZEN9</span><span class="sto">31</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Mini PC vs escritorio: por qué los negocios migran a este formato","frase":"Compacta, silenciosa, potente. La categoría que tus clientes todavía no saben que necesitan.","nota":"MSI Cubi junto a una torre tradicional. Comparación de tamaño."},{"slide":"El escritorio","texto":"El escritorio tradicional: grande, ruidoso, consume mucho","frase":"Torre grande que ocupa espacio, hace ruido y consume energía. El cliente paga más factura eléctrica.","nota":"Torre tradicional. Iconos: espacio, ruido, consumo."},{"slide":"La Mini PC MSI","texto":"La Mini PC MSI: compacta, silenciosa, eficiente","frase":"Cubi 5 y Cubi Z AI. Caben en cualquier lado, consumen menos, se ven profesional.","nota":"MSI Cubi junto a una mano. Comparación de tamaño."},{"slide":"Cierre","texto":"Mini PC = nueva categoría, nuevo margen, nuevo argumento","frase":"MSI Cubi en SUPRICOM. Pregunta por los 4 modelos.","nota":"Grid 4 modelos MSI Cubi. Logo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- S2 -->
+<div class="week-card collapsed" id="aug-s2">
+  <div class="week-top" onclick="toggleWeek('aug-s2')">
+    <div class="week-top-left">
+      <span class="week-badge">S2</span>
+      <h2>S2 · 10 al 14 de agosto</h2>
+      <span class="week-summary">10 piezas · 4 videos</span>
+      <span class="week-arrow">▾</span>
+    </div>
+    <div class="tags">
+      <span>🎬 4 videos</span>
+      <span style="background:#00838f">Laptops+Targus</span>
+      <span>🇻🇪 lun</span>
+    </div>
+  </div>
+  <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-comparativa)" title="Comparativa: 1"></div><div style="width:10%;background:#00838f" title="Segmentación: 1"></div><div style="width:10%;background:var(--c-tendencia)" title="Contexto Venezuela: 1"></div><div style="width:10%;background:var(--c-sinergia)" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Demanda oculta: 1"></div><div style="width:10%;background:var(--c-diagnostico)" title="Demanda: 1"></div></div>
+  <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Comparativa (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Segmentación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Contexto VE (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-sinergia)"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Demanda oculta (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-diagnostico)"></span>Demanda (1)</span></div>
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+  <div class="week-focus"><strong>Foco:</strong> Laptops 5 marcas · BLUETTI Venezuela · Consumibles HP · Routers comparativa · Targus segmentación · Logitech secretos · Mini PC MSI · Routers argumentos</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">10</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG11" onclick="openCopyModal('AUG11', event)">
+        <div class="num">11</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«5 marcas de laptops que tienes disponibles en SUPRICOM (y cuál elegir)».</strong> Acer, ASUS, HP, Dell, Lenovo.</div>
+        <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
+        <details class="prods">
+          <summary>📦 5 laptops</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">ASUS VivoBook 15</span><span class="sku">ASUS-VIVOBOOK-15</span><span class="sto">155</span></div>
+            <div class="pi"><span class="name">HP ProBook 440</span><span class="sku">HP-PROBOOK-440</span><span class="sto">95</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15</span><span class="sku">DELL-INSPIRON-15</span><span class="sto">130</span></div>
+            <div class="pi"><span class="name">Lenovo IdeaPad 3</span><span class="sku">LENOVO-IDEAPAD-3</span><span class="sto">119</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"5 marcas de laptops que tienes disponibles en SUPRICOM","frase":"Cada marca tiene su cliente. Tú conoces la diferencia.","nota":"Fondo azul. Logos de 5 marcas."},{"slide":"ACER","texto":"Acer Aspire 3 A315: la que más rota","frase":"Precio contenido, buen rendimiento. La laptop que se vende sola.","nota":"Acer Aspire 3 en escritorio."},{"slide":"ASUS","texto":"ASUS VivoBook 15: diseño y portabilidad","frase":"Para el cliente que quiere verse bien y trabajar bien.","nota":"ASUS VivoBook en mano."},{"slide":"HP+DELL+LENOVO","texto":"HP, Dell, Lenovo: las que el cliente conoce","frase":"ProBook para oficina. Inspiron para hogar. IdeaPad para estudio.","nota":"Tres laptops lado a lado."},{"slide":"Cierre","texto":"Cada marca tiene su cliente. Tú tienes las 5.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Logos 5 marcas + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG12" onclick="openCopyModal('AUG12', event)">
+        <div class="num">12</div>
+        <span class="fmt post">Post <span class="ve-badge">VE</span></span>
+        <div class="pillar">Contexto Venezuela</div>
+        <div class="topic"><strong>«Corte de electricidad no es problema: BLUETTI resuelve».</strong> El contexto venezolano y la solución BLUETTI.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 3 modelos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC50P</span><span class="sku">P-AC50P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC70P</span><span class="sku">P-AC70P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180P</span><span class="sku">P-AC180P</span><span class="sto">EN CAMIÓN</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Corte de electricidad no es problema: BLUETTI resuelve","frase":"En Venezuela los cortes no son excepción, son regla. Tu cliente lo sabe. Por eso pregunta por respaldo. BLUETTI es la estación de energía portátil que resuelve: sin gasolina, sin humo, sin ruido. Enchufa y funciona. AC50P para el hogar. AC70P para la oficina. AC180P para clínicas y talleres. Cada perfil tiene su modelo. Si tu tienda no ofrece BLUETTI, tu cliente busca donde sí. Y ese cliente no vuelve solo por la estación: vuelve por todo lo que necesite después. BLUETTI en SUPRICOM. Pregunta por el modelo que necesitas.","nota":"Grid BLUETTI con badge VE. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">11</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG13" onclick="openCopyModal('AUG13', event)">
+        <div class="num">13</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«Tinta, cartucho, tóner: lo que necesitas saber antes de vender».</strong> Showcase visual de consumibles HP.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 8 consumibles HP</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan (PROMO)</span><span class="sku">HP-GT52-CYAN-PROMO</span><span class="sto">627</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (PROMO)</span><span class="sku">HP-GT53-BLACK-PROMO</span><span class="sto">876</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Color</span><span class="sku">HP-CARTUCHO-664-COLOR</span><span class="sto">81</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Negro</span><span class="sku">HP-CARTUCHO-664-NEGRO</span><span class="sto">76</span></div>
+            <div class="pi"><span class="name">Tóner HP 105A</span><span class="sku">HP-105A</span><span class="sto">22</span></div>
+            <div class="pi"><span class="name">Tóner HP 206A</span><span class="sku">HP-206A</span><span class="sto">43</span></div>
+            <div class="pi"><span class="name">Tóner HP 215A</span><span class="sku">HP-215A</span><span class="sto">14</span></div>
+            <div class="pi"><span class="name">Tóner HP 230A</span><span class="sku">HP-230A</span><span class="sto">9</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"Tinta, cartucho, tóner: ¿cuál va en cada impresora?","frase":"Vender consumible sin saber cuál va es como vender gasolina sin saber el modelo del carro.","nota":"[VISUAL]: Supri frente a estantería con consumibles HP. Expresión de \"hay que saber\".\n[ACCION]: Supri señala los productos con curiosidad."},{"slide":"Escena 2 (8-16s)","texto":"Tinta GT52/GT53: para Smart Tank","frase":"GT52 (color) y GT53 (negro) van en Smart Tank 580 y 581. El cliente vuelve cada 6 meses.","nota":"[VISUAL]: Botellas de tinta HP GT52 y GT53.\n[ACCION]: Supri sostiene cada botella."},{"slide":"Escena 3 (16-26s)","texto":"Cartuchos 664: para DeskJet","frase":"664 color y 664 negro van en DeskJet 2700 y 2755. Alta rotación.","nota":"[VISUAL]: Cartuchos HP 664.\n[ACCION]: Supri muestra los cartuchos."},{"slide":"Escena 4 (26-35s)","texto":"Tóner: para láser","frase":"105A, 206A, 215A, 230A. Cada láser tiene su tóner. Si no lo tienes, el cliente busca en otro lado.","nota":"[VISUAL]: Tóner HP 105A y 206A.\n[ACCION]: Supri compara ambos."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG14" onclick="openCopyModal('AUG14', event)">
+        <div class="num">14</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Comparativa</div>
+        <div class="topic"><strong>«Router WiFi vs Mesh: ¿cuál le conviene a tu cliente?».</strong> Diferencias claras para asesorar mejor.</div>
+        <div class="brands">HIKVISION · Linksys · NEXXT HOME</div>
+        <details class="prods">
+          <summary>📦 5 routers/mesh</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">Linksys E5600 AC1200</span><span class="sku">LINKSYS-E5600</span><span class="sto">647</span></div>
+            <div class="pi"><span class="name">NEXXT HOME AX1800</span><span class="sku">NEXXT-AX1800</span><span class="sto">13</span></div>
+            <div class="pi"><span class="name">Linksys MX1200 Mesh</span><span class="sku">LINKSYS-MX1200</span><span class="sto">202</span></div>
+            <div class="pi"><span class="name">Linksys MX1500 Mesh</span><span class="sku">LINKSYS-MX1500</span><span class="sto">148</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Router WiFi vs Mesh: ¿cuál le conviene a tu cliente?","frase":"El router tradicional rota más. El Mesh deja mejor margen. Tú decides según tu cliente.","nota":"Fondo azul. Router vs Mesh. Balanza inclinada."},{"slide":"Router WiFi","texto":"Router WiFi: rápida rotación, fácil de vender","frase":"El HIKVISION DS-3WR12GC. Cliente entra, cliente sale con su router. Alto volumen.","nota":"Router HIKVISION. Flecha de rotación rápida."},{"slide":"Mesh","texto":"Mesh: ticket más alto, cliente más satisfecho","frase":"Linksys MX1200 o MX1500. Cobertura total, menos devoluciones por señal débil.","nota":"Dos nodos Mesh. Check de cobertura total."},{"slide":"Cierre","texto":"Dos formatos, dos argumentos, un solo portafolio","frase":"Router para el que necesita lo básico. Mesh para el que necesita cobertura total.","nota":"Grid routers/mesh con indicador. Logo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">12</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG15" onclick="openCopyModal('AUG15', event)">
+        <div class="num">15</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«Qué tipos de routers HIKVISION tenemos en SUPRICOM».</strong> Showcase visual de la línea HIKVISION.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📦 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"HIKVISION: la marca que más rota en SUPRICOM","frase":"¿Sabías que HIKVISION tiene tres gamas de router? Cada una para un perfil distinto.","nota":"[VISUAL]: Supri frente a exhibidor con 3 routers HIKVISION.\n[ACCION]: Supri señala cada router."},{"slide":"Escena 2 (8-16s)","texto":"AC1200: el básico que se vende solo","frase":"DS-3WR12GC. Para el cliente de entrada. Alta rotación, precio contenido.","nota":"[VISUAL]: Router HIKVISION DS-3WR12GC en primer plano.\n[ACCION]: Supri levanta el router."},{"slide":"Escena 3 (16-26s)","texto":"AX1500 WiFi 6: el equilibrado","frase":"DS-3WR15X. WiFi 6, más velocidad, más dispositivos. El punto dulce.","nota":"[VISUAL]: Router HIKVISION DS-3WR15X con luces LED.\n[ACCION]: Supri señala el indicador WiFi 6."},{"slide":"Escena 4 (26-35s)","texto":"AX1800: el premium","frase":"DS-3WR18X. Para el cliente que pide lo mejor. Mayor margen.","nota":"[VISUAL]: Router HIKVISION DS-3WR18X.\n[ACCION]: Supri cierra con gesto de \"está todo\"."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="AUG16" onclick="openCopyModal('AUG16', event)">
+        <div class="num">16</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Segmentación</div>
+        <div class="topic"><strong>«Bolsos para cada tipo de cliente: ¿cuál le ofreces?».</strong> Ejecutivo, estudiante, viajero. Targus tiene la respuesta.</div>
+        <div class="brands">Targus</div>
+        <details class="prods">
+          <summary>📦 6 productos Targus</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Bolso Targus CitySmart EVA Pro</span><span class="sku">TARGUS-CITYSMART-EVA-PRO</span><span class="sto">26</span></div>
+            <div class="pi"><span class="name">Bolso Targus Avila</span><span class="sku">TARGUS-AVILA</span><span class="sto">85</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Negro</span><span class="sku">TARGUS-OCTAVE-III-NEGRO</span><span class="sto">709</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Beige</span><span class="sku">TARGUS-OCTAVE-III-BEIGE</span><span class="sto">644</span></div>
+            <div class="pi"><span class="name">Bolso Targus Deportivo</span><span class="sku">TARGUS-DEPORTIVO</span><span class="sto">177</span></div>
+            <div class="pi"><span class="name">Bolso Targus Elite Movil</span><span class="sku">TARGUS-ELITE-MOVIL</span><span class="sto">27</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Bolsos para cada tipo de cliente: ¿cuál le ofreces?","frase":"Ejecutivo, estudiante, viajero. Cada uno con su bolso ideal.","nota":"Fondo azul. Tres iconos de perfil."},{"slide":"El ejecutivo","texto":"El ejecutivo: CitySmart EVA Pro o Avila","frase":"Profesional, serio, resistente. El bolso que acompaña al gerente.","nota":"Bolso CitySmart EVA Pro. Profesional con maletín."},{"slide":"El estudiante","texto":"El estudiante: Octave III","frase":"Negro o beige. Cómodo, resistente, con espacio para todo.","nota":"Bolso Octave III. Estudiante con laptop."},{"slide":"El viajero","texto":"El viajero: Deportivo o Elite Movil","frase":"Ligero, funcional, diseño moderno. Para el que se mueve todo el día.","nota":"Bolso Deportivo. Viajero con mochila."},{"slide":"Cierre","texto":"Un bolso para cada cliente. Targus en SUPRICOM.","frase":"Pregunta por el modelo ideal según tu cliente.","nota":"Grid 6 bolsos Targus. Logo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">13</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG17" onclick="openCopyModal('AUG17', event)">
+        <div class="num">17</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«Lo que tu cliente NO sabe sobre mouse y teclados».</strong> Secretos que abren ventas.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📦 4 productos Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Logitech Lift Vertical</span><span class="sku">LOGITECH-LIFT-VERTICAL</span><span class="sto">199</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K380S</span><span class="sku">LOGITECH-K380S</span><span class="sto">84</span></div>
+            <div class="pi"><span class="name">Mouse Logitech M170</span><span class="sku">LOGITECH-M170</span><span class="sto">608</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K270</span><span class="sku">LOGITECH-K270</span><span class="sto">212</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Lo que tu cliente NO sabe sobre mouse y teclados","frase":"VOCERO: Tu cliente cree que un mouse es un mouse. Se equivoca.","nota":"Vocero con mouse en mano. Fondo con signos de interrogación."},{"slide":"Secreto 1 (5-15s)","texto":"Secreto #1: el mouse vertical previene lesiones","frase":"VOCERO: Logitech Lift Vertical. El mouse que tu cliente de oficina necesita y no sabe que existe. Ergonómico, vertical, cómodo.","nota":"Mouse Lift Vertical. Icono de mano ergonómica."},{"slide":"Secreto 2 (15-25s)","texto":"Secreto #2: el teclado multi-dispositivo ahorra tiempo","frase":"VOCERO: K380S conecta a 3 dispositivos con un botón. Celular, laptop, tablet. Un solo teclado para todo.","nota":"K380S conectado a 3 dispositivos."},{"slide":"Secreto 3 (25-35s)","texto":"Secreto #3: el combo correcto cierra la venta","frase":"VOCERO: Mouse + teclado del mismo pack = cliente satisfecho. No mezcles marcas si puedes vender el combo.","nota":"Combo Logitech MK345/MK295."},{"slide":"CTA (35-45s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: Logitech en SUPRICOM. Mouse, teclados, combos. Vende lo que tu cliente no sabe que necesita.","nota":"Logo Logitech + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-ecosistema" data-format="post" data-piece="AUG18" onclick="openCopyModal('AUG18', event)">
+        <div class="num">18</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Demanda oculta</div>
+        <div class="topic"><strong>«Tu cliente te pidió una computadora pequeña. ¿Le ofreciste Mini PC?».</strong> La categoría que muchos ignoran.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📦 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i5 12th</span><span class="sku">MSI-CUBI5-12M-015</span><span class="sto">32</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">MSI-CUBI5-12M-016</span><span class="sto">51</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">MSI-CUBIZ-RYZEN7</span><span class="sto">33</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">MSI-CUBIZ-RYZEN9</span><span class="sto">31</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Tu cliente te pidió una computadora pequeña. ¿Le ofreciste Mini PC?","frase":"El cliente llega y dice: \"necesito algo pequeño\". Si le ofreces una laptop, le estás vendiendo menos de lo que necesita. MSI Cubi 5 y Cubi Z AI son Mini PC que caben en cualquier espacio. Recepción, kiosco, punto de venta, escritorio de oficina. Consumen menos que una torre, se ven más profesional y son personalizables (barebone). Cuatro modelos: desde el i5 hasta el Ryzen 9. Si tu tienda no tiene Mini PC, estás perdiendo una categoría que el cliente está buscando. MSI Cubi en SUPRICOM. Pregunta por los 4 modelos.","nota":"Grid 4 modelos MSI Cubi. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">14</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG19" onclick="openCopyModal('AUG19', event)">
+        <div class="num">19</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«3 argumentos que cierran más rápido con routers».</strong> Educación para el vendedor de routers.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📦 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"3 argumentos que cierran más rápido con routers","frase":"VOCERO: Si vendes routers y no usas estos argumentos, estás perdiendo ventas.","nota":"Vocero directo. Texto de alerta."},{"slide":"Problem (5-15s)","texto":"Argumento #1: \"¿Cuántos dispositivos tienes conectados?\"","frase":"VOCERO: Cuando el cliente dice más de 10, sabes que necesita WiFi 6. DS-3WR15X resuelve.","nota":"Contador de dispositivos subiendo."},{"slide":"Agitation 1 (15-25s)","texto":"Argumento #2: \"¿Tienes zonas muertas?\"","frase":"VOCERO: Si el cliente se queja de que no llega internet al cuarto de atrás, necesita Mesh. Linksys MX1200 resuelve.","nota":"Mapa de casa con zona muerta en rojo."},{"slide":"Agitation 2 (25-35s)","texto":"Argumento #3: \"¿Cuánto pagas de luz?\"","frase":"VOCERO: Un router viejo consume más. WiFi 6 es más eficiente. El cliente ahorra factura.","nota":"Factura eléctrica bajando."},{"slide":"Solution + CTA (35-50s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: HIKVISION en SUPRICOM. Tres gamas, tres argumentos, tres ventas cerradas.","nota":"Logo HIKVISION + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG20" onclick="openCopyModal('AUG20', event)">
+        <div class="num">20</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Venta cruzada</div>
+        <div class="topic"><strong>«El combo perfecto: laptop + lo que tu cliente no sabe que necesita».</strong> Bolso Targus y mouse Logitech.</div>
+        <div class="brands">Acer · ASUS · HP · Targus · Logitech</div>
+        <details class="prods">
+          <summary>📦 9 productos del combo</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">HP 245 G10</span><span class="sku">HP-245-G10</span><span class="sto">256</span></div>
+            <div class="pi"><span class="name">ASUS VivoBook 15</span><span class="sku">ASUS-VIVOBOOK-15</span><span class="sto">155</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Negro</span><span class="sku">TARGUS-OCTAVE-III-NEGRO</span><span class="sto">709</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Beige</span><span class="sku">TARGUS-OCTAVE-III-BEIGE</span><span class="sto">644</span></div>
+            <div class="pi"><span class="name">Bolso Targus Deportivo</span><span class="sku">TARGUS-DEPORTIVO</span><span class="sto">177</span></div>
+            <div class="pi"><span class="name">Mouse Logitech M170</span><span class="sku">LOGITECH-M170</span><span class="sto">608</span></div>
+            <div class="pi"><span class="name">Mouse Logitech M240</span><span class="sku">LOGITECH-M240</span><span class="sto">342</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K270</span><span class="sku">LOGITECH-K270</span><span class="sto">212</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"El combo perfecto: laptop + lo que tu cliente no sabe que necesita","frase":"Laptop + bolso + mouse. Tres productos, una venta, triple ticket.","nota":"Tres iconos: laptop + bolso + mouse. Flecha de ticket."},{"slide":"La laptop sola","texto":"Vender la laptop sola = ticket bajo, cliente insatisfecho","frase":"Sin bolso, el cliente carga la laptop en la mano. Sin mouse, usa el trackpad. Frustración.","nota":"Laptop sola. Cliente incómodo."},{"slide":"Bolso Targus","texto":"El bolso Targus: complemento que cierra la venta","frase":"Octave III Negro o Beige. Resistente, con espacio para accesorios. El cliente lo necesita y no lo sabe.","nota":"Bolso Targus junto a laptop."},{"slide":"Mouse Logitech","texto":"El mouse Logitech: el complemento que nadie ofrece","frase":"M170 o M240. Inalámbricos, confiables. El cliente agradece el gesto.","nota":"Mouse Logitech junto a laptop."},{"slide":"Cierre","texto":"Triple ticket, cero esfuerzo extra","frase":"Laptop + Targus + Logitech en SUPRICOM. Vende el combo y duplica el ticket.","nota":"Combo completo. Logo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- S3 -->
+<div class="week-card collapsed" id="aug-s3">
+  <div class="week-top" onclick="toggleWeek('aug-s3')">
+    <div class="week-top-left">
+      <span class="week-badge">S3</span>
+      <h2>S3 · 17 al 21 de agosto</h2>
+      <span class="week-summary">10 piezas · 4 videos</span>
+      <span class="week-arrow">▾</span>
+    </div>
+    <div class="tags">
+      <span>🎬 4 videos</span>
+      <span style="background:#7b1fa2">Routers+HP</span>
+      <span>📦 Brands list</span>
+    </div>
+  </div>
+  <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-tendencia)" title="Tendencia: 1"></div><div style="width:10%;background:#AB47BC" title="Diferenciación: 1"></div><div style="width:10%;background:#E65100" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Oportunidad: 1"></div><div style="width:10%;background:#546E7A" title="Nicho: 1"></div><div style="width:10%;background:var(--c-solucion)" title="Customización: 1"></div></div>
+  <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Tendencia (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#AB47BC"></span>Diferenciación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#E65100"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Oportunidad (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#546E7A"></span>Nicho (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-solucion)"></span>Customización (1)</span></div>
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+  <div class="week-focus"><strong>Foco:</strong> Routers educación · HP consumibles showcase · Laptops showcase · BLUETTI diferenciación · Logitech showcase · HP carrusel educación · BLUETTI oportunidad · Targus venta cruzada · MSI Mini PC educación · Logitech nicho</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">17</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG21" onclick="openCopyModal('AUG21', event)">
+        <div class="num">21</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«Lo que hace un buen router (y por qué importa para tu cliente)».</strong> Velocidad, cobertura, confiabilidad.</div>
+        <div class="brands">HIKVISION · Linksys · Xiaomi</div>
+        <details class="prods">
+          <summary>📦 5 routers</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+            <div class="pi"><span class="name">Linksys E5600 AC1200</span><span class="sku">LINKSYS-E5600</span><span class="sto">647</span></div>
+            <div class="pi"><span class="name">Xiaomi AX3000</span><span class="sku">XIAOMI-AX3000</span><span class="sto">956</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Lo que hace un buen router (y por qué importa para tu cliente)","frase":"Velocidad, cobertura, confiabilidad. Tres factores que tu cliente debe conocer.","nota":"Fondo azul. Tres iconos: velocidad, cobertura, confiabilidad."},{"slide":"Velocidad","texto":"Velocidad: no todo es megas","frase":"Un buen router maneja muchos dispositivos a la vez sin perder velocidad. WiFi 6 resuelve eso.","nota":"Gráfico de velocidad. Router con múltiples dispositivos."},{"slide":"Cobertura","texto":"Cobertura: sin zonas muertas","frase":"Si el router no llega al fondo de la casa, el cliente se queja. Mesh elimina zonas muertas.","nota":"Mapa de casa con cobertura completa."},{"slide":"Confiabilidad","texto":"Confiabilidad: el router que no se apaga","frase":"Un router malo se calienta y se reinicia. HIKVISION y Linksys tienen la calidad que tu cliente necesita.","nota":"Router estable vs router con alerta."},{"slide":"Cierre","texto":"Un buen router cierra la venta y abre la puerta a más","frase":"Routers en SUPRICOM. Pregunta por el ideal para tu cliente.","nota":"Grid routers + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG22" onclick="openCopyModal('AUG22', event)">
+        <div class="num">22</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«Consumibles HP: siempre hay demanda».</strong> La categoría que nunca se detiene.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 4 consumibles HP</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan (PROMO)</span><span class="sku">HP-GT52-CYAN-PROMO</span><span class="sto">627</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (PROMO)</span><span class="sku">HP-GT53-BLACK-PROMO</span><span class="sto">876</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo (ORIGINAL)</span><span class="sku">HP-GT52-YELLOW-ORIGINAL</span><span class="sto">668</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (ORIGINAL)</span><span class="sku">HP-GT53-BLACK-ORIGINAL</span><span class="sto">624</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Consumibles HP: siempre hay demanda","frase":"El consumible es el producto que nunca deja de rotar. El cliente necesita tinta cada 3-6 meses. GT52 y GT53 para Smart Tank. PROMO y ORIGINAL: dos opciones, un solo proveedor. Si tu vitrina no tiene consumibles HP, el cliente los compra donde tenga la impresora. Y esa segunda venta es más rentable que la primera. Consumibles HP en SUPRICOM. Siempre hay demanda, siempre hay rotación.","nota":"Grid consumibles HP con badges de stock. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">18</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG23" onclick="openCopyModal('AUG23', event)">
+        <div class="num">23</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«3 tipos de laptops que toda tienda debería tener en vitrina».</strong> Entrada, media, gaming.</div>
+        <div class="brands">Acer · HP · ASUS · Dell</div>
+        <details class="prods">
+          <summary>📦 4 laptops</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">HP ProBook 440</span><span class="sku">HP-PROBOOK-440</span><span class="sto">95</span></div>
+            <div class="pi"><span class="name">ASUS TUF Gaming F15</span><span class="sku">ASUS-TUF-F15</span><span class="sto">173</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15</span><span class="sku">DELL-INSPIRON-15</span><span class="sto">130</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"3 tipos de laptops que toda tienda debería tener","frase":"Entrada, media y gaming. Tres gamas, tres clientes, una vitrina completa.","nota":"[VISUAL]: Supri frente a exhibidor con 3 laptops.\n[ACCION]: Supri señala cada gama."},{"slide":"Escena 2 (8-16s)","texto":"Entrada: Acer Aspire 3 A315","frase":"Para el cliente que busca lo básico. Buena rotación, precio contenido.","nota":"[VISUAL]: Laptop Acer Aspire 3 en escritorio.\n[ACCION]: Supri abre la laptop."},{"slide":"Escena 3 (16-26s)","texto":"Media: HP ProBook 440 + Dell Inspiron 15","frase":"Para oficina y hogar. El punto dulce entre precio y prestaciones.","nota":"[VISUAL]: HP ProBook y Dell Inspiron lado a lado.\n[ACCION]: Supri compara ambas."},{"slide":"Escena 4 (26-35s)","texto":"Gaming: ASUS TUF Gaming F15","frase":"Para el cliente que pide rendimiento. Mayor margen, mayor ticket.","nota":"[VISUAL]: ASUS TUF Gaming F15 con iluminación.\n[ACCION]: Supri cierra con gesto de \"aquí está todo\"."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-diferenciacion" data-format="carrusel" data-piece="AUG24" onclick="openCopyModal('AUG24', event)">
+        <div class="num">24</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Diferenciación</div>
+        <div class="topic"><strong>«Lo que hace único a BLUETTI frente a otras marcas de energía».</strong> Portabilidad, silencio, múltiples usos.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 5 modelos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC50P</span><span class="sku">P-AC50P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI Elite 30 V2</span><span class="sku">P-PR30V2</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC70P</span><span class="sku">P-AC70P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180P</span><span class="sku">P-AC180P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P L</span><span class="sku">P-AC200PL</span><span class="sto">EN CAMIÓN</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Lo que hace único a BLUETTI frente a otras marcas de energía","frase":"Portabilidad, silencio, múltiples usos. La diferencia que tu cliente nota.","nota":"Fondo azul. BLUETTI vs competencia."},{"slide":"Portabilidad","texto":"Portabilidad: se lleva a cualquier lado","frase":"AC50P y Elite 30 V2 pesan menos que una torre de PC. El cliente la lleva a cualquier lugar.","nota":"BLUETTI en mano. Comparación de peso."},{"slide":"Sin ruido ni humo","texto":"Sin ruido ni humo: se usa adentro","frase":"A diferencia de las plantas, BLUETTI no produce monóxido. Uso interior sin problemas.","nota":"BLUETTI en habitación vs planta afuera."},{"slide":"Múltiples usos","texto":"Múltiples usos: hogar, oficina, clínica, taller","frase":"Cada modelo tiene su perfil. No es un producto, es una categoría.","nota":"Grid de 4 perfiles con su BLUETTI."},{"slide":"Cierre","texto":"BLUETTI en SUPRICOM: la diferencia que vende","frase":"Pregunta por el modelo ideal para tu cliente.","nota":"Grid BLUETTI + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">19</span></div>
+
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG25" onclick="openCopyModal('AUG25', event)">
+        <div class="num">25</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«De básico a gaming: así se ve la línea de mouse Logitech».</strong> Showcase visual de mouse Logitech.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📦 4 mouse Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Logitech M170</span><span class="sku">LOGITECH-M170</span><span class="sto">608</span></div>
+            <div class="pi"><span class="name">Mouse Logitech M240</span><span class="sku">LOGITECH-M240</span><span class="sto">342</span></div>
+            <div class="pi"><span class="name">Mouse Gaming Logitech G203</span><span class="sku">LOGITECH-G203</span><span class="sto">1169</span></div>
+            <div class="pi"><span class="name">Mouse Gaming Logitech G305</span><span class="sku">LOGITECH-G305</span><span class="sto">95</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"De básico a gaming: la línea de mouse Logitech","frase":"Logitech tiene un mouse para cada cliente. Tú solo tienes que saber cuál ofrecerle.","nota":"[VISUAL]: Supri frente a exhibidor con 4 mouse Logitech.\n[ACCION]: Supri señala cada mouse de izquierda a derecha."},{"slide":"Escena 2 (8-16s)","texto":"Básico: M170 y M240","frase":"Compactos, inalámbricos, batería de larga duración. El mouse que se vende solo.","nota":"[VISUAL]: M170 y M240 lado a lado.\n[ACCION]: Supri sostiene cada mouse."},{"slide":"Escena 3 (16-26s)","texto":"Gaming: G203 y G305","frase":"G203 con iluminación RGB. G305 inalámbrico de alta velocidad. Para el cliente gaming.","nota":"[VISUAL]: G203 y G305 con iluminación.\n[ACCION]: Supri compara ambos."},{"slide":"Escena 4 (26-35s)","texto":"Cuatro gamas, un solo proveedor","frase":"SUPRICOM. Tu mayorista de confianza. Logitech disponible en Caracas y Valencia.","nota":"[VISUAL]: Grid 4 mouse + Logo SUPRICOM.\n[ACCION]: Supri cierra con gesto de confianza."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG26" onclick="openCopyModal('AUG26', event)">
+        <div class="num">26</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«Cómo elegir el consumible correcto según la impresora HP».</strong> Guía visual de compatibilidad.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📦 12 consumibles HP</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan (PROMO)</span><span class="sku">HP-GT52-CYAN-PROMO</span><span class="sto">627</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Magenta (PROMO)</span><span class="sku">HP-GT52-MAGENTA-PROMO</span><span class="sto">525</span></div>
+            <div class="pi"><span class="name">Tinta HP GT52 Amarillo (PROMO)</span><span class="sku">HP-GT52-YELLOW-PROMO</span><span class="sto">412</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (PROMO)</span><span class="sku">HP-GT53-BLACK-PROMO</span><span class="sto">876</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Color</span><span class="sku">HP-CARTUCHO-664-COLOR</span><span class="sto">81</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Negro</span><span class="sku">HP-CARTUCHO-664-NEGRO</span><span class="sto">76</span></div>
+            <div class="pi"><span class="name">Cartucho HP 662 Negro</span><span class="sku">HP-CARTUCHO-662-NEGRO</span><span class="sto">19</span></div>
+            <div class="pi"><span class="name">Cartucho HP 954XL Negro</span><span class="sku">HP-954XL-NEGRO</span><span class="sto">12</span></div>
+            <div class="pi"><span class="name">Tóner HP 105A</span><span class="sku">HP-105A</span><span class="sto">22</span></div>
+            <div class="pi"><span class="name">Tóner HP 206A</span><span class="sku">HP-206A</span><span class="sto">43</span></div>
+            <div class="pi"><span class="name">Tóner HP 215A</span><span class="sku">HP-215A</span><span class="sto">14</span></div>
+            <div class="pi"><span class="name">Tóner HP 230A</span><span class="sku">HP-230A</span><span class="sto">9</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Cómo elegir el consumible correcto según la impresora HP","frase":"Impresoras de boquilla, cartucho y láser. Cada una tiene su consumible.","nota":"Fondo azul. Tres tipos de impresora."},{"slide":"Impresoras de boquilla","texto":"Impresoras de boquilla: GT52 y GT53","frase":"Smart Tank 580, 581, 520. GT52 (color) y GT53 (negro). El repuesto que rota cada 6 meses.","nota":"Impresora HP Smart Tank + botellas de tinta."},{"slide":"Impresoras con cartucho","texto":"Impresoras con cartucho: 664, 662, 954XL","frase":"DeskJet 2700, 2755, OfficeJet. Cartuchos que el cliente busca cuando se acaba la tinta.","nota":"Impresora HP DeskJet + cartuchos."},{"slide":"Impresoras láser","texto":"Impresoras láser: 105A, 206A, 215A, 230A","frase":"Laser MFP 137fnw, M236sdw. Tóner láser. El cliente vuelve cada 3 meses.","nota":"Impresora HP LaserJet + tóner."},{"slide":"Cierre","texto":"Si conoces el modelo, vendes el consumible","frase":"HP consumibles en SUPRICOM. Pregunta por el compatible.","nota":"Grid consumibles HP + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">20</span></div>
+
+      <div class="piece piece-with-copy pillar-perfil" data-format="video" data-piece="AUG27" onclick="openCopyModal('AUG27', event)">
+        <div class="num">27</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Oportunidad</div>
+        <div class="topic"><strong>«El error de no ofrecer BLUETTI a tu cliente (y cuánto estás perdiendo)».</strong> Oportunidad de venta perdida.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📦 3 modelos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC70P</span><span class="sku">P-AC70P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180P</span><span class="sku">P-AC180P</span><span class="sto">EN CAMIÓN</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P L</span><span class="sku">P-AC200PL</span><span class="sto">EN CAMIÓN</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"El error de no ofrecer BLUETTI a tu cliente","frase":"VOCERO: Si no le ofreces BLUETTI a tu cliente, estás perdiendo una venta que él ya quiere hacer.","nota":"Vocero con BLUETTI. Texto de alerta."},{"slide":"Problem (5-15s)","texto":"El cliente ya está buscando respaldo","frase":"VOCERO: En Venezuela el cliente pregunta por respaldo. Si tú no lo tienes, lo busca en otro lado.","nota":"Cliente preguntando en mostrador."},{"slide":"Agitation 1 (15-25s)","texto":"Cada venta perdida es dinero que va a la competencia","frase":"VOCERO: BLUETTI AC70P, AC180P, AC200P L. Tres opciones, un solo proveedor. Si no las tienes, tu competidor sí.","nota":"Flecha de dinero saliendo."},{"slide":"Agitation 2 (25-35s)","texto":"El cliente que compra BLUETTI vuelve","frase":"VOCERO: No es una venta es. Es una relación. El cliente vuelve por accesorios, por otro modelo, por referir.","nota":"Cliente regresando. Cadena de ventas."},{"slide":"Solution + CTA (35-50s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: BLUETTI en SUPRICOM. No pierdas la venta que tu cliente ya quiere hacer.","nota":"Logo BLUETTI + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-venta-cruzada" data-format="post" data-piece="AUG28" onclick="openCopyModal('AUG28', event)">
+        <div class="num">28</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Venta cruzada</div>
+        <div class="topic"><strong>«Tu cliente compra una laptop. ¿Le ofreces el bolso?».</strong> El complemento que cierra la venta.</div>
+        <div class="brands">Targus</div>
+        <details class="prods">
+          <summary>📦 4 productos Targus</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Bolso Targus Octave III Negro</span><span class="sku">TARGUS-OCTAVE-III-NEGRO</span><span class="sto">709</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Beige</span><span class="sku">TARGUS-OCTAVE-III-BEIGE</span><span class="sto">644</span></div>
+            <div class="pi"><span class="name">Mouse Targus AMW50US</span><span class="sku">TARGUS-AMW50US</span><span class="sto">166</span></div>
+            <div class="pi"><span class="name">Mouse Targus AMW575TT</span><span class="sku">TARGUS-AMW575TT</span><span class="sto">192</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Tu cliente compra una laptop. ¿Le ofreces el bolso?","frase":"El cliente se lleva la laptop y se va con las manos llenas. Sin bolso, sin mouse, sin nada. Targus tiene la solución: Octave III Negro o Beige para el ejecutivo. AMW50US o AMW575TT para el que busca un mouse completo. Si no le ofreces el bolso, él no lo pide. Y no vuelve a pedirlo. Vender el complemento es vender más sin esfuerzo. Targus en SUPRICOM. Bolso + mouse = ticket doble.","nota":"Grid Targus productos. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">21</span></div>
+
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG29" onclick="openCopyModal('AUG29', event)">
+        <div class="num">29</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Educativo</div>
+        <div class="topic"><strong>«Cómo explicarle a tu cliente qué es una Mini PC en 10 segundos».</strong> Riddle reveal educativo.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📦 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i5 12th</span><span class="sku">MSI-CUBI5-12M-015</span><span class="sto">32</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">MSI-CUBI5-12M-016</span><span class="sto">51</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">MSI-CUBIZ-RYZEN7</span><span class="sto">33</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">MSI-CUBIZ-RYZEN9</span><span class="sto">31</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Cómo explicarle a tu cliente qué es una Mini PC","frase":"VOCERO: El cliente dice \"computadora pequeña\". Tú dices \"Mini PC\". Pero ¿sabes explicar qué es?","nota":"Vocero con MSI Cubi en mano."},{"slide":"Pregunta (5-15s)","texto":"¿Qué es una Mini PC?","frase":"VOCERO: Es una computadora de escritorio completa, pero del tamaño de una caja de zapatos. Eso es todo.","nota":"MSI Cubi junto a una caja de zapatos."},{"slide":"Resolución 1 (15-25s)","texto":"Potencia real en formato pequeño","frase":"VOCERO: Procesador i5, i7, Ryzen 7 o Ryzen 9. RAM, SSD, puertos USB. Todo lo que tiene una torre, pero en un paquete compacto.","nota":"Especificaciones de MSI Cubi."},{"slide":"Resolución 2 (25-35s)","texto":"¿Para qué sirve?","frase":"VOCERO: Recepción, kiosco, punto de venta, oficina. Donde sea que necesites una PC y no tengas espacio.","nota":"MSI Cubi en diferentes escenarios."},{"slide":"CTA (35-45s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: MSI Cubi en SUPRICOM. Cuatro modelos. Explica, muestra, vende.","nota":"Logo MSI + SUPRICOM."}]</div>
+      </div>
+
+      <div class="piece piece-with-copy pillar-nicho" data-format="post" data-piece="AUG30" onclick="openCopyModal('AUG30', event)">
+        <div class="num">30</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Nicho</div>
+        <div class="topic"><strong>«¿Tienes clientes zurdos? Logitech tiene el mouse que necesitan».</strong> Nicho específico, venta segura.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📦 2 mouse verticales Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Logitech Lift Vertical</span><span class="sku">LOGITECH-LIFT-VERTICAL</span><span class="sto">199</span></div>
+            <div class="pi"><span class="name">Mouse Logitech Lift Vertical Left</span><span class="sku">LOGITECH-LIFT-VERTICAL-LEFT</span><span class="sto">54</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"¿Tienes clientes zurdos? Logitech tiene el mouse que necesitan","frase":"El 10% de la población es zurda. Si tu vitrina no tiene mouse para zurdos, ese cliente busca en otro lado. Logitech Lift Vertical Left: el mouse ergonómico diseñado para zurdos. Mismo diseño, mismo confort, diferente orientación. Y el Lift Vertical estándar para diestros. Dos opciones, un nicho que nadie está atendiendo. Logitech en SUPRICOM. Pregunta por los modelos verticales.","nota":"Mouse Lift Vertical Left. Badge de nicho. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- S4 -->
+<div class="week-card collapsed" id="aug-s4">
+  <div class="week-top" onclick="toggleWeek('aug-s4')">
+    <div class="week-top-left">
+      <span class="week-badge">S4</span>
+      <h2>S4 · 24 al 28 de agosto</h2>
+      <span class="week-summary">10 piezas · 4 videos</span>
+      <span class="week-arrow">▾</span>
+    </div>
+    <div class="tags">
+      <span>📋 4 videos</span>
+      <span style="background:#e65100">Laptops+Targus</span>
+      <span>📋 Brands list</span>
+    </div>
+  </div>
+  <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-tendencia)" title="Tendencia: 2"></div><div style="width:10%;background:#AB47BC" title="Diferenciación: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Caso de negocio: 1"></div><div style="width:10%;background:var(--c-solucion)" title="Customización: 1"></div><div style="width:10%;background:var(--c-comparativa)" title="Showcase router: 1"></div><div style="width:10%;background:#E65100" title="Oportunidad: 1"></div><div style="width:10%;background:#00838f" title="Combo: 1"></div><div style="width:10%;background:#546E7A" title="Confianza: 1"></div></div>
+  <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Tendencia (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#AB47BC"></span>Diferenciación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Caso de negocio (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-solucion)"></span>Customización (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Showcase router (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#E65100"></span>Oportunidad (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Combo (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#546E7A"></span>Confianza (1)</span></div>
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+  <div class="week-focus"><strong>Foco:</strong> Laptops tendencia · HIKVISION producto estrella · Routers WiFi 6 · BLUETTI caso de negocio · MSI barebone · HIKVISION showcase · HP oportunidad · Targus showcase · HIKVISION diferenciación · Logitech confianza</div>
+  <div class="cal-grid">
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Lun</span><span class="date">24</span></div>
+      <div class="piece piece-with-copy pillar-tendencia" data-format="carrusel" data-piece="AUG31" onclick="openCopyModal('AUG31', event)">
+        <div class="num">31</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«Laptops que se están vendiendo rápido (y por qué)».</strong> Tendencia de mercado.</div>
+        <div class="brands">Acer · HP · ASUS · Lenovo · Dell</div>
+        <details class="prods">
+          <summary>📋 5 laptops</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">HP 245 G10</span><span class="sku">HP-245-G10</span><span class="sto">256</span></div>
+            <div class="pi"><span class="name">ASUS TUF Gaming F15</span><span class="sku">ASUS-TUF-F15</span><span class="sto">173</span></div>
+            <div class="pi"><span class="name">Lenovo IdeaPad 3</span><span class="sku">LENOVO-IDEAPAD-3</span><span class="sto">119</span></div>
+            <div class="pi"><span class="name">Dell Inspiron 15</span><span class="sku">DELL-INSPIRON-15</span><span class="sto">130</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Laptops que se están vendiendo rápido (y por qué)","frase":"Cada gama tiene su momento. Tú sabes cuál ofrecer.","nota":"Fondo azul. Flecha de tendencia."},{"slide":"Gama entrada","texto":"Gama entrada: Acer Aspire 3 y HP 245 G10","frase":"Las que más rotan. Precio contenido, buen rendimiento.","nota":"Acer Aspire 3 + HP 245 G10."},{"slide":"Gama media","texto":"Gama media: ASUS TUF y Lenovo IdeaPad 3","frase":"Diseño y rendimiento. Para el cliente que quiere más sin pagar premium.","nota":"ASUS TUF + Lenovo IdeaPad."},{"slide":"Gama alta","texto":"Gama alta: Dell Inspiron 15","frase":"Construcción profesional. Para el cliente que invierte en calidad.","nota":"Dell Inspiron 15 en escritorio."},{"slide":"Cierre","texto":"Cada gama tiene su cliente. Tú tienes las 5.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Grid 5 laptops + SUPRICOM."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG32" onclick="openCopyModal('AUG32', event)">
+        <div class="num">32</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Producto estrella</div>
+        <div class="topic"><strong>«AX1500 WiFi 6: el router que debería estar en toda vitrina».</strong> Producto estrella HIKVISION.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📋 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"AX1500 WiFi 6: el router que debería estar en toda vitrina","frase":"HIKVISION DS-3WR15X. WiFi 6, 1500 Mbps, 4 antenas. El router que se vende solo. El punto dulce entre precio y prestaciones. Si tu vitrina no tiene el DS-3WR15X, estás perdiendo la venta del router que más se vende. HIKVISION AX1500 en SUPRICOM. Stock disponible.","nota":"HIKVISION DS-3WR15X en primer plano. Badge de producto estrella. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mar</span><span class="date">25</span></div>
+      <div class="piece piece-with-copy pillar-tendencia" data-format="video" data-piece="AUG33" onclick="openCopyModal('AUG33', event)">
+        <div class="num">33</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Tendencia</div>
+        <div class="topic"><strong>«Por qué los negocios están migrando a WiFi 6».</strong> Tendencia de mercado.</div>
+        <div class="brands">HIKVISION · Linksys</div>
+        <details class="prods">
+          <summary>📋 3 routers WiFi 6</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+            <div class="pi"><span class="name">Linksys MX1200 Mesh</span><span class="sku">LINKSYS-MX1200</span><span class="sto">202</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"WiFi 6: la tendencia que ya llegó","frase":"WiFi 6 ya no es el futuro. Es el presente. Y los negocios que no se actualizan, se quedan atrás.","nota":"[VISUAL]: Supri frente a router con indicador WiFi 6.\n[ACCION]: Supri señala el indicador."},{"slide":"Escena 2 (8-16s)","texto":"¿Por qué migran a WiFi 6?","frase":"Más dispositivos, más velocidad, menos interferencia. El cliente de hoy tiene 15-20 dispositivos conectados.","nota":"[VISUAL]: Iconos de dispositivos multiplicándose.\n[ACCION]: Supri cuenta dispositivos con los dedos."},{"slide":"Escena 3 (16-26s)","texto":"HIKVISION y Linksys: las opciones","frase":"DS-3WR15X y DS-3WR18X de HIKVISION. MX1200 de Linksys. Tres opciones, un solo proveedor.","nota":"[VISUAL]: Tres routers lado a lado.\n[ACCION]: Supri compara cada router."},{"slide":"Escena 4 (26-35s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"WiFi 6 en SUPRICOM. Pregunta por el router ideal para tu cliente.","nota":"[VISUAL]: Logo SUPRICOM + WiFi 6.\n[ACCION]: Supri cierra con gesto de confianza."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-perfil" data-format="carrusel" data-piece="AUG34" onclick="openCopyModal('AUG34', event)">
+        <div class="num">34</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Caso de negocio</div>
+        <div class="topic"><strong>«Lo que BLUETTI significa para tu negocio de tecnología».</strong> Demanda real, margen, diferenciación.</div>
+        <div class="brands">BLUETTI</div>
+        <details class="prods">
+          <summary>📋 5 modelos BLUETTI</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">BLUETTI AC50P</span><span class="sku">P-AC50P</span><span class="sto">EN CAMI“N</span></div>
+            <div class="pi"><span class="name">BLUETTI AC70P</span><span class="sku">P-AC70P</span><span class="sto">EN CAMI“N</span></div>
+            <div class="pi"><span class="name">BLUETTI AC180P</span><span class="sku">P-AC180P</span><span class="sto">EN CAMI“N</span></div>
+            <div class="pi"><span class="name">BLUETTI AC200P L</span><span class="sku">P-AC200PL</span><span class="sto">EN CAMI“N</span></div>
+            <div class="pi"><span class="name">BLUETTI Apex 300</span><span class="sku">P-APEX300</span><span class="sto">EN CAMI“N</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Lo que BLUETTI significa para tu negocio de tecnología","frase":"Demanda real, margen real, diferenciación real.","nota":"Fondo azul. BLUETTI como categoría de negocio."},{"slide":"Demanda real","texto":"Demanda real: el cliente pregunta por respaldo","frase":"En Venezuela, cada corte es una oportunidad de venta. BLUETTI resuelve eso.","nota":"Cliente preguntando por BLUETTI."},{"slide":"Margen","texto":"Margen: más que un router, menos que una laptop","frase":"BLUETTI deja buen margen por unidad. Y el cliente vuelve por otro modelo.","nota":"Gráfico de margen comparativo."},{"slide":"Diferenciación","texto":"Diferenciación: tu competidor no lo tiene","frase":"Si tu tienda tiene BLUETTI y la de al lado no, el cliente va contigo.","nota":"Tienda con BLUETTI vs tienda sin BLUETTI."},{"slide":"Cierre","texto":"BLUETTI no es un producto. Es una categoría.","frase":"BLUETTI en SUPRICOM. Pregunta por el portafolio completo.","nota":"Grid BLUETTI + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Mié</span><span class="date">26</span></div>
+      <div class="piece piece-with-copy pillar-solucion" data-format="video" data-piece="AUG35" onclick="openCopyModal('AUG35', event)">
+        <div class="num">35</div>
+        <span class="fmt vs1">Video Supri</span>
+        <div class="pillar">Customización</div>
+        <div class="topic"><strong>«Barebone: por qué la Mini PC MSI te permite personalizar para cada cliente».</strong> El concepto barebone explicado.</div>
+        <div class="brands">MSI</div>
+        <details class="prods">
+          <summary>📋 4 MSI Mini PC</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">MSI Cubi 5 i7 12th Barebone</span><span class="sku">MSI-CUBI5-12M-016</span><span class="sto">51</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R7</span><span class="sku">MSI-CUBIZ-RYZEN7</span><span class="sto">33</span></div>
+            <div class="pi"><span class="name">MSI Cubi 5 i5 12th</span><span class="sku">MSI-CUBI5-12M-015</span><span class="sto">32</span></div>
+            <div class="pi"><span class="name">MSI Cubi Z AI R9</span><span class="sku">MSI-CUBIZ-RYZEN9</span><span class="sto">31</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"Barebone: personaliza para cada cliente","frase":"Barebone significa que tú eliges la RAM y el SSD. El cliente paga por lo que necesita, no por lo que no.","nota":"[VISUAL]: Supri con MSI Cubi abierto mostrando slots.\n[ACCION]: Supri señala los slots de RAM y SSD."},{"slide":"Escena 2 (8-16s)","texto":"¿Por qué es ventaja?","frase":"El cliente de oficina necesita 8GB y 256GB. El de diseño necesita 32GB y 1TB. Tú armas según la necesidad.","nota":"[VISUAL]: Dos configuraciones lado a lado.\n[ACCION]: Supri compara ambas."},{"slide":"Escena 3 (16-26s)","texto":"MSI Cubi 5 y Cubi Z AI: barebone","frase":"Cubi 5 Barebone y Cubi Z AI. Tú personalizas, el cliente recibe exactamente lo que necesita.","nota":"[VISUAL]: MSI Cubi 5 Barebone con componentes.\n[ACCION]: Supri arma la configuración."},{"slide":"Escena 4 (26-35s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"MSI Cubi barebone en SUPRICOM. Personaliza para cada cliente.","nota":"[VISUAL]: Logo MSI + SUPRICOM.\n[ACCION]: Supri cierra con gesto de confianza."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG36" onclick="openCopyModal('AUG36', event)">
+        <div class="num">36</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«Router HIKVISION: del básico al WiFi 6, lo que tenemos para ti».</strong> Showcase visual completo.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📋 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Router HIKVISION: del básico al WiFi 6, lo que tenemos para ti","frase":"Tres gamas, tres clientes, un solo proveedor.","nota":"Fondo azul. Tres routers en escala."},{"slide":"AC1200 el básico","texto":"DS-3WR12GC: el básico que se vende solo","frase":"Para el cliente de entrada. Alta rotación, precio contenido.","nota":"Router DS-3WR12GC con luces LED."},{"slide":"AX1500 el equilibrado","texto":"DS-3WR15X: el equilibrado WiFi 6","frase":"El punto dulce. Más velocidad, más dispositivos. El que más rota.","nota":"Router DS-3WR15X con indicador WiFi 6."},{"slide":"AX1800 el premium","texto":"DS-3WR18X: el premium","frase":"Para el cliente que pide lo mejor. Mayor margen, mayor satisfacción.","nota":"Router DS-3WR18X en primer plano."},{"slide":"Cierre","texto":"Del básico al premium, HIKVISION tiene tu router.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Grid 3 routers + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Jue</span><span class="date">27</span></div>
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG37" onclick="openCopyModal('AUG37', event)">
+        <div class="num">37</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Oportunidad</div>
+        <div class="topic"><strong>«El error de no ofrecer consumibles cada vez que vende una impresora».</strong> Oportunidad de venta recurrente.</div>
+        <div class="brands">HP</div>
+        <details class="prods">
+          <summary>📋 4 consumibles HP</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Tinta HP GT52 Cyan (PROMO)</span><span class="sku">HP-GT52-CYAN-PROMO</span><span class="sto">627</span></div>
+            <div class="pi"><span class="name">Tinta HP GT53 Negro (PROMO)</span><span class="sku">HP-GT53-BLACK-PROMO</span><span class="sto">876</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Color</span><span class="sku">HP-CARTUCHO-664-COLOR</span><span class="sto">81</span></div>
+            <div class="pi"><span class="name">Cartucho HP 664 Negro</span><span class="sku">HP-CARTUCHO-664-NEGRO</span><span class="sto">76</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"El error de no ofrecer consumibles cada vez que vende una impresora","frase":"VOCERO: Si vendes una impresora sin ofrecer el consumible, estás perdiendo la segunda venta.","nota":"Vocero con impresora y consumibles."},{"slide":"Error 1 (5-15s)","texto":"Error #1: pensar que el cliente vuelve después","frase":"VOCERO: El cliente no vuelve a tu tienda por un cartucho. Lo compra donde tenga la impresora. Si no se lo ofreces hoy, lo pierdes.","nota":"Cliente yendo a otra tienda."},{"slide":"Error 2 (15-25s)","texto":"Error #2: no saber qué consumible va","frase":"VOCERO: Si no sabes si va GT52 o cartucho 664, no puedes vender. Aprende la compatibilidad.","nota":"Impresora + consumible incompatibles."},{"slide":"Error 3 (25-35s)","texto":"Error #3: no tener stock","frase":"VOCERO: Si no tienes el consumible en vitrina, el cliente no espera. Compra en otro lado.","nota":"Vitrina vacía de consumibles."},{"slide":"CTA (35-45s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: HP consumibles en SUPRICOM. Siempre ten stock. Siempre ten la segunda venta.","nota":"Logo HP + SUPRICOM."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG38" onclick="openCopyModal('AUG38', event)">
+        <div class="num">38</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Showcase</div>
+        <div class="topic"><strong>«Más que bolsos: lo que Targus tiene para tu tienda».</strong> Mouse, teclados, cargadores, audífonos.</div>
+        <div class="brands">Targus</div>
+        <details class="prods">
+          <summary>📋 7 productos Targus</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Targus AMW50US</span><span class="sku">TARGUS-AMW50US</span><span class="sto">166</span></div>
+            <div class="pi"><span class="name">Mouse Targus AMW575TT</span><span class="sku">TARGUS-AMW575TT</span><span class="sto">192</span></div>
+            <div class="pi"><span class="name">Teclado Targus AKF003ES</span><span class="sku">TARGUS-AKF003ES</span><span class="sto">30</span></div>
+            <div class="pi"><span class="name">Cargador Targus ACH124US</span><span class="sku">TARGUS-ACH124US</span><span class="sto">33</span></div>
+            <div class="pi"><span class="name">Audífonos Targus AHF610BT</span><span class="sku">TARGUS-AHF610BT</span><span class="sto">14</span></div>
+            <div class="pi"><span class="name">Adapter Targus APA90US</span><span class="sku">TARGUS-APA90US</span><span class="sto">16</span></div>
+            <div class="pi"><span class="name">Cargador Targus CPU46US</span><span class="sku">TARGUS-CPU46US</span><span class="sto">33</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Más que bolsos: lo que Targus tiene para tu tienda","frase":"Mouse, teclados, cargadores, audífonos. Targus es más que maletines.","nota":"Fondo azul. Grid de productos Targus."},{"slide":"Mouse y teclados","texto":"Mouse y teclados: los que el cliente necesita","frase":"AMW50US, AMW575TT, AKF003ES. Periféricos que complementan la venta de laptop.","nota":"Mouse y teclado Targus lado a lado."},{"slide":"Cargadores y hubs","texto":"Cargadores y hubs: el accesorio que siempre falta","frase":"ACH124US, CPU46US, APA90US. Cargadores y adaptadores que el cliente busca cuando necesita.","nota":"Cargadores Targus en fila."},{"slide":"Audífonos y accesorios","texto":"Audífonos y accesorios: el complemento de audio","frase":"AHF610BT. Audífonos inalámbricos con cancelación de ruido. Para el cliente de oficina.","nota":"Audífonos Targus."},{"slide":"Cierre","texto":"Targus: más que bolsos. Un ecosistema de accesorios.","frase":"Targus en SUPRICOM. Pregunta por el portafolio completo.","nota":"Grid Targus + SUPRICOM."}]</div>
+      </div>
+    </div>
+
+    <div class="cal-col">
+      <div class="col-head"><span class="day">Vie</span><span class="date">28</span></div>
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG39" onclick="openCopyModal('AUG39', event)">
+        <div class="num">39</div>
+        <span class="fmt vocero">Video Vocero</span>
+        <div class="pillar">Diferenciación</div>
+        <div class="topic"><strong>«Por qué tu cliente debe comprarte el router a ti y no a otro».</strong> 3 razones para elegirte.</div>
+        <div class="brands">HIKVISION</div>
+        <details class="prods">
+          <summary>📋 3 routers HIKVISION</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">HIKVISION AC1200</span><span class="sku">DS-3WR12GC</span><span class="sto">4059</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1500 WiFi 6</span><span class="sku">DS-3WR15X</span><span class="sto">5376</span></div>
+            <div class="pi"><span class="name">HIKVISION AX1800 WiFi 6</span><span class="sku">DS-3WR18X</span><span class="sto">2397</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Por qué tu cliente debe comprarte el router a ti","frase":"VOCERO: Hay 100 tiendas vendiendo el mismo router. ¿Por qué debería comprártelo a ti?","nota":"Vocero directo. Fondo con muchas tiendas."},{"slide":"Razón 1 (5-17s)","texto":"Razón #1: asesoría personalizada","frase":"VOCERO: Tú sabes qué router necesita. No le vendes el más caro. Le vendes el correcto.","nota":"Vendedor asesorando al cliente."},{"slide":"Razón 2 (17-29s)","texto":"Razón #2: stock inmediato","frase":"VOCERO: Si lo tiene en vitrina, el cliente se lo lleva hoy. Sin esperas, sin envíos, sin excusas.","nota":"Vitrina con routers disponibles."},{"slide":"Razón 3 (29-41s)","texto":"Razón #3: servicio post-venta","frase":"VOCERO: Si el cliente tiene un problema, vuelve a ti. No a internet. Eso es confianza.","nota":"Cliente regresando satisfecho."},{"slide":"CTA (41-50s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"VOCERO: HIKVISION en SUPRICOM. Asesoría, stock y confianza. Compra el router donde te asesoren.","nota":"Logo HIKVISION + SUPRICOM."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-confianza" data-format="post" data-piece="AUG40" onclick="openCopyModal('AUG40', event)">
+        <div class="num">40</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Confianza</div>
+        <div class="topic"><strong>«Logitech: marca que tus clientes ya conocen».</strong> La confianza del cliente en una marca reconocida.</div>
+        <div class="brands">Logitech</div>
+        <details class="prods">
+          <summary>📋 4 productos Logitech</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Mouse Logitech M170</span><span class="sku">LOGITECH-M170</span><span class="sto">608</span></div>
+            <div class="pi"><span class="name">Teclado Logitech K270</span><span class="sku">LOGITECH-K270</span><span class="sto">212</span></div>
+            <div class="pi"><span class="name">Audífonos Logitech H111</span><span class="sku">LOGITECH-H111</span><span class="sto">221</span></div>
+            <div class="pi"><span class="name">Mouse Gaming Logitech G203</span><span class="sku">LOGITECH-G203</span><span class="sto">1169</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Logitech: marca que tus clientes ya conocen","frase":"Tu cliente ya conoce Logitech. No necesitas convencerlo de la marca. Necesitas convencerlo de que tú la tienes. M170 para el de oficina. K270 para el que necesita teclado. H111 para videollamadas. G203 para gaming. Cuatro productos que se venden solos si los tienes en vitrina. Logitech en SUPRICOM. Marca que tu cliente ya conoce, producto que ya quiere.","nota":"Grid Logitech productos. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="week-card collapsed" id="aug-s5">
+  <div class="week-top" onclick="toggleWeek('aug-s5')">
+    <div class="week-top-left">
+      <span class="week-badge">S5</span>
+      <h2>Lun 31 de agosto</h2>
+      <span class="week-summary">2 piezas · 0 videos</span>
+      <span class="week-arrow">▾</span>
+    </div>
+    <div class="tags">
+      <span>📋 0 videos</span>
+      <span style="background:#00838f">Targus+Laptops</span>
+    </div>
+  </div>
+  <div class="pillar-bar"><div style="width:50%;background:#00838f" title="Combo: 1"></div><div style="width:50%;background:var(--c-tendencia)" title="Demanda: 1"></div></div>
+  <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Combo (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Demanda (1)</span></div>
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 2 diseñadas</div></div>
+  <div class="week-focus"><strong>Foco:</strong> Targus combo laptop · Laptops demanda</div>
+  <div class="cal-grid">
+
+    <div class="cal-col" style="grid-column: 1 / 2">
+      <div class="col-head"><span class="day">Lun</span><span class="date">31</span></div>
+      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG41" onclick="openCopyModal('AUG41', event)">
+        <div class="num">41</div>
+        <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="pillar">Combo</div>
+        <div class="topic"><strong>«Bolso + laptop: la venta que siempre cierra».</strong> El combo que nunca falla.</div>
+        <div class="brands">Targus</div>
+        <details class="prods">
+          <summary>📋 4 productos Targus</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Bolso Targus Octave III Negro</span><span class="sku">TARGUS-OCTAVE-III-NEGRO</span><span class="sto">709</span></div>
+            <div class="pi"><span class="name">Bolso Targus Octave III Beige</span><span class="sku">TARGUS-OCTAVE-III-BEIGE</span><span class="sto">644</span></div>
+            <div class="pi"><span class="name">Bolso Targus Deportivo</span><span class="sku">TARGUS-DEPORTIVO</span><span class="sto">177</span></div>
+            <div class="pi"><span class="name">Bolso Targus Terra EcoSmart</span><span class="sku">TARGUS-TERRA-ECOSMART</span><span class="sto">169</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Bolso + laptop: la venta que siempre cierra","frase":"Tres razones por las que el combo siempre funciona.","nota":"Fondo azul. Laptop + bolso."},{"slide":"El combo que nunca falla","texto":"El combo que nunca falla: laptop + bolso","frase":"El cliente compra la laptop. Si le ofreces el bolso, se lo lleva. Si no se lo ofreces, carga la laptop en la mano.","nota":"Laptop + bolso Targus."},{"slide":"No es presión","texto":"No es presión. Es servicio.","frase":"El cliente necesita el bolso. Tú solo se lo estás ofreciendo. Eso es asesoría, no presión.","nota":"Vendedor ofreciendo bolso. Cliente sonriente."},{"slide":"Targus tiene bolsos para cada laptop","texto":"Targus tiene bolsos para cada laptop","frase":"Octave III Negro o Beige. Deportivo. Terra EcoSmart. Cada laptop tiene su bolso.","nota":"Grid 4 bolsos Targus."},{"slide":"Cierre","texto":"Bolso + laptop = venta segura, ticket doble","frase":"Targus en SUPRICOM. Pregunta por el combo.","nota":"Combo Targus + SUPRICOM."}]</div>
+      </div>
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG42" onclick="openCopyModal('AUG42', event)">
+        <div class="num">42</div>
+        <span class="fmt post">Post</span>
+        <div class="pillar">Demanda</div>
+        <div class="topic"><strong>«Laptop: el artículo que todo cliente va a buscar este mes».</strong> Demanda de fin de mes.</div>
+        <div class="brands">Acer · HP · ASUS</div>
+        <details class="prods">
+          <summary>📋 3 laptops</summary>
+          <div class="pl">
+            <div class="pi"><span class="name">Acer Aspire 3 A315</span><span class="sku">ACER-ASPIRE3-A315</span><span class="sto">431</span></div>
+            <div class="pi"><span class="name">HP 245 G10</span><span class="sku">HP-245-G10</span><span class="sto">256</span></div>
+            <div class="pi"><span class="name">ASUS VivoBook 15</span><span class="sku">ASUS-VIVOBOOK-15</span><span class="sto">155</span></div>
+          </div>
+        </details>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Laptop: el artículo que todo cliente va a buscar este mes","frase":"Fin de mes, inicio de clases, nuevas inversiones. La laptop es el artículo que todo cliente busca. Acer Aspire 3 A315 para el de entrada. HP 245 G10 para el de oficina. ASUS VivoBook 15 para el que quiere diseño. Tres opciones, un solo proveedor. Si tu vitrina no tiene laptop, el cliente la busca en otro lado. SUPRICOM. Tu mayorista de confianza.","nota":"Grid 3 laptops. Fondo SUPRICOM."}]</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
 <div class="month-content hidden" id="mc-2026-09"><div class="grid-placeholder" id="grid-2026-09"></div></div>
 <div class="month-content hidden" id="mc-2026-10"><div class="grid-placeholder" id="grid-2026-10"></div></div>
 <div class="month-content hidden" id="mc-2026-11"><div class="grid-placeholder" id="grid-2026-11"></div></div>
@@ -1754,7 +2775,7 @@ SUPRICOM. Tu mayorista de confianza.</div>
 // ─── MONTH DATA ───
 const MONTHS = {
   '2026-07': { label: 'Julio', year: 2026, pieces: 38, videos: 12, semanas: 3 },
-  '2026-08': { label: 'Agosto', year: 2026, pieces: 0, videos: 0, semanas: 0, ctx: 0 },
+  '2026-08': { label: 'Agosto', year: 2026, pieces: 42, videos: 15, semanas: 5 },
   '2026-09': { label: 'Septiembre', year: 2026, pieces: 0, videos: 0, semanas: 0, ctx: 0 },
   '2026-10': { label: 'Octubre', year: 2026, pieces: 0, videos: 0, semanas: 0, ctx: 0 },
   '2026-11': { label: 'Noviembre', year: 2026, pieces: 0, videos: 0, semanas: 0, ctx: 0 },
@@ -1763,12 +2784,14 @@ const MONTHS = {
 
 // ─── MONTH SWITCHING ───
 function switchMonth(monthId) {
+  // Reset calendar view before switching
+  if (currentView === 'calendar') setView('columns');
   // Month tab buttons
-  document.querySelectorAll('.mtab').forEach(b => {
+  document.querySelectorAll('.mtab').forEach(function(b) {
     b.classList.toggle('active', b.dataset.month === monthId);
   });
   // Month content
-  document.querySelectorAll('.month-content').forEach(c => {
+  document.querySelectorAll('.month-content').forEach(function(c) {
     c.classList.toggle('hidden', c.id !== 'mc-' + monthId);
   });
   if (monthId === 'email') {
@@ -1875,7 +2898,7 @@ document.querySelectorAll('.etab').forEach(b => {
 });
 
 // ─── INIT EMPTY MONTHS ───
-['2026-08','2026-09','2026-10','2026-11','2026-12'].forEach(id => {
+['2026-09','2026-10','2026-11','2026-12'].forEach(id => {
   const el = document.getElementById('grid-' + id);
   if (el) {
     const m = MONTHS[id];
@@ -1887,12 +2910,14 @@ document.querySelectorAll('.etab').forEach(b => {
 });
 
 // ─── FILTER ───
-document.querySelectorAll('[data-filter]').forEach(f => {
-  f.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
+document.querySelectorAll('[data-filter]').forEach(function(f) {
+  f.addEventListener('click', function() {
+    var mc = f.closest('.month-content');
+    if (!mc) return;
+    mc.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); });
     f.classList.add('active');
-    const v = f.dataset.filter;
-    document.querySelectorAll('.month-content:not(.hidden) .piece').forEach(p => {
+    var v = f.dataset.filter;
+    mc.querySelectorAll('.piece').forEach(function(p) {
       if (v === 'all') { p.style.display = ''; return; }
       if (v === 've') { p.style.display = p.querySelector('.ve-badge') ? '' : 'none'; return; }
       if (v === 'hp') { p.style.display = p.dataset.brand === 'hp' ? '' : 'none'; return; }
@@ -1902,13 +2927,16 @@ document.querySelectorAll('[data-filter]').forEach(f => {
 });
 
 // ─── TOGGLE PRODUCTS ───
-const tp = document.getElementById('toggleProds');
-tp.addEventListener('click', () => {
-  const all = document.querySelectorAll('.prods');
-  const open = tp.textContent.includes('visible');
-  all.forEach(d => { if (open) d.removeAttribute('open'); else d.setAttribute('open',''); });
-  tp.textContent = open ? '📦 Productos: oculto' : '📦 Productos: visible';
-  tp.classList.toggle('active');
+document.querySelectorAll('#toggleProds').forEach(function(tp) {
+  tp.addEventListener('click', function() {
+    var mc = tp.closest('.month-content');
+    if (!mc) return;
+    var all = mc.querySelectorAll('.prods');
+    var open = tp.textContent.includes('visible');
+    all.forEach(function(d) { if (open) d.removeAttribute('open'); else d.setAttribute('open',''); });
+    tp.textContent = open ? '\uD83D\uDCE6 Productos: oculto' : '\uD83D\uDCE6 Productos: visible';
+    tp.classList.toggle('active');
+  });
 });
 
 // ─── COPY MODAL ───
@@ -2008,7 +3036,49 @@ const CAPTIONS = {
   "40": "HP Smart Tank 720. Impresión, copia y escaneo con sistema de tinta continua de alto volumen. Hasta 18.000 páginas en negro incluidas. Pantalla LCD de 2,2 pulgadas y conectividad Ethernet. Tintas HP GT53 (negro) y GT52 (color). Para demanda media-alta. Disponible próximamente.\n\n#HP #SmartTank #impresoras #tintacontinua #B2BVenezuela #mayoristatecnologia",
   "41": "HP LaserJet Pro 4003dw. Impresión láser rápida con 42 ppm, dúplex automático y bandeja de 350 hojas. Tóner HP 151A con rendimiento de hasta 3.500 páginas o 151X con 9.800 páginas. Para el cliente que imprime sin esperar en entornos de alto volumen. Disponible próximamente.\n\n#HP #LaserJet #impresoras #B2BVenezuela #mayoristatecnologia",
   "27": "Julio fue un mes fuerte para la tecnología en Venezuela. ¿Tu inventario está listo para lo que viene? 📦\n\nProtección eléctrica es la categoría que más está rotando: FORZA para entrada y volumen — sus reguladores FVR-901M y FVR-1011 son los que más salen. SMARTBITT para el punto medio con sus UPS de 600VA a 1200VA. APC para el cliente que no se arriesga con los Back-UPS y Smart-UPS. Y BLUETTI para respaldo de horas, no de minutos. ⚡\n\nMSI Cubi está entrando con fuerza. Los comercios que ya las están mostrando están descubriendo una categoría que antes no existía en su mostrador. Mini PC compactas con potencia de torre. El nuevo argumento de venta. 🖥️\n\nLa jugada inteligente es tener el portafolio completo en un solo mayorista. Protección para los cortes, Mini PC para los que migran, conectividad para los que se actualizan. 🛡️\n\nEn SUPRICOM trabajamos al mayor con dueños de comercio. Todo disponible, todo en un solo contacto. 🤝\n\nGuarda este video. Escríbenos al DM con la palabra INVENTARIO y te armamos el portafolio. 📱\n\n#inventario #proteccionelectrica #FORZA #SMARTBITT #APC #BLUETTI #MSI #mayoristatecnologia #SUPRICOM",
-  "29": "Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Con eso bastaba. Hoy el cliente entra pidiendo otra cosa. 🔄\n\nPregunta por protección eléctrica porque cada apagón le cuesta plata. Pregunta por cámaras de seguridad porque sin vigilancia el negocio no está completo. Pregunta por Mesh porque el internet no le llega al fondo de la casa o la oficina. 📡📷⚡\n\nEl comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita. Y el cliente lo nota. ⚠️\n\nEl negocio que se actualizó está vendiendo BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el que pide lo mejor. El ticket subió porque la conversación cambió. 📈\n\nEl mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. 🤝\n\nGuarda este video como recordatorio de lo que ya no puedes dejar de tener en vitrina. 📱\n\n#tendencias #mercadotecnologia #proteccionelectrica #conectividad #seguridad #mayoristatecnologia #SUPRICOM"
+  "29": "Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Con eso bastaba. Hoy el cliente entra pidiendo otra cosa. 🔄\n\nPregunta por protección eléctrica porque cada apagón le cuesta plata. Pregunta por cámaras de seguridad porque sin vigilancia el negocio no está completo. Pregunta por Mesh porque el internet no le llega al fondo de la casa o la oficina. 📡📷⚡\n\nEl comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita. Y el cliente lo nota. ⚠️\n\nEl negocio que se actualizó está vendiendo BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el que pide lo mejor. El ticket subió porque la conversación cambió. 📈\n\nEl mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. 🤝\n\nGuarda este video como recordatorio de lo que ya no puedes dejar de tener en vitrina. 📱\n\n#tendencias #mercadotecnologia #proteccionelectrica #conectividad #seguridad #mayoristatecnologia #SUPRICOM",
+  "AUG1": "Logitech: lo que tu vitrina debería tener. Mouse, teclados, audífonos. Lo que tus clientes piden.\n\nM170 y M240 para cada cliente. K270 y K380S para teclados que se venden solos. H111 y G335 para audio que completa la venta.\n\nMouse, teclados, audífonos, gaming. Todo en SUPRICOM.\n\n#MouseLogitech #Perifericos #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG2": "El router que tu tienda debería tener hoy. Tu cliente pregunta por WiFi. ¿Qué le ofreces?\n\nUn router no es solo conectar internet. Es la velocidad que tu cliente espera, la estabilidad que necesita para trabajar, y la señal que llega a todas partes.\n\n5 marcas en SUPRICOM: HIKVISION, Linksys, Xiaomi, TP-Link, NEXXT HOME.\n\n#RoutersWiFi #Mayorista #HIKVISION #TiendaDeTecnología #SUPRICOM",
+  "AUG3": "Del básico a premium: routers en SUPRICOM. No todos los routers son iguales.\n\nEl básico → WiFi estable para el que solo necesita conectar.\nEl medio → más velocidad para la oficina.\nEl premium → WiFi 6 para quien no negocia calidad.\n\n5 gamas, 5 clientes, 1 solo mayorista.\n\n#RoutersWiFi #WiFi6 #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG4": "El complemento que todo cliente de impresora va a buscar. Tu cliente compra impresora. ¿Le ofreciste el cartucho o la tinta?\n\nSin consumibles → la impresora no funciona. Si no se lo das → lo compra en otro lado.\n\nTintas, cartuchos y tóner HP en SUPRICOM.\n\n#TintasHP #CartuchosHP #ImpresorasHP #MayoristaTech #SUPRICOM",
+  "AUG5": "BLUETTI en 30 segundos. No es una batería. Es la solución cuando se va la luz.\n\nConectas laptop, celular, internet → todo sigue funcionando.\nDesde la portátil pequeña hasta la que mueve tu negocio completo.\n\nCuando se va la luz, tu cliente necesita una solución. Tenla en tu vitrina.\n\n#EnergiaPortatil #Bluetti #CorteDeLuz #MayoristaTech #SUPRICOM",
+  "AUG6": "3 combos que suben tu ticket. Combo oficina → MK345 o MK295 (teclado + mouse). Combo gaming → G203 + G213 o G335.\n\nUna venta, dos productos.\n\nLogitech tiene las piezas. Tú armas la venta.\n\n#MouseLogitech #Perifericos #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG7": "3 errores que te están costando ventas con laptops. No conocer las diferencias entre marcas. No preguntar para qué la necesita. Vender solo por precio.\n\nEn SUPRICOM te capacitamos para que vendas con argumento.\n\n#Laptops #Computadoras #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG8": "El artículo que nunca debe faltar en tu vitrina. El router es lo primero que tu cliente pregunta. Si no lo tienes, pierdes la venta antes de empezar.\n\n3 gamas HIKVISION: AC1200, AX1500, AX1800.\n\n#HIKVISION #RoutersWiFi #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG9": "¿Vendes laptops? Estás dejando dinero sobre la mesa. Antes → vendías solo laptop, mismo ticket de siempre. Después → combo completo, más ganancia.\n\nBolso + mouse + cargador = ticket promedio más alto.\n\nPregunta por el portafolio Targus en SUPRICOM.\n\n#AccesoriosTech #BolsosLaptop #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG10": "Mini PC vs escritorio: ¿por qué cambian los negocios? Escritorio → ocupa espacio, consume más luz, difícil de mover. Mini PC → compacta, potente, personalizable.\n\nOcupa poco, rinde mucho. ¿Qué le conviene a tu cliente?\n\n#MiniPC #MiniPCMSI #ComputadoraPequeña #MayoristaTech #SUPRICOM",
+  "AUG11": "5 marcas, 5 perfiles de cliente. ACER: lo básico sin sacrificar calidad. ASUS: diseño y rendimiento. HP: confiabilidad corporativa. DELL + LENOVO: calidad que no negocia.\n\n¿Cuál le recomendaste a tu cliente?\n\n#Laptops #Computadoras #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG12": "Corte de electricidad no es problema. Tu cliente no puede trabajar cuando se va la luz. Pero contigo sí.\n\nBLUETTI → estación de energía portátil. Laptop, internet, refrigeración → todo sigue funcionando.\n\nDisponible en ambas sedes. Caracas y Valencia.\n\n#Bluetti #EnergiaPortatil #CorteDeLuz #Mayorista #SUPRICOM",
+  "AUG13": "Tinta, cartucho, tóner: lo que necesitas saber. Tinta → impresoras de boquilla (GT52, GT53). Cartucho → impresoras con cartucho fijo (662, 664, 954XL). Tóner → impresoras láser (105A, 206A, 215A).\n\nSi no sabes cuál va → pierdes la venta.\n\n#TintasHP #CartuchosHP #ImpresorasHP #Mayorista #SUPRICOM",
+  "AUG14": "WiFi o Mesh: ¿cuál le conviene a tu cliente? Router WiFi → oficinas pequeñas, fácil de instalar. Mesh → espacios grandes, sin puntos muertos.\n\nNEXXT HOME BOLT MESH AX1800 disponible.\n\n#RoutersWiFi #MeshWiFi #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG15": "HIKVISION: 3 modelos, 3 clientes. AC1200 → WiFi estable, el que más rota. AX1500 → más velocidad para la oficina. AX1800 → WiFi 6 para quien no negocia calidad.\n\nTres modelos, tres clientes, 1 solo mayorista.\n\n#HIKVISION #RoutersWiFi #WiFi6 #MayoristaTech #SUPRICOM",
+  "AUG16": "Bolsos para cada tipo de cliente. Ejecutivo → CITYSMART EVA PRO o AVILA. Estudiante → OCTAVE III o DEPORTIVO. Viajero → ELITE MOVIL o RODANTE TRANSIT.\n\n¿Cuál le ofreces al tuyo?\n\n#BolsosLaptop #AccesoriosTech #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG17": "Lo que tu cliente no sabe sobre mouse y teclados. El mouse no es solo clic → Lift Vertical evita lesiones. El teclado no es solo escribir → K380S cambia la productividad. Lo que más se vende es lo que menos muestras → M170 y K270.\n\nPregunta por lo que tu cliente necesita en SUPRICOM.\n\n#MouseLogitech #Perifericos #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG18": "\"Busco algo más compacto para la oficina\". ¿Le ofreciste Mini PC? Si no lo haces → pierdes la venta.\n\nMSI tiene 4 modelos: i5, i7 barebone, Ryzen 7, Ryzen 9.\n\n#MiniPC #MiniPCMSI #ComputadoraPequeña #Mayorista #SUPRICOM",
+  "AUG19": "3 argumentos que cierran más ventas con routers. 1️⃣ Velocidad → tu cliente pide internet rápido. 2️⃣ Cobertura → \"no me llega el WiFi\" es lo más común. 3️⃣ Confiabilidad → un router malo no vuelve cliente.\n\nEn SUPRICOM te damos los argumentos técnicos.\n\n#RoutersWiFi #MayoristaTech #HIKVISION #TiendaDeTecnología #SUPRICOM",
+  "AUG20": "El combo que siempre cierra. Laptop + complemento = más ticket. Tu cliente va a necesitar proteger su inversión. Si no se lo ofreces, lo compra en otro lado.\n\nBolso Targus + Mouse Logitech = venta completa.\n\n#Laptops #AccesoriosTech #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG21": "3 cosas que tu cliente debería preguntar. 1️⃣ Velocidad real → no solo megas, velocidad al dispositivo. 2️⃣ Cobertura → sin puntos muertos en toda la oficina. 3️⃣ Confiabilidad → que no se apague, que dure años.\n\n5 marcas, 1 solo mayorista.\n\n#RoutersWiFi #WiFi6 #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG22": "Consumibles HP: siempre hay demanda. Cada impresora necesita consumibles. No es opcional. Es inevitable.\n\n¿Se los das tú o se los da otro?\n\n#TintasHP #CartuchosHP #ImpresorasHP #MayoristaTech #SUPRICOM",
+  "AUG23": "3 laptops que toda tienda debería tener. Gama de entrada → student/básico. Corporativa → oficina/gerente. Gaming → rendimiento/mayor ticket.\n\n¿Las tienes en tu vitrina?\n\n#Laptops #Computadoras #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG24": "¿Por qué BLUETTI y no otra marca? Portabilidad → no es planta eléctrica, es portátil. Sin ruido ni humo → funciona en oficina, en casa, en el negocio. Múltiples usos → USB, AC, DC. Carga todo.\n\nDisponible en ambas sedes.\n\n#Bluetti #EnergiaPortatil #CorteDeLuz #MayoristaTech #SUPRICOM",
+  "AUG25": "De básico a gaming: mouse Logitech. El básico → M170, M240 → mouse que funcione. El gaming → G203, G305 → RGB, respaldo, diseño.\n\nDos gamas, dos clientes, 1 solo mayorista.\n\n#MouseLogitech #Gaming #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG26": "¿Qué consumible necesita tu cliente? Impresoras de boquilla → botellas GT52 y GT53. Impresoras con cartucho → 662, 664, 667, 954XL. Impresoras láser → tóner 105A, 206A, 215A, 230A.\n\nNo todos los cartuchos son iguales.\n\n#TintasHP #CartuchosHP #ImpresorasHP #Mayorista #SUPRICOM",
+  "AUG27": "El error de no ofrecer BLUETTI. Cada corte de electricidad → cliente que busca solución. Si no tienes BLUETTI → va a otro lado. Y cuando lo encuentre → no vuelve contigo.\n\nBLUETTI → portátil, silenciosa, sin gasolina.\n\n#Bluetti #EnergiaPortatil #CorteDeLuz #Mayorista #SUPRICOM",
+  "AUG28": "Tu cliente compra laptop. ¿Le ofreces el bolso? La venta no termina con la laptop. Tu cliente necesita protegerla.\n\nUn bolso, un mouse, un cargador → cada complemento sube tu ticket.\n\nBolsos Targus en SUPRICOM para cada perfil.\n\n#BolsosLaptop #AccesoriosTech #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG29": "¿Qué es una Mini PC? Imagina una computadora del tamaño de tu mano. Sin torre, sin cables, sin ruido. Pero que hace lo mismo que un escritorio grande.\n\nMSI tiene 4 modelos para cada perfil.\n\n#MiniPC #MiniPCMSI #ComputadoraPequeña #MayoristaTech #SUPRICOM",
+  "AUG30": "¿Tienes clientes zurdos? El Lift Vertical de Logitech viene en versión zurdo. No es un mouse común. Es solución para un cliente que nadie atiende.\n\nSi no les ofreces esto, van a otro lado.\n\n#MouseLogitech #Perifericos #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG31": "Las que más rotan este mes. Gama entrada → ACER y ASUS. Gama media → HP y LENOVO. Gama alta → ASUS TUF y HP Victus.\n\nMayor ticket = mejor margen para ti.\n\n#Laptops #Computadoras #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG32": "AX1500 WiFi 6: el router que debería estar en toda vitrina. DS-3WR15X de HIKVISION → WiFi 6, gigabit, mejor margen.\n\nTu cliente pide velocidad. Este router se la da.\n\n#HIKVISION #WiFi6 #RoutersWiFi #Mayorista #SUPRICOM",
+  "AUG33": "WiFi 6: la tendencia que ya llegó. Más velocidad. Más dispositivos conectados. Menos congestión.\n\nTu negocio necesita esto. Y tu tienda debería tenerlo ya.\n\n#WiFi6 #RoutersWiFi #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG34": "BLUETTI: más que un producto. Demanda real → cada corte es un cliente buscando solución. Buen margen → marca reconocida que se vende sola. Diferenciación → no todas lo tienen.\n\nBLUETTI en ambas sedes.\n\n#Bluetti #EnergiaPortatil #CorteDeLuz #MayoristaTech #SUPRICOM",
+  "AUG35": "Barebone: personaliza cada Mini PC. Barebone = tú decides qué va adentro. RAM, almacenamiento, sistema.\n\nCuatro modelos: i5, i7 barebone, Ryzen 7, Ryzen 9. Cada cliente tiene una Mini PC diferente.\n\n#MiniPC #MiniPCMSI #Barebone #Mayorista #SUPRICOM",
+  "AUG36": "Del básico al WiFi 6: routers HIKVISION. AC1200 → WiFi estable y económico, el que más se vende. AX1500 → WiFi 6 gigabit, el mejor balance. AX1800 → alto rendimiento, mejor margen.\n\nLas 3 gamas en un solo lugar.\n\n#HIKVISION #RoutersWiFi #WiFi6 #MayoristaTech #SUPRICOM",
+  "AUG37": "El error de no ofrecer consumibles. Vendes impresoras todos los días. Pero estás cometiendo un error.\n\n❌ No ofrecer el consumible → cliente va a otro lado. ❌ No saber qué va en cada impresora → cliente vuelve molesto. ❌ No tener stock → pierdes venta y confianza.\n\n#TintasHP #CartuchosHP #ImpresorasHP #MayoristaTech #SUPRICOM",
+  "AUG38": "Targus: más que bolsos. Mouse y teclados → productividad inmediata. Cargadores y hubs → conectividad completa. Audífonos y accesorios → comodidad y seguridad.\n\nTodo en SUPRICOM.\n\n#AccesoriosTech #BolsosLaptop #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG39": "¿Por qué tu cliente debe comprarte el router a ti? 1️⃣ Confiabilidad → HIKVISION es marca líder mundial en seguridad. 2️⃣ Soporte → tú estás ahí para resolverle cualquier problema. 3️⃣ Variedad → 3 modelos para 3 perfiles diferentes.\n\nEso te diferencia de quien solo vende uno.\n\n#HIKVISION #RoutersWiFi #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG40": "Logitech: marca que tus clientes ya conocen. Tu cliente entra y pregunta por Logitech. No por un mouse genérico. Por la marca.\n\nEso es confianza. Y confianza se traduce en venta.\n\n#MouseLogitech #Perifericos #Mayorista #TiendaDeTecnología #SUPRICOM",
+  "AUG41": "Bolso + laptop = la venta que siempre cierra. El combo que nunca falla. No es presión. Es sentido común.\n\nTargus tiene bolsos para cada laptop. En SUPRICOM los tenemos listos.\n\n#BolsosLaptop #AccesoriosTech #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG42": "Tu cliente va a necesitar una laptop. La pregunta es si se la vas a vender tú o tu competencia.\n\n5 marcas principales con stock listo para entregar.\n\n#Laptops #Computadoras #Mayorista #TiendaDeTecnología #SUPRICOM"
 };
 
 // ─── EXPAND/COLLAPSE (non-copy pieces) ───
@@ -2202,8 +3272,12 @@ function toggleWeek(weekId) {
 
 // ─── ENHANCED FILTERS ───
 function applyEnhancedFilters() {
-  const pillar = document.getElementById('filterPillar').value;
-  const search = document.getElementById('filterSearch').value.toLowerCase();
+  var mc = getActiveMC();
+  if (!mc) return;
+  var pillarEl = mc.querySelector('.enhanced-toolbar select');
+  var searchEl = mc.querySelector('.enhanced-toolbar input[type="text"]');
+  var pillar = pillarEl ? pillarEl.value : '';
+  var search = searchEl ? searchEl.value.toLowerCase() : '';
   const visible = document.querySelectorAll('.month-content:not(.hidden) .piece');
   let count = 0;
   visible.forEach(p => {
@@ -2223,83 +3297,103 @@ function applyEnhancedFilters() {
       topicEl.innerHTML = topic;
     }
   });
-  const res = document.getElementById('searchResults');
-  if (search || pillar) {
-    res.innerHTML = '<strong>' + count + '</strong> de ' + visible.length + ' piezas';
-  } else {
-    res.innerHTML = '';
+  var res = mc.querySelector('.search-results');
+  if (res) {
+    if (search || pillar) {
+      res.innerHTML = '<strong>' + count + '</strong> de ' + visible.length + ' piezas';
+    } else {
+      res.innerHTML = '';
+    }
   }
   saveFilters();
 }
 
 // ─── FILTER PERSISTENCE ───
 function saveFilters() {
-  const f = {
-    pillar: document.getElementById('filterPillar').value,
-    search: document.getElementById('filterSearch').value
+  var mc = getActiveMC();
+  if (!mc) return;
+  var pillarEl = mc.querySelector('.enhanced-toolbar select');
+  var searchEl = mc.querySelector('.enhanced-toolbar input[type="text"]');
+  var f = {
+    pillar: pillarEl ? pillarEl.value : '',
+    search: searchEl ? searchEl.value : ''
   };
   localStorage.setItem('supricom-filters', JSON.stringify(f));
 }
 
 // ─── VIEW TOGGLE ───
 let currentView = 'columns';
+function getActiveMC() { return document.querySelector('.month-content:not(.hidden)'); }
 function setView(view) {
   currentView = view;
-  document.getElementById('viewColumns').classList.toggle('active', view === 'columns');
-  document.getElementById('viewCalendar').classList.toggle('active', view === 'calendar');
-  const mc = document.getElementById('mc-2026-07');
+  const mc = getActiveMC();
+  if (!mc) return;
+  const mcId = mc.id.replace('mc-', '');
+  const colBtn = document.getElementById('viewColumns-' + mcId);
+  const calBtn = document.getElementById('viewCalendar-' + mcId);
+  if (colBtn) colBtn.classList.toggle('active', view === 'columns');
+  if (calBtn) calBtn.classList.toggle('active', view === 'calendar');
   // Remove any existing back button
-  mc.querySelectorAll('.cal-back-btn').forEach(b => b.remove());
+  mc.querySelectorAll('.cal-back-btn').forEach(function(b) { b.remove(); });
   if (view === 'calendar') {
-    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(el => el.style.display = 'none');
-    mc.querySelectorAll('.month-grid-view').forEach(c => c.remove());
-    const backBtn = document.createElement('button');
+    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
+    mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
+    var backBtn = document.createElement('button');
     backBtn.className = 'cal-back-btn';
-    backBtn.innerHTML = '← Volver a Columnas';
+    backBtn.innerHTML = '\u2190 Volver a Columnas';
     backBtn.onclick = function() { setView('columns'); };
-    const calGrid = document.createElement('div');
+    var calGrid = document.createElement('div');
     calGrid.className = 'month-grid-view';
-    calGrid.innerHTML = buildMonthGrid();
+    calGrid.innerHTML = buildMonthGrid(mc.id.replace('mc-', ''));
     mc.insertBefore(backBtn, mc.firstChild);
     mc.insertBefore(calGrid, backBtn.nextSibling);
   } else {
-    mc.querySelectorAll('.month-grid-view').forEach(c => c.remove());
-    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(el => el.style.display = '');
+    mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
+    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = ''; });
   }
 }
-function buildMonthGrid() {
-  const days = ['Lun','Mar','Mié','Jue','Vie'];
-  let html = '<div class="month-grid">';
-  days.forEach(d => { html += '<div class="month-header">' + d + '</div>'; });
-  // Jul 2026 plan: 3 weeks, Mon-Fri each
-  const weeks = [
-    [{d:13,day:'Lun'},{d:14,day:'Mar'},{d:15,day:'Mié'},{d:16,day:'Jue'},{d:17,day:'Vie'}],
-    [{d:20,day:'Lun'},{d:21,day:'Mar'},{d:22,day:'Mié'},{d:23,day:'Jue'},{d:24,day:'Vie'}],
-    [{d:27,day:'Lun'},{d:28,day:'Mar'},{d:29,day:'Mié'},{d:30,day:'Jue'},{d:31,day:'Vie'}]
-  ];
-  const pieces = document.querySelectorAll('#mc-2026-07 .piece');
-  const pMap = {};
-  pieces.forEach(p => {
-    const num = p.dataset.piece;
-    const fmt = p.dataset.format;
-    const pillar = p.querySelector('.pillar') ? p.querySelector('.pillar').textContent : '';
-    const topic = p.querySelector('.topic') ? p.querySelector('.topic').textContent : '';
-    const col = p.closest('.cal-col');
+function buildMonthGrid(monthId) {
+  var days = ['Lun','Mar','Mié','Jue','Vie'];
+  var html = '<div class="month-grid">';
+  days.forEach(function(d) { html += '<div class="month-header">' + d + '</div>'; });
+  var weeks;
+  if (monthId === '2026-08') {
+    weeks = [
+      [{d:3,day:'Lun'},{d:4,day:'Mar'},{d:5,day:'Mié'},{d:6,day:'Jue'},{d:7,day:'Vie'}],
+      [{d:10,day:'Lun'},{d:11,day:'Mar'},{d:12,day:'Mié'},{d:13,day:'Jue'},{d:14,day:'Vie'}],
+      [{d:17,day:'Lun'},{d:18,day:'Mar'},{d:19,day:'Mié'},{d:20,day:'Jue'},{d:21,day:'Vie'}],
+      [{d:24,day:'Lun'},{d:25,day:'Mar'},{d:26,day:'Mié'},{d:27,day:'Jue'},{d:28,day:'Vie'}],
+      [{d:31,day:'Lun'}]
+    ];
+  } else {
+    weeks = [
+      [{d:13,day:'Lun'},{d:14,day:'Mar'},{d:15,day:'Mié'},{d:16,day:'Jue'},{d:17,day:'Vie'}],
+      [{d:20,day:'Lun'},{d:21,day:'Mar'},{d:22,day:'Mié'},{d:23,day:'Jue'},{d:24,day:'Vie'}],
+      [{d:27,day:'Lun'},{d:28,day:'Mar'},{d:29,day:'Mié'},{d:30,day:'Jue'},{d:31,day:'Vie'}]
+    ];
+  }
+  var pieces = document.querySelectorAll('#mc-' + monthId + ' .piece');
+  var pMap = {};
+  pieces.forEach(function(p) {
+    var num = p.dataset.piece;
+    var fmt = p.dataset.format;
+    var pillar = p.querySelector('.pillar') ? p.querySelector('.pillar').textContent : '';
+    var topic = p.querySelector('.topic') ? p.querySelector('.topic').textContent : '';
+    var col = p.closest('.cal-col');
     if (!col) return;
-    const dayEl = col.querySelector('.day');
-    const dateEl = col.querySelector('.date');
+    var dayEl = col.querySelector('.day');
+    var dateEl = col.querySelector('.date');
     if (!dayEl || !dateEl) return;
-    const key = dayEl.textContent.trim() + '-' + dateEl.textContent.trim();
+    var key = dayEl.textContent.trim() + '-' + dateEl.textContent.trim();
     if (!pMap[key]) pMap[key] = [];
-    pMap[key].push({ num, fmt, pillar, topic });
+    pMap[key].push({ num: num, fmt: fmt, pillar: pillar, topic: topic });
   });
-  // Build 5 columns (one per weekday), 3 rows (one per week)
-  for (let w = 0; w < 3; w++) {
-    for (let d = 0; d < 5; d++) {
-      const item = weeks[w][d];
-      const key = item.day + '-' + item.d;
-      const pcs = pMap[key] || [];
-      const weekNum = 'S' + (w + 1);
+  for (var w = 0; w < weeks.length; w++) {
+    for (var d = 0; d < weeks[w].length; d++) {
+      var item = weeks[w][d];
+      var key = item.day + '-' + item.d;
+      var pcs = pMap[key] || [];
+      var weekNum = 'S' + (w + 1);
       html += '<div class="month-cell">';
       html += '<div class="cell-date">' + item.d + '</div>';
       html += '<div class="cell-day">' + item.day + ' · ' + weekNum + '</div>';
@@ -2317,27 +3411,32 @@ function buildMonthGrid() {
 
 // ─── EXPORT ───
 function copySummary() {
-  let text = 'SUPRICOM - Plan Julio 2026\n' + '═'.repeat(30) + '\n\n';
-  document.querySelectorAll('#mc-2026-07 .week-card').forEach(w => {
-    const h2 = w.querySelector('h2');
+  var mc = getActiveMC();
+  if (!mc) return;
+  var m = MONTHS[mc.id.replace('mc-', '')];
+  var text = 'SUPRICOM - Plan ' + (m ? m.label + ' ' + m.year : mc.id) + '\n' + '\u2550'.repeat(30) + '\n\n';
+  mc.querySelectorAll('.week-card').forEach(function(w) {
+    var h2 = w.querySelector('h2');
     text += h2 ? h2.textContent + '\n' : '';
-    w.querySelectorAll('.piece').forEach(p => {
-      const num = p.dataset.piece;
-      const fmt = p.querySelector('.fmt') ? p.querySelector('.fmt').textContent.trim() : '';
-      const pillar = p.querySelector('.pillar') ? p.querySelector('.pillar').textContent : '';
-      const topic = p.querySelector('.topic') ? p.querySelector('.topic').textContent.substring(0, 60) : '';
-      const ve = p.querySelector('.ve-badge') ? ' [VE]' : '';
-      text += '  #' + num + ' ' + fmt + ' → ' + pillar + ' | ' + topic + '...' + ve + '\n';
+    w.querySelectorAll('.piece').forEach(function(p) {
+      var num = p.dataset.piece;
+      var fmt = p.querySelector('.fmt') ? p.querySelector('.fmt').textContent.trim() : '';
+      var pillar = p.querySelector('.pillar') ? p.querySelector('.pillar').textContent : '';
+      var topic = p.querySelector('.topic') ? p.querySelector('.topic').textContent.substring(0, 60) : '';
+      var ve = p.querySelector('.ve-badge') ? ' [VE]' : '';
+      text += '  #' + num + ' ' + fmt + ' \u2192 ' + pillar + ' | ' + topic + '...' + ve + '\n';
     });
     text += '\n';
   });
   navigator.clipboard.writeText(text).then(function() { showToast('Resumen copiado al portapapeles'); }).catch(function() { showToast('Error al copiar'); });
 }
 function exportJSON() {
-  const pieces = [];
-  document.querySelectorAll('#mc-2026-07 .piece').forEach(p => {
-    const copyEl = p.querySelector('.copy-data');
-    let slides = [];
+  var mc = getActiveMC();
+  if (!mc) return;
+  var pieces = [];
+  mc.querySelectorAll('.piece').forEach(function(p) {
+    var copyEl = p.querySelector('.copy-data');
+    var slides = [];
     if (copyEl) { try { slides = JSON.parse(copyEl.textContent); } catch(e) {} }
     pieces.push({
       num: p.dataset.piece,
@@ -2349,7 +3448,8 @@ function exportJSON() {
       slides: slides
     });
   });
-  const blob = new Blob([JSON.stringify({ month: 'Julio 2026', pieces: pieces }, null, 2)], { type: 'application/json' });
+  var m = MONTHS[mc.id.replace('mc-', '')];
+  var blob = new Blob([JSON.stringify({ month: m ? m.label + ' ' + m.year : mc.id, pieces: pieces }, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = 'plan-de-contenido_data.json';
