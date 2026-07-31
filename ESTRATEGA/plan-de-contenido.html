@@ -2352,7 +2352,7 @@ function exportJSON() {
   const blob = new Blob([JSON.stringify({ month: 'Julio 2026', pieces: pieces }, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = 'plan_julio2026_data.json';
+  a.href = url; a.download = 'plan-de-contenido_data.json';
   a.click(); URL.revokeObjectURL(url);
   showToast('JSON exportado');
 }
