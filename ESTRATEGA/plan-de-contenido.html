@@ -53,12 +53,20 @@
   [data-theme="dark"] .email-card .ec-body .msg { color: #E6EDF3 !important; }
   [data-theme="dark"] .email-card .ec-body .img-sug strong { color: #E6EDF3 !important; }
   [data-theme="dark"] .email-panel h2 { color: var(--primary-light) !important; }
-  [data-theme="dark"] .email-tabs .etab { color: var(--text-light) !important; }
-  [data-theme="dark"] .email-tabs .etab.active { background: var(--primary-light) !important; color: #fff !important; }
-  [data-theme="dark"] .email-tabs .etab:hover { color: var(--primary-light) !important; background: rgba(7,145,244,.1) !important; }
-  [data-theme="dark"] .email-back { color: var(--primary-light) !important; }
+  [data-theme="dark"] .em-delay-box { background: #1C2128 !important; border-color: #30363D !important; }
+  [data-theme="dark"] .em-week-head { background: #161B22 !important; border-color: #30363D !important; }
   [data-theme="dark"] .cal-col .col-head .day { color: var(--primary-light) !important; }
   [data-theme="dark"] .week-card .week-focus strong { color: var(--primary-light) !important; }
+  [data-theme="dark"] .em-delay-box strong { color: var(--primary-light) !important; }
+  [data-theme="dark"] .em-week-title { color: var(--primary-light) !important; }
+  [data-theme="dark"] .em-btn { color: var(--text) !important; }
+  [data-theme="dark"] .em-btn:hover { color: var(--primary-light) !important; border-color: var(--primary-light) !important; }
+  [data-theme="dark"] .email-back { color: var(--primary-light) !important; }
+  [data-theme="dark"] #designPanel .dp-h { color: var(--primary-light) !important; }
+  [data-theme="dark"] #designPanel .dp-t { color: var(--primary-light) !important; }
+  [data-theme="dark"] .month-tabs .mtab:hover { color: var(--primary-light) !important; background: rgba(88,166,255,.1) !important; }
+  [data-theme="dark"] .month-cell .cell-date { color: var(--primary-light) !important; }
+  [data-theme="dark"] .month-cell .cell-more { color: var(--primary-light) !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -101,7 +109,7 @@
     margin-bottom: 10px; border: 1px solid rgba(255,255,255,.15);
   }
   .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; }
-  .hero h1 span { color: #6BCBFF; }
+  .hero h1 span { color: #90CAFF; }
   .hero .sub { font-size: 15px; opacity: .8; margin-top: 4px; }
   .hero .kpi-strip {
     display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
@@ -165,16 +173,18 @@
   .piece {
     background: #FAFBFC; border: 1px solid var(--border);
     border-radius: 8px; padding: 10px; position: relative;
-    transition: all .2s; cursor: pointer;
+    transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer;
   }
   .piece:hover {
-    border-color: var(--primary-light); box-shadow: 0 2px 8px rgba(7,145,244,.12);
+    border-color: var(--primary-light);
+    box-shadow: 0 8px 24px rgba(7,145,244,.15);
+    transform: perspective(800px) rotateX(2deg) translateY(-3px);
   }
   .piece .num {
     position: absolute; top: 4px; right: 6px;
-    background: var(--bg); border-radius: 50%;
+    background: var(--border); border-radius: 50%;
     width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: var(--text-light);
+    font-size: 11px; font-weight: 700; color: #4AA3DF;
   }
   .piece .fmt {
     display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
@@ -264,6 +274,20 @@
     .week-card .week-top { padding: 12px 14px; }
     .week-card .week-top h2 { font-size: 16px; }
     .cal-col { min-height: auto; padding: 10px; }
+    .piece:hover { transform: none; }
+    .modal-slide .slide-title { font-size: 20px; }
+    .ms-kpi-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── REDUCED MOTION ─── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .animate-in { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
   }
 
   /* ─── MODAL DE COPY ─── */
@@ -347,12 +371,12 @@
   }
   .drive-btn:hover { background: var(--primary); color: white; }
   .toast {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
     background: #1a1a2e; color: #fff; padding: 10px 24px; border-radius: 8px;
     font-size: 14px; font-weight: 500; z-index: 200;
-    opacity: 0; transition: opacity .3s; pointer-events: none;
+    opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none;
   }
-  .toast.show { opacity: 1; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .modal-nav button:disabled { background: var(--border); color: var(--text-light); cursor: default; }
   .modal-nav .nav-dots { display: flex; gap: 6px; }
   .modal-nav .nav-dots .dot {
@@ -374,30 +398,49 @@
   }
   .month-tabs .mtab {
     font-size: 13px; padding: 6px 18px; border-radius: 8px;
-    cursor: pointer; transition: all .2s;
+    cursor: pointer; transition: background .25s, color .25s, transform .15s, box-shadow .2s;
     color: var(--text-light); font-weight: 600;
     background: transparent; border: none; user-select: none;
   }
   .month-tabs .mtab:hover { color: var(--primary); background: rgba(0,86,219,.06); }
-  .month-tabs .mtab.active { background: var(--primary); color: white; }
-  .month-content { display: block; }
-  .month-content.hidden { display: none; }
+  .month-tabs .mtab.active { background: var(--primary); color: white; transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,86,219,.2); }
+  .month-content { display: block; opacity: 1; transform: translateY(0); transition: opacity .25s, transform .25s; }
+  .month-content.hidden { opacity: 0; transform: translateY(10px); pointer-events: none; height: 0; overflow: hidden; padding: 0; margin: 0; }
 
   /* ─── EMAIL PANEL ─── */
   .email-panel { padding: 4px 0; }
   .email-panel h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--primary); }
-  .email-panel .sub { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
-  .email-card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 16px; overflow: hidden; }
-  .email-card .ec-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--gradient-section); font-weight: 600; font-size: 14px; }
+  .email-panel .sub { font-size: 13px; color: var(--text-light); margin-bottom: 16px; }
+  .em-delay-box { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--primary-light); border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text); line-height: 1.6; }
+  .em-delay-box strong { color: var(--primary); }
+  .em-week { margin-bottom: 12px; }
+  .em-week-head { background: var(--gradient-section); border-radius: 10px; padding: 14px 16px; margin-bottom: 0; border: 1px solid var(--border); cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+  .em-week-head:hover { filter: brightness(.96); }
+  .em-week-title { font-size: 15px; font-weight: 700; color: var(--primary); }
+  .em-week-sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+  .em-week-head .ew-right { display: flex; align-items: center; gap: 10px; }
+  .em-week-head .ew-count { font-size: 12px; color: var(--text-light); }
+  .em-week-head .ew-arrow { font-size: 14px; color: var(--text-light); transition: transform .2s; }
+  .em-week.open .em-week-head .ew-arrow { transform: rotate(90deg); }
+  .em-week-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+  .em-week.open .em-week-body { max-height: 8000px; }
+  .em-week-body-inner { padding: 12px 0 4px; }
+  .email-card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 10px; overflow: hidden; }
+  .email-card .ec-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: var(--gradient-section); font-weight: 600; font-size: 13px; }
   .email-card .ec-head .badge { font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 700; }
   .email-card .ec-head .badge.ok { background: var(--success); color: #fff; }
-  .email-card .ec-head .badge.pending { background: var(--primary-light); color: #fff; }
+  .email-card .ec-head .badge.curso { background: #E65100; color: #fff; }
   .email-card .ec-body { padding: 14px 16px; }
   .email-card .ec-body .subj { font-size: 14px; font-weight: 700; color: var(--primary-light); margin-bottom: 8px; }
   .email-card .ec-body .subj::before { content: '✉️ '; }
   .email-card .ec-body .msg { font-size: 13px; line-height: 1.7; color: var(--text); white-space: pre-wrap; font-family: inherit; }
-  .email-card .ec-body .img-sug { font-size: 12px; color: var(--text-light); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
-  .email-card .ec-body .img-sug strong { color: var(--text); }
+  .email-card .ec-actions { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .em-btn { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--text); transition: all .15s; }
+  .em-btn:hover { border-color: var(--primary-light); color: var(--primary); }
+  .em-btn.copied { background: var(--success); color: #fff; border-color: var(--success); }
+  [data-theme="dark"] .em-delay-box { background: #1C2128 !important; border-color: #30363D !important; }
+  [data-theme="dark"] .em-week-head { background: #161B22 !important; border-color: #30363D !important; }
+  [data-theme="dark"] .em-btn { background: #1C2128 !important; border-color: #30363D !important; color: var(--text) !important; }
 
   /* ─── DESIGN PANEL ─── */
   #designPanel {
@@ -551,20 +594,12 @@
   .pillar-legend-item { display: flex; align-items: center; gap: 4px; }
   .pillar-legend-dot { width: 8px; height: 8px; border-radius: 2px; }
 
-  /* Progress bar */
-  .progress-wrap { padding: 0 20px 10px; }
-  .progress-bar { height: 4px; background: rgba(0,0,0,.06); border-radius: 2px; overflow: hidden; }
-  [data-theme="dark"] .progress-bar { background: rgba(255,255,255,.08); }
-  .progress-fill { height: 100%; background: var(--success); border-radius: 2px; transition: width 0.5s ease; }
-  .progress-label { font-size: 10px; color: var(--text-light); margin-top: 2px; }
-
   /* Collapsible weeks */
   .week-card .cal-grid { transition: max-height 0.4s ease, opacity 0.3s ease; overflow: hidden; }
   .week-card.collapsed .cal-grid { max-height: 0; opacity: 0; }
   .week-card.collapsed .week-focus { max-height: 0; opacity: 0; padding: 0 20px; overflow: hidden; }
   .week-card.collapsed .pillar-bar { max-height: 0; opacity: 0; overflow: hidden; }
   .week-card.collapsed .pillar-legend { max-height: 0; opacity: 0; overflow: hidden; }
-  .week-card.collapsed .progress-wrap { max-height: 0; opacity: 0; overflow: hidden; }
   .week-card .week-top { cursor: pointer; user-select: none; }
   .week-card .week-top:hover { filter: brightness(1.05); }
   .week-top-left { display: flex; align-items: center; gap: 8px; flex: 1; }
@@ -596,10 +631,6 @@
   .highlight { background: #FFF176; border-radius: 2px; padding: 0 1px; }
   [data-theme="dark"] .highlight { background: #5D4037; color: #FFD54F; }
 
-  /* Tooltips */
-  .tip { position: relative; cursor: help; }
-  .tip::after { content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); font-size: 11px; padding: 4px 10px; border-radius: 6px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 10; font-weight: 400; text-transform: none; letter-spacing: 0; max-width: 250px; white-space: normal; text-align: center; }
-  .tip:hover::after { opacity: 1; }
   .ve-badge { cursor: help; }
 
   /* Calendar view */
@@ -629,6 +660,88 @@
     .piece { break-inside: avoid; }
     .week-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
   }
+
+  /* ─── SMOOTH SCROLL ─── */
+  html { scroll-behavior: smooth; }
+
+  /* ─── NAV BLUR ON SCROLL ─── */
+  nav { backdrop-filter: blur(0); transition: backdrop-filter .3s, background .3s, box-shadow .3s; }
+  nav.scrolled { backdrop-filter: blur(12px); background: rgba(0,86,219,.92); box-shadow: 0 2px 20px rgba(0,0,0,.25); }
+  [data-theme="dark"] nav.scrolled { background: rgba(10,61,145,.88); }
+
+  /* ─── HERO FLOATING GLOW ─── */
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 40%);
+    animation: heroFloat 8s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes heroFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, -10px) scale(1.05); }
+  }
+
+  /* ─── ENTRANCE ANIMATIONS ─── */
+  .animate-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .animate-in.visible { opacity: 1; transform: translateY(0); }
+  .animate-in:nth-child(2) { transition-delay: .08s; }
+  .animate-in:nth-child(3) { transition-delay: .16s; }
+  .animate-in:nth-child(4) { transition-delay: .24s; }
+  .animate-in:nth-child(5) { transition-delay: .32s; }
+
+  /* ─── RIPPLE EFFECT ─── */
+  .fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn, .theme-toggle {
+    position: relative; overflow: hidden;
+  }
+  .fil::after, .kp::after, .mtab::after, .em-btn::after, .copy-caption-btn::after, .drive-btn::after, .theme-toggle::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.3) 0%, transparent 60%);
+    opacity: 0; transition: opacity .4s; pointer-events: none;
+  }
+  .fil:active::after, .kp:active::after, .mtab:active::after, .em-btn:active::after, .copy-caption-btn:active::after, .drive-btn:active::after, .theme-toggle:active::after {
+    opacity: 1;
+  }
+
+  /* ─── SKELETON SHIMMER ─── */
+  .skeleton {
+    background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+    background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px;
+  }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* ─── PRODUCT DROPDOWN ANIMATION ─── */
+  .piece .prods .pl { max-height: 0; overflow: hidden; transition: max-height .3s ease, opacity .2s; opacity: 0; }
+  .piece .prods[open] .pl { max-height: 500px; opacity: 1; }
+
+  /* ─── WEEK ARROW ROTATION FIX ─── */
+  .week-card.collapsed .week-arrow { transform: rotate(180deg); }
+
+  /* ─── THEME TOGGLE ROTATION ─── */
+  .theme-toggle.switching { transform: rotate(180deg) scale(1.2); }
+
+  /* ─── MODAL SLIDE DIRECTIONAL ─── */
+  @keyframes slideInLeft { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0); } }
+  .modal-slide.from-left { animation: slideInLeft .2s ease; }
+  .modal-slide.from-right { animation: slideIn .2s ease; }
+
+  /* ─── DISABLED BUTTON CLEAR ─── */
+  .modal-nav button:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* ─── KPI SUMMARY HOVER ─── */
+  .ms-kpi { transition: transform .2s, box-shadow .2s; }
+  .ms-kpi:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+
+  /* ─── BRAND TAGS HOVER ─── */
+  .ms-brand-tag { transition: transform .15s, box-shadow .15s; cursor: default; }
+  .ms-brand-tag:hover { transform: scale(1.05); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+  .ms-brand-tag.featured:hover { box-shadow: 0 2px 8px rgba(0,86,219,.25); }
+
+  /* ─── EMPTY TAGS HIDDEN ─── */
+  .week-card .week-top .tags:empty { display: none; }
 
   /* ─── MONTH SUMMARY VIEW ─── */
   .month-summary {
@@ -847,7 +960,7 @@
   <div class="kpi-strip">
     <div class="kp"><div class="num" id="kpiPiezas">38</div><div class="lb">Piezas</div></div>
     <div class="kp"><div class="num" id="kpiVideos">12</div><div class="lb">Videos</div></div>
-    <div class="kp"><div class="num" id="kpiDiseno">—</div><div class="lb">Diseño</div></div>
+    <div class="kp"><div class="num" id="kpiDiseno">0</div><div class="lb">Diseño</div></div>
     <div class="kp"><div class="num" id="kpiSemanas">3</div><div class="lb">Semanas</div></div>
     <div class="kp"><div class="num" id="kpiContexto">5</div><div class="lb">🇻🇪 Contexto</div></div>
   </div>
@@ -1072,7 +1185,8 @@
   </div>
   <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-comparativa)" title="Comparativa: 1"></div><div style="width:10%;background:var(--c-tendencia)" title="Demanda: 1"></div><div style="width:10%;background:var(--c-sinergia)" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Sales: 1"></div></div>
   <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Comparativa (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Demanda (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-sinergia)"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Sales (1)</span></div>
-  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+
+
   <div class="week-focus"><strong>Foco:</strong> Logitech showcase · Routers · BLUETTI explicativo · Consumibles HP · Laptops · Mini PC MSI</div>
   <div class="cal-grid">
 
@@ -1297,7 +1411,8 @@
   </div>
   <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-comparativa)" title="Comparativa: 1"></div><div style="width:10%;background:#00838f" title="Segmentación: 1"></div><div style="width:10%;background:var(--c-tendencia)" title="Contexto Venezuela: 1"></div><div style="width:10%;background:var(--c-sinergia)" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Demanda oculta: 1"></div><div style="width:10%;background:var(--c-diagnostico)" title="Demanda: 1"></div></div>
   <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Comparativa (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Segmentación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Contexto VE (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-sinergia)"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Demanda oculta (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-diagnostico)"></span>Demanda (1)</span></div>
-  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+
+
   <div class="week-focus"><strong>Foco:</strong> Laptops 5 marcas · BLUETTI Venezuela · Consumibles HP · Routers comparativa · Targus segmentación · Logitech secretos · Mini PC MSI · Routers argumentos</div>
   <div class="cal-grid">
 
@@ -1526,7 +1641,8 @@
   </div>
   <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-educativo)" title="Educativo: 2"></div><div style="width:10%;background:var(--c-tendencia)" title="Tendencia: 1"></div><div style="width:10%;background:#AB47BC" title="Diferenciación: 1"></div><div style="width:10%;background:#E65100" title="Venta cruzada: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Oportunidad: 1"></div><div style="width:10%;background:#546E7A" title="Nicho: 1"></div><div style="width:10%;background:var(--c-solucion)" title="Customización: 1"></div></div>
   <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-educativo)"></span>Educativo (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Tendencia (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#AB47BC"></span>Diferenciación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#E65100"></span>Venta cruzada (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Oportunidad (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#546E7A"></span>Nicho (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-solucion)"></span>Customización (1)</span></div>
-  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+
+
   <div class="week-focus"><strong>Foco:</strong> Routers educación · HP consumibles showcase · Laptops showcase · BLUETTI diferenciación · Logitech showcase · HP carrusel educación · BLUETTI oportunidad · Targus venta cruzada · MSI Mini PC educación · Logitech nicho</div>
   <div class="cal-grid">
 
@@ -1751,7 +1867,8 @@
   </div>
   <div class="pillar-bar"><div style="width:20%;background:var(--c-showcase)" title="Showcase: 2"></div><div style="width:20%;background:var(--c-tendencia)" title="Tendencia: 2"></div><div style="width:10%;background:#AB47BC" title="Diferenciación: 1"></div><div style="width:10%;background:var(--c-perfil)" title="Caso de negocio: 1"></div><div style="width:10%;background:var(--c-solucion)" title="Customización: 1"></div><div style="width:10%;background:var(--c-comparativa)" title="Showcase router: 1"></div><div style="width:10%;background:#E65100" title="Oportunidad: 1"></div><div style="width:10%;background:#00838f" title="Combo: 1"></div><div style="width:10%;background:#546E7A" title="Confianza: 1"></div></div>
   <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-showcase)"></span>Showcase (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Tendencia (2)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#AB47BC"></span>Diferenciación (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-perfil)"></span>Caso de negocio (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-solucion)"></span>Customización (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-comparativa)"></span>Showcase router (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#E65100"></span>Oportunidad (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Combo (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#546E7A"></span>Confianza (1)</span></div>
-  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 10 diseñadas</div></div>
+
+
   <div class="week-focus"><strong>Foco:</strong> Laptops tendencia · HIKVISION producto estrella · Routers WiFi 6 · BLUETTI caso de negocio · MSI barebone · HIKVISION showcase · HP oportunidad · Targus showcase · HIKVISION diferenciación · Logitech confianza</div>
   <div class="cal-grid">
 
@@ -1962,7 +2079,8 @@
   </div>
   <div class="pillar-bar"><div style="width:50%;background:#00838f" title="Combo: 1"></div><div style="width:50%;background:var(--c-tendencia)" title="Demanda: 1"></div></div>
   <div class="pillar-legend"><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:#00838f"></span>Combo (1)</span><span class="pillar-legend-item"><span class="pillar-legend-dot" style="background:var(--c-tendencia)"></span>Demanda (1)</span></div>
-  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div><div class="progress-label">0 de 2 diseñadas</div></div>
+
+
   <div class="week-focus"><strong>Foco:</strong> Targus combo laptop · Laptops demanda</div>
   <div class="cal-grid">
 
@@ -2015,106 +2133,519 @@
 
 <div class="month-content hidden" id="mc-email">
 <div class="email-panel">
-  <a class="email-back" onclick="switchMonth('2026-07')" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--primary);margin-bottom:12px;text-decoration:none;font-weight:600">← Volver al plan de contenido</a>
-  <h2>📧 Email Marketing</h2>
-  <div class="sub">2 envíos por semana · Alineado al plan de contenido</div>
+  <a class="email-back" onclick="switchMonth('2026-08')" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--primary);margin-bottom:8px;text-decoration:none;font-weight:600">← Volver al plan de contenido</a>
+  <h2>📧 Email Marketing · Agosto 2026</h2>
+  <div class="sub">21 emails · 5/semana Lun–Vie · Contenido atrasado 1 semana</div>
 
-  <div class="email-tabs" style="display:flex;gap:4px;margin-bottom:16px">
-    <button class="etab active" data-emonth="2026-07" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Julio</button>
-    <button class="etab" data-emonth="2026-08" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Agosto</button>
-    <button class="etab" data-emonth="2026-09" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Septiembre</button>
-    <button class="etab" data-emonth="2026-10" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Octubre</button>
-    <button class="etab" data-emonth="2026-11" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Noviembre</button>
-    <button class="etab" data-emonth="2026-12" style="font-size:13px;padding:4px 14px;border-radius:8px;cursor:pointer;transition:all .2s;color:var(--text-light);font-weight:600;background:transparent;border:1px solid var(--border);user-select:none">Diciembre</button>
+  <div class="em-delay-box">
+    <strong>Así funciona:</strong> El contenido de S1 se envía por email en S2. El de S2 en S3. El de S3 en S4. El de S4 en S5 (septiembre).
   </div>
 
-  <!-- ═══ JULIO ═══ -->
-  <div class="emonth-content" id="ec-2026-07">
-
-  <div class="email-card">
-    <div class="ec-head"><span>S2 · Lun 20/07</span><span class="badge ok">Enviado</span></div>
-    <div class="ec-body" style="color:var(--text-light);font-size:13px">Envío realizado. Pendiente registrar asunto y contenido utilizado.</div>
-  </div>
-
-  <div class="email-card">
-    <div class="ec-head"><span>S2 · Jue 23/07</span><span class="badge pending">Pendiente</span></div>
-    <div class="ec-body">
-      <div class="subj">¿Estás vendiendo el combo que tu cliente realmente necesita?</div>
-      <div class="msg">Tu cliente no necesita un producto. Necesita tres.
-
-Cámara + Router + UPS. Ese es el combo que sube tu ticket promedio y que tu cliente va a agradecer.
-
-📷 La cámara sin internet no transmite.
-📡 El router sin UPS se apaga en el primer corte.
-⚡ El UPS sin nada que proteger es un gasto que no se entiende.
-
-Cuando vendes los tres juntos, no estás vendiendo tres productos. Estás vendiendo tranquilidad. Tu cliente sabe que su negocio está vigilado, conectado y respaldado.
-
-NEXXT HOME tiene el portafolio de cámaras más completo. HIKVISION y Linksys cubren redes. FORZA, SMARTBITT, APC y BLUETTI protegen todo.
-
-Disponible en Caracas y Valencia.
-
-SUPRICOM. Tu mayorista de confianza.</div>
-      <div class="img-sug"><strong>Imagen:</strong> Carrusel #18 redimensionado 600×400. Alternativa: slide central #14 (combo).</div>
+  <!-- ═══ S2 · LUN 10 – VIE 14 AGO ═══ -->
+  <div class="em-week open">
+    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+      <div>
+        <div class="em-week-title">S2 · Lun 10 – Vie 14 Ago</div>
+        <div class="em-week-sub">Basado en contenido de S1 · 5 emails</div>
+      </div>
+      <div class="ew-right"><span class="badge curso" style="font-size:11px">En curso</span><span class="ew-count">5 emails</span><span class="ew-arrow">▶</span></div>
     </div>
-  </div>
+    <div class="em-week-body"><div class="em-week-body-inner">
 
-  <div class="email-card">
-    <div class="ec-head"><span>S3 · Lun 27/07</span><span class="badge pending">Pendiente</span></div>
-    <div class="ec-body">
-      <div class="subj">La categoría que ya está rotando en los comercios que se actualizaron</div>
-      <div class="msg">MSI Cubi. ¿Ya la tienes en tu vitrina?
+    <div class="email-card">
+      <div class="ec-head"><span>Lun 10 · Routers</span></div>
+      <div class="ec-body">
+        <div class="subj">El error que comete tu tienda al vender WiFi</div>
+        <div class="msg">Tu cliente entra y pregunta por un router. Tú le ofreces el primero que tienes en vitrina. Pero ese router no es el correcto para él.
 
-Hay una categoría que muchos dueños de tienda subestiman: las Mini PC. Y sin embargo, es una de las conversaciones más rentables que puedes tener en el mostrador.
+El resultado? Se va insatisfecho. O peor, se va a comprarlo con tu competencia. Y no vuelve.
 
-🖥️ La Cubi 5 cabe en cualquier escritorio. Recepción, kiosco, punto de venta.
-⚡ Consume hasta 70% menos energía que una torre.
-🚀 La Cubi Z AI con Ryzen 7 corre diseño, edición y multitarea sin problema.
+El problema no es que no tengas routers. Es que no sabes cuál le conviene a cada cliente. Un estudiante que necesita WiFi estable no necesita lo mismo que una oficina con 15 personas conectadas. Y un negocio que ocupa dos pisos no necesita un router, necesita un sistema Mesh.
 
-El cliente que hoy migra de una torre grande a una Mini PC no vuelve atrás.
+En SUPRICOM tenemos routers de HIKVISION, Linksys, Xiaomi, TP-Link y NEXXT HOME. Cinco marcas. Desde gama de entrada hasta WiFi 6 y Mesh. Cada perfil de cliente tiene su router. Solo necesitas saber cuál recomendar.
 
-Cuatro modelos MSI Cubi: desde el i5 de entrada hasta el Ryzen 9 con IA.
-
-Disponible en Caracas y Valencia.
-
-SUPRICOM. Tu mayorista de confianza.</div>
-      <div class="img-sug"><strong>Imagen:</strong> Carrusel #22 redimensionado. Alternativa: slide de consumo energético.</div>
+Escríbenos y te asesoramos. Así no pierdes la venta ni al cliente.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(1)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
     </div>
-  </div>
 
-  <div class="email-card">
-    <div class="ec-head"><span>S3 · Jue 30/07</span><span class="badge pending">Pendiente</span></div>
-    <div class="ec-body">
-      <div class="subj">Tu inventario para lo que viene: lo que no puede faltar</div>
-      <div class="msg">Julio fue un mes fuerte para la tecnología en Venezuela. ¿Tu inventario está listo?
+    <div class="email-card">
+      <div class="ec-head"><span>Mar 11 · Consumibles HP</span></div>
+      <div class="ec-body">
+        <div class="subj">Vendes impresoras pero olvidas el producto que más se repite</div>
+        <div class="msg">Tu cliente compra una impresora. Le das la impresora, cobra, y se va. Listo. Venta cerrada.
 
-⚡ Protección eléctrica es la categoría que más está rotando:
-  • FORZA para entrada y volumen
-  • SMARTBITT para el punto medio
-  • APC para el cliente que no se arriesga
-  • BLUETTI para respaldo de horas
+Pero hay un detalle. Esa impresora necesita tinta o cartucho. Y si no se lo ofreces tú, él va a buscarlo en otro lado. No una vez. Cada vez que se le acaba el consumible.
 
-⚠️ El error más común: subdimensionar la protección.
-Cada perfil tiene su solución. Si dimensionas bien, cero devoluciones.
+La tinta y los cartuchos no son un complemento opcional. Son una venta recurrente. Un cliente que compra una impresora hoy va a comprar consumibles en dos meses, en cuatro, en seis. Si no eres tú quien se los vende, es otro.
 
-Además: MSI Cubi entró con fuerza.
+Tenemos tintas GT52 y GT53 para impresoras de boquilla. Cartuchos 662, 664, 667 y 954XL para impresoras con cartucho fijo. Tóner 105A, 206A, 215A y 230A para láser. HP tiene opción para cada modelo. Y nosotros tenemos stock.
 
-Protección + Mini PC + Conectividad. Todo en un solo mayorista.
-
-Disponible en Caracas y Valencia.
-
-SUPRICOM. Tu mayorista de confianza.</div>
-      <div class="img-sug"><strong>Imagen:</strong> Carrusel #28 redimensionado. Alternativa: portada video #27.</div>
+No dejes que tu cliente compre sus consumibles en otro lado. Pregunta por el portafolio de consumibles HP.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(2)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
     </div>
-  </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mié 12 · Logitech</span></div>
+      <div class="ec-body">
+        <div class="subj">Cómo vender dos productos en una sola venta</div>
+        <div class="msg">Vender un mouse está bien. Vender un mouse con un teclado está mejor. Es el mismo cliente, la misma necesidad, pero el ticket sube.
+
+El problema es que muchos tienderos no piensan en combos. Ven la venta como un solo producto. Pero tu cliente que necesita un mouse probablemente también necesita un teclado. Y si no se lo ofreces tú, lo busca en otro lado.
+
+Logitech tiene las piezas para armar combos que se venden solos.
+
+Combo oficina: MK345 o MK295. Teclado y mouse inalámbrico. Una venta, dos productos. El cliente que necesita productividad acepta el combo sin pensarlo.
+
+Combo gaming: G203 con G213 o G335. Mouse y teclado, o mouse y audífonos. El cliente gaming compra todo junto. No pregunta precio. Pide rendimiento.
+
+No es cuestión de vender más. Es cuestión de vender mejor. Arma la venta completa. Logitech tiene las piezas.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(3)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Jue 13 · HIKVISION</span></div>
+      <div class="ec-body">
+        <div class="subj">Lo primero que tu cliente pregunta y tú no tienes</div>
+        <div class="msg">El router es el artículo que nunca debe faltar en tu vitrina. Es lo primero que tu cliente pregunta cuando necesita conectar su negocio. Y si no lo tienes, ya perdiste la venta antes de empezar.
+
+No hablamos de un producto más. Hablamos de la puerta de entrada a otras ventas. Un cliente que compra un router probablemente también necesita cables, configuración, o un segundo dispositivo. Pero si no entra a tu tienda por el router, nunca va a ver lo demás.
+
+HIKVISION tiene tres gamas para tres tipos de cliente.
+
+El DS-3WR12GC AC1200: para el que solo necesita WiFi estable. Es el más vendido, el que más rota, el que más rápido se agota. Stock de más de 4,000 unidades.
+
+El DS-3WR15X AX1500: WiFi 6, gigabit, buen precio. Para la oficina que necesita velocidad real. El mejor balance entre precio y rendimiento.
+
+El DS-3WR18X AX1800: WiFi 6 de alto rendimiento. Para quien no negocia calidad. Mayor ticket, mejor margen.
+
+Tres modelos. Tres clientes. Un solo mayorista. Asegúrate de tenerlos en tu vitrina.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(4)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Vie 14 · TARGUS</span></div>
+      <div class="ec-body">
+        <div class="subj">Vendes laptops pero estás dejando dinero en la mesa</div>
+        <div class="msg">Vendes laptops todos los días. Sabes cuál es mejor para cada cliente. Conoces las marcas, los precios, los márgenes. Pero hay algo que no estás haciendo.
+
+No ofreces el complemento.
+
+Tu cliente compra una laptop. Si no le ofreces el bolso, el mouse o el cargador, se va con la laptop y nada más. El ticket se queda igual de bajo que siempre. Y si necesita alguno de esos complementos, va a otro lado a buscarlo.
+
+Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera comprarlo. Sino porque tú no se lo estás ofreciendo.
+
+Bolso Targus para proteger la inversión. Mouse para trabajar de inmediato. Cargador para tener respaldo. Cada complemento sube tu ticket. Y el cliente se lleva todo contigo.
+
+Targus tiene el portafolio completo. Bolsos para cada tamaño de laptop. Mouse inalámbricos. Cargadores universales. Nosotros lo tenemos listo. Tú solo tienes que preguntar.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(5)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    </div></div>
   </div>
 
-  <!-- ═══ AGO-DIC (placeholders) ═══ -->
-  <div class="emonth-content hidden" id="ec-2026-08"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Agosto.</p></div>
-  <div class="emonth-content hidden" id="ec-2026-09"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Septiembre.</p></div>
-  <div class="emonth-content hidden" id="ec-2026-10"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Octubre.</p></div>
-  <div class="emonth-content hidden" id="ec-2026-11"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Noviembre.</p></div>
-  <div class="emonth-content hidden" id="ec-2026-12"><p style="color:var(--text-light);font-size:14px;text-align:center;padding:40px 0">Aún no hay correos definidos para Diciembre.</p></div>
+  <!-- ═══ S3 · LUN 17 – VIE 21 AGO ═══ -->
+  <div class="em-week">
+    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+      <div>
+        <div class="em-week-title">S3 · Lun 17 – Vie 21 Ago</div>
+        <div class="em-week-sub">Basado en contenido de S2 · 5 emails</div>
+      </div>
+      <div class="ew-right"><span class="badge pending" style="font-size:11px">Pendiente</span><span class="ew-count">5 emails</span><span class="ew-arrow">▶</span></div>
+    </div>
+    <div class="em-week-body"><div class="em-week-body-inner">
+
+    <div class="email-card">
+      <div class="ec-head"><span>Lun 17 · BLUETTI</span></div>
+      <div class="ec-body">
+        <div class="subj">Cuando se va la luz, tu cliente pierde dinero. Tú puedes evitarlo.</div>
+        <div class="msg">Todo tiendero en Venezuela conoce el problema. Se va la luz. El negocio se para. El cliente no puede trabajar. Las ventas se pierden. Y no hay nada que hacer.
+
+Hasta ahora.
+
+BLUETTI es una estación de energía portátil que resuelve el problema. No es una planta eléctrica. No es ruidosa. No necesita gasolina. No humea. Es silenciosa, portátil y funciona instantáneamente.
+
+Conectas tu laptop, tu celular, tu internet. Todo sigue funcionando mientras otros negocios se quedan sin luz. Tu cliente no pierde horas de trabajo. Tú no pierdes ventas.
+
+Tenemos ocho modelos. Desde la AC50P compacta para uso personal hasta la Apex 300 para negocios completos. Cada perfil de cliente tiene su BLUETTI.
+
+Disponible en ambas sedes. Caracas y Valencia. Pregunta por el modelo ideal para tu cliente.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(6)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mar 18 · Routers</span></div>
+      <div class="ec-body">
+        <div class="subj">Tu cliente te dice "necesito WiFi" y tú no sabes qué ofrecerle</div>
+        <div class="msg">Es la pregunta más común. "Necesito un router." Pero detrás de esa pregunta hay tres respuestas diferentes. Y si no sabes cuál es la correcta, pierdes la venta.
+
+La primera: router WiFi. Para oficinas pequeñas, consultorios, casas. Una sola unidad que cubre un espacio. Fácil de instalar, precio accesible. El cliente que solo necesita establecer conexión en un solo cuarto, necesita esto.
+
+La segunda: sistema Mesh. Para espacios grandes, pisos múltiples, negocios con varias áreas. Múltiples nodos que cubren toda la zona sin puntos muertos. El cliente que se queja de que "no le llega el WiFi en el fondo", necesita Mesh.
+
+La tercera: WiFi 6. Para negocios con muchos dispositivos conectados. Velocidad mayor, menos congestión, mejor rendimiento. El cliente que tiene 20 o 30 dispositivos en la red, necesita WiFi 6.
+
+Si no le ofreces la solución correcta, él busca en otro lado. Y cuando la encuentre, no vuelve contigo. Te ayudamos a recomendar bien.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(7)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mié 19 · TARGUS</span></div>
+      <div class="ec-body">
+        <div class="subj">No todos los clientes necesitan el mismo bolso</div>
+        <div class="msg">Le ofreces el mismo bolso a todo el mundo. Al ejecutivo, al estudiante, al que viaja. Pero no es lo mismo.
+
+El ejecutivo necesita algo profesional, elegante, que transmita seriedad. Algo que se vea bien en una reunión. CITYSMART EVA PRO o AVILA cumplen esa función.
+
+El estudiante o freelance necesita algo ligero, cómodo, con múltiples bolsillos para cargar todo el día. Algo que no le dé peso en la espalda. OCTAVE III o DEPORTIVO son ideales.
+
+El que viaja necesita resistencia, ruedas, capacidad. Algo que aguante aeropuertos y traslados frecuentes. ELITE MOVIL o RODANTE TRANSIT son la solución.
+
+Si le ofreces el mismo bolso a todos, estás perdiendo ventas. Porque el ejecutivo no quiere un bolso deportivo. Y el estudiante no quiere pagar por uno de viaje.
+
+Targus tiene bolsos para cada perfil. Tú solo tienes que saber cuál le ofreces a cada uno.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(8)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Jue 20 · Mini PC MSI</span></div>
+      <div class="ec-body">
+        <div class="subj">Tu cliente busca algo pequeño. Tú no lo tienes.</div>
+        <div class="msg">"Busco algo más compacto para la oficina." Tu cliente dice eso frecuentemente. Quiere una computadora que ocupe poco espacio. Que sea potente. Que no ocupe todo el escritorio.
+
+Y si no le ofreces una Mini PC, pierdes la venta. Porque él va a buscarla en otro lado.
+
+La Mini PC no es un juguete. Es una computadora completa del tamaño de tu mano. Sin torre, sin cables enredados, sin ruido. Pero que hace lo mismo que un escritorio grande.
+
+MSI tiene cuatro modelos. El Cubi 5 i5 para la oficina básica. El Cubi 5 i7 barebone para quien quiere personalizar componentes. El Cubi Z AI Ryzen 7 con inteligencia artificial. Y el Cubi Z AI Ryzen 9 para quien pide lo mejor.
+
+Ocupa poco espacio. Rinde como un escritorio. Se adapta a lo que tu cliente hace. Y tú ganas bien con cada venta.
+
+Stock de Mini PC MSI disponible. Pregunta por el modelo ideal.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(9)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Vie 21 · Laptops</span></div>
+      <div class="ec-body">
+        <div class="subj">La venta que siempre cierra (si sabes completarla)</div>
+        <div class="msg">Tu cliente compra una laptop. Listo. Pero la venta no termina ahí. Porque esa laptop necesita protección y el cliente lo sabe.
+
+Un bolso para transportarla sin dañarla. Un mouse para trabajar cómodamente. Son dos productos que el cliente va a necesitar tarde o temprano. Si no se los ofreces tú, los compra en otro lado.
+
+Es el combo que siempre cierra. Laptop más bolso Targus más mouse Logitech. El cliente se lleva todo contigo. Tú subes el ticket. Nadie pierde.
+
+Bolso Targus OCTAVE III para cada tamaño de laptop. Mouse Logitech M170 o M240 para cada presupuesto. Todo en SUPRICOM. Solo tienes que arm la venta.
+
+No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es sentido común. Y sentido común se traduce en ganancia.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(10)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+
+  <!-- ═══ S4 · LUN 24 – VIE 28 AGO ═══ -->
+  <div class="em-week">
+    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+      <div>
+        <div class="em-week-title">S4 · Lun 24 – Vie 28 Ago</div>
+        <div class="em-week-sub">Basado en contenido de S3 · 5 emails</div>
+      </div>
+      <div class="ew-right"><span class="badge pending" style="font-size:11px">Pendiente</span><span class="ew-count">5 emails</span><span class="ew-arrow">▶</span></div>
+    </div>
+    <div class="em-week-body"><div class="em-week-body-inner">
+
+    <div class="email-card">
+      <div class="ec-head"><span>Lun 24 · Consumibles HP</span></div>
+      <div class="ec-body">
+        <div class="subj">Tu cliente va a comprar esto. ¿Se lo estás vendiendo?</div>
+        <div class="msg">Cada impresora necesita consumibles. No es opcional. Es inevitable. La tinta se acaba. El cartucho se agota. El tóner se termina.
+
+Tu cliente va a buscar esos consumibles. La pregunta es si se los das tú o se los da otro.
+
+Muchos tienderos venden la impresora y olvidan los consumibles. Piensan que el cliente va a volver a comprarlos. Pero no vuelve. Va a otro lado donde sí los tenemos.
+
+Tenemos stock de consumibles HP para cada modelo. Tintas GT52 y GT53 para impresoras de boquilla. Cartuchos 662, 664, 667 y 954XL para impresoras con cartucho. Tóner 105A, 206A, 215A y 230A para láser.
+
+Es venta recurrente. Un cliente que compra consumibles hoy va a comprarlos de nuevo en dos meses. Y en cuatro. Y en seis. Si eres tú quien se los vende, tienes un cliente fiel por años.
+
+No esperes a que pregunte en otro lado. Ofrecerle los consumibles ahora.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(11)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mar 25 · BLUETTI</span></div>
+      <div class="ec-body">
+        <div class="subj">BLUETTI no es lo que tú crees</div>
+        <div class="msg">La mayoría piensa que BLUETTI es una batería grande. Pero no lo es.
+
+No es una planta eléctrica. No necesita gasolina. No hace ruido. No humea. No necesita mantenimiento. Es algo completamente diferente.
+
+BLUETTI es portátil. La llevas de un lado a otro sin esfuerzo. Funciona en cualquier lugar. En la oficina, en casa, en el negocio, en el camino. Sin instalaciones complicadas.
+
+Tiene enchufes USB, AC y DC. Carga celulares, laptops, refrigeradores, televisores, herramientas. Una solución para todo lo que necesite electricidad.
+
+Funciona sin ruido. Puedes usarla en una reunión y nadie se da cuenta. Sin humo. No contamina el aire. Sin gasolina. No tienes que comprar combustible.
+
+En SUPRICOM tenemos ocho modelos. Desde la compacta AC50P hasta la potente Apex 300. Cada perfil de cliente tiene su BLUETTI. Y está disponible en ambas sedes.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(12)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mié 26 · Consumibles HP</span></div>
+      <div class="ec-body">
+        <div class="subj">El error que te cuesta clientes</div>
+        <div class="msg">Confundir el consumible es el error más común en ventas de impresoras. Y el más costoso.
+
+Tu cliente necesita tinta y tú le vendes un cartucho. O necesita cartucho y le das tinta. El resultado es el mismo: el cliente vuelve molesto. Y no vuelve a comprar contigo.
+
+Impresoras de boquilla usan botellas de tinta: GT52 y GT53. Son para las HP DeskJet y Smart Tank. El cliente llena el tanque. No cambia nada.
+
+Impresoras con cartucho usan cartuchos fijos: 662, 664, 667, 954XL. Son para las HP OfficeJet y Envy. El cliente cambia el cartucho cuando se agota.
+
+Impresoras láser usan tóner: 105A, 206A, 215A, 230A. Son para las HP LaserJet. Mayor volumen, menor costo por página.
+
+Tres tipos. Tres impresoras. Tres consumibles diferentes. Si no sabes cuál va en cada una, pierdes la venta y la confianza del cliente. Te ayudamos a identificar cuál es el correcto.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(13)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Jue 27 · TARGUS</span></div>
+      <div class="ec-body">
+        <div class="subj">La venta que siempre olvidas completar</div>
+        <div class="msg">Tu cliente compra una laptop. La revisa, la elige, paga. Pero la venta no termina ahí. Porque esa laptop necesita un bolso.
+
+No es presión. Es sentido común. Nadie quiere arruinar su inversión. Un golpe, un rasguño, un líquido derramado. Cualquier cosa puede dañar la laptop. Y el cliente lo sabe.
+
+Si no le ofreces el bolso, él va a buscarlo en otro lado. No porque no quiera comprártelo a ti. Sino porque tú no se lo estás ofreciendo.
+
+Bolsos Targus para cada tamaño de laptop. Desde el OCTAVE III básico hasta el CITYSMART ejecutivo. Desde el DEPORTIVO ligero hasta el ELITE MOVIL para viajeros.
+
+Cada laptop tiene su bolso. Cada cliente tiene su perfil. Tú solo tienes que hacer la pregunta: "¿Necesitas el bolso también?"
+
+En SUPRICOM los tenemos listos. Solo tienes que preguntar.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(14)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Vie 28 · LOGITECH</span></div>
+      <div class="ec-body">
+        <div class="subj">Hay un cliente que nadie atiende. Y tiene dinero para gastar.</div>
+        <div class="msg">El Lift Vertical de Logitech no es un mouse cualquiera. Es un mouse ergonómico diseñado para evitar lesiones en la muñeca y el antebrazo. Pero eso no es lo que lo hace especial.
+
+Lo que lo hace especial es que viene en versión zurdo.
+
+El 10% de la población es zurda. Y casi ninguna tienda tiene mouse para zurdos. Es un mercado que nadie atiende. Un cliente que tiene dinero para gastar pero que no encuentra lo que necesita.
+
+Si tienes clientes zurdos y no les ofreces el Lift Vertical, van a otro lado. No porque quieran. Sino porque tú no lo tienes.
+
+Logitech Lift Vertical para zurdos. Stock disponible en SUPRICOM. Es una venta que nadie más te está haciendo. No dejes pasar esta oportunidad.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(15)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+
+  <!-- ═══ S5 · LUN 3 – VIE 7 SEPT ═══ -->
+  <div class="em-week">
+    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+      <div>
+        <div class="em-week-title">S5 · Lun 3 – Vie 7 Sept</div>
+        <div class="em-week-sub">Basado en contenido de S4 · 6 emails</div>
+      </div>
+      <div class="ew-right"><span class="badge pending" style="font-size:11px">Pendiente</span><span class="ew-count">6 emails</span><span class="ew-arrow">▶</span></div>
+    </div>
+    <div class="em-week-body"><div class="em-week-body-inner">
+
+    <div class="email-card">
+      <div class="ec-head"><span>Lun 3 Sept · HIKVISION</span></div>
+      <div class="ec-body">
+        <div class="subj">Este router se vende solo. ¿Lo tienes en tu vitrina?</div>
+        <div class="msg">El DS-3WR15X AX1500 de HIKVISION es el router que más rota en SUPRICOM. No es el más barato. No es el más caro. Es el que mejor equilibrio tiene entre precio y rendimiento.
+
+WiFi 6. Gigabit. Señal estable. Diseño compacto. Todo lo que tu cliente necesita en un solo dispositivo.
+
+Tu cliente pide velocidad. Este router se la da. Tu cliente necesita estabilidad. Este router la ofrece. Tu cliente quiere algo que dure. HIKVISION es la marca.
+
+Y lo más importante: tú ganas bien con cada venta. El margen es bueno. La rotación es rápida. El stock es alto. Son más de 5,000 unidades disponibles.
+
+Es el router que debería estar en toda vitrina. Si no lo tienes, estás perdiendo ventas que están sobre la mesa.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(16)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mar 4 Sept · BLUETTI</span></div>
+      <div class="ec-body">
+        <div class="subj">Cada corte de electricidad es un cliente que busca solución</div>
+        <div class="msg">Piensa en cada corte de electricidad que ocurre en tu ciudad. Cada uno. Son cientos al mes. Miles al año.
+
+Cada vez que se va la luz, hay un negocio que se para. Un cliente que pierde horas de trabajo. Un emprendedor que no puede atender a sus clientes. Y todos buscan la misma cosa: una solución.
+
+Tú puedes ser quien se la dé.
+
+BLUETTI no es solo un producto. Es una oportunidad de negocio. Los productos de energía tienen buen margen. BLUETTI es marca reconocida que se vende sola. Y no todas las tiendas lo tienen.
+
+Si tú lo tienes, eres el primero que tu cliente piensa cuando se va la luz. No el segundo. No el tercero. El primero.
+
+Disponible en ambas sedes. Caracas y Valencia. Pregunta por el portafolio completo.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(17)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Mié 5 Sept · HIKVISION</span></div>
+      <div class="ec-body">
+        <div class="subj">Tres routers. Tres clientes. Un solo lugar.</div>
+        <div class="msg">No todos los clientes necesitan lo mismo. Un estudiante no necesita lo mismo que una oficina. Una oficina no necesita lo mismo que un negocio grande.
+
+HIKVISION lo entiende. Por eso tiene tres gamas de routers.
+
+El DS-3WR12GC AC1200: para el que solo necesita WiFi estable. Es económico, confiable y rápido. El que más se vende. El que más rápido rota.
+
+El DS-3WR15X AX1500: WiFi 6, gigabit, buen precio. Para la oficina que necesita velocidad real. El mejor balance entre precio y rendimiento.
+
+El DS-3WR18X AX1800: WiFi 6 de alto rendimiento. Para quien no negocia calidad. Mayor ticket, mejor margen.
+
+Tres modelos. Tres clientes diferentes. Un solo mayorista. No necesitas ir a tres lugares. En SUPRICOM los tenemos todos.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(18)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Jue 6 Sept · TARGUS</span></div>
+      <div class="ec-body">
+        <div class="subj">El combo que nunca falla</div>
+        <div class="msg">Hay ventas que siempre se repiten. Y esta es una de ellas.
+
+Tu cliente compra laptop. Le ofreces el bolso. Y la venta se cierra. No es presión. Es sentido común. Nadie quiere arruinar su inversión.
+
+El problema es que muchos tienderos no lo hacen. Piensan que el cliente no va a querer gastar más. Pero sí quiere. Porque sabe que necesita proteger su laptop.
+
+Targus tiene bolsos para cada laptop. Desde el OCTAVE III básico hasta el CITYSMART ejecutivo. Desde el DEPORTIVO para el estudiante hasta el ELITE MOVIL para el viajero.
+
+Cada laptop tiene su bolso. Cada cliente tiene su perfil. Solo tienes que hacer la pregunta.
+
+En SUPRICOM los tenemos listos. Arma el combo y cierra la venta.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(19)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Vie 7 Sept · LOGITECH</span></div>
+      <div class="ec-body">
+        <div class="subj">Tu cliente entra y pide una marca. No un producto.</div>
+        <div class="msg">Tu cliente entra a tu tienda y dice: "¿Tienen Logitech?" No dice "¿Tienen mouse?" No dice "¿Tienen teclado?" Dice Logitech.
+
+Eso es confianza. Tu cliente no busca un producto genérico. Busca una marca que conoce. Que ha usado. Que le ha funcionado. Y confía en ella.
+
+Y si tú no tienes esa marca, tu cliente va a otro lado a buscarla. No porque no quiera comprártelo a ti. Sino porque tú no lo tienes.
+
+Logitech tiene el portafolio completo. Mouse desde el M170 básico hasta el G203 gaming. Teclados desde el K270 de oficina hasta el K380S de diseño. Audífonos desde el H111 hasta el G335 gaming.
+
+Todo en SUPRICOM. Todo con stock. Todo listo para que tu cliente lo encuentre.
+
+No dejes que tu cliente pregunte por Logitech y no lo tengas.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(20)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="ec-head"><span>Lun 10 Sept · Laptops</span></div>
+      <div class="ec-body">
+        <div class="subj">Tu competencia se la está vendiendo. ¿Y tú?</div>
+        <div class="msg">Tu cliente va a necesitar una laptop. Eso es seguro. No importa si es estudiante, profesional o empresario. Todos necesitan una.
+
+La pregunta es si se la vas a vender tú o tu competencia. Si no la tienes en vitrina, si no la promocionas, si no le recuerdas a tu cliente que tú la tienes, él va a buscarla en otro lado.
+
+Tenemos las cinco marcas principales con stock listo para entregar. ACER para el que busca lo básico sin sacrificar calidad. ASUS para el que quiere diseño y rendimiento. HP para la oficina que necesita confiabilidad. DELL para el cliente que no negocia calidad. LENOVO para el que quiere lo mejor en relación precio-calidad.
+
+Cada marca tiene su perfil. Cada perfil tiene su cliente. Y cada cliente está buscando ahora mismo.
+
+No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina.</div>
+      </div>
+      <div class="ec-actions">
+        <button class="em-btn" onclick="openEmailDrive(21)">📁 Drive</button>
+        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
+      </div>
+    </div>
+
+    </div></div>
+  </div>
 
 </div>
 </div>
@@ -2174,54 +2705,71 @@ function switchMonth(monthId) {
   document.querySelectorAll('.mtab').forEach(function(b) {
     b.classList.toggle('active', b.dataset.month === monthId);
   });
-  // Month content
-  document.querySelectorAll('.month-content').forEach(function(c) {
-    c.classList.toggle('hidden', c.id !== 'mc-' + monthId);
-  });
-  if (monthId === 'email') {
-    document.getElementById('monthLabel').textContent = '· Email Marketing';
-    document.getElementById('heroTitle').innerHTML = 'Email <span>Marketing</span>';
-    document.getElementById('kpiPiezas').textContent = 4;
-    document.getElementById('kpiVideos').textContent = '—';
-    document.getElementById('kpiSemanas').textContent = '—';
-    document.getElementById('kpiContexto').textContent = '—';
-    document.getElementById('kpiDesign').textContent = '—';
+  // Fade-out current content, then swap
+  var current = document.querySelector('.month-content:not(.hidden)');
+  if (current) { current.style.opacity = '0'; current.style.transform = 'translateY(10px)'; }
+  setTimeout(function() {
+    // Month content
+    document.querySelectorAll('.month-content').forEach(function(c) {
+      var match = c.id === 'mc-' + monthId;
+      c.classList.toggle('hidden', !match);
+      if (match) { c.style.opacity = '0'; c.style.transform = 'translateY(10px)'; }
+    });
+    // Fade-in new content
+    var next = document.getElementById('mc-' + monthId);
+    if (next) { requestAnimationFrame(function() { next.style.opacity = '1'; next.style.transform = 'translateY(0)'; }); }
+    if (monthId === 'email') {
+      document.getElementById('monthLabel').textContent = '· Email Marketing';
+      document.getElementById('heroTitle').innerHTML = 'Email <span>Marketing</span>';
+      var emailCards = document.querySelectorAll('#mc-email .email-card');
+      var emailWeeks = document.querySelectorAll('#mc-email .em-week');
+      var emailBrands = new Set();
+      emailCards.forEach(function(c) {
+        var sp = c.querySelector('.ec-head span:first-child');
+        if (sp) { var parts = sp.textContent.split(' · '); if (parts[1]) emailBrands.add(parts[1].trim()); }
+      });
+      document.getElementById('kpiPiezas').textContent = emailCards.length;
+      document.getElementById('kpiVideos').textContent = '—';
+      document.getElementById('kpiSemanas').textContent = emailWeeks.length;
+      document.getElementById('kpiContexto').textContent = emailBrands.size;
+      document.getElementById('kpiDesign').textContent = '—';
+      document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
+      return;
+    }
+    // Brand label
+    const m = MONTHS[monthId];
+    document.getElementById('monthLabel').textContent = '· ' + m.label + ' ' + m.year;
+    document.getElementById('heroTitle').innerHTML = m.label + ' <span>' + m.year + '</span>';
+    // Check if this is a summary month (no .piece elements, has .month-summary)
+    const mc = document.getElementById('mc-' + monthId);
+    const isSummary = mc && mc.querySelector('.month-summary');
+    if (isSummary) {
+      // Use static KPIs from MONTHS object for completed months
+      document.getElementById('kpiPiezas').textContent = m.pieces;
+      document.getElementById('kpiVideos').textContent = m.videos;
+      document.getElementById('kpiSemanas').textContent = m.semanas;
+      document.getElementById('kpiContexto').textContent = m.ctx;
+      document.getElementById('kpiDiseno').textContent = m.pieces;
+    } else {
+      document.getElementById('kpiPiezas').textContent = m.pieces;
+      document.getElementById('kpiVideos').textContent = m.videos;
+      document.getElementById('kpiSemanas').textContent = m.semanas;
+      document.getElementById('kpiContexto').textContent = m.ctx;
+      // Calculate dynamic KPIs from DOM
+      const visible = document.querySelectorAll('.month-content:not(.hidden) .piece');
+      document.getElementById('kpiPiezas').textContent = visible.length;
+      document.getElementById('kpiVideos').textContent = document.querySelectorAll('.month-content:not(.hidden) .piece[data-format="video"]').length;
+      document.getElementById('kpiContexto').textContent = document.querySelectorAll('.month-content:not(.hidden) .ve-badge').length;
+      updateDesignKPI();
+    }
+    // Reset filter to "all"
     document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
-    return;
-  }
-  // Brand label
-  const m = MONTHS[monthId];
-  document.getElementById('monthLabel').textContent = '· ' + m.label + ' ' + m.year;
-  document.getElementById('heroTitle').innerHTML = m.label + ' <span>' + m.year + '</span>';
-  // Check if this is a summary month (no .piece elements, has .month-summary)
-  const mc = document.getElementById('mc-' + monthId);
-  const isSummary = mc && mc.querySelector('.month-summary');
-  if (isSummary) {
-    // Use static KPIs from MONTHS object for completed months
-    document.getElementById('kpiPiezas').textContent = m.pieces;
-    document.getElementById('kpiVideos').textContent = m.videos;
-    document.getElementById('kpiSemanas').textContent = m.semanas;
-    document.getElementById('kpiContexto').textContent = m.ctx;
-    document.getElementById('kpiDiseno').textContent = m.pieces;
-  } else {
-    document.getElementById('kpiPiezas').textContent = m.pieces;
-    document.getElementById('kpiVideos').textContent = m.videos;
-    document.getElementById('kpiSemanas').textContent = m.semanas;
-    document.getElementById('kpiContexto').textContent = m.ctx;
-    // Calculate dynamic KPIs from DOM
-    const visible = document.querySelectorAll('.month-content:not(.hidden) .piece');
-    document.getElementById('kpiPiezas').textContent = visible.length;
-    document.getElementById('kpiVideos').textContent = document.querySelectorAll('.month-content:not(.hidden) .piece[data-format="video"]').length;
-    document.getElementById('kpiContexto').textContent = document.querySelectorAll('.month-content:not(.hidden) .ve-badge').length;
-    updateDesignKPI();
-  }
-  // Reset filter to "all"
-  document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
-  if (!isSummary) {
-    const allBtn = document.querySelector('#mc-' + monthId + ' [data-filter="all"]');
-    if (allBtn) allBtn.classList.add('active');
-    document.querySelectorAll('.month-content:not(.hidden) .piece').forEach(p => p.style.display = '');
-  }
+    if (!isSummary) {
+      const allBtn = document.querySelector('#mc-' + monthId + ' [data-filter="all"]');
+      if (allBtn) allBtn.classList.add('active');
+      document.querySelectorAll('.month-content:not(.hidden) .piece').forEach(p => p.style.display = '');
+    }
+  }, 250);
 }
 
 // ─── DESIGN BREAKDOWN ───
@@ -2271,28 +2819,26 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// ─── COPY EMAIL ───
+function copyEmail(btn) {
+  var card = btn.closest('.email-card');
+  if (!card) return;
+  var subj = card.querySelector('.subj');
+  var msg = card.querySelector('.msg');
+  var text = '';
+  if (subj) text += 'ASUNTO: ' + subj.textContent.trim() + '\n\n';
+  if (msg) text += msg.textContent.trim();
+  text = text.replace(/\n{3,}/g, '\n\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.classList.add('copied');
+    btn.innerHTML = '✓ Copiado';
+    setTimeout(function() { btn.classList.remove('copied'); btn.innerHTML = '📋 Copiar'; }, 2000);
+  });
+}
+
 // Wire up month tab buttons
 document.querySelectorAll('.mtab').forEach(b => {
   b.addEventListener('click', () => switchMonth(b.dataset.month));
-});
-
-// Wire up email month tabs
-document.querySelectorAll('.etab').forEach(b => {
-  b.addEventListener('click', () => {
-    document.querySelectorAll('.etab').forEach(x => {
-      x.classList.remove('active');
-      x.style.background = 'transparent';
-      x.style.color = 'var(--text-light)';
-      x.style.borderColor = 'var(--border)';
-    });
-    b.classList.add('active');
-    b.style.background = 'var(--primary)';
-    b.style.color = '#fff';
-    b.style.borderColor = 'var(--primary)';
-    document.querySelectorAll('.emonth-content').forEach(c => {
-      c.classList.toggle('hidden', c.id !== 'ec-' + b.dataset.emonth);
-    });
-  });
 });
 
 // ─── INIT EMPTY MONTHS ───
@@ -2368,13 +2914,14 @@ function closeCopyModal() {
   document.body.style.overflow = '';
 }
 
-function renderSlide(idx) {
+function renderSlide(idx, direction) {
   const s = slidesData[idx];
   if (!s) return;
   currentSlide = idx;
   const container = document.getElementById('modalSlides');
+  const dirClass = direction === 'left' ? 'from-left' : 'from-right';
   container.innerHTML = `
-    <div class="modal-slide active">
+    <div class="modal-slide active ${dirClass}">
       <div class="slide-label">${s.slide}</div>
       <div class="slide-title">${s.texto}</div>
       <div class="slide-frase">${s.frase}</div>
@@ -2387,14 +2934,14 @@ function renderSlide(idx) {
   // Dots
   const dots = document.getElementById('modalDots');
   dots.innerHTML = slidesData.map((_, i) =>
-    `<span class="dot${i===idx?' active':''}" onclick="renderSlide(${i})"></span>`
+    `<span class="dot${i===idx?' active':''}" onclick="renderSlide(${i}, ${i > currentSlide ? "'right'" : "'left'"})"></span>`
   ).join('');
 }
 
 function navigateSlide(dir) {
   const next = currentSlide + dir;
   if (next < 0 || next >= slidesData.length) return;
-  renderSlide(next);
+  renderSlide(next, dir > 0 ? 'right' : 'left');
 }
 
 // --- CAPTIONS DATA ---
@@ -2619,6 +3166,42 @@ function openDriveFolder() {
   showToast('Abriendo carpeta en Drive...');
 }
 
+// ── EMAIL MARKETING DRIVE ──
+const EMAIL_DRIVE_FOLDERS = {
+  // S2 · Semana 2 (10-14 ago)
+  1:  "1t2vgIzNJ9P8fGn8G-yx1UUhQYjOoroYl",  // Lun 10 - Routers
+  2:  "1qNeEjuGmpjwjgYFViLyf8kYUAVhU65Dr",  // Mar 11 - Consumibles HP
+  3:  "1xHVYCqxJS8xlXhcs4T0tsTj4lE6y3Hdd",  // Mié 12 - Logitech
+  4:  "1rpWstaRbplCSBsgE8_mZP5sGHfkELNRC",  // Jue 13 - HIKVISION
+  5:  "14w_HTsI-e3uRwdVs7zATFK5TDyz2H06C",  // Vie 14 - TARGUS
+  // S3 · Semana 3 (17-21 ago)
+  6:  "1Ououn-n8lKQGYEbCTdr52_7_mjrkbh8k",  // Lun 17 - BLUETTI
+  7:  "1ROS6pi8xBoEwQD4N9rx1X9ybN0WX72G7",  // Mar 18 - Routers
+  8:  "1eg7vlX6eQC6Evq5duRlXAnDEEQgXYfck",  // Mié 19 - TARGUS
+  9:  "1pPtA0YmGeqb4oBKonKZip3l81-q8QLvM",  // Jue 20 - Mini PC MSI
+  10: "15rLCiq7TtPw6GxO0dltSGN94BqkfyiJg",  // Vie 21 - Laptops
+  // S4 · Semana 4 (24-28 ago)
+  11: "1O_ERGh2tyYka-uWBbE4nPwaBhMj8tosc",  // Lun 24 - Consumibles HP
+  12: "1bSo2GyYxNukdKIn1smrNxQujk98Fjam1",  // Mar 25 - BLUETTI
+  13: "1WnY6E05ZHgna6v0_lCs3dvRRhyEG-WO-",  // Mié 26 - Consumibles HP
+  14: "1M0AoHbkLL9hYsQxkT3C-fc4VOkWjMgVu",  // Jue 27 - TARGUS
+  15: "1Wocnq6Ri9bKX0ETQmqA0kbB3JXEoB4Cn",  // Vie 28 - LOGITECH
+  // S5 · Semana 5 (3-10 sept)
+  16: "1jf1csqIoe7iRzkTpRL8h9kDiXarowKeX",  // Lun 3 Sept - HIKVISION
+  17: "12uKqsQDo7tGoX5njzGKmFvj4Ty6DU0HN",  // Mar 4 Sept - BLUETTI
+  18: "1rYr-dV6kp_E9eNQpX-XRMXzCH6PYozJK",  // Mié 5 Sept - HIKVISION
+  19: "1OxuKCv9dBtDHs9vv8veqjIa34Y-mG24B",  // Jue 6 Sept - TARGUS
+  20: "1-HR6JX6ACMYeYnyK6C80q2JUjNl-jFd9",  // Vie 7 Sept - LOGITECH
+  21: "1SQeg97i6VpdhHBO-DP3SDCNgDsH1KNHN"   // Lun 10 Sept - Laptops
+};
+
+function openEmailDrive(n) {
+  var fid = EMAIL_DRIVE_FOLDERS[n];
+  if (!fid) { showToast('Este email no tiene carpeta en Drive'); return; }
+  window.open('https://drive.google.com/drive/folders/' + fid, '_blank');
+  showToast('Abriendo carpeta del email...');
+}
+
 // ─── COPY PRODUCT NAME+SKU ───
 function copyProduct(btn) {
   const pi = btn.closest('.pi');
@@ -2657,9 +3240,14 @@ function showToast(msg) {
 function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? '' : 'dark');
-  localStorage.setItem('theme', isDark ? '' : 'dark');
-  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+  const btn = document.getElementById('themeBtn');
+  btn.classList.add('switching');
+  setTimeout(function() {
+    html.setAttribute('data-theme', isDark ? '' : 'dark');
+    localStorage.setItem('theme', isDark ? '' : 'dark');
+    btn.textContent = isDark ? '🌙' : '☀️';
+    btn.classList.remove('switching');
+  }, 150);
 }
 (function initTheme() {
   const saved = localStorage.getItem('theme');
@@ -2682,23 +3270,6 @@ document.addEventListener('keydown', e => {
 // ═══ 8 MEJORAS VISUALES ═══
 
 // ─── TOOLTIP DATA ───
-const PILLAR_TOOLTIPS = {
-  'Showcase': 'Muestra el producto estrella con beneficios clave',
-  'Diagnóstico': 'Identifica un problema común del mercado',
-  'Comparativa': 'Compara opciones para ayudar a decidir',
-  'Perfil': 'Muestra un tipo de cliente ideal',
-  'Solución': 'Presenta el producto como solución a un problema',
-  'Guía': 'Guía paso a paso para elegir o usar',
-  'Tendencia': 'Tendencia del mercado tech global',
-  'Inversión': 'ROI, ahorro a largo plazo',
-  'Educativo': 'Conocimiento técnico que posiciona',
-  'Ecosistema': 'Cómo se conectan varios productos',
-  'Visión': 'Visión de futuro del mercado',
-  'Error común': 'Error frecuente al comprar y cómo evitarlo',
-  'Sinergia': 'Cómo se complementan productos',
-  'Cierre': 'Cierre con CTA directo',
-  'Alternativa': 'Opción accesible sin sacrificar calidad'
-};
 const PILLAR_COLORS = {
   'Showcase': '#0056DB', 'Diagnóstico': '#E53935', 'Comparativa': '#8E24AA',
   'Perfil': '#00897B', 'Solución': '#43A047', 'Guía': '#FB8C00',
@@ -2776,24 +3347,32 @@ function setView(view) {
   const calBtn = document.getElementById('viewCalendar-' + mcId);
   if (colBtn) colBtn.classList.toggle('active', view === 'columns');
   if (calBtn) calBtn.classList.toggle('active', view === 'calendar');
-  // Remove any existing back button
-  mc.querySelectorAll('.cal-back-btn').forEach(function(b) { b.remove(); });
-  if (view === 'calendar') {
-    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
-    mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
-    var backBtn = document.createElement('button');
-    backBtn.className = 'cal-back-btn';
-    backBtn.innerHTML = '\u2190 Volver a Columnas';
-    backBtn.onclick = function() { setView('columns'); };
-    var calGrid = document.createElement('div');
-    calGrid.className = 'month-grid-view';
-    calGrid.innerHTML = buildMonthGrid(mc.id.replace('mc-', ''));
-    mc.insertBefore(backBtn, mc.firstChild);
-    mc.insertBefore(calGrid, backBtn.nextSibling);
-  } else {
-    mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
-    mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = ''; });
-  }
+  // Fade-out before switch
+  mc.style.opacity = '0';
+  mc.style.transition = 'opacity .15s';
+  setTimeout(function() {
+    mc.style.transition = '';
+    // Remove any existing back button
+    mc.querySelectorAll('.cal-back-btn').forEach(function(b) { b.remove(); });
+    if (view === 'calendar') {
+      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
+      mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
+      var backBtn = document.createElement('button');
+      backBtn.className = 'cal-back-btn';
+      backBtn.innerHTML = '\u2190 Volver a Columnas';
+      backBtn.onclick = function() { setView('columns'); };
+      var calGrid = document.createElement('div');
+      calGrid.className = 'month-grid-view';
+      calGrid.innerHTML = buildMonthGrid(mc.id.replace('mc-', ''));
+      mc.insertBefore(backBtn, mc.firstChild);
+      mc.insertBefore(calGrid, backBtn.nextSibling);
+    } else {
+      mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
+      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = ''; });
+    }
+    // Fade-in after switch
+    requestAnimationFrame(function() { mc.style.opacity = '1'; });
+  }, 150);
 }
 function buildMonthGrid(monthId) {
   var days = ['Lun','Mar','Mié','Jue','Vie'];
@@ -2913,12 +3492,8 @@ document.querySelectorAll('.piece').forEach(p => {
       'Sinergia': 'pillar-sinergia', 'Cierre': 'pillar-cierre', 'Alternativa': 'pillar-alternativa'
     }[pillar];
     if (cls) p.classList.add(cls);
-    const tip = PILLAR_TOOLTIPS[pillar];
-    if (tip) pillarEl.classList.add('tip');
-    if (tip) pillarEl.setAttribute('data-tip', tip);
   }
   const ve = p.querySelector('.ve-badge');
-  if (ve) { ve.classList.add('tip'); ve.setAttribute('data-tip', 'Contexto Venezuela: adaptado al mercado local'); }
 });
 
 // ─── LOAD FILTERS ON START ───
@@ -3084,6 +3659,71 @@ function exportCatalogCSV() {
   const tabNames = { GENERAL: 'Inventario_General', CARACAS: 'Caracas', VALENCIA: 'Valencia' };
   XLSX.writeFile(wb, `Catalogo_SUPRICOM_${tabNames[catTab] || catTab}_${new Date().toISOString().slice(0,10)}.xlsx`);
 }
+
+/* ═══════════════════════════════════════════════════
+   VISUAL IMPROVEMENTS — 7 Enhancements
+   ═══════════════════════════════════════════════════ */
+
+/* 1. ENTRANCE ANIMATIONS — IntersectionObserver */
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .12 });
+  function observeAll() {
+    document.querySelectorAll('.week-card, .cal-col, .piece, .email-card, .ms-card').forEach(el => {
+      if (!el.classList.contains('animate-in')) { el.classList.add('animate-in'); obs.observe(el); }
+    });
+  }
+  observeAll();
+  /* Re-observe on month tab switch */
+  document.querySelectorAll('.mtab').forEach(t => t.addEventListener('click', () => setTimeout(observeAll, 60)));
+})();
+
+/* 2. HERO COUNTER ANIMATION */
+(function() {
+  const heroObs = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    heroObs.disconnect();
+    document.querySelectorAll('.hero .kp .num').forEach(el => {
+      const raw = el.textContent.trim();
+      const target = parseInt(raw);
+      if (isNaN(target)) return;
+      const suffix = raw.replace(/\d/g, '');
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 35));
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = current + suffix;
+      }, 28);
+    });
+  }, { threshold: .4 });
+  const hero = document.querySelector('.hero');
+  if (hero) heroObs.observe(hero);
+})();
+
+/* 3. NAV BLUR ON SCROLL */
+(function() {
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  const update = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* 4. RIPPLE TRACKER */
+(function() {
+  document.addEventListener('mousemove', e => {
+    const el = e.target.closest('.fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn, .theme-toggle');
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty('--x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      el.style.setProperty('--y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    }
+  });
+})();
 
 </script>
 
