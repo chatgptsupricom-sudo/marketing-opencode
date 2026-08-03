@@ -511,6 +511,14 @@
     transition: all .2s; white-space: nowrap;
   }
   .cat-export-btn:hover { background: var(--primary-light); border-color: var(--primary-light); }
+  .cat-refresh-btn {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px;
+    cursor: pointer; background: var(--white); color: var(--text); transition: all .2s; line-height: 1;
+  }
+  .cat-refresh-btn:hover { background: var(--primary-light); border-color: var(--primary-light); color: white; }
+  .cat-refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
+  [data-theme="dark"] .cat-refresh-btn { background: #21262D; border-color: #30363D; color: #C9D1D9; }
+  [data-theme="dark"] .cat-refresh-btn:hover { background: #30363D; border-color: #58A6FF; }
   .cat-body { flex: 1; overflow-y: auto; padding: 0; }
   .cat-section { padding: 0 20px 16px; }
   .cat-section-title {
@@ -651,6 +659,80 @@
   [data-theme="dark"] .month-cell .cell-piece.fmt-post { background: rgba(230,81,0,.2); color: #FFCC80; }
   .month-cell .cell-more { text-align: center; color: var(--primary); font-size: 10px; cursor: pointer; padding: 2px; border-radius: 4px; }
   .month-cell .cell-more:hover { background: rgba(7,145,244,.1); }
+
+  /* ─── TABLE VIEW (compact list) ─── */
+  .table-view { background: var(--white); border-radius: 12px; box-shadow: var(--card-shadow); margin-top: 16px; overflow: visible; }
+  .table-view table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; }
+  .table-view thead th {
+    position: sticky; top: 52px; z-index: 10;
+    background: var(--primary); color: white; padding: 10px 12px;
+    text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+    cursor: pointer; user-select: none; white-space: nowrap;
+  }
+  .table-view thead th:hover { background: var(--primary-light); }
+  .table-view thead th .sort-arrow { font-size: 9px; margin-left: 4px; opacity: .6; }
+  .table-view thead th.sorted .sort-arrow { opacity: 1; }
+  .table-view tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
+  .table-view tbody tr:first-child td:first-child { border-top-left-radius: 12px; }
+  .table-view tbody tr:first-child td:last-child { border-top-right-radius: 12px; }
+  .table-view tbody tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+  .table-view tbody tr:last-child td:last-child { border-bottom-right-radius: 12px; }
+  .table-view tbody tr:hover td { background: rgba(7,145,244,.08); cursor: pointer; }
+  .table-view tbody tr { transition: background .15s; }
+  .table-view .tv-num { font-weight: 700; color: var(--text-light); width: 30px; text-align: center; }
+  .table-view .tv-day { font-weight: 600; white-space: nowrap; }
+  .table-view .tv-day span { display: block; font-size: 10px; color: var(--text-light); font-weight: 400; }
+  .table-view .tv-topic { line-height: 1.4; max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .table-view .tv-brands { font-size: 11px; color: var(--text-light); max-width: 200px; }
+  .table-view .tv-ve { text-align: center; }
+  .table-view .tv-ve-badge { display: inline-block; background: #ffd700; color: #000; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+  .table-view .tv-actions { text-align: center; width: 40px; }
+  .table-view .tv-copy-btn { background: none; border: none; cursor: pointer; font-size: 14px; opacity: .4; transition: opacity .2s; }
+  .table-view .tv-copy-btn:hover { opacity: 1; }
+  .table-view tfoot td { padding: 10px 12px; font-weight: 600; color: var(--text-light); font-size: 11px; border-top: 2px solid var(--primary); }
+  @media (max-width: 1000px) { .table-view { overflow-x: auto; } .table-view table { min-width: 700px; } }
+
+  /* ─── MONTH PROGRESS BAR ─── */
+  .month-progress { display: flex; gap: 4px; padding: 0 0 12px; }
+  .month-progress .mp-seg { flex: 1; height: 6px; border-radius: 3px; background: var(--border); position: relative; overflow: hidden; }
+  .month-progress .mp-seg .mp-fill { height: 100%; background: var(--success); border-radius: 3px; transition: width .5s ease; }
+
+  /* ─── CURRENT WEEK GLOW ─── */
+  .week-card.is-current { border: 2px solid var(--primary); box-shadow: 0 0 0 4px rgba(0,86,219,.08); }
+
+  /* ─── HERO ACTIVE BADGE ─── */
+  .hero .badge-active { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.15); backdrop-filter: blur(4px); color: white; padding: 3px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 10px; border: 1px solid rgba(255,255,255,.15); }
+  .hero .badge-active .dot-active { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+
+  /* ─── CALENDAR TODAY ─── */
+  .month-cell.today { border: 2px solid var(--primary); background: rgba(0,86,219,.03); }
+  .week-card.week-current { border-left: 4px solid var(--primary); background: rgba(0,86,219,.04); box-shadow: 0 2px 12px rgba(0,86,219,.10); }
+
+  /* ─── CLEAR FILTERS BTN ─── */
+  .clear-filters-btn { background: none; border: 1px solid var(--border); color: var(--text-light); font-size: 11px; padding: 3px 10px; border-radius: 14px; cursor: pointer; transition: all .2s; }
+  .clear-filters-btn:hover { border-color: var(--primary-light); color: var(--primary); }
+
+  /* ─── CATALOG SORT HEADERS ─── */
+  .cat-table th { cursor: pointer; user-select: none; white-space: nowrap; }
+  .cat-table th:hover { color: var(--primary); }
+  .cat-table th .sort-arrow { font-size: 9px; margin-left: 3px; opacity: .5; }
+  .cat-table th.sorted .sort-arrow { opacity: 1; color: var(--primary); }
+
+  /* ─── CATALOG STOCK FILTER ─── */
+  .cat-stock-filter { font-size: 12px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text); }
+  .custom-stock-wrap { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; }
+  .custom-stock-wrap select, .custom-stock-wrap input { font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text); }
+  .cat-copy-sku { background: none; border: none; cursor: pointer; font-size: 12px; opacity: .4; transition: opacity .2s; }
+  .cat-copy-sku:hover { opacity: 1; }
+  .cat-copy-sku.copied { opacity: 1; }
+
+  /* ─── CATALOG PRINT ─── */
+  @media print {
+    nav, .hero, .month-tabs, .enhanced-toolbar, main, footer, .cat-overlay:not(.open) { display: none !important; }
+    .cat-overlay.open { position: static; background: none; z-index: auto; }
+    .cat-overlay.open .cat-modal { max-width: 100%; max-height: none; width: 100%; height: auto; box-shadow: none; border-radius: 0; }
+    .cat-overlay.open .cat-close { display: none; }
+  }
   .cal-back-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; margin: 16px 4px 8px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .cal-back-btn:hover { background: var(--primary-light); transform: translateX(-2px); }
 
@@ -925,6 +1007,8 @@
       <div>
         <h2>📦 Catálogo SUPRICOM</h2>
         <div class="cat-date" id="catDate">Actualizado: ...</div>
+        <div class="cat-date" id="catViewed" style="font-size:11px;opacity:.7;margin-top:2px"></div>
+        <div class="cat-date" id="catNextRefresh" style="font-size:11px;opacity:.5;margin-top:2px;color:var(--success)"></div>
       </div>
       <button class="cat-close" onclick="closeCatalog()">✕</button>
     </div>
@@ -941,7 +1025,27 @@
       <select class="cat-filter-select" id="catBrand" onchange="filterCatalog()">
         <option value="">Todas las marcas</option>
       </select>
+      <select class="cat-stock-filter" id="catStock" onchange="toggleCustomStock()">
+        <option value="">Todo el stock</option>
+        <option value="available">Con stock (&gt;0)</option>
+        <option value="low">Stock bajo (&lt;5)</option>
+        <option value="out">Sin stock (0)</option>
+        <option value="custom">Personalizado...</option>
+      </select>
+      <span class="custom-stock-wrap" id="customStockWrap" style="display:none">
+        <select id="customStockOp" onchange="filterCatalog()">
+          <option value="gt">Mayor a</option>
+          <option value="lt">Menor a</option>
+          <option value="gte">Mayor o igual a</option>
+          <option value="lte">Menor o igual a</option>
+          <option value="eq">Igual a</option>
+        </select>
+        <input type="number" id="customStockVal" min="0" value="0" placeholder="uds" oninput="filterCatalog()" style="width:60px">
+        <span style="font-size:11px;color:var(--text-light)">uds</span>
+      </span>
       <span class="cat-count" id="catCount"></span>
+      <button class="clear-filters-btn" onclick="resetCatFilters()">✕ Limpiar</button>
+      <button class="cat-refresh-btn" id="catRefreshBtn" onclick="manualRefreshCatalog()" title="Actualizar catálogo desde API">🔄</button>
       <button class="cat-export-btn" onclick="exportCatalogCSV()" title="Exportar a Excel (.xlsx)">📥 Excel</button>
     </div>
     <div class="cat-body" id="catBody">
@@ -955,6 +1059,7 @@
 
 <div class="hero">
   <div class="badge">Plan de Contenido · Marketing</div>
+  <div class="badge-active"><span class="dot-active"></span>Activo · Agosto 2026</div>
   <h1 id="heroTitle">Julio <span>2026</span></h1>
   <div class="sub">SUPRICOM · C.A.</div>
   <div class="kpi-strip">
@@ -1158,16 +1263,19 @@
     <input type="text" id="filterSearch-2026-08" placeholder="topic, marca..." oninput="applyEnhancedFilters()">
   </div>
   <div class="search-results" id="searchResults-2026-08"></div>
+  <button class="clear-filters-btn" onclick="resetMonthFilters()">✕ Limpiar</button>
   <div class="toolbar-sep"></div>
   <div class="toolbar-group">
     <label>Vista</label>
     <div class="view-toggle">
       <button id="viewColumns-2026-08" class="active" onclick="setView('columns')">Columnas</button>
       <button id="viewCalendar-2026-08" onclick="setView('calendar')">Calendario</button>
+      <button id="viewTable-2026-08" onclick="setView('table')">Lista</button>
     </div>
   </div>
   <div class="export-btns">
     <button class="export-btn" onclick="copySummary()">📋 Resumen</button>
+    <button class="export-btn" onclick="copyTableView()">📋 Copiar tabla</button>
     <button class="export-btn" onclick="exportJSON()">💾 JSON</button>
   </div>
 </div>
@@ -1218,7 +1326,7 @@
         <div class="num">2</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Demanda</div>
-        <div class="topic"><strong>«El router que tu tienda debería tener hoy».</strong> HIKVISION, Linksys y Xiaomi. Los routers que más rotan.</div>
+        <div class="topic"><strong>«Routers de alta rotación para tu tienda».</strong> HIKVISION, Linksys y Xiaomi. Los routers que más rotan.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi</div>
         <details class="prods">
           <summary>📦 4 routers</summary>
@@ -1229,7 +1337,7 @@
             <div class="pi"><span class="name">Xiaomi AX3000</span><span class="sku">XIAOMI-AX3000</span><span class="sto">956</span></div>
           </div>
         </details>
-        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"El router que tu tienda debería tener hoy","frase":"Tu cliente pregunta por WiFi. ¿Qué le ofreces?\n\nUn router no es solo conectar internet. Es la velocidad que tu cliente espera, la estabilidad que necesita para trabajar, y la señal que llega a todas partes.\n\nEn SUPRICOM tenemos routers de HIKVISION, Linksys, Xiaomi, TP-Link y NEXXT HOME. Desde gama de entrada hasta WiFi 6 y Mesh. Para cada perfil de cliente.","nota":"Grid de routers con logos de marca. Fondo SUPRICOM."}]</div>
+        <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Routers de alta rotación para tu tienda","frase":"Tu cliente pregunta por WiFi. ¿Qué le ofreces?\n\nUn router no es solo conectar internet. Es la velocidad que tu cliente espera, la estabilidad que necesita para trabajar, y la señal que llega a todas partes.\n\nEn SUPRICOM tenemos routers de HIKVISION, Linksys, Xiaomi, TP-Link y NEXXT HOME. Desde gama de entrada hasta WiFi 6 y Mesh. Para cada perfil de cliente.","nota":"Grid de routers con logos de marca. Fondo SUPRICOM."}]</div>
       </div>
     </div>
     <div class="cal-col">
@@ -1251,7 +1359,7 @@
             <div class="pi"><span class="name">NEXXT HOME AX1800</span><span class="sku">NEXXT-AX1800</span><span class="sto">13</span></div>
           </div>
         </details>
-        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"De básico a premium: así se ve el surtido de routers en SUPRICOM","frase":"No todos los routers son iguales. Tu vitrina debería tener opciones para cada cliente.","nota":"[VISUAL]: Supri de pie junto a una vitrina con routers de diferentes marcas. Texto \"DE BÁSICO A PREMIUM\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara con expresión de \"te voy a enseñar algo\"."},{"slide":"Escena 2 (8-16s)","texto":"El básico","frase":"El básico: para el cliente que solo necesita WiFi estable. Confiabilidad que rota rápido.","nota":"[VISUAL]: Supri junto a un router básico (HIKVISION DS-3WR12GC) en el exhibidor.\n[ACCION]: Supri toma el router, lo muestra a cámara, señala con la otra mano."},{"slide":"Escena 3 (16-26s)","texto":"El medio y las premium","frase":"El medio: para la oficina que necesita más velocidad. Y las premium: WiFi 6 y Mesh para quien no negocia calidad.","nota":"[VISUAL]: Supri junto a gama media y premium (DS-3WR15X AX1500, DS-3WR18X AX1800 y NEXXT HOME BOLT MESH AX1800).\n[ACCION]: Supri señala cada uno alternadamente, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Cinco gamas, cinco clientes, un solo mayorista","frase":"Cinco gamas, cinco clientes, un solo mayorista. Pregunta por el portafolio de routers. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Los routers visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente con seguridad."}]</div>
+        <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"De básico a premium: así se ve el surtido de routers en SUPRICOM","frase":"No todos los routers son iguales. Tu vitrina debería tener opciones para cada cliente.","nota":"[VISUAL]: Supri de pie junto a una vitrina con routers de diferentes marcas. Texto \"DE BÁSICO A PREMIUM\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara con expresión de \"te voy a enseñar algo\"."},{"slide":"Escena 2 (8-16s)","texto":"El básico","frase":"El básico: para el cliente que solo necesita WiFi estable. Confiabilidad que rota rápido.","nota":"[VISUAL]: Supri junto a un router básico (HIKVISION DS-3WR12GC) en el exhibidor.\n[ACCION]: Supri toma el router, lo muestra a cámara, señala con la otra mano."},{"slide":"Escena 3 (16-26s)","texto":"El medio y las premium","frase":"El medio: para la oficina que necesita más velocidad. Y las premium: WiFi 6 y Mesh para quien no negocia calidad.","nota":"[VISUAL]: Supri junto a gama media y premium (DS-3WR15X AX1500, DS-3WR18X AX1800 y NEXXT HOME BOLT MESH AX1800).\n[ACCION]: Supri señala cada uno alternadamente, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Distintas gamas para ofrecerle a tus clientes","frase":"Distintas gamas para ofrecerle a tus clientes. Pregunta por el portafolio de routers. SUPRICOM. Tu mayorista de confianza.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Los routers visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente con seguridad."}]</div>
       </div>
 
       <div class="piece piece-with-copy pillar-sinergia" data-format="post" data-piece="AUG4" onclick="openCopyModal('AUG4', event)">
@@ -3003,8 +3111,8 @@ const CAPTIONS = {
   "27": "Julio fue un mes fuerte para la tecnología en Venezuela. ¿Tu inventario está listo para lo que viene? 📦\n\nProtección eléctrica es la categoría que más está rotando: FORZA para entrada y volumen — sus reguladores FVR-901M y FVR-1011 son los que más salen. SMARTBITT para el punto medio con sus UPS de 600VA a 1200VA. APC para el cliente que no se arriesga con los Back-UPS y Smart-UPS. Y BLUETTI para respaldo de horas, no de minutos. ⚡\n\nMSI Cubi está entrando con fuerza. Los comercios que ya las están mostrando están descubriendo una categoría que antes no existía en su mostrador. Mini PC compactas con potencia de torre. El nuevo argumento de venta. 🖥️\n\nLa jugada inteligente es tener el portafolio completo en un solo mayorista. Protección para los cortes, Mini PC para los que migran, conectividad para los que se actualizan. 🛡️\n\nEn SUPRICOM trabajamos al mayor con dueños de comercio. Todo disponible, todo en un solo contacto. 🤝\n\nGuarda este video. Escríbenos al DM con la palabra INVENTARIO y te armamos el portafolio. 📱\n\n#inventario #proteccionelectrica #FORZA #SMARTBITT #APC #BLUETTI #MSI #mayoristatecnologia #SUPRICOM",
   "29": "Hace cinco años un negocio de tecnología vendía torres, monitores e impresoras. Con eso bastaba. Hoy el cliente entra pidiendo otra cosa. 🔄\n\nPregunta por protección eléctrica porque cada apagón le cuesta plata. Pregunta por cámaras de seguridad porque sin vigilancia el negocio no está completo. Pregunta por Mesh porque el internet no le llega al fondo de la casa o la oficina. 📡📷⚡\n\nEl comercio que solo vendía lo de antes se quedó con un portafolio que ya no cubre lo que el cliente realmente necesita. Y el cliente lo nota. ⚠️\n\nEl negocio que se actualizó está vendiendo BLUETTI al lado de laptops, reguladores FORZA y SMARTBITT con cada equipo de cómputo, y APC para el que pide lo mejor. El ticket subió porque la conversación cambió. 📈\n\nEl mercado cambió. El portafolio también. En SUPRICOM está todo lo que tu cliente pide hoy. 🤝\n\nGuarda este video como recordatorio de lo que ya no puedes dejar de tener en vitrina. 📱\n\n#tendencias #mercadotecnologia #proteccionelectrica #conectividad #seguridad #mayoristatecnologia #SUPRICOM",
   "AUG1": "🖱️ Logitech: lo que tu vitrina debería tener\n\n→ M170 y M240 → mouse para cada cliente\n→ K270 y K380S → teclados que se venden solos\n→ H111 y G335 → audio que completa la venta\n\nMouse, teclados, audífonos, gaming 🎮\nTodo en SUPRICOM 📦\n\n#MouseLogitech #Perifericos #MayoristaTech #TiendaDeTecnología #SUPRICOM",
-  "AUG2": "📶 WiFi estable = clientes felices\n\n¿Tu cliente te preguntó por un router? 🤔\nNo todos sirven para lo mismo.\n\n📍 Gama básica → WiFi estable\n📍 Gama media → Oficinas que necesitan velocidad\n📍 WiFi 6 / Mesh → Clientes que no negocian calidad\n\n5 marcas en SUPRICOM 👇\n✅ HIKVISION\n✅ Linksys\n✅ Xiaomi\n✅ TP-Link\n✅ NEXXT HOME\n\n📩 DM para asesoría\nSUPRICOM. Tu mayorista de confianza 🇻🇪\n\n#RoutersWiFi #Mayorista #HIKVISION #TiendaDeTecnología #SUPRICOM",
-  "AUG3": "📶 Del básico a premium: routers en SUPRICOM\n\nEl básico → WiFi estable para el que solo necesita conectar 📱\nEl medio → más velocidad para la oficina ⚡\nEl premium → WiFi 6 para quien no negocia calidad 💎\n\n5 gamas, 5 clientes, 1 solo mayorista 🎯\n\nPregunta por el portafolio de routers 📶\n\n#RoutersWiFi #WiFi6 #MayoristaTech #TiendaDeTecnología #SUPRICOM",
+  "AUG2": "📶 Routers de alta rotación para tu tienda\n\n¿Tu cliente te preguntó por un router? 🤔\nNo todos sirven para lo mismo.\n\n📍 Gama básica → WiFi estable\n📍 Gama media → Oficinas que necesitan velocidad\n📍 WiFi 6 / Mesh → Clientes que no negocian calidad\n\n5 marcas en SUPRICOM 👇\n✅ HIKVISION\n✅ Linksys\n✅ Xiaomi\n✅ TP-Link\n✅ NEXXT HOME\n\n📩 DM para asesoría\nSUPRICOM. Tu mayorista de confianza 🇻🇪\n\n#RoutersWiFi #Mayorista #HIKVISION #TiendaDeTecnología #SUPRICOM",
+  "AUG3": "📶 Del básico a premium: routers en SUPRICOM\n\nEl básico → WiFi estable para el que solo necesita conectar 📱\nEl medio → más velocidad para la oficina ⚡\nEl premium → WiFi 6 para quien no negocia calidad 💎\n\nDistintas gamas para ofrecerle a tus clientes 🎯\n\nPregunta por el portafolio de routers 📶\n\n#RoutersWiFi #WiFi6 #MayoristaTech #TiendaDeTecnología #SUPRICOM",
   "AUG4": "🖨️ El complemento que todo cliente de impresora va a buscar\n\nTu cliente compra impresora. ¿Le ofreciste el cartucho o la tinta? 🤔\n\nSin consumibles → la impresora no funciona\nSi no se lo das → lo compra en otro lado 👀\n\nTintas, cartuchos y tóner HP en SUPRICOM ✅\n\n#TintasHP #CartuchosHP #ImpresorasHP #MayoristaTech #SUPRICOM",
   "AUG5": "⚡ BLUETTI en 30 segundos\n\nNo es una batería. Es la solución cuando se va la luz 🔌\n\nConectas laptop, celular, internet → todo sigue funcionando 📱\n\nDesde la portátil pequeña hasta la que mueve tu negocio completo 💼\n\nCuando se va la luz, tu cliente necesita una solución.\nTenla en tu vitrina 🔥\n\n#EnergiaPortatil #Bluetti #CorteDeLuz #MayoristaTech #SUPRICOM",
   "AUG6": "🎯 3 combos que suben tu ticket\n\n💼 Combo oficina → MK345 o MK295 (teclado + mouse)\n🎮 Combo gaming → G203 + G213 o G335\n\nUna venta, dos productos 📈\n\nLogitech tiene las piezas. Tú armas la venta 💪\n\n#MouseLogitech #Perifericos #Mayorista #TiendaDeTecnología #SUPRICOM",
@@ -3365,8 +3473,10 @@ function setView(view) {
   const mcId = mc.id.replace('mc-', '');
   const colBtn = document.getElementById('viewColumns-' + mcId);
   const calBtn = document.getElementById('viewCalendar-' + mcId);
+  const tblBtn = document.getElementById('viewTable-' + mcId);
   if (colBtn) colBtn.classList.toggle('active', view === 'columns');
   if (calBtn) calBtn.classList.toggle('active', view === 'calendar');
+  if (tblBtn) tblBtn.classList.toggle('active', view === 'table');
   // Fade-out before switch
   mc.style.opacity = '0';
   mc.style.transition = 'opacity .15s';
@@ -3374,6 +3484,8 @@ function setView(view) {
     mc.style.transition = '';
     // Remove any existing back button
     mc.querySelectorAll('.cal-back-btn').forEach(function(b) { b.remove(); });
+    // Remove existing table view
+    mc.querySelectorAll('.table-view').forEach(function(c) { c.remove(); });
     if (view === 'calendar') {
       mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
       mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
@@ -3386,6 +3498,18 @@ function setView(view) {
       calGrid.innerHTML = buildMonthGrid(mc.id.replace('mc-', ''));
       mc.insertBefore(backBtn, mc.firstChild);
       mc.insertBefore(calGrid, backBtn.nextSibling);
+    } else if (view === 'table') {
+      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
+      mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
+      var backBtn = document.createElement('button');
+      backBtn.className = 'cal-back-btn';
+      backBtn.innerHTML = '\u2190 Volver a Columnas';
+      backBtn.onclick = function() { setView('columns'); };
+      var tableView = document.createElement('div');
+      tableView.className = 'table-view';
+      tableView.innerHTML = buildTableView(mc.id.replace('mc-', ''));
+      mc.insertBefore(backBtn, mc.firstChild);
+      mc.insertBefore(tableView, backBtn.nextSibling);
     } else {
       mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
       mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = ''; });
@@ -3393,6 +3517,79 @@ function setView(view) {
     // Fade-in after switch
     requestAnimationFrame(function() { mc.style.opacity = '1'; });
   }, 150);
+}
+
+// ─── TABLE VIEW (compact list) ───
+function buildTableView(monthId) {
+  const mc = document.getElementById('mc-' + monthId);
+  if (!mc) return '';
+  const pieces = mc.querySelectorAll('.piece');
+  let rows = '';
+  let dayMap = { 'LUN': 'Lun', 'MAR': 'Mar', 'MIÉ': 'Mié', 'JUE': 'Jue', 'VIE': 'Vie' };
+  pieces.forEach(function(p, i) {
+    const num = i + 1;
+    const fmt = (p.dataset.format || '').toLowerCase();
+    const fmtLabel = fmt.charAt(0).toUpperCase() + fmt.slice(1);
+    const pillar = (p.querySelector('.pillar') || {}).textContent || '';
+    const topic = (p.querySelector('.topic') || {}).textContent || '';
+    const brands = (p.querySelector('.brands') || {}).textContent || '';
+    const ve = p.querySelector('.ve-badge') ? '<span class="tv-ve-badge">VE</span>' : '';
+    // Get day from parent column
+    const col = p.closest('.cal-col');
+    let day = '';
+    if (col) {
+      const dayEl = col.querySelector('.col-head .day');
+      const dateEl = col.querySelector('.col-head .date');
+      day = (dayEl ? dayEl.textContent : '') + ' ' + (dateEl ? dateEl.textContent : '');
+    }
+    rows += '<tr onclick="openCopyModal(' + num + ', event)" style="cursor:pointer">' +
+      '<td class="tv-num">' + num + '</td>' +
+      '<td class="tv-day">' + day + '</td>' +
+      '<td><span class="fmt ' + fmt + '">' + fmtLabel + '</span></td>' +
+      '<td>' + pillar + '</td>' +
+      '<td class="tv-topic">' + topic + '</td>' +
+      '<td class="tv-brands">' + brands + '</td>' +
+      '<td class="tv-ve">' + ve + '</td>' +
+      '<td class="tv-actions"><button class="tv-copy-btn" onclick="event.stopPropagation();copyTableViewRow(this)" title="Copiar fila">📋</button></td>' +
+      '</tr>';
+  });
+  return '<table><thead><tr>' +
+    '<th>#</th><th>Día</th><th>Formato</th><th>Pilar</th><th>Tema</th><th>Marcas</th><th>VE</th><th></th>' +
+    '</tr></thead><tbody>' + rows + '</tbody>' +
+    '<tfoot><tr><td colspan="8">' + pieces.length + ' piezas</td></tr></tfoot></table>';
+}
+
+// ─── COPY TABLE VIEW ───
+function copyTableView() {
+  const mc = getActiveMC();
+  if (!mc) return;
+  const rows = mc.querySelectorAll('.table-view tbody tr');
+  if (!rows.length) { showToast('Primero activa la vista Lista'); return; }
+  let text = '#\tDía\tFormato\tPilar\tTema\tMarcas\tVE\n';
+  rows.forEach(function(tr) {
+    const cells = tr.querySelectorAll('td');
+    const num = cells[0].textContent.trim();
+    const day = cells[1].textContent.trim().replace(/\s+/g, ' ');
+    const fmt = cells[2].textContent.trim();
+    const pillar = cells[3].textContent.trim();
+    const topic = cells[4].textContent.trim();
+    const brands = cells[5].textContent.trim();
+    const ve = cells[6].textContent.trim();
+    text += [num, day, fmt, pillar, topic, brands, ve].join('\t') + '\n';
+  });
+  navigator.clipboard.writeText(text).then(function() { showToast('Tabla copiada'); });
+}
+
+// ─── COPY SINGLE TABLE ROW ───
+function copyTableViewRow(btn) {
+  const tr = btn.closest('tr');
+  if (!tr) return;
+  const cells = tr.querySelectorAll('td');
+  const text = Array.from(cells).slice(0, 7).map(function(td) { return td.textContent.trim(); }).join(' | ');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '✓';
+    setTimeout(function() { btn.textContent = '📋'; }, 1500);
+  });
 }
 function buildMonthGrid(monthId) {
   var days = ['Lun','Mar','Mié','Jue','Vie'];
@@ -3436,7 +3633,10 @@ function buildMonthGrid(monthId) {
       var key = item.day + '-' + item.d;
       var pcs = pMap[key] || [];
       var weekNum = 'S' + (w + 1);
-      html += '<div class="month-cell">';
+      // Today detection
+      var now = new Date();
+      var isToday = (monthId === (now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0'))) && (now.getDate() === item.d);
+      html += '<div class="month-cell' + (isToday ? ' today' : '') + '">';
       html += '<div class="cell-date">' + item.d + '</div>';
       html += '<div class="cell-day">' + item.day + ' · ' + weekNum + '</div>';
       pcs.forEach(p => {
@@ -3537,23 +3737,70 @@ const SUPRICOM_API_KEY = 'supricom2026!api';
 
 function updateCatDate(isoStr) {
   const el = document.getElementById('catDate');
-  if (!el || !isoStr) return;
-  const d = new Date(isoStr);
+  const elViewed = document.getElementById('catViewed');
   const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-  el.textContent = 'Actualizado: ' + d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear();
+  if (el && isoStr) {
+    const d = new Date(isoStr);
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    const hasTime = d.getHours() !== 0 || d.getMinutes() !== 0;
+    el.textContent = 'Actualizado: ' + d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear() + (hasTime ? ' · ' + hh + ':' + mm : '');
+  }
+  if (elViewed) {
+    const viewedTs = localStorage.getItem('supricom_catalogo_viewed');
+    if (viewedTs) {
+      const v = new Date(parseInt(viewedTs, 10));
+      elViewed.textContent = 'Visto: ' + v.getDate() + ' ' + meses[v.getMonth()] + ' ' + v.getFullYear() + ' · ' + String(v.getHours()).padStart(2, '0') + ':' + String(v.getMinutes()).padStart(2, '0');
+    }
+  }
+  updateNextRefreshDisplay();
 }
 
-async function loadCatalogo() {
-  const cache = localStorage.getItem('supricom_catalogo');
-  if (cache) {
-    try {
-      const { data, ts, actualizado } = JSON.parse(cache);
-      if (Date.now() - ts < 86400000) {
-        CATALOGO = data;
-        updateCatDate(actualizado || new Date(ts).toISOString());
-        return;
-      }
-    } catch(e) { localStorage.removeItem('supricom_catalogo'); }
+function updateNextRefreshDisplay() {
+  const el = document.getElementById('catNextRefresh');
+  if (!el) return;
+  const now = new Date();
+  const day = now.getDay();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const isWork = day >= 1 && day <= 5;
+  if (!isWork || h >= 15) {
+    el.textContent = 'Próximo refresh: mañana 08:00';
+    el.style.color = 'var(--text-light)';
+    return;
+  }
+  const nextHour = REFRESH_HOURS.find(rh => rh > h) || null;
+  if (nextHour !== null) {
+    const minsLeft = (nextHour - h - 1) * 60 + (60 - m);
+    const hStr = String(nextHour).padStart(2, '0');
+    if (minsLeft <= 0) {
+      el.textContent = 'Refresh programado: ' + hStr + ':00 (próximamente)';
+    } else {
+      const hrs = Math.floor(minsLeft / 60);
+      const mins = minsLeft % 60;
+      el.textContent = 'Próximo refresh: ' + hStr + ':00 (en ' + (hrs > 0 ? hrs + 'h ' : '') + mins + 'min)';
+    }
+    el.style.color = 'var(--success)';
+  } else {
+    el.textContent = 'Próximo refresh: mañana 08:00';
+    el.style.color = 'var(--text-light)';
+  }
+}
+
+async function loadCatalogo(force) {
+  if (!force) {
+    const cache = localStorage.getItem('supricom_catalogo');
+    if (cache) {
+      try {
+        const { data, ts, actualizado } = JSON.parse(cache);
+        if (Date.now() - ts < 86400000) {
+          CATALOGO = data;
+          localStorage.setItem('supricom_catalogo_viewed', Date.now());
+          updateCatDate(actualizado || new Date(ts).toISOString());
+          return;
+        }
+      } catch(e) { localStorage.removeItem('supricom_catalogo'); }
+    }
   }
   try {
     const res = await fetch(SUPRICOM_API_URL, {
@@ -3562,12 +3809,72 @@ async function loadCatalogo() {
     const json = await res.json();
     CATALOGO = json.productos;
     localStorage.setItem('supricom_catalogo', JSON.stringify({ data: CATALOGO, ts: Date.now(), actualizado: json.actualizado }));
+    localStorage.setItem('supricom_catalogo_viewed', Date.now());
     updateCatDate(json.actualizado);
   } catch (e) {
     console.warn('API no disponible, catálogo offline');
     CATALOGO = {};
   }
 }
+
+const REFRESH_HOURS = [8, 11, 14];
+const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+
+function isWorkday() {
+  const now = new Date();
+  const day = now.getDay();
+  const h = now.getHours();
+  return day >= 1 && day <= 5 && h >= 8 && h < 15;
+}
+
+function scheduledCatalogRefresh() {
+  if (!isWorkday()) return;
+  const now = new Date();
+  const currentHour = now.getHours();
+  if (!REFRESH_HOURS.includes(currentHour)) return;
+  const lastKey = 'supricom_last_auto_refresh';
+  const lastRefresh = localStorage.getItem(lastKey);
+  const todayStr = now.toISOString().slice(0, 10);
+  if (lastRefresh === todayStr + '_' + currentHour) return;
+  localStorage.setItem(lastKey, todayStr + '_' + currentHour);
+  localStorage.removeItem('supricom_catalogo');
+  CATALOGO = null;
+  const overlay = document.getElementById('catOverlay');
+  if (overlay && overlay.classList.contains('open')) {
+    const loader = document.getElementById('catLoader');
+    const body = document.getElementById('catBody');
+    if (loader) loader.style.display = 'flex';
+    body.querySelectorAll('.cat-section, .cat-empty').forEach(function(el) { el.remove(); });
+    loadCatalogo(true).then(function() {
+      if (loader) loader.style.display = 'none';
+      populateCatFilters();
+      filterCatalog();
+      showToast('Catálogo actualizado');
+    });
+  } else {
+    showToast('Catálogo actualizado (se aplicará al abrir)');
+  }
+}
+
+async function manualRefreshCatalog() {
+  const btn = document.getElementById('catRefreshBtn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳'; }
+  localStorage.removeItem('supricom_catalogo');
+  CATALOGO = null;
+  const loader = document.getElementById('catLoader');
+  const body = document.getElementById('catBody');
+  if (loader) loader.style.display = 'flex';
+  body.querySelectorAll('.cat-section, .cat-empty').forEach(function(el) { el.remove(); });
+  await loadCatalogo(true);
+  if (loader) loader.style.display = 'none';
+  populateCatFilters();
+  filterCatalog();
+  if (btn) { btn.disabled = false; btn.textContent = '🔄'; }
+  showToast('Catálogo actualizado');
+}
+
+setInterval(scheduledCatalogRefresh, REFRESH_INTERVAL_MS);
+setInterval(updateNextRefreshDisplay, 60000);
 
 </script>
 <script>
@@ -3615,11 +3922,24 @@ function populateCatFilters() {
   bSel.innerHTML = '<option value="">Todas las marcas</option>' + catBrands.map(b => `<option value="${b}">${b}</option>`).join('');
   bSel.value = prevB;
 }
+function toggleCustomStock() {
+  var sel = document.getElementById('catStock');
+  var wrap = document.getElementById('customStockWrap');
+  if (sel.value === 'custom') { wrap.style.display = 'inline-flex'; } else { wrap.style.display = 'none'; }
+  filterCatalog();
+}
+let catSortKey = 'nombre';
+let catSortAsc = true;
+function sortCat(key) {
+  if (catSortKey === key) { catSortAsc = !catSortAsc; } else { catSortKey = key; catSortAsc = true; }
+  filterCatalog();
+}
 function filterCatalog() {
   const data = CATALOGO[catTab] || {};
   const q = document.getElementById('catSearch').value.toLowerCase();
   const catFilter = document.getElementById('catCategory').value;
   const brandFilter = document.getElementById('catBrand').value;
+  const stockFilter = (document.getElementById('catStock') || {}).value || '';
   const body = document.getElementById('catBody');
   let html = '';
   let totalProducts = 0;
@@ -3629,22 +3949,88 @@ function filterCatalog() {
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
     if (brandFilter) items = items.filter(p => p.marca === brandFilter);
+    if (stockFilter === 'available') items = items.filter(p => p.cantidad > 0);
+    else if (stockFilter === 'low') items = items.filter(p => p.cantidad > 0 && p.cantidad < 5);
+    else if (stockFilter === 'out') items = items.filter(p => p.cantidad === 0);
+    else if (stockFilter === 'custom') {
+      var op = (document.getElementById('customStockOp') || {}).value || 'gt';
+      var val = parseInt((document.getElementById('customStockVal') || {}).value || '0', 10);
+      items = items.filter(function(p) {
+        if (op === 'gt') return p.cantidad > val;
+        if (op === 'lt') return p.cantidad < val;
+        if (op === 'gte') return p.cantidad >= val;
+        if (op === 'lte') return p.cantidad <= val;
+        if (op === 'eq') return p.cantidad === val;
+        return true;
+      });
+    }
+    // Sort
+    items.sort((a, b) => {
+      let va = a[catSortKey], vb = b[catSortKey];
+      if (typeof va === 'number') return catSortAsc ? va - vb : vb - va;
+      return catSortAsc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
     if (items.length === 0) return;
     totalProducts += items.length;
     const catQty = items.reduce((s, p) => s + p.cantidad, 0);
     totalQty += catQty;
+    const arrows = function(key) { return catSortKey === key ? (catSortAsc ? ' ▲' : ' ▼') : ' ▾'; };
     html += `<div class="cat-section">`;
     html += `<div class="cat-section-title">${cat} <span style="font-weight:400;font-size:12px;color:var(--text-light);margin-left:8px">${items.length} productos · ${catQty.toLocaleString()} uds</span></div>`;
-    html += `<table class="cat-table"><thead><tr><th>SKU</th><th>Producto</th><th>Marca</th><th style="text-align:right">Cant.</th><th style="text-align:right">Precio ($)</th></tr></thead><tbody>`;
-    items.sort((a, b) => a.nombre.localeCompare(b.nombre)).forEach(p => {
+    html += `<table class="cat-table"><thead><tr>` +
+      `<th onclick="sortCat('sku')" class="${catSortKey==='sku'?'sorted':''}">SKU <span class="sort-arrow">${arrows('sku')}</span></th>` +
+      `<th onclick="sortCat('nombre')" class="${catSortKey==='nombre'?'sorted':''}">Producto <span class="sort-arrow">${arrows('nombre')}</span></th>` +
+      `<th onclick="sortCat('marca')" class="${catSortKey==='marca'?'sorted':''}">Marca <span class="sort-arrow">${arrows('marca')}</span></th>` +
+      `<th onclick="sortCat('cantidad')" class="${catSortKey==='cantidad'?'sorted':''}" style="text-align:right">Cant. <span class="sort-arrow">${arrows('cantidad')}</span></th>` +
+      `<th onclick="sortCat('precio')" class="${catSortKey==='precio'?'sorted':''}" style="text-align:right">Precio ($) <span class="sort-arrow">${arrows('precio')}</span></th>` +
+      `<th style="width:30px"></th></tr></thead><tbody>`;
+    items.forEach(p => {
       const qtyClass = p.cantidad < 5 ? 'low' : 'ok';
-      html += `<tr><td class="sku">${p.sku}</td><td>${p.nombre}</td><td>${p.marca}</td><td class="qty ${qtyClass}" style="text-align:right">${p.cantidad.toLocaleString()}</td><td class="price" style="text-align:right">$${p.precio.toFixed(2)}</td></tr>`;
+      html += `<tr><td class="sku">${p.sku}</td><td>${p.nombre}</td><td>${p.marca}</td><td class="qty ${qtyClass}" style="text-align:right">${p.cantidad.toLocaleString()}</td><td class="price" style="text-align:right">$${p.precio.toFixed(2)}</td><td><button class="cat-copy-sku" onclick="copyCatRow(this,'${p.sku} ${p.nombre.replace(/'/g,"\\'")}')" title="Copiar">📋</button></td></tr>`;
     });
     html += `</tbody></table></div>`;
   });
   if (!html) html = '<div class="cat-empty">No se encontraron productos con esos filtros.</div>';
   body.innerHTML = html;
   document.getElementById('catCount').textContent = `${totalProducts} productos · ${totalQty.toLocaleString()} unidades`;
+}
+
+function copyCatRow(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.classList.add('copied');
+    btn.textContent = '✓';
+    setTimeout(function() { btn.classList.remove('copied'); btn.textContent = '📋'; }, 1500);
+  });
+}
+
+function resetCatFilters() {
+  document.getElementById('catSearch').value = '';
+  document.getElementById('catCategory').value = '';
+  document.getElementById('catBrand').value = '';
+  var stockEl = document.getElementById('catStock');
+  if (stockEl) stockEl.value = '';
+  var wrap = document.getElementById('customStockWrap');
+  if (wrap) wrap.style.display = 'none';
+  var opEl = document.getElementById('customStockOp');
+  var valEl = document.getElementById('customStockVal');
+  if (opEl) opEl.value = 'gt';
+  if (valEl) valEl.value = '0';
+  catSortKey = 'nombre'; catSortAsc = true;
+  filterCatalog();
+}
+
+// ─── RESET MONTH FILTERS ───
+function resetMonthFilters() {
+  var pillarEl = document.getElementById('filterPillar');
+  var searchEl = document.getElementById('filterSearch-2026-08');
+  if (pillarEl) pillarEl.value = '';
+  if (searchEl) searchEl.value = '';
+  document.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); });
+  var allBtn = document.querySelector('.month-content:not(.hidden) [data-filter="all"]');
+  if (allBtn) allBtn.classList.add('active');
+  applyEnhancedFilters();
+  localStorage.removeItem('supricom-filters');
+  showToast('Filtros limpiados');
 }
 
 function exportCatalogCSV() {
@@ -3661,6 +4047,22 @@ function exportCatalogCSV() {
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
     if (brandFilter) items = items.filter(p => p.marca === brandFilter);
+    const stockFilter = (document.getElementById('catStock') || {}).value || '';
+    if (stockFilter === 'available') items = items.filter(p => p.cantidad > 0);
+    else if (stockFilter === 'low') items = items.filter(p => p.cantidad > 0 && p.cantidad < 5);
+    else if (stockFilter === 'out') items = items.filter(p => p.cantidad === 0);
+    else if (stockFilter === 'custom') {
+      var op = (document.getElementById('customStockOp') || {}).value || 'gt';
+      var val = parseInt((document.getElementById('customStockVal') || {}).value || '0', 10);
+      items = items.filter(function(p) {
+        if (op === 'gt') return p.cantidad > val;
+        if (op === 'lt') return p.cantidad < val;
+        if (op === 'gte') return p.cantidad >= val;
+        if (op === 'lte') return p.cantidad <= val;
+        if (op === 'eq') return p.cantidad === val;
+        return true;
+      });
+    }
     if (items.length === 0) return;
     const rows = items.sort((a, b) => a.nombre.localeCompare(b.nombre)).map(p => ({
       'SKU': p.sku,
@@ -3744,6 +4146,27 @@ function exportCatalogCSV() {
     }
   });
 })();
+
+// ─── MARK CURRENT WEEK ───
+function markCurrentWeek() {
+  var now = new Date();
+  var today = now.getDate();
+  document.querySelectorAll('.week-card').forEach(function(card) {
+    card.classList.remove('week-current');
+  });
+  document.querySelectorAll('.month-cell.today').forEach(function(cell) {
+    var weekRow = cell.closest('.week-row');
+    if (weekRow) {
+      var wkCard = weekRow.querySelector('.week-card');
+      if (wkCard) wkCard.classList.add('week-current');
+    }
+  });
+}
+
+// ─── INIT ON LOAD ───
+document.addEventListener('DOMContentLoaded', function() {
+  markCurrentWeek();
+});
 
 </script>
 
