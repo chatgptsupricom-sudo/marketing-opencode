@@ -2825,11 +2825,27 @@ function copyEmail(btn) {
   if (!card) return;
   var subj = card.querySelector('.subj');
   var msg = card.querySelector('.msg');
-  var text = '';
-  if (subj) text += 'ASUNTO: ' + subj.textContent.trim() + '\n\n';
-  if (msg) text += msg.textContent.trim();
-  text = text.replace(/\n{3,}/g, '\n\n');
-  navigator.clipboard.writeText(text).then(function() {
+  if (!subj && !msg) return;
+  // Build rich text with bold keywords preserved
+  var html = '';
+  var plain = '';
+  if (subj) {
+    var subjHtml = subj.innerHTML.replace(/^✉️\s*/, '');
+    var subjText = subj.textContent.replace(/^✉️\s*/, '').trim();
+    html += '<strong>ASUNTO: ' + subjHtml + '</strong><br><br>';
+    plain += 'ASUNTO: ' + subjText + '\n\n';
+  }
+  if (msg) {
+    html += msg.innerHTML.trim();
+    plain += msg.textContent.trim();
+  }
+  html = html.replace(/\n{3,}/g, '\n\n');
+  plain = plain.replace(/\n{3,}/g, '\n\n');
+  // Copy as rich text (preserves bold) with plain text fallback
+  var blob = new Blob([html], { type: 'text/html' });
+  var textBlob = new Blob([plain], { type: 'text/plain' });
+  var item = new ClipboardItem({ 'text/html': blob, 'text/plain': textBlob });
+  navigator.clipboard.write([item]).then(function() {
     btn.classList.add('copied');
     btn.innerHTML = '✓ Copiado';
     setTimeout(function() { btn.classList.remove('copied'); btn.innerHTML = '📋 Copiar'; }, 2000);
