@@ -4005,7 +4005,8 @@ function filterCatalog() {
       `<th style="width:30px"></th></tr></thead><tbody>`;
     items.forEach(p => {
       const qtyClass = p.cantidad < 5 ? 'low' : 'ok';
-      html += `<tr><td class="sku">${p.sku}</td><td>${p.nombre}</td><td>${p.marca}</td><td class="qty ${qtyClass}" style="text-align:right">${p.cantidad.toLocaleString()}</td><td class="price" style="text-align:right">$${p.precio.toFixed(2)}</td><td><button class="cat-copy-sku" onclick="copyCatRow(this,'${p.sku} ${p.nombre.replace(/'/g,"\\'")}')" title="Copiar">📋</button></td></tr>`;
+      const copyText = p.sku + ' ' + p.nombre;
+      html += `<tr><td class="sku">${p.sku}</td><td>${p.nombre}</td><td>${p.marca}</td><td class="qty ${qtyClass}" style="text-align:right">${p.cantidad.toLocaleString()}</td><td class="price" style="text-align:right">$${p.precio.toFixed(2)}</td><td><button class="cat-copy-sku" data-copy="${copyText.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}" onclick="copyCatRow(this)" title="Copiar">📋</button></td></tr>`;
     });
     html += `</tbody></table></div>`;
   });
@@ -4014,7 +4015,9 @@ function filterCatalog() {
   document.getElementById('catCount').textContent = `${totalProducts} productos · ${totalQty.toLocaleString()} unidades`;
 }
 
-function copyCatRow(btn, text) {
+function copyCatRow(btn) {
+  const text = btn.getAttribute('data-copy');
+  if (!text) return;
   navigator.clipboard.writeText(text).then(function() {
     btn.classList.add('copied');
     btn.textContent = '✓';
