@@ -3822,7 +3822,17 @@ async function loadCatalogo(force) {
     updateCatDate(json.actualizado);
   } catch (e) {
     console.warn('API no disponible, catálogo offline');
-    CATALOGO = {};
+    const expiredCache = localStorage.getItem('supricom_catalogo');
+    if (expiredCache) {
+      try {
+        const { data, actualizado } = JSON.parse(expiredCache);
+        CATALOGO = data;
+        updateCatDate(actualizado);
+        showToast('Catálogo offline, mostrando datos guardados');
+      } catch(e2) { CATALOGO = {}; }
+    } else {
+      CATALOGO = {};
+    }
   }
 }
 
