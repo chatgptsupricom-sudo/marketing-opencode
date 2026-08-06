@@ -19,12 +19,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Clean unnecessary files
+        run: |
+          rm -rf .git
+          rm -rf api
+          rm -rf _scripts
+          rm -rf _content
+          rm -rf _catalogs
+          rm -rf _prospecting
+          rm -rf _campaigns
+          rm -rf .opencode
+          rm -f AGENTS.md
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
   deploy:
     environment:
       name: github-pages
