@@ -3555,6 +3555,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updateDesignKPI();
   // Dynamic week badges + highlight current week + today pieces
   var now = new Date();
+  var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   document.querySelectorAll('.week-card').forEach(function(wc) {
     var h2 = wc.querySelector('h2');
     if (!h2) return;
@@ -3563,8 +3564,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var badge = wc.querySelector('.week-badge');
     if (!badge) return;
     badge.classList.remove('current');
-    if (now >= dates.start && now <= dates.end) { badge.classList.add('current'); badge.textContent = 'EN CURSO'; }
-    else if (now > dates.end) { badge.textContent = 'Completado'; }
+    if (todayMidnight >= dates.start && todayMidnight <= dates.end) { badge.classList.add('current'); badge.textContent = 'EN CURSO'; }
+    else if (todayMidnight > dates.end) { badge.textContent = 'Completado'; }
     else { badge.textContent = 'Pendiente'; }
   });
   markCurrentWeek();
@@ -4446,13 +4447,14 @@ function parseWeekDates(h2Text) {
 
 function markCurrentWeek() {
   var now = new Date();
+  var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   document.querySelectorAll('.week-card').forEach(function(card) {
     card.classList.remove('week-current');
     var h2 = card.querySelector('h2');
     if (!h2) return;
     var dates = parseWeekDates(h2.textContent);
     if (!dates) return;
-    if (now >= dates.start && now <= dates.end) card.classList.add('week-current');
+    if (todayMidnight >= dates.start && todayMidnight <= dates.end) card.classList.add('week-current');
   });
   // Calendar view: keep .today on cells
   document.querySelectorAll('.month-cell.today').forEach(function(cell) {
