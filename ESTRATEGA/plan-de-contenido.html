@@ -276,6 +276,7 @@
     .week-card .week-top h2 { font-size: 16px; }
     .cal-col { min-height: auto; padding: 10px; }
     .piece:hover { transform: none; }
+    .email-card:hover { transform: none; }
     .modal-slide .slide-title { font-size: 20px; }
     .ms-kpi-row { grid-template-columns: repeat(2, 1fr); }
   }
@@ -445,6 +446,14 @@
   .em-btn { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--text); transition: all .15s; }
   .em-btn:hover { border-color: var(--primary-light); color: var(--primary); }
   .em-btn.copied { background: var(--success); color: #fff; border-color: var(--success); }
+  .email-card { transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer; }
+  .email-card:hover { border-color: var(--primary-light); box-shadow: 0 8px 24px rgba(7,145,244,.15); transform: perspective(800px) rotateX(2deg) translateY(-3px); }
+  .email-card:active { transform: perspective(800px) rotateX(1deg) translateY(-1px); }
+  .email-card .ec-body { padding: 10px 16px; }
+  .email-card .ec-body .subj { margin-bottom: 8px; }
+  .email-card .ec-head .ec-actions { margin: 0; padding: 0; border: none; gap: 4px; }
+  .email-card .ec-actions .em-btn { padding: 4px 8px; font-size: 14px; border: none; background: transparent; }
+  .email-card .ec-actions .em-btn:hover { color: var(--primary-light); }
   [data-theme="dark"] .em-delay-box { background: #1C2128 !important; border-color: #30363D !important; }
   [data-theme="dark"] .em-week-head { background: #161B22 !important; border-color: #30363D !important; }
   [data-theme="dark"] .em-btn { background: #1C2128 !important; border-color: #30363D !important; color: var(--text) !important; }
@@ -2271,8 +2280,14 @@
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card">
-      <div class="ec-head"><span>Lun 10 · Routers</span></div>
+    <div class="email-card" data-aug="AUG2" data-email="1" onclick="openCopyModal('AUG2',event)">
+      <div class="ec-head">
+        <span>Lun 10 · Routers</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(1)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">El <strong>error</strong> que comete tu <strong>tienda</strong> al vender <strong>WiFi</strong></div>
         <div class="msg">Tu cliente entra y pregunta por un <strong>router</strong>. Tú le ofreces el primero que tienes en <strong>vitrina</strong>. Pero ese router no es el correcto para él.
@@ -2285,14 +2300,16 @@ En <strong>SUPRICOM</strong> tenemos routers de <strong>HIKVISION</strong>, <str
 
 Escríbenos y te asesoramos. Así no pierdes la venta ni al cliente.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(1)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mar 11 · Consumibles HP</span></div>
+    <div class="email-card" data-aug="AUG4" data-email="2" onclick="openCopyModal('AUG4',event)">
+      <div class="ec-head">
+        <span>Mar 11 · Consumibles HP</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(2)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Vendes <strong>impresoras</strong> pero olvidas el producto que más se repite</div>
         <div class="msg">Tu cliente compra una <strong>impresora</strong>. Le das la impresora, cobra, y se va. Listo. Venta cerrada.
@@ -2305,14 +2322,16 @@ Tenemos tintas <strong>GT52</strong> y <strong>GT53</strong> para impresoras de 
 
 No dejes que tu cliente compre sus consumibles en otro lado. Pregunta por el portafolio de consumibles <strong>HP</strong>.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(2)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mié 12 · Logitech</span></div>
+    <div class="email-card" data-aug="AUG6" data-email="3" onclick="openCopyModal('AUG6',event)">
+      <div class="ec-head">
+        <span>Mié 12 · Logitech</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(3)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Cómo vender dos <strong>productos</strong> en una sola venta</div>
         <div class="msg">Vender un <strong>mouse</strong> está bien. Vender un mouse con un <strong>teclado</strong> está mejor. Es el mismo cliente, la misma necesidad, pero el ticket sube.
@@ -2327,14 +2346,16 @@ Combo gaming: <strong>G203</strong> con <strong>G213</strong> o <strong>G335</st
 
 No es cuestión de vender más. Es cuestión de vender mejor. Arma la venta completa. Logitech tiene las piezas.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(3)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Jue 13 · HIKVISION</span></div>
+    <div class="email-card" data-aug="AUG8" data-email="4" onclick="openCopyModal('AUG8',event)">
+      <div class="ec-head">
+        <span>Jue 13 · HIKVISION</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(4)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Lo primero que tu <strong>cliente</strong> pregunta y tú no tienes</div>
         <div class="msg">El <strong>router</strong> es el artículo que nunca debe faltar en tu <strong>vitrina</strong>. Es lo primero que tu cliente pregunta cuando necesita conectar su negocio. Y si no lo tienes, ya perdiste la venta antes de empezar.
@@ -2351,14 +2372,16 @@ El <strong>DS-3WR18X AX1800</strong>: WiFi 6 de alto rendimiento. Para quien no 
 
 Tres modelos. Tres clientes. Un solo mayorista. Asegúrate de tenerlos en tu vitrina.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(4)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Vie 14 · TARGUS</span></div>
+    <div class="email-card" data-aug="AUG9" data-email="5" onclick="openCopyModal('AUG9',event)">
+      <div class="ec-head">
+        <span>Vie 14 · TARGUS</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(5)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Vendes <strong>laptops</strong> pero estás dejando dinero en la mesa</div>
         <div class="msg">Vendes laptops todos los días. Sabes cuál es mejor para cada cliente. Conoces las marcas, los precios, los márgenes. Pero hay algo que no estás haciendo.
@@ -2372,10 +2395,6 @@ Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera compr
 <strong>Bolso Targus</strong> para proteger la inversión. Mouse para trabajar de inmediato. Cargador para tener respaldo. Cada complemento sube tu ticket. Y el cliente se lleva todo contigo.
 
 <strong>Targus</strong> tiene el portafolio completo. Bolsos para cada tamaño de laptop. Mouse inalámbricos. Cargadores universales. Nosotros lo tenemos listo. Tú solo tienes que preguntar.</div>
-      </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(5)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
       </div>
     </div>
 
@@ -2393,8 +2412,14 @@ Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera compr
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card">
-      <div class="ec-head"><span>Lun 17 · BLUETTI</span></div>
+    <div class="email-card" data-aug="AUG12" data-email="6" onclick="openCopyModal('AUG12',event)">
+      <div class="ec-head">
+        <span>Lun 17 · BLUETTI</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(6)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Cuando se va la luz, tu <strong>cliente</strong> pierde dinero. Tú puedes evitarlo.</div>
         <div class="msg">Todo tiendero en <strong>Venezuela</strong> conoce el problema. Se va la luz. El negocio se para. El cliente no puede trabajar. Las ventas se pierden. Y no hay nada que hacer.
@@ -2409,14 +2434,16 @@ Tenemos ocho modelos. Desde la <strong>AC50P</strong> compacta para uso personal
 
 Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>. Pregunta por el modelo ideal para tu cliente.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(6)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mar 18 · Routers</span></div>
+    <div class="email-card" data-aug="AUG14" data-email="7" onclick="openCopyModal('AUG14',event)">
+      <div class="ec-head">
+        <span>Mar 18 · Routers</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(7)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tu cliente te dice "necesito <strong>WiFi</strong>" y tú no sabes qué ofrecerle</div>
         <div class="msg">Es la pregunta más común. "Necesito un <strong>router</strong>." Pero detrás de esa pregunta hay tres respuestas diferentes. Y si no sabes cuál es la correcta, pierdes la venta.
@@ -2429,14 +2456,16 @@ La tercera: <strong>WiFi 6</strong>. Para negocios con muchos dispositivos conec
 
 Si no le ofreces la solución correcta, él busca en otro lado. Y cuando la encuentre, no vuelve contigo. Te ayudamos a recomendar bien.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(7)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mié 19 · TARGUS</span></div>
+    <div class="email-card" data-aug="AUG16" data-email="8" onclick="openCopyModal('AUG16',event)">
+      <div class="ec-head">
+        <span>Mié 19 · TARGUS</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(8)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">No todos los <strong>clientes</strong> necesitan el mismo <strong>bolso</strong></div>
         <div class="msg">Le ofreces el mismo bolso a todo el mundo. Al ejecutivo, al estudiante, al que viaja. Pero no es lo mismo.
@@ -2451,14 +2480,16 @@ Si le ofreces el mismo bolso a todos, estás perdiendo ventas. Porque el ejecuti
 
 <strong>Targus</strong> tiene bolsos para cada perfil. Tú solo tienes que saber cuál le ofreces a cada uno.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(8)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Jue 20 · Mini PC MSI</span></div>
+    <div class="email-card" data-aug="AUG18" data-email="9" onclick="openCopyModal('AUG18',event)">
+      <div class="ec-head">
+        <span>Jue 20 · Mini PC MSI</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(9)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tu cliente busca algo pequeño. Tú no lo tienes.</div>
         <div class="msg">"Busco algo más compacto para la oficina." Tu cliente dice eso frecuentemente. Quiere una computadora que ocupe poco espacio. Que sea potente. Que no ocupe todo el escritorio.
@@ -2473,14 +2504,16 @@ Ocupa poco espacio. Rinde como un escritorio. Se adapta a lo que tu cliente hace
 
 Stock de Mini PC MSI disponible. Pregunta por el modelo ideal.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(9)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Vie 21 · Laptops</span></div>
+    <div class="email-card" data-aug="AUG20" data-email="10" onclick="openCopyModal('AUG20',event)">
+      <div class="ec-head">
+        <span>Vie 21 · Laptops</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(10)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">La venta que siempre cierra (si sabes completarla)</div>
         <div class="msg">Tu cliente compra una <strong>laptop</strong>. Listo. Pero la venta no termina ahí. Porque esa laptop necesita protección y el cliente lo sabe.
@@ -2492,10 +2525,6 @@ Es el <strong>combo</strong> que siempre cierra. Laptop más bolso <strong>Targu
 Bolso Targus <strong>OCTAVE III</strong> para cada tamaño de laptop. Mouse Logitech <strong>M170</strong> o <strong>M240</strong> para cada presupuesto. Todo en <strong>SUPRICOM</strong>. Solo tienes que armar la venta.
 
 No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es sentido común. Y sentido común se traduce en ganancia.</div>
-      </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(10)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
       </div>
     </div>
 
@@ -2513,8 +2542,14 @@ No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card">
-      <div class="ec-head"><span>Lun 24 · Consumibles HP</span></div>
+    <div class="email-card" data-aug="AUG22" data-email="11" onclick="openCopyModal('AUG22',event)">
+      <div class="ec-head">
+        <span>Lun 24 · Consumibles HP</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(11)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tu <strong>cliente</strong> va a comprar esto. ¿Se lo estás vendiendo?</div>
         <div class="msg">Cada <strong>impresora</strong> necesita <strong>consumibles</strong>. No es opcional. Es inevitable. La tinta se acaba. El cartucho se agota. El tóner se termina.
@@ -2529,14 +2564,16 @@ Es <strong>venta recurrente</strong>. Un cliente que compra consumibles hoy va a
 
 No esperes a que pregunte en otro lado. Ofrecerle los consumibles ahora.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(11)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mar 25 · BLUETTI</span></div>
+    <div class="email-card" data-aug="AUG24" data-email="12" onclick="openCopyModal('AUG24',event)">
+      <div class="ec-head">
+        <span>Mar 25 · BLUETTI</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(12)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj"><strong>BLUETTI</strong> no es lo que tú crees</div>
         <div class="msg">La mayoría piensa que BLUETTI es una batería grande. Pero no lo es.
@@ -2551,14 +2588,16 @@ Funciona sin ruido. Puedes usarla en una reunión y nadie se da cuenta. Sin humo
 
 En <strong>SUPRICOM</strong> tenemos ocho modelos. Desde la compacta <strong>AC50P</strong> hasta la potente <strong>Apex 300</strong>. Cada perfil de cliente tiene su BLUETTI. Y está disponible en ambas sedes.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(12)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mié 26 · Consumibles HP</span></div>
+    <div class="email-card" data-aug="AUG26" data-email="13" onclick="openCopyModal('AUG26',event)">
+      <div class="ec-head">
+        <span>Mié 26 · Consumibles HP</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(13)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">El <strong>error</strong> que te cuesta <strong>clientes</strong></div>
         <div class="msg">Confundir el <strong>consumible</strong> es el error más común en ventas de <strong>impresoras</strong>. Y el más costoso.
@@ -2573,14 +2612,16 @@ Impresoras láser usan <strong>tóner</strong>: <strong>105A</strong>, <strong>2
 
 Tres tipos. Tres impresoras. Tres consumibles diferentes. Si no sabes cuál va en cada una, pierdes la venta y la confianza del cliente. Te ayudamos a identificar cuál es el correcto.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(13)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Jue 27 · TARGUS</span></div>
+    <div class="email-card" data-aug="AUG28" data-email="14" onclick="openCopyModal('AUG28',event)">
+      <div class="ec-head">
+        <span>Jue 27 · TARGUS</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(14)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">La venta que siempre olvidas completar</div>
         <div class="msg">Tu cliente compra una <strong>laptop</strong>. La revisa, la elige, paga. Pero la venta no termina ahí. Porque esa laptop necesita un <strong>bolso</strong>.
@@ -2595,14 +2636,16 @@ Cada laptop tiene su bolso. Cada cliente tiene su perfil. Tú solo tienes que ha
 
 En <strong>SUPRICOM</strong> los tenemos listos. Solo tienes que preguntar.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(14)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Vie 28 · LOGITECH</span></div>
+    <div class="email-card" data-aug="AUG30" data-email="15" onclick="openCopyModal('AUG30',event)">
+      <div class="ec-head">
+        <span>Vie 28 · LOGITECH</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(15)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Hay un <strong>cliente</strong> que nadie atiende. Y tiene dinero para gastar.</div>
         <div class="msg">El <strong>Lift Vertical</strong> de <strong>Logitech</strong> no es un mouse cualquiera. Es un mouse ergonómico diseñado para evitar lesiones en la muñeca y el antebrazo. Pero eso no es lo que lo hace especial.
@@ -2614,10 +2657,6 @@ El 10% de la población es zurdo. Y casi ninguna tienda tiene mouse para zurdos.
 Si tienes clientes zurdos y no les ofreces el Lift Vertical, van a otro lado. No porque quieran. Sino porque tú no lo tienes.
 
 Logitech <strong>Lift Vertical</strong> para zurdos. Stock disponible en <strong>SUPRICOM</strong>. Es una venta que nadie más te está haciendo. No dejes pasar esta oportunidad.</div>
-      </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(15)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
       </div>
     </div>
 
@@ -2635,8 +2674,14 @@ Logitech <strong>Lift Vertical</strong> para zurdos. Stock disponible en <strong
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card">
-      <div class="ec-head"><span>Lun 3 Sept · HIKVISION</span></div>
+    <div class="email-card" data-aug="AUG32" data-email="16" onclick="openCopyModal('AUG32',event)">
+      <div class="ec-head">
+        <span>Lun 3 Sept · HIKVISION</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(16)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Este <strong>router</strong> se vende solo. ¿Lo tienes en tu vitrina?</div>
         <div class="msg">El <strong>DS-3WR15X AX1500</strong> de <strong>HIKVISION</strong> es el router que más rota en <strong>SUPRICOM</strong>. No es el más barato. No es el más caro. Es el que mejor equilibrio tiene entre precio y rendimiento.
@@ -2649,14 +2694,16 @@ Y lo más importante: tú ganas bien con cada venta. El margen es bueno. La rota
 
 Es el router que debería estar en toda vitrina. Si no lo tienes, estás perdiendo ventas que están sobre la mesa.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(16)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mar 4 Sept · BLUETTI</span></div>
+    <div class="email-card" data-aug="AUG34" data-email="17" onclick="openCopyModal('AUG34',event)">
+      <div class="ec-head">
+        <span>Mar 4 Sept · BLUETTI</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(17)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Cada corte de electricidad es un <strong>cliente</strong> que busca solución</div>
         <div class="msg">Piensa en cada corte de electricidad que ocurre en tu ciudad. Cada uno. Son cientos al mes. Miles al año.
@@ -2671,14 +2718,16 @@ Si tú lo tienes, eres el primero que tu cliente piensa cuando se va la luz. No 
 
 Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>. Pregunta por el portafolio completo.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(17)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Mié 5 Sept · HIKVISION</span></div>
+    <div class="email-card" data-aug="AUG36" data-email="18" onclick="openCopyModal('AUG36',event)">
+      <div class="ec-head">
+        <span>Mié 5 Sept · HIKVISION</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(18)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tres <strong>routers</strong>. Tres clientes. Un solo lugar.</div>
         <div class="msg">No todos los clientes necesitan lo mismo. Un estudiante no necesita lo mismo que una oficina. Una oficina no necesita lo mismo que un negocio grande.
@@ -2693,14 +2742,16 @@ El <strong>DS-3WR18X AX1800</strong>: WiFi 6 de alto rendimiento. Para quien no 
 
 Tres modelos. Tres clientes diferentes. Un solo mayorista. No necesitas ir a tres lugares. En <strong>SUPRICOM</strong> los tenemos todos.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(18)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Jue 6 Sept · TARGUS</span></div>
+    <div class="email-card" data-aug="AUG38" data-email="19" onclick="openCopyModal('AUG38',event)">
+      <div class="ec-head">
+        <span>Jue 6 Sept · TARGUS</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(19)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">El <strong>combo</strong> que nunca falla</div>
         <div class="msg">Hay ventas que siempre se repiten. Y esta es una de ellas.
@@ -2715,14 +2766,16 @@ Cada laptop tiene su bolso. Cada cliente tiene su perfil. Solo tienes que hacer 
 
 En <strong>SUPRICOM</strong> los tenemos listos. Arma el combo y cierra la venta.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(19)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Vie 7 Sept · LOGITECH</span></div>
+    <div class="email-card" data-aug="AUG40" data-email="20" onclick="openCopyModal('AUG40',event)">
+      <div class="ec-head">
+        <span>Vie 7 Sept · LOGITECH</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(20)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tu cliente entra y pide una <strong>marca</strong>. No un producto.</div>
         <div class="msg">Tu cliente entra a tu tienda y dice: "¿Tienen <strong>Logitech</strong>?" No dice "¿Tienen mouse?" No dice "¿Tienen teclado?" Dice Logitech.
@@ -2737,14 +2790,16 @@ Todo en <strong>SUPRICOM</strong>. Todo con stock. Todo listo para que tu client
 
 No dejes que tu cliente pregunte por Logitech y no lo tengas.</div>
       </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(20)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
-      </div>
     </div>
 
-    <div class="email-card">
-      <div class="ec-head"><span>Lun 10 Sept · Laptops</span></div>
+    <div class="email-card" data-aug="AUG42" data-email="21" onclick="openCopyModal('AUG42',event)">
+      <div class="ec-head">
+        <span>Lun 10 Sept · Laptops</span>
+        <div class="ec-actions">
+          <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(21)" title="Drive del email">📁</button>
+          <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
+        </div>
+      </div>
       <div class="ec-body">
         <div class="subj">Tu <strong>competencia</strong> se la está vendiendo. ¿Y tú?</div>
         <div class="msg">Tu cliente va a necesitar una <strong>laptop</strong>. Eso es seguro. No importa si es estudiante, profesional o empresario. Todos necesitan una.
@@ -2756,10 +2811,6 @@ Tenemos las cinco marcas principales con stock listo para entregar. <strong>ACER
 Cada marca tiene su perfil. Cada perfil tiene su cliente. Y cada cliente está buscando ahora mismo.
 
 No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina.</div>
-      </div>
-      <div class="ec-actions">
-        <button class="em-btn" onclick="openEmailDrive(21)">📁 Drive</button>
-        <button class="em-btn" onclick="copyEmail(this)">📋 Copiar</button>
       </div>
     </div>
 
