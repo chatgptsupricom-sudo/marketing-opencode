@@ -12,19 +12,25 @@
     --gradient-hero: linear-gradient(135deg, #015CDE 0%, #068AF1 100%);
     --gradient-section: linear-gradient(135deg, #C8C8C8 0%, #F8F9F9 100%);
     --text: #1A1A2E;
-    --text-light: #666;
+    --text-light: #595959;
     --white: #FFFFFF;
     --success: #00CC88;
     --border: #E0E0E8;
     --card-shadow: 0 1px 6px rgba(0,0,0,.06);
+    --card: #FFFFFF;
     --hero-badge: rgba(255,255,255,.15);
     --nav-hover: rgba(255,255,255,.12);
+    --c-showcase: #0056DB; --c-diagnostico: #E53935; --c-comparativa: #8E24AA;
+    --c-perfil: #00897B; --c-solucion: #43A047; --c-guia: #FB8C00;
+    --c-tendencia: #5C6BC0; --c-inversion: #F4511E; --c-educativo: #00ACC1; --c-explicativo: #00838f;
+    --c-ecosistema: #7CB342; --c-vision: #AB47BC; --c-error: #D81B60;
+    --c-sinergia: #26A69A; --c-cierre: #546E7A; --c-alternativa: #FFA726;
   }
   [data-theme="dark"] {
-    --primary: #0A3D91;
+    --primary: #1565C0;
     --primary-light: #58A6FF;
     --bg: #0D1117;
-    --gradient-hero: linear-gradient(135deg, #0A3D91 0%, #0D1117 100%);
+    --gradient-hero: linear-gradient(135deg, #1565C0 0%, #0D1117 100%);
     --gradient-section: linear-gradient(135deg, #161B22 0%, #0D1117 100%);
     --text: #E6EDF3;
     --text-light: #8B949E;
@@ -32,6 +38,7 @@
     --success: #3FB950;
     --border: #30363D;
     --card-shadow: 0 1px 6px rgba(0,0,0,.4);
+    --card: #161B22;
     --hero-badge: rgba(255,255,255,.08);
     --nav-hover: rgba(255,255,255,.08);
   }
@@ -89,6 +96,7 @@
     background: none; border: 1px solid rgba(255,255,255,.25); color: white;
     cursor: pointer; font-size: 16px; padding: 4px 10px; border-radius: 6px;
     margin-left: 8px; line-height: 1; transition: all .2s;
+    min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center;
   }
   .theme-toggle:hover { background: rgba(255,255,255,.12); }
 
@@ -192,7 +200,6 @@
     padding: 2px 10px; border-radius: 8px; color: white; letter-spacing: .3px;
     margin-bottom: 4px;
   }
-  .piece .fmt.carrusel { background: #1565c0; }
   .piece .fmt.hp { background: #42a5f5; }
   .piece .fmt.post { background: #e65100; }
   .piece .fmt.vs1 { background: #7b1fa2; }
@@ -209,6 +216,15 @@
     display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
   .piece.expanded .topic { display: block; }
+  .piece .quick-copy {
+    position: absolute; bottom: 6px; right: 6px;
+    background: var(--white); border: 1px solid var(--border); border-radius: 6px;
+    padding: 2px 6px; font-size: 11px; cursor: pointer; opacity: 0; transition: opacity .2s;
+    z-index: 2; min-height: 32px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .piece:hover .quick-copy { opacity: 1; }
+  .piece .quick-copy:hover { border-color: var(--primary-light); color: var(--primary); }
+  .piece .quick-copy.copied { background: var(--success); color: #fff; border-color: var(--success); opacity: 1; }
   .piece .brands { font-size: 12px; color: var(--text-light); margin-top: 3px; }
 
   .piece .ve-badge {
@@ -218,11 +234,13 @@
   }
 
   /* ─── PRODUCT DROPDOWN ─── */
-  .piece .prods { margin-top: 6px; }
+  .piece .prods { margin-top: 6px; background: #f8faff; border-radius: 0 0 8px 8px; padding: 8px; }
+  .piece .prods[open] { padding-bottom: 10px; }
   .piece .prods summary {
-    cursor: pointer; font-size: 11px; font-weight: 600; color: var(--primary-light);
+    cursor: pointer; font-size: 12px; font-weight: 600; color: var(--primary);
     padding: 2px 0; user-select: none;
   }
+  .piece .prods summary:hover { opacity: .7; }
   .piece .prods summary::-webkit-details-marker { color: var(--primary-light); }
   .piece .prods .pl {
     margin-top: 4px; display: flex; flex-direction: column; gap: 2px;
@@ -233,13 +251,9 @@
   }
   .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 11px; }
   .piece .prods .pl .pi .sto { display: none; }
-  .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; }
+  .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; min-height: 32px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center; }
   .copy-prod-btn:hover { opacity: 1; }
   .copy-prod-btn.copied { opacity: 1; }
-  .piece .prods { background: #f8faff; border-radius: 0 0 8px 8px; padding: 8px; }
-  .piece .prods[open] { padding-bottom: 10px; }
-  .piece .prods summary { cursor: pointer; font-weight: 600; font-size: 12px; padding: 2px 0; color: var(--primary); user-select: none; }
-  .piece .prods summary:hover { opacity: .7; }
 
   /* ─── FOOTER ─── */
   footer {
@@ -258,7 +272,7 @@
     font-size: 11px; padding: 4px 12px; border-radius: 14px;
     border: 1px solid var(--border); background: var(--white);
     cursor: pointer; transition: all .2s; color: var(--text-light);
-    user-select: none;
+    user-select: none; min-height: 36px; display: inline-flex; align-items: center;
   }
   .filter-bar .fil:hover { border-color: var(--primary-light); color: var(--primary); }
   .filter-bar .fil.active { background: var(--primary-light); color: white; border-color: var(--primary-light); }
@@ -290,6 +304,26 @@
     }
     .animate-in { opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
+  }
+
+  /* ─── TOUCH DEVICES: show quick-copy always ─── */
+  @media (hover: none) and (pointer: coarse) {
+    .piece .quick-copy { opacity: 0.4 !important; }
+    .piece:hover .quick-copy { opacity: 0.7 !important; }
+  }
+
+  /* ─── PRINT: main content plan ─── */
+  @media print {
+    nav, .hero, .month-tabs, .enhanced-toolbar, .filter-bar, footer { display: none !important; }
+    .week-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    .piece { break-inside: avoid; transform: none !important; -webkit-line-clamp: unset; display: block !important; }
+    .week-card.collapsed .cal-grid { display: grid !important; }
+    .week-card.collapsed .week-focus { display: block !important; }
+    .week-card.collapsed .pillar-bar, .week-card.collapsed .pillar-legend { display: flex !important; }
+    .cal-back-btn { display: none !important; }
+    .table-view { display: none !important; }
+    .month-content { display: block !important; opacity: 1 !important; }
+    .quick-copy, .copy-prod-btn, .cat-copy-sku { display: none !important; }
   }
 
   /* ─── MODAL DE COPY ─── */
@@ -383,8 +417,11 @@
     background: #1a1a2e; color: #fff; padding: 10px 24px; border-radius: 8px;
     font-size: 14px; font-weight: 500; z-index: 200;
     opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none;
+    display: flex; align-items: center; gap: 10px;
   }
-  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+  .toast-close { background: none; border: none; color: rgba(255,255,255,.6); cursor: pointer; font-size: 16px; padding: 0 4px; line-height: 1; }
+  .toast-close:hover { color: #fff; }
   .modal-nav button:disabled { background: var(--border); color: var(--text-light); cursor: default; }
   .modal-nav .nav-dots { display: flex; gap: 6px; }
   .modal-nav .nav-dots .dot {
@@ -438,6 +475,7 @@
   .email-card .ec-head .badge { font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 700; }
   .email-card .ec-head .badge.ok { background: var(--success); color: #fff; }
   .email-card .ec-head .badge.curso { background: #E65100; color: #fff; }
+  .email-card .ec-head .badge.pending { background: #5C6BC0; color: #fff; }
   .email-card .ec-body { padding: 14px 16px; }
   .email-card .ec-body .subj { font-size: 14px; font-weight: 700; color: var(--primary-light); margin-bottom: 8px; }
   .email-card .ec-body .subj::before { content: '✉️ '; }
@@ -447,10 +485,8 @@
   .em-btn:hover { border-color: var(--primary-light); color: var(--primary); }
   .em-btn.copied { background: var(--success); color: #fff; border-color: var(--success); }
   .email-card { transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer; }
-  .email-card:hover { border-color: var(--primary-light); box-shadow: 0 8px 24px rgba(7,145,244,.15); transform: perspective(800px) rotateX(2deg) translateY(-3px); }
+  .email-card:hover { border-color: var(--primary-light); box-shadow: 0 8px 24px rgba(7,145,244,.15); transform: perspective(800px) rotateX(1deg) translateY(-3px); }
   .email-card:active { transform: perspective(800px) rotateX(1deg) translateY(-1px); }
-  .email-card .ec-body { padding: 10px 16px; }
-  .email-card .ec-body .subj { margin-bottom: 8px; }
   .email-card .ec-head .ec-actions { margin: 0; padding: 0; border: none; gap: 4px; }
   .email-card .ec-actions .em-btn { padding: 4px 8px; font-size: 14px; border: none; background: transparent; }
   .email-card .ec-actions .em-btn:hover { color: var(--primary-light); }
@@ -584,13 +620,6 @@
   .cat-nav-btn:hover { background: rgba(255,255,255,.25); }
 
   /* ═══ IMPROVEMENTS: 8 mejoras visuales ═══ */
-  :root {
-    --c-showcase: #0056DB; --c-diagnostico: #E53935; --c-comparativa: #8E24AA;
-    --c-perfil: #00897B; --c-solucion: #43A047; --c-guia: #FB8C00;
-    --c-tendencia: #5C6BC0; --c-inversion: #F4511E; --c-educativo: #00ACC1; --c-explicativo: #00838f;
-    --c-ecosistema: #7CB342; --c-vision: #AB47BC; --c-error: #D81B60;
-    --c-sinergia: #26A69A; --c-cierre: #546E7A; --c-alternativa: #FFA726;
-  }
   .pillar-showcase .pillar { color: var(--c-showcase); }
   .pillar-diagnostico .pillar { color: var(--c-diagnostico); }
   .pillar-comparativa .pillar { color: var(--c-comparativa); }
@@ -738,7 +767,7 @@
   .cat-stock-filter { font-size: 12px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text); }
   .custom-stock-wrap { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; }
   .custom-stock-wrap select, .custom-stock-wrap input { font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text); }
-  .cat-copy-sku { background: none; border: none; cursor: pointer; font-size: 12px; opacity: .4; transition: opacity .2s; }
+  .cat-copy-sku { background: none; border: none; cursor: pointer; font-size: 12px; opacity: .4; transition: opacity .2s; min-height: 32px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center; }
   .cat-copy-sku:hover { opacity: 1; }
   .cat-copy-sku.copied { opacity: 1; }
 
@@ -803,13 +832,6 @@
   .fil:active::after, .kp:active::after, .mtab:active::after, .em-btn:active::after, .copy-caption-btn:active::after, .drive-btn:active::after, .theme-toggle:active::after {
     opacity: 1;
   }
-
-  /* ─── SKELETON SHIMMER ─── */
-  .skeleton {
-    background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
-    background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px;
-  }
-  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
   /* ─── PRODUCT DROPDOWN ANIMATION ─── */
   .piece .prods .pl { max-height: 0; overflow: hidden; transition: max-height .3s ease, opacity .2s; opacity: 0; }
@@ -1017,7 +1039,7 @@
 </nav>
 
 <!-- ─── CATÁLOGO MODAL ─── -->
-<div class="cat-overlay" id="catOverlay" onclick="if(event.target===this)closeCatalog()">
+<div class="cat-overlay" id="catOverlay" role="dialog" aria-modal="true" aria-label="Catálogo SUPRICOM" onclick="if(event.target===this)closeCatalog()">
   <div class="cat-modal">
     <div class="cat-head">
       <div>
@@ -1034,7 +1056,7 @@
       <button class="cat-tab-btn" data-ctab="VALENCIA" onclick="switchCatTab('VALENCIA',this)">Valencia</button>
     </div>
     <div class="cat-toolbar">
-      <input class="cat-search" id="catSearch" type="text" placeholder="Buscar por SKU, nombre o marca..." oninput="filterCatalog()">
+      <input class="cat-search" id="catSearch" type="text" placeholder="Buscar por SKU, nombre o marca...">
       <select class="cat-filter-select" id="catCategory" onchange="filterCatalog()">
         <option value="">Todas las categorías</option>
       </select>
@@ -1076,11 +1098,11 @@
 <div class="hero">
   <div class="badge">Plan de Contenido · Marketing</div>
   <div class="badge-active"><span class="dot-active"></span>Activo · Agosto 2026</div>
-  <h1 id="heroTitle">Julio <span>2026</span></h1>
+  <h1 id="heroTitle">Agosto <span>2026</span></h1>
   <div class="sub">SUPRICOM · C.A.</div>
   <div class="kpi-strip">
     <div class="kp"><div class="num" id="kpiPiezas">42</div><div class="lb">Piezas</div></div>
-    <div class="kp"><div class="num" id="kpiVideos">15</div><div class="lb">Videos</div></div>
+    <div class="kp"><div class="num" id="kpiVideos">16</div><div class="lb">Videos</div></div>
     <div class="kp"><div class="num" id="kpiDiseno">0</div><div class="lb">Diseño</div></div>
     <div class="kp"><div class="num" id="kpiSemanas">5</div><div class="lb">Semanas</div></div>
     <div class="kp"><div class="num" id="kpiContexto">1</div><div class="lb">🇻🇪 Contexto</div></div>
@@ -1243,13 +1265,13 @@
 
 <div class="filter-bar">
   <span>Filtrar:</span>
-  <span class="fil active" data-filter="all">Todo</span>
-  <span class="fil" data-filter="video">Video</span>
-  <span class="fil" data-filter="carrusel">Carrusel</span>
-  <span class="fil" data-filter="post">Post</span>
-  <span class="fil" data-filter="ve">🇻🇪 Venezuela</span>
+  <button class="fil active" data-filter="all" aria-pressed="true">Todo</button>
+  <button class="fil" data-filter="video" aria-pressed="false">Video</button>
+  <button class="fil" data-filter="carrusel" aria-pressed="false">Carrusel</button>
+  <button class="fil" data-filter="post" aria-pressed="false">Post</button>
+  <button class="fil" data-filter="ve" aria-pressed="false">🇻🇪 Venezuela</button>
   <span style="margin-left:auto"></span>
-  <span class="fil toggle-prods" id="toggleProds">📦 Productos: oculto</span>
+  <button class="fil toggle-prods" id="toggleProds" aria-pressed="false">📦 Productos: oculto</button>
 </div>
 
 <div class="enhanced-toolbar">
@@ -1275,6 +1297,12 @@
     </select>
   </div>
   <div class="toolbar-group">
+    <label>🏷️ Marca</label>
+    <select id="filterBrand" onchange="applyEnhancedFilters()">
+      <option value="">Todas</option>
+    </select>
+  </div>
+  <div class="toolbar-group">
     <label>🔍 Buscar</label>
     <input type="text" id="filterSearch-2026-08" placeholder="topic, marca..." oninput="applyEnhancedFilters()">
   </div>
@@ -1290,8 +1318,8 @@
     </div>
   </div>
   <div class="export-btns">
+    <button class="export-btn" onclick="toggleAllWeeks()">📂 Expandir todo</button>
     <button class="export-btn" onclick="copySummary()">📋 Resumen</button>
-    <button class="export-btn" onclick="copyTableView()">📋 Copiar tabla</button>
     <button class="export-btn" onclick="exportJSON()">💾 JSON</button>
   </div>
 </div>
@@ -2824,9 +2852,9 @@ No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina
 </div>
 
 <div class="dp-overlay" id="designOverlay" onclick="closeDesignPanel()"></div>
-<div id="designPanel"></div>
+<div id="designPanel" role="dialog" aria-modal="true" aria-label="Panel de diseño"></div>
 
-<div class="modal-overlay" id="copyModal" onclick="if(event.target===this)closeCopyModal()">
+<div class="modal-overlay" id="copyModal" role="dialog" aria-modal="true" aria-labelledby="modalPieceTitle" onclick="if(event.target===this)closeCopyModal()">
   <div class="modal-box">
     <div class="modal-head">
       <h3>📋 <span id="modalPieceTitle">Pieza #1</span></h3>
@@ -2869,6 +2897,7 @@ const MONTHS = {
 
 // ─── MONTH SWITCHING ───
 function switchMonth(monthId) {
+  localStorage.setItem('activeMonth', monthId);
   // Reset calendar view before switching
   if (currentView === 'calendar') setView('columns');
   // Month tab buttons
@@ -2902,7 +2931,7 @@ function switchMonth(monthId) {
       document.getElementById('kpiVideos').textContent = '—';
       document.getElementById('kpiSemanas').textContent = emailWeeks.length;
       document.getElementById('kpiContexto').textContent = emailBrands.size;
-      document.getElementById('kpiDesign').textContent = '—';
+      document.getElementById('kpiDiseno').textContent = '—';
       document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active'));
       return;
     }
@@ -3023,6 +3052,8 @@ function copyEmail(btn) {
     btn.classList.add('copied');
     btn.innerHTML = '✓ Copiado';
     setTimeout(function() { btn.classList.remove('copied'); btn.innerHTML = '📋 Copiar'; }, 2000);
+  }).catch(function() {
+    showToast('Error al copiar. Verifica permisos del navegador.');
   });
 }
 
@@ -3048,8 +3079,9 @@ document.querySelectorAll('[data-filter]').forEach(function(f) {
   f.addEventListener('click', function() {
     var mc = f.closest('.month-content');
     if (!mc) return;
-    mc.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); });
+    mc.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
     f.classList.add('active');
+    f.setAttribute('aria-pressed', 'true');
     var v = f.dataset.filter;
     mc.querySelectorAll('.piece').forEach(function(p) {
       if (v === 'all') { p.style.display = ''; return; }
@@ -3070,6 +3102,7 @@ document.querySelectorAll('#toggleProds').forEach(function(tp) {
     all.forEach(function(d) { if (open) d.removeAttribute('open'); else d.setAttribute('open',''); });
     tp.textContent = open ? '\uD83D\uDCE6 Productos: oculto' : '\uD83D\uDCE6 Productos: visible';
     tp.classList.toggle('active');
+    tp.setAttribute('aria-pressed', tp.classList.contains('active'));
   });
 });
 
@@ -3095,12 +3128,16 @@ function openCopyModal(pieceNum, ev) {
   const gBtn = document.getElementById('copyGuionBtn');
   gBtn.textContent = currentFormat === 'video' ? '📝 Copiar Guion' : '📝 Copiar Texto';
   renderSlide(0);
+  _lastFocusedEl = document.activeElement;
   document.getElementById('copyModal').classList.add('open');
   document.body.style.overflow = 'hidden';
+  trapFocus(document.getElementById('copyModal'));
 }
 
 function closeCopyModal() {
-  document.getElementById('copyModal').classList.remove('open');
+  var modal = document.getElementById('copyModal');
+  releaseFocus(modal);
+  modal.classList.remove('open');
   document.body.style.overflow = '';
 }
 
@@ -3238,6 +3275,20 @@ function copyCaption() {
     showToast('Caption copiado al portapapeles');
   }).catch(() => {
     showToast('Error al copiar. Intenta de nuevo.');
+  });
+}
+
+// ─── QUICK COPY CAPTION (from piece card) ───
+function quickCopyCaption(pieceId, btn) {
+  var cap = CAPTIONS[pieceId];
+  if (!cap) { showToast('No hay caption para esta pieza'); return; }
+  navigator.clipboard.writeText(cap).then(function() {
+    btn.classList.add('copied');
+    btn.textContent = '✓';
+    setTimeout(function() { btn.classList.remove('copied'); btn.textContent = '📋'; }, 2000);
+    showToast('Caption copiado');
+  }).catch(function() {
+    showToast('Error al copiar');
   });
 }
 
@@ -3416,13 +3467,64 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.onclick = function(e) { e.stopPropagation(); copyProduct(this); };
     pi.appendChild(btn);
   });
+  // Quick Copy buttons on piece cards
+  document.querySelectorAll('.piece').forEach(function(p) {
+    if (p.querySelector('.quick-copy')) return;
+    var pieceId = p.dataset.piece;
+    if (!pieceId) return;
+    var btn = document.createElement('button');
+    btn.className = 'quick-copy';
+    btn.textContent = '📋';
+    btn.title = 'Copiar caption';
+    btn.onclick = function(e) { e.stopPropagation(); quickCopyCaption(pieceId, this); };
+    p.appendChild(btn);
+  });
+  // Populate brand filter dropdown
+  var brandSelect = document.getElementById('filterBrand');
+  if (brandSelect) {
+    var brandsSet = new Set();
+    document.querySelectorAll('.month-content:not(.hidden) .piece .brands').forEach(function(b) {
+      b.textContent.split('·').forEach(function(br) { var t = br.trim(); if (t) brandsSet.add(t); });
+    });
+    var sorted = Array.from(brandsSet).sort();
+    sorted.forEach(function(br) {
+      var opt = document.createElement('option');
+      opt.value = br; opt.textContent = br;
+      brandSelect.appendChild(opt);
+    });
+  }
   updateDesignKPI();
-  switchMonth('2026-08');
+  // Dynamic week status based on current date
+  var now = new Date();
+  document.querySelectorAll('.week-card').forEach(function(wc) {
+    var h2 = wc.querySelector('h2');
+    if (!h2) return;
+    var text = h2.textContent;
+    var m = text.match(/(\d+)\s+(?:al\s+(\d+))?\s+de\s+(\w+)/);
+    if (!m) return;
+    var monthNames = {enero:0,febrero:1,marzo:2,abril:3,mayo:4,junio:5,julio:6,agosto:7,setiembre:8,septiembre:8,octubre:9,noviembre:10,diciembre:11};
+    var mon = monthNames[m[3].toLowerCase()];
+    if (mon === undefined) return;
+    var d1 = new Date(2026, mon, parseInt(m[1]));
+    var d2 = m[2] ? new Date(2026, mon, parseInt(m[2])) : new Date(2026, mon, parseInt(m[1]));
+    var badge = wc.querySelector('.week-badge');
+    if (!badge) return;
+    badge.classList.remove('current');
+    if (now >= d1 && now <= d2) { badge.classList.add('current'); badge.textContent = 'EN CURSO'; }
+    else if (now > d2) { badge.textContent = 'Completado'; }
+    else { badge.textContent = 'Pendiente'; }
+  });
+  var savedMonth = localStorage.getItem('activeMonth') || '2026-08';
+  switchMonth(savedMonth);
+  setTimeout(function() {
+    var current = document.querySelector('.week-badge.current');
+    if (current) current.closest('.week-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
 });
 
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
+  t.innerHTML = '<span>' + msg + '</span><button class="toast-close" onclick="this.parentElement.classList.remove(\'show\')" aria-label="Cerrar">&times;</button>';
   t.classList.add('show');
   clearTimeout(t._timer);
   t._timer = setTimeout(() => t.classList.remove('show'), 3000);
@@ -3454,9 +3556,10 @@ function toggleTheme() {
 // ─── CLOSE MODAL ON ESC ───
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeCopyModal();
+  if (e.key === 'Escape') closeCatalog();
+  if (!document.getElementById('copyModal').classList.contains('open')) return;
   if (e.key === 'ArrowRight') navigateSlide(1);
   if (e.key === 'ArrowLeft') navigateSlide(-1);
-  if (e.key === 'Escape') closeCatalog();
 });
 
 // ═══ 8 MEJORAS VISUALES ═══
@@ -3475,16 +3578,30 @@ function toggleWeek(weekId) {
   const el = document.getElementById(weekId);
   if (el) el.classList.toggle('collapsed');
 }
+function toggleAllWeeks() {
+  var mc = document.querySelector('.month-content:not(.hidden)');
+  if (!mc) return;
+  var weeks = mc.querySelectorAll('.week-card');
+  var allCollapsed = Array.from(weeks).every(function(w) { return w.classList.contains('collapsed'); });
+  weeks.forEach(function(w) {
+    if (allCollapsed) w.classList.remove('collapsed');
+    else w.classList.add('collapsed');
+  });
+  var btn = document.querySelector('.month-content:not(.hidden) .export-btn');
+  if (btn) btn.textContent = allCollapsed ? '📂 Contraer todo' : '📂 Expandir todo';
+}
 
 // ─── ENHANCED FILTERS ───
 function applyEnhancedFilters() {
   var mc = getActiveMC();
   if (!mc) return;
-  var pillarEl = mc.querySelector('.enhanced-toolbar select');
+  var pillarEl = mc.querySelector('.enhanced-toolbar select[id="filterPillar"]');
+  var brandEl = mc.querySelector('.enhanced-toolbar select[id="filterBrand"]');
   var searchEl = mc.querySelector('.enhanced-toolbar input[type="text"]');
   var pillar = pillarEl ? pillarEl.value : '';
+  var brand = brandEl ? brandEl.value : '';
   var search = searchEl ? searchEl.value.toLowerCase() : '';
-  const visible = document.querySelectorAll('.month-content:not(.hidden) .piece');
+  const visible = getVisiblePieces();
   let count = 0;
   visible.forEach(p => {
     const topicEl = p.querySelector('.topic');
@@ -3492,20 +3609,24 @@ function applyEnhancedFilters() {
     const topic = topicEl ? topicEl.textContent : '';
     const brands = brandsEl ? brandsEl.textContent : '';
     const matchP = !pillar || topic.includes(pillar) || brands.includes(pillar);
+    const matchB = !brand || brands.toLowerCase().includes(brand.toLowerCase());
     const matchS = !search || topic.toLowerCase().includes(search) || brands.toLowerCase().includes(search);
-    const show = matchP && matchS;
+    const show = matchP && matchB && matchS;
     p.style.display = show ? '' : 'none';
     if (show) count++;
+    if (topicEl) {
+      if (!topicEl.dataset.origHtml) topicEl.dataset.origHtml = topicEl.innerHTML;
+    }
     if (search && show && topicEl) {
       const rx = new RegExp('(' + search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
-      topicEl.innerHTML = topic.replace(rx, '<span class="highlight">$1</span>');
+      topicEl.innerHTML = topicEl.dataset.origHtml.replace(rx, '<span class="highlight">$1</span>');
     } else if (topicEl) {
-      topicEl.innerHTML = topic;
+      topicEl.innerHTML = topicEl.dataset.origHtml || topic;
     }
   });
   var res = mc.querySelector('.search-results');
   if (res) {
-    if (search || pillar) {
+    if (search || pillar || brand) {
       res.innerHTML = '<strong>' + count + '</strong> de ' + visible.length + ' piezas';
     } else {
       res.innerHTML = '';
@@ -3530,6 +3651,7 @@ function saveFilters() {
 // ─── VIEW TOGGLE ───
 let currentView = 'columns';
 function getActiveMC() { return document.querySelector('.month-content:not(.hidden)'); }
+function getVisiblePieces() { return document.querySelectorAll('.month-content:not(.hidden) .piece'); }
 function setView(view) {
   currentView = view;
   const mc = getActiveMC();
@@ -3563,7 +3685,7 @@ function setView(view) {
       mc.insertBefore(backBtn, mc.firstChild);
       mc.insertBefore(calGrid, backBtn.nextSibling);
     } else if (view === 'table') {
-      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = 'none'; });
+      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar .toolbar-group, .enhanced-toolbar .search-results, .enhanced-toolbar .clear-filters-btn, .enhanced-toolbar .toolbar-sep, .enhanced-toolbar .view-toggle').forEach(function(el) { el.style.display = 'none'; });
       mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
       var backBtn = document.createElement('button');
       backBtn.className = 'cal-back-btn';
@@ -3576,7 +3698,7 @@ function setView(view) {
       mc.insertBefore(tableView, backBtn.nextSibling);
     } else {
       mc.querySelectorAll('.month-grid-view').forEach(function(c) { c.remove(); });
-      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar').forEach(function(el) { el.style.display = ''; });
+      mc.querySelectorAll('.week-card, .filter-bar, .enhanced-toolbar, .enhanced-toolbar .toolbar-group, .enhanced-toolbar .search-results, .enhanced-toolbar .clear-filters-btn, .enhanced-toolbar .toolbar-sep, .enhanced-toolbar .view-toggle').forEach(function(el) { el.style.display = ''; });
     }
     // Fade-in after switch
     requestAnimationFrame(function() { mc.style.opacity = '1'; });
@@ -3614,7 +3736,7 @@ function buildTableView(monthId) {
       '<td class="tv-topic">' + topic + '</td>' +
       '<td class="tv-brands">' + brands + '</td>' +
       '<td class="tv-ve">' + ve + '</td>' +
-      '<td class="tv-actions"><button class="tv-copy-btn" onclick="event.stopPropagation();copyTableViewRow(this)" title="Copiar fila">📋</button></td>' +
+      '<td class="tv-actions"></td>' +
       '</tr>';
   });
   return '<table><thead><tr>' +
@@ -3623,38 +3745,6 @@ function buildTableView(monthId) {
     '<tfoot><tr><td colspan="8">' + pieces.length + ' piezas</td></tr></tfoot></table>';
 }
 
-// ─── COPY TABLE VIEW ───
-function copyTableView() {
-  const mc = getActiveMC();
-  if (!mc) return;
-  const rows = mc.querySelectorAll('.table-view tbody tr');
-  if (!rows.length) { showToast('Primero activa la vista Lista'); return; }
-  let text = '#\tDía\tFormato\tPilar\tTema\tMarcas\tVE\n';
-  rows.forEach(function(tr) {
-    const cells = tr.querySelectorAll('td');
-    const num = cells[0].textContent.trim();
-    const day = cells[1].textContent.trim().replace(/\s+/g, ' ');
-    const fmt = cells[2].textContent.trim();
-    const pillar = cells[3].textContent.trim();
-    const topic = cells[4].textContent.trim();
-    const brands = cells[5].textContent.trim();
-    const ve = cells[6].textContent.trim();
-    text += [num, day, fmt, pillar, topic, brands, ve].join('\t') + '\n';
-  });
-  navigator.clipboard.writeText(text).then(function() { showToast('Tabla copiada'); });
-}
-
-// ─── COPY SINGLE TABLE ROW ───
-function copyTableViewRow(btn) {
-  const tr = btn.closest('tr');
-  if (!tr) return;
-  const cells = tr.querySelectorAll('td');
-  const text = Array.from(cells).slice(0, 7).map(function(td) { return td.textContent.trim(); }).join(' | ');
-  navigator.clipboard.writeText(text).then(function() {
-    btn.textContent = '✓';
-    setTimeout(function() { btn.textContent = '📋'; }, 1500);
-  });
-}
 function buildMonthGrid(monthId) {
   var days = ['Lun','Mar','Mié','Jue','Vie'];
   var html = '<div class="month-grid">';
@@ -3957,8 +4047,10 @@ let catTab = 'GENERAL';
 let catBrands = [];
 
 async function openCatalog() {
+  _lastFocusedEl = document.activeElement;
   document.getElementById('catOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  trapFocus(document.getElementById('catOverlay'));
   const loader = document.getElementById('catLoader');
   const body = document.getElementById('catBody');
   if (!CATALOGO) {
@@ -3970,8 +4062,13 @@ async function openCatalog() {
   populateCatFilters();
   filterCatalog();
 }
+// Debounced catalog search
+var _catSearchDebounced = debounce(function() { filterCatalog(); }, 200);
+document.getElementById('catSearch').addEventListener('input', _catSearchDebounced);
 function closeCatalog() {
-  document.getElementById('catOverlay').classList.remove('open');
+  var overlay = document.getElementById('catOverlay');
+  releaseFocus(overlay);
+  overlay.classList.remove('open');
   document.body.style.overflow = '';
 }
 function switchCatTab(tab, btn) {
@@ -4013,7 +4110,6 @@ function filterCatalog() {
   const q = document.getElementById('catSearch').value.toLowerCase();
   const catFilter = document.getElementById('catCategory').value;
   const brandFilter = document.getElementById('catBrand').value;
-  const stockFilter = (document.getElementById('catStock') || {}).value || '';
   const body = document.getElementById('catBody');
   let html = '';
   let totalProducts = 0;
@@ -4023,21 +4119,8 @@ function filterCatalog() {
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
     if (brandFilter) items = items.filter(p => p.marca === brandFilter);
-    if (stockFilter === 'available') items = items.filter(p => p.cantidad > 0);
-    else if (stockFilter === 'low') items = items.filter(p => p.cantidad > 0 && p.cantidad < 5);
-    else if (stockFilter === 'out') items = items.filter(p => p.cantidad === 0);
-    else if (stockFilter === 'custom') {
-      var op = (document.getElementById('customStockOp') || {}).value || 'gt';
-      var val = parseInt((document.getElementById('customStockVal') || {}).value || '0', 10);
-      items = items.filter(function(p) {
-        if (op === 'gt') return p.cantidad > val;
-        if (op === 'lt') return p.cantidad < val;
-        if (op === 'gte') return p.cantidad >= val;
-        if (op === 'lte') return p.cantidad <= val;
-        if (op === 'eq') return p.cantidad === val;
-        return true;
-      });
-    }
+    var stockFilter = (document.getElementById('catStock') || {}).value || '';
+    items = applyStockFilter(items, stockFilter);
     // Sort
     items.sort((a, b) => {
       let va = a[catSortKey], vb = b[catSortKey];
@@ -4098,13 +4181,14 @@ function resetCatFilters() {
 
 // ─── RESET MONTH FILTERS ───
 function resetMonthFilters() {
-  var pillarEl = document.getElementById('filterPillar');
-  var searchEl = document.getElementById('filterSearch-2026-08');
+  var mc = document.querySelector('.month-content:not(.hidden)');
+  var pillarEl = mc ? mc.querySelector('#filterPillar') : document.getElementById('filterPillar');
+  var searchEl = mc ? mc.querySelector('.enhanced-toolbar input[type="text"]') : null;
   if (pillarEl) pillarEl.value = '';
   if (searchEl) searchEl.value = '';
-  document.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); });
+  document.querySelectorAll('[data-filter]').forEach(function(x) { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
   var allBtn = document.querySelector('.month-content:not(.hidden) [data-filter="all"]');
-  if (allBtn) allBtn.classList.add('active');
+  if (allBtn) { allBtn.classList.add('active'); allBtn.setAttribute('aria-pressed', 'true'); }
   applyEnhancedFilters();
   localStorage.removeItem('supricom-filters');
   showToast('Filtros limpiados');
@@ -4124,22 +4208,8 @@ function exportCatalogCSV() {
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
     if (brandFilter) items = items.filter(p => p.marca === brandFilter);
-    const stockFilter = (document.getElementById('catStock') || {}).value || '';
-    if (stockFilter === 'available') items = items.filter(p => p.cantidad > 0);
-    else if (stockFilter === 'low') items = items.filter(p => p.cantidad > 0 && p.cantidad < 5);
-    else if (stockFilter === 'out') items = items.filter(p => p.cantidad === 0);
-    else if (stockFilter === 'custom') {
-      var op = (document.getElementById('customStockOp') || {}).value || 'gt';
-      var val = parseInt((document.getElementById('customStockVal') || {}).value || '0', 10);
-      items = items.filter(function(p) {
-        if (op === 'gt') return p.cantidad > val;
-        if (op === 'lt') return p.cantidad < val;
-        if (op === 'gte') return p.cantidad >= val;
-        if (op === 'lte') return p.cantidad <= val;
-        if (op === 'eq') return p.cantidad === val;
-        return true;
-      });
-    }
+    var stockFilter = (document.getElementById('catStock') || {}).value || '';
+    items = applyStockFilter(items, stockFilter);
     if (items.length === 0) return;
     const rows = items.sort((a, b) => a.nombre.localeCompare(b.nombre)).map(p => ({
       'SKU': p.sku,
@@ -4157,6 +4227,61 @@ function exportCatalogCSV() {
   if (totalRows === 0) return;
   const tabNames = { GENERAL: 'Inventario_General', CARACAS: 'Caracas', VALENCIA: 'Valencia' };
   XLSX.writeFile(wb, `Catalogo_SUPRICOM_${tabNames[catTab] || catTab}_${new Date().toISOString().slice(0,10)}.xlsx`);
+}
+
+// ─── SHARED STOCK FILTER ───
+function applyStockFilter(items, stockFilter) {
+  if (stockFilter === 'available') return items.filter(function(p) { return p.cantidad > 0; });
+  if (stockFilter === 'low') return items.filter(function(p) { return p.cantidad > 0 && p.cantidad < 5; });
+  if (stockFilter === 'out') return items.filter(function(p) { return p.cantidad === 0; });
+  if (stockFilter === 'custom') {
+    var op = (document.getElementById('customStockOp') || {}).value || 'gt';
+    var val = parseInt((document.getElementById('customStockVal') || {}).value || '0', 10);
+    return items.filter(function(p) {
+      if (op === 'gt') return p.cantidad > val;
+      if (op === 'lt') return p.cantidad < val;
+      if (op === 'gte') return p.cantidad >= val;
+      if (op === 'lte') return p.cantidad <= val;
+      if (op === 'eq') return p.cantidad === val;
+      return true;
+    });
+  }
+  return items;
+}
+
+// ─── FOCUS TRAP ───
+var _lastFocusedEl = null;
+function trapFocus(modalEl) {
+  var focusable = modalEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (!focusable.length) return;
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  function handler(e) {
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+    else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+  }
+  modalEl._focusTrapHandler = handler;
+  modalEl.addEventListener('keydown', handler);
+  first.focus();
+}
+function releaseFocus(modalEl) {
+  if (modalEl._focusTrapHandler) {
+    modalEl.removeEventListener('keydown', modalEl._focusTrapHandler);
+    modalEl._focusTrapHandler = null;
+  }
+  if (_lastFocusedEl) { _lastFocusedEl.focus(); _lastFocusedEl = null; }
+}
+
+// ─── DEBOUNCE UTILITY ───
+function debounce(fn, ms) {
+  var timer;
+  return function() {
+    var args = arguments;
+    var ctx = this;
+    clearTimeout(timer);
+    timer = setTimeout(function() { fn.apply(ctx, args); }, ms);
+  };
 }
 
 /* ═══════════════════════════════════════════════════
