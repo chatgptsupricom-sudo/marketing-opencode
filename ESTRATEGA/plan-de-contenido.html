@@ -1384,7 +1384,7 @@
 </div>
 
 <!-- S1 -->
-<div class="week-card" id="aug-s1">
+<div class="week-card collapsed" id="aug-s1">
   <div class="week-top" onclick="toggleWeek('aug-s1')">
     <div class="week-top-left">
       <span class="week-badge current">EN CURSO</span>
@@ -3564,9 +3564,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var badge = wc.querySelector('.week-badge');
     if (!badge) return;
     badge.classList.remove('current');
-    if (todayMidnight >= dates.start && todayMidnight <= dates.end) { badge.classList.add('current'); badge.textContent = 'EN CURSO'; }
-    else if (todayMidnight > dates.end) { badge.textContent = 'Completado'; }
-    else { badge.textContent = 'Pendiente'; }
+    if (todayMidnight >= dates.start && todayMidnight <= dates.end) { badge.classList.add('current'); badge.textContent = 'EN CURSO'; wc.classList.remove('collapsed'); }
+    else if (todayMidnight > dates.end) { badge.textContent = 'Completado'; wc.classList.add('collapsed'); }
+    else { badge.textContent = 'Pendiente'; wc.classList.add('collapsed'); }
   });
   markCurrentWeek();
   markTodayPieces();
