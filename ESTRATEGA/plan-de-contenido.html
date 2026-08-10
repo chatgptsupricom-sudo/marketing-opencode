@@ -1096,7 +1096,7 @@
 </nav>
 
 <!-- ─── CATÁLOGO MODAL ─── -->
-<div class="cat-overlay" id="catOverlay" role="dialog" aria-modal="true" aria-label="Catálogo SUPRICOM" onclick="if(event.target===this)closeCatalog()">
+<div class="cat-overlay" id="catOverlay" role="dialog" aria-modal="true" aria-label="Catálogo SUPRICOM" onmouseup="if(event.target===this && !window.getSelection().toString())closeCatalog()">
   <div class="cat-modal">
     <div class="cat-head">
       <div>
@@ -2913,7 +2913,7 @@ No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina
 <div class="dp-overlay" id="designOverlay" onclick="closeDesignPanel()"></div>
 <div id="designPanel" role="dialog" aria-modal="true" aria-label="Panel de diseño"></div>
 
-<div class="modal-overlay" id="copyModal" role="dialog" aria-modal="true" aria-labelledby="modalPieceTitle" onclick="if(event.target===this)closeCopyModal()">
+<div class="modal-overlay" id="copyModal" role="dialog" aria-modal="true" aria-labelledby="modalPieceTitle" onmouseup="if(event.target===this && !window.getSelection().toString())closeCopyModal()">
   <div class="modal-box">
     <div class="modal-head">
       <h3>📋 <span id="modalPieceTitle">Pieza #1</span></h3>
