@@ -341,6 +341,7 @@
     .piece:hover { transform: none; }
     .email-card:hover { transform: none; }
     .modal-slide .slide-title { font-size: 20px; }
+    #toggleFullView { font-size: 11px; padding: 4px 8px; }
     .ms-kpi-row { grid-template-columns: repeat(2, 1fr); }
   }
 
@@ -402,6 +403,20 @@
     transition: background .2s;
   }
   .modal-close:hover { background: rgba(255,255,255,.3); }
+  .modal-head-actions { display: flex; align-items: center; gap: 8px; }
+  #toggleFullView {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: white;
+    padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600;
+    transition: background .2s; white-space: nowrap;
+  }
+  #toggleFullView:hover { background: rgba(255,255,255,.3); }
+  .full-script { max-height: 60vh; overflow-y: auto; padding-right: 8px; }
+  .full-script::-webkit-scrollbar { width: 6px; }
+  .full-script::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .full-scene { padding: 16px 0; }
+  .full-scene .slide-title { font-size: 22px; }
+  .full-scene .slide-frase { font-size: 15px; }
+  .scene-divider { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
   .modal-body { padding: 20px 24px 16px; }
   .modal-slide-counter {
     font-size: 11px; color: var(--text-light); text-align: center;
@@ -2917,7 +2932,10 @@ No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina
   <div class="modal-box">
     <div class="modal-head">
       <h3>📋 <span id="modalPieceTitle">Pieza #1</span></h3>
-      <button class="modal-close" onclick="closeCopyModal()">✕</button>
+      <div class="modal-head-actions">
+        <button id="toggleFullView" onclick="toggleFullScript()">📄 Ver completo</button>
+        <button class="modal-close" onclick="closeCopyModal()">✕</button>
+      </div>
     </div>
     <div class="modal-body">
       <div class="modal-slide-counter" id="modalCounter">Slide 1 de 5</div>
@@ -3183,6 +3201,9 @@ function openCopyModal(pieceNum, ev) {
   currentPiece = pieceNum;
   currentFormat = el.dataset.format;
   currentSlide = 0;
+  fullViewActive = false;
+  var tfv = document.getElementById('toggleFullView');
+  if (tfv) tfv.textContent = '📄 Ver completo';
   document.getElementById('modalPieceTitle').textContent = `Pieza #${pieceNum}`;
   const gBtn = document.getElementById('copyGuionBtn');
   gBtn.textContent = currentFormat === 'video' ? '📝 Copiar Guion' : '📝 Copiar Texto';
@@ -3198,6 +3219,7 @@ function closeCopyModal() {
   releaseFocus(modal);
   modal.classList.remove('open');
   document.body.style.overflow = '';
+  fullViewActive = false;
 }
 
 function renderSlide(idx, direction) {
@@ -3229,6 +3251,40 @@ function navigateSlide(dir) {
   const next = currentSlide + dir;
   if (next < 0 || next >= slidesData.length) return;
   renderSlide(next, dir > 0 ? 'right' : 'left');
+}
+
+var fullViewActive = false;
+function toggleFullScript() {
+  fullViewActive = !fullViewActive;
+  var btn = document.getElementById('toggleFullView');
+  var counter = document.getElementById('modalCounter');
+  var prev = document.getElementById('modalPrev');
+  var next = document.getElementById('modalNext');
+  var dots = document.getElementById('modalDots');
+  var container = document.getElementById('modalSlides');
+  if (fullViewActive) {
+    btn.textContent = '← Volver a escenas';
+    counter.style.display = 'none';
+    prev.style.display = 'none';
+    next.style.display = 'none';
+    dots.style.display = 'none';
+    container.innerHTML = '<div class="full-script">' + slidesData.map(function(s) {
+      return '<div class="full-scene">' +
+        '<div class="slide-label">' + s.slide + '</div>' +
+        '<div class="slide-title">' + s.texto + '</div>' +
+        (s.escenario ? '<div class="slide-escenario">' + s.escenario + '</div>' : '') +
+        '<div class="slide-frase">' + s.frase + '</div>' +
+        (s.nota ? '<div class="slide-nota">' + s.nota + '</div>' : '') +
+      '</div>';
+    }).join('<hr class="scene-divider">') + '</div>';
+  } else {
+    btn.textContent = '📄 Ver completo';
+    counter.style.display = '';
+    prev.style.display = '';
+    next.style.display = '';
+    dots.style.display = '';
+    renderSlide(currentSlide);
+  }
 }
 
 // --- CAPTIONS DATA ---
