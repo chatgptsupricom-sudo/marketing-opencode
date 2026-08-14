@@ -25,56 +25,12 @@
     --c-tendencia: #5C6BC0; --c-inversion: #F4511E; --c-educativo: #00ACC1; --c-explicativo: #00838f;
     --c-ecosistema: #7CB342; --c-vision: #AB47BC; --c-error: #D81B60;
     --c-sinergia: #26A69A; --c-cierre: #546E7A; --c-alternativa: #FFA726;
+    --fs-xs: 11px; --fs-sm: 12px; --fs-base: 14px; --fs-lg: 16px; --fs-xl: 20px; --fs-2xl: 24px; --fs-3xl: 32px; --fs-hero: 44px;
+    --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06); --shadow-md: 0 4px 12px rgba(0,0,0,.08); --shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+    --surface-1: #FAFBFC; --surface-2: #F8F9FA; --surface-3: #F0F0F0;
+    --border-soft: #E0E0E8;
   }
-  [data-theme="dark"] {
-    --primary: #1565C0;
-    --primary-light: #58A6FF;
-    --bg: #0D1117;
-    --gradient-hero: linear-gradient(135deg, #1565C0 0%, #0D1117 100%);
-    --gradient-section: linear-gradient(135deg, #161B22 0%, #0D1117 100%);
-    --text: #E6EDF3;
-    --text-light: #8B949E;
-    --white: #161B22;
-    --success: #3FB950;
-    --border: #30363D;
-    --card-shadow: 0 1px 6px rgba(0,0,0,.4);
-    --card: #161B22;
-    --hero-badge: rgba(255,255,255,.08);
-    --nav-hover: rgba(255,255,255,.08);
-  }
-  [data-theme="dark"] .week-focus { background: #1C2128 !important; }
-  [data-theme="dark"] .piece { background: #1C2128 !important; }
-  [data-theme="dark"] .piece .prods { background: #161B22 !important; }
-  [data-theme="dark"] .piece .prods .pl .pi { background: #1C2128 !important; color: var(--text) !important; }
-  [data-theme="dark"] .piece .pillar { color: var(--primary-light) !important; }
-  [data-theme="dark"] .modal-slide .slide-title { color: var(--primary-light) !important; }
-  [data-theme="dark"] .modal-slide .slide-frase { background: #1C2128 !important; }
-  [data-theme="dark"] .modal-slide .slide-escenario { background: #161B22 !important; color: #8B949E !important; }
-  [data-theme="dark"] .piece .prods summary { color: var(--primary-light) !important; }
-  [data-theme="dark"] .piece .stats span { background: #1C2128 !important; }
-  [data-theme="dark"] .piece[data-brand="hp"] .num { background: #1565c0 !important; }
-  [data-theme="dark"] .modal-body { background: #161B22 !important; }
-  [data-theme="dark"] .nav-slide { background: #1C2128 !important; }
-  [data-theme="dark"] #toast { background: #E6EDF3 !important; color: #0D1117 !important; }
-  [data-theme="dark"] .email-card { background: #1C2128 !important; border-color: #30363D !important; }
-  [data-theme="dark"] .email-card .ec-head { background: #161B22 !important; }
-  [data-theme="dark"] .email-card .ec-body .msg { color: #E6EDF3 !important; }
-  [data-theme="dark"] .email-card .ec-body .img-sug strong { color: #E6EDF3 !important; }
-  [data-theme="dark"] .email-panel h2 { color: var(--primary-light) !important; }
-  [data-theme="dark"] .em-delay-box { background: #1C2128 !important; border-color: #30363D !important; }
-  [data-theme="dark"] .em-week-head { background: #161B22 !important; border-color: #30363D !important; }
-  [data-theme="dark"] .cal-col .col-head .day { color: var(--primary-light) !important; }
-  [data-theme="dark"] .week-card .week-focus strong { color: var(--primary-light) !important; }
-  [data-theme="dark"] .em-delay-box strong { color: var(--primary-light) !important; }
-  [data-theme="dark"] .em-week-title { color: var(--primary-light) !important; }
-  [data-theme="dark"] .em-btn { color: var(--text) !important; }
-  [data-theme="dark"] .em-btn:hover { color: var(--primary-light) !important; border-color: var(--primary-light) !important; }
-  [data-theme="dark"] .email-back { color: var(--primary-light) !important; }
-  [data-theme="dark"] #designPanel .dp-h { color: var(--primary-light) !important; }
-  [data-theme="dark"] #designPanel .dp-t { color: var(--primary-light) !important; }
-  [data-theme="dark"] .month-tabs .mtab:hover { color: var(--primary-light) !important; background: rgba(88,166,255,.1) !important; }
-  [data-theme="dark"] .month-cell .cell-date { color: var(--primary-light) !important; }
-  [data-theme="dark"] .month-cell .cell-more { color: var(--primary-light) !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -103,13 +59,6 @@
   }
   nav .brand { font-weight: 700; font-size: 16px; letter-spacing: -.3px; }
   nav .brand span { color: #6BCBFF; }
-  .theme-toggle {
-    background: none; border: 1px solid rgba(255,255,255,.25); color: white;
-    cursor: pointer; font-size: 16px; padding: 4px 10px; border-radius: 6px;
-    margin-left: 8px; line-height: 1; transition: all .2s;
-    min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center;
-  }
-  .theme-toggle:hover { background: rgba(255,255,255,.12); }
 
   /* ─── HERO ─── */
   .hero {
@@ -163,7 +112,7 @@
   }
   .hero .kpi-strip .kp:hover { transform: translateY(-2px); background: rgba(255,255,255,.15); box-shadow: 0 0 20px rgba(7,145,244,.3); }
   .hero .kpi-strip .kp .num { font-size: 24px; font-weight: 800; color: #fff; }
-  .hero .kpi-strip .kp .lb { font-size: 10px; opacity: .65; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
+  .hero .kpi-strip .kp .lb { font-size: 10px; opacity: .85; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
 
   /* ─── MAIN ─── */
   .main-wrapper { display: flex; max-width: 1400px; margin: 0 auto; }
@@ -194,9 +143,8 @@
   }
   .week-card .week-focus {
     padding: 12px 20px; font-size: 14px; color: var(--text-light);
-    background: #F8FAFE; border-bottom: 1px solid var(--border);
+    background: var(--surface-2); border-bottom: 1px solid var(--border);
   }
-  [data-theme="dark"] .week-card .week-focus { background: rgba(255,255,255,.03); }
   .week-card .week-focus strong { color: var(--primary); }
 
   /* ─── CALENDAR GRID ─── */
@@ -219,7 +167,7 @@
 
   /* ─── CONTENT CARD ─── */
   .piece {
-    background: #FAFBFC; border: 1px solid var(--border);
+    background: var(--surface-1); border: 1px solid var(--border);
     border-radius: 8px; padding: 10px; position: relative;
     transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer;
   }
@@ -235,9 +183,9 @@
     font-size: 11px; font-weight: 700; color: #4AA3DF;
   }
   .piece .fmt {
-    display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase;
     padding: 2px 10px; border-radius: 8px; color: white; letter-spacing: .3px;
-    margin-bottom: 4px;
+    margin-bottom: 4px; vertical-align: middle;
   }
   .piece .fmt.hp { background: #42a5f5; }
   .piece .fmt.post { background: #e65100; }
@@ -248,22 +196,40 @@
 
   .piece .pillar {
     font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
-    color: var(--primary); margin-bottom: 3px;
+    color: var(--primary); margin-bottom: 3px; cursor: help;
   }
   .piece .topic {
     font-size: 14px; line-height: 1.5; color: var(--text);
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   }
   .piece.expanded .topic { display: block; }
-  .piece .quick-copy {
-    position: absolute; bottom: 6px; right: 6px;
-    background: var(--white); border: 1px solid var(--border); border-radius: 6px;
-    padding: 2px 6px; font-size: 11px; cursor: pointer; opacity: 0; transition: opacity .2s;
-    z-index: 2; min-height: 32px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center;
+
+  /* ─── PIECE CHECK BUTTON ─── */
+  .piece-check {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 20px; padding: 0 8px; border-radius: 10px;
+    background: rgba(0,86,219,.12); border: 1.5px solid rgba(0,86,219,.25);
+    font-size: 10px; font-weight: 700; cursor: pointer; transition: all .25s ease;
+    user-select: none; color: transparent; vertical-align: middle; margin-left: 4px;
+    line-height: 1; letter-spacing: .3px;
   }
-  .piece:hover .quick-copy { opacity: 1; }
-  .piece .quick-copy:hover { border-color: var(--primary-light); color: var(--primary); }
-  .piece .quick-copy.copied { background: var(--success); color: #fff; border-color: var(--success); opacity: 1; }
+  .piece-check::after { content: 'Check'; text-transform: uppercase; }
+  .piece-check:hover {
+    background: rgba(0,86,219,.25); border-color: var(--primary-light);
+  }
+  .piece.checked .num {
+    background: var(--success); color: white;
+  }
+  .piece.checked {
+    border-color: var(--success) !important;
+    box-shadow: 0 0 12px rgba(0,204,136,.35), inset 0 0 20px rgba(0,204,136,.06) !important;
+  }
+  .piece.checked .piece-check {
+    background: var(--success); border-color: var(--success);
+    color: white; box-shadow: 0 0 6px rgba(0,204,136,.35);
+  }
+  .piece.checked .piece-check::after { content: '✓ Hecho'; }
+
   .piece .brands { font-size: 12px; color: var(--text-light); margin-top: 3px; }
 
   .piece .ve-badge {
@@ -280,7 +246,7 @@
   }
 
   /* ─── PRODUCT DROPDOWN ─── */
-  .piece .prods { margin-top: 6px; background: #f8faff; border-radius: 0 0 8px 8px; padding: 8px; }
+  .piece .prods { margin-top: 6px; background: var(--surface-2); border-radius: 0 0 8px 8px; padding: 8px; }
   .piece .prods[open] { padding-bottom: 10px; }
   .piece .prods summary {
     cursor: pointer; font-size: 12px; font-weight: 600; color: var(--primary);
@@ -292,12 +258,12 @@
     margin-top: 4px; display: flex; flex-direction: column; gap: 2px;
   }
   .piece .prods .pl .pi {
-    font-size: 12px; padding: 4px 8px; background: #F0F5FF;
+    font-size: 12px; padding: 4px 8px; background: var(--surface-3);
     border-radius: 4px; display: flex; justify-content: space-between;
   }
   .piece .prods .pl .pi .sku { color: var(--text-light); font-family: monospace; font-size: 11px; }
   .piece .prods .pl .pi .sto { display: none; }
-  .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; min-height: 32px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center; }
+  .copy-prod-btn { background: none; border: none; cursor: pointer; font-size: 10px; padding: 0 4px; opacity: 0.4; transition: opacity .2s; line-height: 1; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
   .copy-prod-btn:hover { opacity: 1; }
   .copy-prod-btn.copied { opacity: 1; }
 
@@ -306,7 +272,7 @@
     background: var(--gradient-hero);
     background-size: 200% 200%;
     animation: gradientShift 8s ease infinite;
-    color: rgba(255,255,255,.6);
+    color: rgba(255,255,255,.8);
     text-align: center; padding: 28px 20px; font-size: 15px;
   }
   footer strong { color: #6BCBFF; }
@@ -353,27 +319,24 @@
       transition-duration: 0.01ms !important;
     }
     .animate-in { opacity: 1; transform: none; }
+    .hero h1, .hero .sub, .hero .kpi-strip { opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
-  }
-
-  /* ─── TOUCH DEVICES: show quick-copy always ─── */
-  @media (hover: none) and (pointer: coarse) {
-    .piece .quick-copy { opacity: 0.4 !important; }
-    .piece:hover .quick-copy { opacity: 0.7 !important; }
   }
 
   /* ─── PRINT: main content plan ─── */
   @media print {
+    *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     nav, .hero, .month-tabs, .enhanced-toolbar, .filter-bar, footer { display: none !important; }
+    .hero { margin-top: 0; padding: 40px 24px; }
     .week-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
-    .piece { break-inside: avoid; transform: none !important; -webkit-line-clamp: unset; display: block !important; }
+    .piece { break-inside: avoid; transform: none !important; -webkit-line-clamp: unset; display: block !important; background: white !important; color: black !important; }
     .week-card.collapsed .cal-grid { display: grid !important; }
     .week-card.collapsed .week-focus { display: block !important; }
     .week-card.collapsed .pillar-bar, .week-card.collapsed .pillar-legend { display: flex !important; }
     .cal-back-btn { display: none !important; }
     .table-view { display: none !important; }
     .month-content { display: block !important; opacity: 1 !important; }
-    .quick-copy, .copy-prod-btn, .cat-copy-sku { display: none !important; }
+    .copy-prod-btn, .cat-copy-sku { display: none !important; }
   }
 
   /* ─── MODAL DE COPY ─── */
@@ -437,7 +400,7 @@
   }
   .modal-slide .slide-frase {
     font-size: 17px; color: var(--text); line-height: 1.5; margin-bottom: 14px;
-    padding: 12px 16px; background: #F0F5FF; border-radius: 8px;
+    padding: 12px 16px; background: var(--surface-3); border-radius: 8px;
     border-left: 3px solid var(--primary-light);
   }
   .modal-slide .slide-nota {
@@ -445,8 +408,8 @@
     padding: 10px 14px; background: var(--bg); border-radius: 6px;
   }
   .modal-slide .slide-escenario {
-    font-size: 14px; color: #5A6070; line-height: 1.5; margin-bottom: 12px;
-    padding: 10px 14px; background: #F8F9FA; border-radius: 6px;
+    font-size: 14px; color: var(--text-light); line-height: 1.5; margin-bottom: 12px;
+    padding: 10px 14px; background: var(--surface-2); border-radius: 6px;
     border-left: 3px solid #9CA3AF;
   }
   .modal-slide .slide-escenario::before { content: "🎬 "; }
@@ -468,6 +431,11 @@
   }
   .copy-caption-btn:hover { background: #00b37a; }
   .copy-caption-btn.copied { background: #0056DB; }
+  .copy-caption-btn.secondary {
+    background: transparent; color: var(--success);
+    border: 2px solid var(--success);
+  }
+  .copy-caption-btn.secondary:hover { background: var(--success); color: #fff; }
   .modal-actions { display: flex; gap: 8px; margin-top: 12px; }
   .drive-btn {
     display: block; width: 100%; margin-top: 8px; padding: 10px;
@@ -481,18 +449,22 @@
     background: #1a1a2e; color: #fff; padding: 10px 24px; border-radius: 8px;
     font-size: 14px; font-weight: 500; z-index: 200;
     opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none;
-    display: flex; align-items: center; gap: 10px;
+    display: flex; align-items: center; gap: 10px; max-width: 90vw;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+  .toast.success { background: #00CC88; }
+  .toast.error { background: #E53935; }
+  .toast.info { background: #1a1a2e; }
   .toast-close { background: none; border: none; color: rgba(255,255,255,.6); cursor: pointer; font-size: 16px; padding: 0 4px; line-height: 1; }
   .toast-close:hover { color: #fff; }
   .modal-nav button:disabled { background: var(--border); color: var(--text-light); cursor: default; }
-  .modal-nav .nav-dots { display: flex; gap: 6px; }
+  .modal-nav .nav-dots { display: flex; gap: 2px; }
   .modal-nav .nav-dots .dot {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--border);
-    cursor: pointer; transition: all .2s;
+    width: 24px; height: 24px; border-radius: 50%; background: transparent;
+    cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center;
   }
-  .modal-nav .nav-dots .dot.active { background: var(--primary-light); transform: scale(1.3); }
+  .modal-nav .nav-dots .dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all .2s; }
+  .modal-nav .nav-dots .dot.active::after { background: var(--primary-light); transform: scale(1.3); }
 
   .piece .fmt.carrusel { background: #1565c0; }
   .piece-with-copy .fmt.carrusel { background: #0d47a1; }
@@ -520,7 +492,7 @@
   .email-panel { padding: 4px 0; }
   .email-panel h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--primary); }
   .email-panel .sub { font-size: 13px; color: var(--text-light); margin-bottom: 16px; }
-  .em-delay-box { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--primary-light); border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text); line-height: 1.6; }
+  .em-delay-box { background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--primary-light); border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text); line-height: 1.6; }
   .em-delay-box strong { color: var(--primary); }
   .em-week { margin-bottom: 12px; }
   .em-week-head { background: var(--gradient-section); border-radius: 10px; padding: 14px 16px; margin-bottom: 0; border: 1px solid var(--border); cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
@@ -554,9 +526,27 @@
   .email-card .ec-head .ec-actions { margin: 0; padding: 0; border: none; gap: 4px; }
   .email-card .ec-actions .em-btn { padding: 4px 8px; font-size: 14px; border: none; background: transparent; }
   .email-card .ec-actions .em-btn:hover { color: var(--primary-light); }
-  [data-theme="dark"] .em-delay-box { background: #1C2128 !important; border-color: #30363D !important; }
-  [data-theme="dark"] .em-week-head { background: #161B22 !important; border-color: #30363D !important; }
-  [data-theme="dark"] .em-btn { background: #1C2128 !important; border-color: #30363D !important; color: var(--text) !important; }
+
+  /* ─── EMAIL CHECK BUTTON ─── */
+  .email-check {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(0,86,219,.12); border: 2px solid rgba(0,86,219,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; cursor: pointer; transition: all .25s ease;
+    user-select: none; color: transparent;
+  }
+  .email-check:hover {
+    background: rgba(0,86,219,.25); border-color: var(--primary-light);
+    transform: scale(1.15);
+  }
+  .email-card.checked {
+    border-color: var(--success) !important;
+    box-shadow: 0 0 12px rgba(0,204,136,.35), inset 0 0 20px rgba(0,204,136,.06) !important;
+  }
+  .email-card.checked .email-check {
+    background: var(--success); border-color: var(--success);
+    color: white; box-shadow: 0 0 8px rgba(0,204,136,.4);
+  }
 
   /* ─── DESIGN PANEL ─── */
   #designPanel {
@@ -615,11 +605,12 @@
     flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
     font-size: 13px; background: var(--bg); color: var(--text);
   }
-  .cat-search:focus { outline: none; border-color: var(--primary-light); }
+  .cat-search:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 2px rgba(7,145,244,.2); }
   .cat-filter-select {
     padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px;
-    background: var(--bg); color: var(--text); min-width: 160px;
+    background: var(--bg); color: var(--text); min-width: 160px; max-width: 200px;
   }
+  .cat-filter-select:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 2px rgba(7,145,244,.15); }
   .cat-count { font-size: 12px; color: var(--text-light); white-space: nowrap; }
   .cat-export-btn {
     padding: 8px 14px; border: 1px solid var(--primary); border-radius: 8px; font-size: 12px;
@@ -633,8 +624,6 @@
   }
   .cat-refresh-btn:hover { background: var(--primary-light); border-color: var(--primary-light); color: white; }
   .cat-refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
-  [data-theme="dark"] .cat-refresh-btn { background: #21262D; border-color: #30363D; color: #C9D1D9; }
-  [data-theme="dark"] .cat-refresh-btn:hover { background: #30363D; border-color: #58A6FF; }
   .cat-body { flex: 1; overflow-y: auto; padding: 0; }
   .cat-section { padding: 0 20px 16px; }
   .cat-section-title {
@@ -660,20 +649,6 @@
   .cat-loader .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin .8s linear infinite; }
   .cat-loader .loader-text { font-size: 14px; color: var(--text-light); }
   @keyframes spin { to { transform: rotate(360deg); } }
-  [data-theme="dark"] .cat-overlay .cat-modal { background: #161B22; }
-  [data-theme="dark"] .cat-tabs-bar { background: #161B22; border-bottom-color: #30363D; }
-  [data-theme="dark"] .cat-toolbar { background: #161B22; border-bottom-color: #30363D; }
-  [data-theme="dark"] .cat-search { background: #0D1117; border-color: #30363D; color: var(--text); }
-  [data-theme="dark"] .cat-filter-select { background: #0D1117; border-color: #30363D; color: var(--text); }
-  [data-theme="dark"] .cat-body { background: #0D1117; }
-  [data-theme="dark"] .cat-section-title { background: #0D1117; }
-  [data-theme="dark"] .cat-table th { background: #161B22; }
-  [data-theme="dark"] .cat-table td { border-bottom-color: #30363D; }
-  [data-theme="dark"] .cat-table tr:hover td { background: rgba(88,166,255,.06); }
-  [data-theme="dark"] .cat-tab-btn { color: var(--text-light); }
-  [data-theme="dark"] .cat-tab-btn.active { color: var(--primary-light); border-bottom-color: var(--primary-light); }
-  [data-theme="dark"] .cat-export-btn { background: #21262D; border-color: #30363D; color: #C9D1D9; }
-  [data-theme="dark"] .cat-export-btn:hover { background: #30363D; border-color: #58A6FF; }
 
   /* nav catalog button */
   .cat-nav-btn {
@@ -700,12 +675,9 @@
   .pillar-sinergia .pillar { color: var(--c-sinergia); }
   .pillar-cierre .pillar { color: var(--c-cierre); }
   .pillar-alternativa .pillar { color: var(--c-alternativa); }
-  .piece .pillar { font-weight: 600; text-transform: uppercase; letter-spacing: .3px; cursor: help; }
-  .piece .topic { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* Pillar bar */
   .pillar-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 8px 20px 4px; background: rgba(0,0,0,.06); }
-  [data-theme="dark"] .pillar-bar { background: rgba(255,255,255,.08); }
   .pillar-bar div { height: 100%; transition: width 0.6s ease-out; }
   .pillar-legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 4px 20px 8px; font-size: 10px; color: var(--text-light); }
   .pillar-legend-item { display: flex; align-items: center; gap: 4px; }
@@ -725,7 +697,6 @@
   .week-arrow { font-size: 14px; color: rgba(255,255,255,.6); transition: transform 0.3s ease; margin-left: 8px; }
   .week-card.collapsed .week-arrow { transform: rotate(-90deg); }
   .week-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,.2); color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
-  [data-theme="dark"] .week-badge { background: rgba(255,255,255,.15); }
   .week-badge.current { background: #00CC88; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
 
@@ -747,7 +718,6 @@
 
   /* Search highlight */
   .highlight { background: #FFF176; border-radius: 2px; padding: 0 1px; }
-  [data-theme="dark"] .highlight { background: #5D4037; color: #FFD54F; }
 
   .ve-badge { cursor: help; }
 
@@ -764,9 +734,6 @@
   .month-cell .cell-piece.fmt-carrusel { background: #E3F2FD; color: #1565c0; }
   .month-cell .cell-piece.fmt-video { background: #E8F5E9; color: #2E7D32; }
   .month-cell .cell-piece.fmt-post { background: #FFF3E0; color: #E65100; }
-  [data-theme="dark"] .month-cell .cell-piece.fmt-carrusel { background: rgba(21,101,192,.2); color: #90CAF9; }
-  [data-theme="dark"] .month-cell .cell-piece.fmt-video { background: rgba(46,125,50,.2); color: #A5D6A7; }
-  [data-theme="dark"] .month-cell .cell-piece.fmt-post { background: rgba(230,81,0,.2); color: #FFCC80; }
   .month-cell .cell-more { text-align: center; color: var(--primary); font-size: 10px; cursor: pointer; padding: 2px; border-radius: 4px; }
   .month-cell .cell-more:hover { background: rgba(7,145,244,.1); }
 
@@ -853,20 +820,12 @@
   .cal-back-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; margin: 16px 4px 8px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .cal-back-btn:hover { background: var(--primary-light); transform: translateX(-2px); }
 
-  @media print {
-    nav { display: none !important; }
-    .hero { margin-top: 0; padding: 40px 24px; }
-    .piece { break-inside: avoid; }
-    .week-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
-  }
-
-  /* ─── SMOOTH SCROLL ─── */
+  /* ─── SMOOTH SCROLL + THEME TRANSITION ─── */
   html { scroll-behavior: smooth; }
 
   /* ─── NAV BLUR ON SCROLL ─── */
   nav { backdrop-filter: blur(0); transition: backdrop-filter .3s, background .3s, box-shadow .3s; }
   nav.scrolled { backdrop-filter: blur(12px); background: rgba(0,86,219,.92); box-shadow: 0 2px 20px rgba(0,0,0,.25); }
-  [data-theme="dark"] nav.scrolled { background: rgba(10,61,145,.88); }
 
   /* ─── HERO FLOATING GLOW ─── */
   .hero::before {
@@ -893,15 +852,15 @@
   .animate-in:nth-child(5) { transition-delay: .32s; }
 
   /* ─── RIPPLE EFFECT ─── */
-  .fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn, .theme-toggle {
+  .fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn {
     position: relative; overflow: hidden;
   }
-  .fil::after, .kp::after, .mtab::after, .em-btn::after, .copy-caption-btn::after, .drive-btn::after, .theme-toggle::after {
+  .fil::after, .kp::after, .mtab::after, .em-btn::after, .copy-caption-btn::after, .drive-btn::after {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.3) 0%, transparent 60%);
     opacity: 0; transition: opacity .4s; pointer-events: none;
   }
-  .fil:active::after, .kp:active::after, .mtab:active::after, .em-btn:active::after, .copy-caption-btn:active::after, .drive-btn:active::after, .theme-toggle:active::after {
+  .fil:active::after, .kp:active::after, .mtab:active::after, .em-btn:active::after, .copy-caption-btn:active::after, .drive-btn:active::after {
     opacity: 1;
   }
 
@@ -912,8 +871,6 @@
   /* ─── WEEK ARROW ROTATION FIX ─── */
   .week-card.collapsed .week-arrow { transform: rotate(180deg); }
 
-  /* ─── THEME TOGGLE ROTATION ─── */
-  .theme-toggle.switching { transform: rotate(180deg) scale(1.2); }
 
   /* ─── MODAL SLIDE DIRECTIONAL ─── */
   @keyframes slideInLeft { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0); } }
@@ -1098,15 +1055,14 @@
     color: #1A1A2E;
   }
 </style>
-<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
 </head>
 <body>
 
 <nav>
   <div class="brand">SUPRICOM <span id="monthLabel">· Plan de Contenido</span></div>
   <div style="display:flex;align-items:center;gap:4px">
-    <button class="cat-nav-btn" onclick="openCatalog()" title="Ver catálogo de productos">📦 Catálogo</button>
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Cambiar tema">🌙</button>
+    <button class="cat-nav-btn" onclick="openCatalog()" title="Ver catálogo de productos" aria-label="Abrir catálogo de productos">📦 Catálogo</button>
   </div>
 </nav>
 
@@ -1128,13 +1084,11 @@
       <button class="cat-tab-btn" data-ctab="VALENCIA" onclick="switchCatTab('VALENCIA',this)">Valencia</button>
     </div>
     <div class="cat-toolbar">
-      <input class="cat-search" id="catSearch" type="text" placeholder="Buscar por SKU, nombre o marca...">
-      <select class="cat-filter-select" id="catCategory" onchange="filterCatalog()">
-        <option value="">Todas las categorías</option>
-      </select>
-      <select class="cat-filter-select" id="catBrand" onchange="filterCatalog()">
-        <option value="">Todas las marcas</option>
-      </select>
+      <input class="cat-search" id="catSearch" type="text" placeholder="Buscar por SKU, nombre o marca..." aria-label="Buscar en catálogo">
+      <input class="cat-filter-select" id="catCategory" list="catCategoryList" placeholder="Filtrar categoría..." oninput="onCatFilterInput(event)" autocomplete="off">
+      <datalist id="catCategoryList"></datalist>
+      <input class="cat-filter-select" id="catBrand" list="catBrandList" placeholder="Filtrar marca..." oninput="onCatFilterInput(event)" autocomplete="off">
+      <datalist id="catBrandList"></datalist>
       <select class="cat-stock-filter" id="catStock" onchange="toggleCustomStock()">
         <option value="">Todo el stock</option>
         <option value="available">Con stock (&gt;0)</option>
@@ -1400,7 +1354,7 @@
 
 <!-- S1 -->
 <div class="week-card collapsed" id="aug-s1">
-  <div class="week-top" onclick="toggleWeek('aug-s1')">
+  <div class="week-top" onclick="toggleWeek('aug-s1')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleWeek('aug-s1')">
     <div class="week-top-left">
       <span class="week-badge current">EN CURSO</span>
       <h2>S1 · 3 al 7 de agosto</h2>
@@ -1422,6 +1376,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG1" onclick="openCopyModal('AUG1', event)">
         <div class="num">1</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«Logitech en SUPRICOM: lo que tu vitrina debería tener».</strong> Mouse, teclados y audífonos. Portafolio completo disponible.</div>
         <div class="brands">Logitech</div>
@@ -1443,6 +1398,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG2" onclick="openCopyModal('AUG2', event)">
         <div class="num">2</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Demanda</div>
         <div class="topic"><strong>«Routers de alta rotación para tu tienda».</strong> HIKVISION, Linksys y Xiaomi. Los routers que más rotan.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi</div>
@@ -1464,6 +1420,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG3" onclick="openCopyModal('AUG3', event)">
         <div class="num">3</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«De básico a premium: así se ve el surtido de routers en SUPRICOM».</strong> Showcase visual del portafolio de routers.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi · NEXXT HOME</div>
@@ -1483,6 +1440,7 @@
       <div class="piece piece-with-copy pillar-sinergia" data-format="post" data-piece="AUG4" onclick="openCopyModal('AUG4', event)">
         <div class="num">4</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Venta cruzada</div>
         <div class="topic"><strong>«El complemento que todo cliente de impresora va a buscar».</strong> Tinta, cartuchos HP. Consumibles que siempre tienen demanda.</div>
         <div class="brands">HP</div>
@@ -1507,6 +1465,7 @@
       <div class="piece piece-with-copy pillar-explicativo" data-format="video" data-piece="AUG5" onclick="openCopyModal('AUG5', event)">
         <div class="num">5</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Explicativo</div>
         <div class="topic"><strong>«En 30 segundos: qué es BLUETTI y qué resuelve para tu cliente».</strong> Explicativo rápido del producto BLUETTI.</div>
         <div class="brands">BLUETTI</div>
@@ -1524,6 +1483,7 @@
       <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG6" onclick="openCopyModal('AUG6', event)">
         <div class="num">6</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Venta cruzada</div>
         <div class="topic"><strong>«3 combos de Logitech que puedes armar para vender más».</strong> Oficina y gaming. El argumento del combo.</div>
         <div class="brands">Logitech</div>
@@ -1547,7 +1507,8 @@
 
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG7" onclick="openCopyModal('AUG7', event)">
         <div class="num">7</div>
-        <span class="fmt vocero">Video Vocero · VALENCIA</span>
+        <span class="fmt vocero">Video Valencia</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«3 errores que cometen los vendedores de laptops (y cómo evitarlos)».</strong> Educación para el vendedor de laptops.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
@@ -1567,6 +1528,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG8" onclick="openCopyModal('AUG8', event)">
         <div class="num">8</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Sales</div>
         <div class="topic"><strong>«El artículo que nunca debe faltar en tu vitrina».</strong> Routers HIKVISION. Los que más rotan.</div>
         <div class="brands">HIKVISION</div>
@@ -1587,7 +1549,8 @@
 
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG9" onclick="openCopyModal('AUG9', event)">
         <div class="num">9</div>
-        <span class="fmt vocero">Video Vocero · CARACAS</span>
+        <span class="fmt vocero">Video Caracas</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educación</div>
         <div class="topic"><strong>«Cómo aumentar el ticket promedio vendiendo el complemento correcto».</strong> Antes/después de ofrecer complementos.</div>
         <div class="brands">Targus</div>
@@ -1606,6 +1569,7 @@
       <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG10" onclick="openCopyModal('AUG10', event)">
         <div class="num">10</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«Mini PC vs escritorio: por qué los negocios migran a este formato».</strong> Comparativa visual de ambos formatos.</div>
         <div class="brands">MSI</div>
@@ -1626,7 +1590,7 @@
 </div>
 <!-- S2 -->
 <div class="week-card collapsed" id="aug-s2">
-  <div class="week-top" onclick="toggleWeek('aug-s2')">
+  <div class="week-top" onclick="toggleWeek('aug-s2')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleWeek('aug-s2')">
     <div class="week-top-left">
       <span class="week-badge">S2</span>
       <h2>S2 · 10 al 14 de agosto</h2>
@@ -1648,6 +1612,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG11" onclick="openCopyModal('AUG11', event)">
         <div class="num">11</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«5 marcas de laptops que tienes disponibles en SUPRICOM (y cuál elegir)».</strong> Acer, ASUS, HP, Dell, Lenovo.</div>
         <div class="brands">Acer · ASUS · Dell · HP · Lenovo</div>
@@ -1667,6 +1632,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG12" onclick="openCopyModal('AUG12', event)">
         <div class="num">12</div>
         <span class="fmt post">Post <span class="ve-badge">VE</span></span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Contexto Venezuela</div>
         <div class="topic"><strong>«Corte de electricidad no es problema: BLUETTI resuelve».</strong> El contexto venezolano y la solución BLUETTI.</div>
         <div class="brands">BLUETTI</div>
@@ -1688,6 +1654,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG13" onclick="openCopyModal('AUG13', event)">
         <div class="num">13</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«Tinta, cartucho, tóner: lo que necesitas saber antes de vender».</strong> Showcase visual de consumibles HP.</div>
         <div class="brands">HP</div>
@@ -1710,6 +1677,7 @@
       <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG14" onclick="openCopyModal('AUG14', event)">
         <div class="num">14</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Comparativa</div>
         <div class="topic"><strong>«Router WiFi vs Mesh: ¿cuál le conviene a tu cliente?».</strong> Diferencias claras para asesorar mejor.</div>
         <div class="brands">HIKVISION · Linksys · NEXXT HOME</div>
@@ -1733,6 +1701,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG15" onclick="openCopyModal('AUG15', event)">
         <div class="num">15</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«Qué tipos de routers HIKVISION tenemos en SUPRICOM».</strong> Showcase visual de la línea HIKVISION.</div>
         <div class="brands">HIKVISION</div>
@@ -1750,6 +1719,7 @@
       <div class="piece piece-with-copy" data-format="carrusel" data-piece="AUG16" onclick="openCopyModal('AUG16', event)">
         <div class="num">16</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Segmentación</div>
         <div class="topic"><strong>«Bolsos para cada tipo de cliente: ¿cuál le ofreces?».</strong> Ejecutivo, estudiante, viajero. Targus tiene la respuesta.</div>
         <div class="brands">Targus</div>
@@ -1773,7 +1743,8 @@
 
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG17" onclick="openCopyModal('AUG17', event)">
         <div class="num">17</div>
-        <span class="fmt vocero">Video Vocero · VALENCIA</span>
+        <span class="fmt vocero">Video Valencia</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educación</div>
         <div class="topic"><strong>«Lo que tu cliente NO sabe sobre mouse y teclados».</strong> Secretos que abren ventas.</div>
         <div class="brands">Logitech</div>
@@ -1792,6 +1763,7 @@
       <div class="piece piece-with-copy pillar-ecosistema" data-format="post" data-piece="AUG18" onclick="openCopyModal('AUG18', event)">
         <div class="num">18</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Demanda oculta</div>
         <div class="topic"><strong>«Tu cliente te pidió una computadora pequeña. ¿Le ofreciste Mini PC?».</strong> La categoría que muchos ignoran.</div>
         <div class="brands">MSI</div>
@@ -1813,7 +1785,8 @@
 
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG19" onclick="openCopyModal('AUG19', event)">
         <div class="num">19</div>
-        <span class="fmt vocero">Video Vocero · CARACAS</span>
+        <span class="fmt vocero">Video Caracas</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Inventario</div>
         <div class="topic"><strong>«¿Cuántos tipos de router necesitas?».</strong> Interacción + Inventario.</div>
         <div class="brands">HIKVISION</div>
@@ -1831,6 +1804,7 @@
       <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG20" onclick="openCopyModal('AUG20', event)">
         <div class="num">20</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Venta cruzada</div>
         <div class="topic"><strong>«El combo perfecto: laptop + lo que tu cliente no sabe que necesita».</strong> Bolso Targus y mouse Logitech.</div>
         <div class="brands">Acer · ASUS · HP · Targus · Logitech</div>
@@ -1856,7 +1830,7 @@
 </div>
 <!-- S3 -->
 <div class="week-card collapsed" id="aug-s3">
-  <div class="week-top" onclick="toggleWeek('aug-s3')">
+  <div class="week-top" onclick="toggleWeek('aug-s3')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleWeek('aug-s3')">
     <div class="week-top-left">
       <span class="week-badge">S3</span>
       <h2>S3 · 17 al 21 de agosto</h2>
@@ -1878,6 +1852,7 @@
       <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG21" onclick="openCopyModal('AUG21', event)">
         <div class="num">21</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«Lo que hace un buen router (y por qué importa para tu cliente)».</strong> Velocidad, cobertura, confiabilidad.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi</div>
@@ -1897,6 +1872,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG22" onclick="openCopyModal('AUG22', event)">
         <div class="num">22</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Consumibles HP: siempre hay demanda».</strong> La categoría que nunca se detiene.</div>
         <div class="brands">HP</div>
@@ -1919,6 +1895,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG23" onclick="openCopyModal('AUG23', event)">
         <div class="num">23</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«3 tipos de laptops que toda tienda debería tener en vitrina».</strong> Entrada, media, gaming.</div>
         <div class="brands">Acer · HP · ASUS · Dell</div>
@@ -1937,6 +1914,7 @@
       <div class="piece piece-with-copy pillar-diferenciacion" data-format="carrusel" data-piece="AUG24" onclick="openCopyModal('AUG24', event)">
         <div class="num">24</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Diferenciación</div>
         <div class="topic"><strong>«Lo que hace único a BLUETTI frente a otras marcas de energía».</strong> Portabilidad, silencio, múltiples usos.</div>
         <div class="brands">BLUETTI</div>
@@ -1960,6 +1938,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG25" onclick="openCopyModal('AUG25', event)">
         <div class="num">25</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«De básico a gaming: así se ve la línea de mouse Logitech».</strong> Showcase visual de mouse Logitech.</div>
         <div class="brands">Logitech</div>
@@ -1978,6 +1957,7 @@
       <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG26" onclick="openCopyModal('AUG26', event)">
         <div class="num">26</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«Cómo elegir el consumible correcto según la impresora HP».</strong> Guía visual de compatibilidad.</div>
         <div class="brands">HP</div>
@@ -2007,7 +1987,8 @@
 
       <div class="piece piece-with-copy pillar-perfil" data-format="video" data-piece="AUG27" onclick="openCopyModal('AUG27', event)">
         <div class="num">27</div>
-        <span class="fmt vocero">Video Vocero · VALENCIA</span>
+        <span class="fmt vocero">Video Valencia</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Competencia</div>
         <div class="topic"><strong>«Lo que tu competidor ya sabe sobre BLUETTI».</strong> Competencia + Decisión.</div>
         <div class="brands">BLUETTI</div>
@@ -2027,6 +2008,7 @@
       <div class="piece piece-with-copy pillar-venta-cruzada" data-format="post" data-piece="AUG28" onclick="openCopyModal('AUG28', event)">
         <div class="num">28</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Venta cruzada</div>
         <div class="topic"><strong>«Tu cliente compra una laptop. ¿Le ofreces el bolso?».</strong> El complemento que cierra la venta.</div>
         <div class="brands">Targus</div>
@@ -2048,7 +2030,8 @@
 
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG29" onclick="openCopyModal('AUG29', event)">
         <div class="num">29</div>
-        <span class="fmt vocero">Video Vocero · CARACAS</span>
+        <span class="fmt vocero">Video Caracas</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Educativo</div>
         <div class="topic"><strong>«¿Sabes qué es una Mini PC?».</strong> Educativo + Decisión.</div>
         <div class="brands">MSI</div>
@@ -2067,6 +2050,7 @@
       <div class="piece piece-with-copy pillar-nicho" data-format="post" data-piece="AUG30" onclick="openCopyModal('AUG30', event)">
         <div class="num">30</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Nicho</div>
         <div class="topic"><strong>«¿Tienes clientes zurdos? Logitech tiene el mouse que necesitan».</strong> Nicho específico, venta segura.</div>
         <div class="brands">Logitech</div>
@@ -2084,7 +2068,7 @@
   </div>
 </div><!-- S4 -->
 <div class="week-card collapsed" id="aug-s4">
-  <div class="week-top" onclick="toggleWeek('aug-s4')">
+  <div class="week-top" onclick="toggleWeek('aug-s4')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleWeek('aug-s4')">
     <div class="week-top-left">
       <span class="week-badge">S4</span>
       <h2>S4 · 24 al 28 de agosto</h2>
@@ -2105,6 +2089,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="carrusel" data-piece="AUG31" onclick="openCopyModal('AUG31', event)">
         <div class="num">31</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«Laptops que se están vendiendo rápido (y por qué)».</strong> Tendencia de mercado.</div>
         <div class="brands">Acer · HP · ASUS · Lenovo · Dell</div>
@@ -2123,6 +2108,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG32" onclick="openCopyModal('AUG32', event)">
         <div class="num">32</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Producto estrella</div>
         <div class="topic"><strong>«AX1500 WiFi 6: el router que debería estar en toda vitrina».</strong> Producto estrella HIKVISION.</div>
         <div class="brands">HIKVISION</div>
@@ -2143,6 +2129,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="video" data-piece="AUG33" onclick="openCopyModal('AUG33', event)">
         <div class="num">33</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Tendencia</div>
         <div class="topic"><strong>«WiFi 6: la tendencia que ya llegó».</strong> Tendencia de mercado.</div>
         <div class="brands">HIKVISION · Linksys · Xiaomi · TP-LINK · Nexxt Home</div>
@@ -2161,6 +2148,7 @@
       <div class="piece piece-with-copy pillar-perfil" data-format="carrusel" data-piece="AUG34" onclick="openCopyModal('AUG34', event)">
         <div class="num">34</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Caso de negocio</div>
         <div class="topic"><strong>«Lo que BLUETTI significa para tu negocio de tecnología».</strong> Demanda real, margen, diferenciación.</div>
         <div class="brands">BLUETTI</div>
@@ -2183,6 +2171,7 @@
       <div class="piece piece-with-copy pillar-solucion" data-format="video" data-piece="AUG35" onclick="openCopyModal('AUG35', event)">
         <div class="num">35</div>
         <span class="fmt vs1">Video Supri</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Customización</div>
         <div class="topic"><strong>«Barebone: por qué la Mini PC MSI te permite personalizar para cada cliente».</strong> El concepto barebone explicado.</div>
         <div class="brands">MSI</div>
@@ -2200,6 +2189,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG36" onclick="openCopyModal('AUG36', event)">
         <div class="num">36</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«Router HIKVISION: del básico al WiFi 6, lo que tenemos para ti».</strong> Showcase visual completo.</div>
         <div class="brands">HIKVISION</div>
@@ -2219,7 +2209,8 @@
       <div class="col-head"><span class="day">Jue</span><span class="date">27</span></div>
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG37" onclick="openCopyModal('AUG37', event)">
         <div class="num">37</div>
-        <span class="fmt vocero">Video Vocero · CARACAS</span>
+        <span class="fmt vocero">Video Caracas</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Venta cruzada</div>
         <div class="topic"><strong>«El complemento que siempre se necesita».</strong> Venta cruzada + Urgencia.</div>
         <div class="brands">HP</div>
@@ -2237,6 +2228,7 @@
       <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG38" onclick="openCopyModal('AUG38', event)">
         <div class="num">38</div>
         <span class="fmt carrusel">Carrusel 📋</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Showcase</div>
         <div class="topic"><strong>«Más que bolsos: lo que Targus tiene para tu tienda».</strong> Mouse, teclados, cargadores, audífonos.</div>
         <div class="brands">Targus</div>
@@ -2260,7 +2252,8 @@
       <div class="col-head"><span class="day">Vie</span><span class="date">28</span></div>
       <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG39" onclick="openCopyModal('AUG39', event)">
         <div class="num">39</div>
-        <span class="fmt vocero">Video Vocero · VALENCIA</span>
+        <span class="fmt vocero">Video Valencia</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Diferenciación</div>
         <div class="topic"><strong>«Por qué tu cliente debe comprarte el router a ti y no a otro».</strong> 3 razones para elegirte.</div>
         <div class="brands">HIKVISION</div>
@@ -2277,6 +2270,7 @@
       <div class="piece piece-with-copy pillar-confianza" data-format="post" data-piece="AUG40" onclick="openCopyModal('AUG40', event)">
         <div class="num">40</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Confianza</div>
         <div class="topic"><strong>«Logitech: marca que tus clientes ya conocen».</strong> La confianza del cliente en una marca reconocida.</div>
         <div class="brands">Logitech</div>
@@ -2298,7 +2292,7 @@
 
 <!-- S5 -->
 <div class="week-card collapsed" id="aug-s5">
-  <div class="week-top" onclick="toggleWeek('aug-s5')">
+  <div class="week-top" onclick="toggleWeek('aug-s5')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleWeek('aug-s5')">
     <div class="week-top-left">
       <span class="week-badge">S5</span>
       <h2>Lun 31 de agosto</h2>
@@ -2319,6 +2313,7 @@
       <div class="piece piece-with-copy pillar-combo" data-format="post" data-piece="AUG41" onclick="openCopyModal('AUG41', event)">
         <div class="num">41</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Combo</div>
         <div class="topic"><strong>«Bolso + laptop: la venta que siempre cierra».</strong> El combo que nunca falla.</div>
         <div class="brands">Targus</div>
@@ -2336,6 +2331,7 @@
       <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG42" onclick="openCopyModal('AUG42', event)">
         <div class="num">42</div>
         <span class="fmt post">Post</span>
+        <div class="piece-check" onclick="toggleCheck(this, event)"></div>
         <div class="pillar">Demanda</div>
         <div class="topic"><strong>«Laptop: el artículo que todo cliente va a buscar este mes».</strong> Demanda de fin de mes.</div>
         <div class="brands">Acer · HP · ASUS</div>
@@ -2385,7 +2381,8 @@
     <div class="email-card" data-aug="AUG2" data-email="1" onclick="openCopyModal('AUG2',event)">
       <div class="ec-head">
         <span>Lun 10 · Routers</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(1)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2407,7 +2404,8 @@ Escríbenos y te asesoramos. Así no pierdes la venta ni al cliente.</div>
     <div class="email-card" data-aug="AUG4" data-email="2" onclick="openCopyModal('AUG4',event)">
       <div class="ec-head">
         <span>Mar 11 · Consumibles HP</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(2)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2429,7 +2427,8 @@ No dejes que tu cliente compre sus consumibles en otro lado. Pregunta por el por
     <div class="email-card" data-aug="AUG6" data-email="3" onclick="openCopyModal('AUG6',event)">
       <div class="ec-head">
         <span>Mié 12 · Logitech</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(3)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2453,7 +2452,8 @@ No es cuestión de vender más. Es cuestión de vender mejor. Arma la venta comp
     <div class="email-card" data-aug="AUG8" data-email="4" onclick="openCopyModal('AUG8',event)">
       <div class="ec-head">
         <span>Jue 13 · HIKVISION</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(4)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2479,7 +2479,8 @@ Tres modelos. Tres clientes. Un solo mayorista. Asegúrate de tenerlos en tu vit
     <div class="email-card" data-aug="AUG9" data-email="5" onclick="openCopyModal('AUG9',event)">
       <div class="ec-head">
         <span>Vie 14 · TARGUS</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(5)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2517,7 +2518,8 @@ Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera compr
     <div class="email-card" data-aug="AUG12" data-email="6" onclick="openCopyModal('AUG12',event)">
       <div class="ec-head">
         <span>Lun 17 · BLUETTI</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(6)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2541,7 +2543,8 @@ Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>.
     <div class="email-card" data-aug="AUG14" data-email="7" onclick="openCopyModal('AUG14',event)">
       <div class="ec-head">
         <span>Mar 18 · Routers</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(7)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2563,7 +2566,8 @@ Si no le ofreces la solución correcta, él busca en otro lado. Y cuando la encu
     <div class="email-card" data-aug="AUG16" data-email="8" onclick="openCopyModal('AUG16',event)">
       <div class="ec-head">
         <span>Mié 19 · TARGUS</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(8)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2587,7 +2591,8 @@ Si le ofreces el mismo bolso a todos, estás perdiendo ventas. Porque el ejecuti
     <div class="email-card" data-aug="AUG18" data-email="9" onclick="openCopyModal('AUG18',event)">
       <div class="ec-head">
         <span>Jue 20 · Mini PC MSI</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(9)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2611,7 +2616,8 @@ Stock de Mini PC MSI disponible. Pregunta por el modelo ideal.</div>
     <div class="email-card" data-aug="AUG20" data-email="10" onclick="openCopyModal('AUG20',event)">
       <div class="ec-head">
         <span>Vie 21 · Laptops</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(10)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2647,7 +2653,8 @@ No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es
     <div class="email-card" data-aug="AUG22" data-email="11" onclick="openCopyModal('AUG22',event)">
       <div class="ec-head">
         <span>Lun 24 · Consumibles HP</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(11)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2671,7 +2678,8 @@ No esperes a que pregunte en otro lado. Ofrecerle los consumibles ahora.</div>
     <div class="email-card" data-aug="AUG24" data-email="12" onclick="openCopyModal('AUG24',event)">
       <div class="ec-head">
         <span>Mar 25 · BLUETTI</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(12)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2695,7 +2703,8 @@ En <strong>SUPRICOM</strong> tenemos ocho modelos. Desde la compacta <strong>AC5
     <div class="email-card" data-aug="AUG26" data-email="13" onclick="openCopyModal('AUG26',event)">
       <div class="ec-head">
         <span>Mié 26 · Consumibles HP</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(13)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2719,7 +2728,8 @@ Tres tipos. Tres impresoras. Tres consumibles diferentes. Si no sabes cuál va e
     <div class="email-card" data-aug="AUG28" data-email="14" onclick="openCopyModal('AUG28',event)">
       <div class="ec-head">
         <span>Jue 27 · TARGUS</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(14)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2743,7 +2753,8 @@ En <strong>SUPRICOM</strong> los tenemos listos. Solo tienes que preguntar.</div
     <div class="email-card" data-aug="AUG30" data-email="15" onclick="openCopyModal('AUG30',event)">
       <div class="ec-head">
         <span>Vie 28 · LOGITECH</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(15)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2779,7 +2790,8 @@ Logitech <strong>Lift Vertical</strong> para zurdos. Stock disponible en <strong
     <div class="email-card" data-aug="AUG32" data-email="16" onclick="openCopyModal('AUG32',event)">
       <div class="ec-head">
         <span>Lun 3 Sept · HIKVISION</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(16)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2801,7 +2813,8 @@ Es el router que debería estar en toda vitrina. Si no lo tienes, estás perdien
     <div class="email-card" data-aug="AUG34" data-email="17" onclick="openCopyModal('AUG34',event)">
       <div class="ec-head">
         <span>Mar 4 Sept · BLUETTI</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(17)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2825,7 +2838,8 @@ Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>.
     <div class="email-card" data-aug="AUG36" data-email="18" onclick="openCopyModal('AUG36',event)">
       <div class="ec-head">
         <span>Mié 5 Sept · HIKVISION</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(18)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2849,7 +2863,8 @@ Tres modelos. Tres clientes diferentes. Un solo mayorista. No necesitas ir a tre
     <div class="email-card" data-aug="AUG38" data-email="19" onclick="openCopyModal('AUG38',event)">
       <div class="ec-head">
         <span>Jue 6 Sept · TARGUS</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(19)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2873,7 +2888,8 @@ En <strong>SUPRICOM</strong> los tenemos listos. Arma el combo y cierra la venta
     <div class="email-card" data-aug="AUG40" data-email="20" onclick="openCopyModal('AUG40',event)">
       <div class="ec-head">
         <span>Vie 7 Sept · LOGITECH</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(20)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2897,7 +2913,8 @@ No dejes que tu cliente pregunte por Logitech y no lo tengas.</div>
     <div class="email-card" data-aug="AUG42" data-email="21" onclick="openCopyModal('AUG42',event)">
       <div class="ec-head">
         <span>Lun 10 Sept · Laptops</span>
-        <div class="ec-actions">
+        <div class="email-check" onclick="toggleCheck(this, event)"></div>
+      <div class="ec-actions">
           <button class="em-btn" onclick="event.stopPropagation();openEmailDrive(21)" title="Drive del email">📁</button>
           <button class="em-btn" onclick="event.stopPropagation();copyEmail(this)">📋 Copiar</button>
         </div>
@@ -2934,7 +2951,7 @@ No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina
       <h3>📋 <span id="modalPieceTitle">Pieza #1</span></h3>
       <div class="modal-head-actions">
         <button id="toggleFullView" onclick="toggleFullScript()">📄 Ver completo</button>
-        <button class="modal-close" onclick="closeCopyModal()">✕</button>
+        <button class="modal-close" onclick="closeCopyModal()" aria-label="Cerrar modal">✕</button>
       </div>
     </div>
     <div class="modal-body">
@@ -2947,14 +2964,14 @@ No esperes a que tu competencia se la venda. Asegúrate de tenerla en tu vitrina
       </div>
       <div class="modal-actions">
         <button class="copy-caption-btn" id="copyCaptionBtn" onclick="copyCaption()">📋 Copiar Caption</button>
-        <button class="copy-caption-btn" id="copyGuionBtn" onclick="copyGuion()">📝 Copiar Guion</button>
+        <button class="copy-caption-btn secondary" id="copyGuionBtn" onclick="copyGuion()">📝 Copiar Guion</button>
       </div>
       <button class="drive-btn" id="driveBtn" onclick="openDriveFolder()">📁 Ver diseño</button>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" aria-live="polite" role="status"></div>
 
 <footer>
   <p><strong>SUPRICOM</strong> · Tu mayorista de confianza</p>
@@ -3393,20 +3410,6 @@ function copyCaption() {
   });
 }
 
-// ─── QUICK COPY CAPTION (from piece card) ───
-function quickCopyCaption(pieceId, btn) {
-  var cap = CAPTIONS[pieceId];
-  if (!cap) { showToast('No hay caption para esta pieza'); return; }
-  navigator.clipboard.writeText(cap).then(function() {
-    btn.classList.add('copied');
-    btn.textContent = '✓';
-    setTimeout(function() { btn.classList.remove('copied'); btn.textContent = '📋'; }, 2000);
-    showToast('Caption copiado');
-  }).catch(function() {
-    showToast('Error al copiar');
-  });
-}
-
 // ─── COPY GUION ───
 function copyGuion() {
   if (!slidesData || slidesData.length === 0) { showToast('No hay contenido para esta pieza'); return; }
@@ -3582,18 +3585,6 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.onclick = function(e) { e.stopPropagation(); copyProduct(this); };
     pi.appendChild(btn);
   });
-  // Quick Copy buttons on piece cards
-  document.querySelectorAll('.piece').forEach(function(p) {
-    if (p.querySelector('.quick-copy')) return;
-    var pieceId = p.dataset.piece;
-    if (!pieceId) return;
-    var btn = document.createElement('button');
-    btn.className = 'quick-copy';
-    btn.textContent = '📋';
-    btn.title = 'Copiar caption';
-    btn.onclick = function(e) { e.stopPropagation(); quickCopyCaption(pieceId, this); };
-    p.appendChild(btn);
-  });
   // Populate brand filter dropdown
   var brandSelect = document.getElementById('filterBrand');
   if (brandSelect) {
@@ -3634,36 +3625,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 300);
 });
 
-function showToast(msg) {
+function showToast(msg, type, duration) {
   const t = document.getElementById('toast');
+  t.className = 'toast';
+  if (type) t.classList.add(type);
   t.innerHTML = '<span>' + msg + '</span><button class="toast-close" onclick="this.parentElement.classList.remove(\'show\')" aria-label="Cerrar">&times;</button>';
   t.classList.add('show');
   clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove('show'), 3000);
+  var dur = duration || (msg.length > 60 ? 5000 : 3000);
+  t._timer = setTimeout(() => t.classList.remove('show'), dur);
 }
 
-// ─── DARK MODE ───
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  const btn = document.getElementById('themeBtn');
-  btn.classList.add('switching');
-  setTimeout(function() {
-    html.setAttribute('data-theme', isDark ? '' : 'dark');
-    localStorage.setItem('theme', isDark ? '' : 'dark');
-    btn.textContent = isDark ? '🌙' : '☀️';
-    btn.classList.remove('switching');
-  }, 150);
+// ─── CHECK TOGGLE (PIECES + EMAILS) ───
+function toggleCheck(el, e) {
+  e.stopPropagation();
+  e.preventDefault();
+  const card = el.closest('.piece, .email-card');
+  if (card) card.classList.toggle('checked');
 }
-(function initTheme() {
-  const saved = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = saved ? saved === 'dark' : prefersDark;
-  if (useDark) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.getElementById('themeBtn').textContent = '☀️';
-  }
-})();
 
 // ─── CLOSE MODAL ON ESC ───
 document.addEventListener('keydown', e => {
@@ -3740,6 +3719,7 @@ function applyEnhancedFilters() {
   if (res) {
     if (search || pillar || brand) {
       res.innerHTML = '<strong>' + count + '</strong> de ' + visible.length + ' piezas';
+      if (count === 0) res.innerHTML += ' <span style="color:var(--text-light)">— <a href="#" onclick="resetMonthFilters();return false" style="color:var(--primary-light);text-decoration:underline">Limpiar filtros</a></span>';
     } else {
       res.innerHTML = '';
     }
@@ -4190,20 +4170,54 @@ function switchCatTab(tab, btn) {
   populateCatFilters();
   filterCatalog();
 }
-function populateCatFilters() {
+function populateCatFilters(skipBrandClear) {
   const data = CATALOGO[catTab] || {};
   const cats = Object.keys(data).sort();
-  const sel = document.getElementById('catCategory');
-  const prev = sel.value;
-  sel.innerHTML = '<option value="">Todas las categorías</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
-  sel.value = prev;
+  const catVal = document.getElementById('catCategory').value.trim().toLowerCase();
+
+  // Fill category datalist
+  const catDL = document.getElementById('catCategoryList');
+  if (catDL) catDL.innerHTML = cats.map(c => `<option value="${c}">`).join('');
+
+  // Determine which categories to pull brands from
+  const sourceCats = catVal
+    ? cats.filter(c => c.toLowerCase().includes(catVal))
+    : cats;
+
+  // Build brand list from filtered categories
   catBrands = [];
-  cats.forEach(c => { data[c].forEach(p => { if (!catBrands.includes(p.marca)) catBrands.push(p.marca); }); });
+  sourceCats.forEach(c => {
+    (data[c] || []).forEach(p => {
+      if (p.marca && !catBrands.includes(p.marca)) catBrands.push(p.marca);
+    });
+  });
   catBrands.sort();
-  const bSel = document.getElementById('catBrand');
-  const prevB = bSel.value;
-  bSel.innerHTML = '<option value="">Todas las marcas</option>' + catBrands.map(b => `<option value="${b}">${b}</option>`).join('');
-  bSel.value = prevB;
+
+  // Fill brand datalist
+  const brandDL = document.getElementById('catBrandList');
+  if (brandDL) brandDL.innerHTML = catBrands.map(b => `<option value="${b}">`).join('');
+
+  // If current brand no longer valid, clear it (skip when typing in brand input)
+  if (!skipBrandClear) {
+    const brandVal = document.getElementById('catBrand').value.trim();
+    if (brandVal && !catBrands.some(b => b.toLowerCase() === brandVal.toLowerCase())) {
+      document.getElementById('catBrand').value = '';
+    }
+  }
+}
+var _catFilterDebounced = debounce(function() {
+  populateCatFilters();
+  filterCatalog();
+}, 250);
+var _brandFilterDebounced = debounce(function() {
+  filterCatalog();
+}, 250);
+function onCatFilterInput(e) {
+  if (e && e.target && e.target.id === 'catBrand') {
+    _brandFilterDebounced();
+  } else {
+    _catFilterDebounced();
+  }
 }
 function toggleCustomStock() {
   var sel = document.getElementById('catStock');
@@ -4220,17 +4234,18 @@ function sortCat(key) {
 function filterCatalog() {
   const data = CATALOGO[catTab] || {};
   const q = document.getElementById('catSearch').value.toLowerCase();
-  const catFilter = document.getElementById('catCategory').value;
-  const brandFilter = document.getElementById('catBrand').value;
+  const catFilter = document.getElementById('catCategory').value.trim().toLowerCase();
+  const brandFilter = document.getElementById('catBrand').value.trim().toLowerCase();
   const body = document.getElementById('catBody');
   let html = '';
   let totalProducts = 0;
   let totalQty = 0;
-  const cats = catFilter ? [catFilter] : Object.keys(data).sort();
+  const allCats = Object.keys(data).sort();
+  const cats = catFilter ? allCats.filter(c => c.toLowerCase().includes(catFilter)) : allCats;
   cats.forEach(cat => {
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
-    if (brandFilter) items = items.filter(p => p.marca === brandFilter);
+    if (brandFilter) items = items.filter(p => p.marca && p.marca.toLowerCase().includes(brandFilter));
     var stockFilter = (document.getElementById('catStock') || {}).value || '';
     items = applyStockFilter(items, stockFilter);
     // Sort
@@ -4288,6 +4303,7 @@ function resetCatFilters() {
   if (opEl) opEl.value = 'gt';
   if (valEl) valEl.value = '0';
   catSortKey = 'nombre'; catSortAsc = true;
+  populateCatFilters();
   filterCatalog();
 }
 
@@ -4309,17 +4325,17 @@ function resetMonthFilters() {
 function exportCatalogCSV() {
   if (!CATALOGO || !CATALOGO[catTab] || typeof XLSX === 'undefined') return;
   const data = CATALOGO[catTab];
-  const cats = Object.keys(data).sort();
   const q = document.getElementById('catSearch').value.toLowerCase();
-  const catFilter = document.getElementById('catCategory').value;
-  const brandFilter = document.getElementById('catBrand').value;
+  const catFilter = document.getElementById('catCategory').value.trim().toLowerCase();
+  const brandFilter = document.getElementById('catBrand').value.trim().toLowerCase();
+  const allCats = Object.keys(data).sort();
+  const cats = catFilter ? allCats.filter(c => c.toLowerCase().includes(catFilter)) : allCats;
   const wb = XLSX.utils.book_new();
   let totalRows = 0;
   cats.forEach(cat => {
-    if (catFilter && cat !== catFilter) return;
     let items = data[cat] || [];
     if (q) items = items.filter(p => p.sku.toLowerCase().includes(q) || p.nombre.toLowerCase().includes(q) || p.marca.toLowerCase().includes(q));
-    if (brandFilter) items = items.filter(p => p.marca === brandFilter);
+    if (brandFilter) items = items.filter(p => p.marca && p.marca.toLowerCase().includes(brandFilter));
     var stockFilter = (document.getElementById('catStock') || {}).value || '';
     items = applyStockFilter(items, stockFilter);
     if (items.length === 0) return;
@@ -4477,13 +4493,19 @@ function debounce(fn, ms) {
 
 /* 4. RIPPLE TRACKER */
 (function() {
+  var rafPending = false;
   document.addEventListener('mousemove', e => {
-    const el = e.target.closest('.fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn, .theme-toggle');
-    if (el) {
-      const rect = el.getBoundingClientRect();
-      el.style.setProperty('--x', ((e.clientX - rect.left) / rect.width * 100) + '%');
-      el.style.setProperty('--y', ((e.clientY - rect.top) / rect.height * 100) + '%');
-    }
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      const el = e.target.closest('.fil, .kp, .mtab, .em-btn, .copy-caption-btn, .drive-btn');
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        el.style.setProperty('--y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      }
+      rafPending = false;
+    });
   });
 })();
 

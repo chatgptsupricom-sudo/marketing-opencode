@@ -231,10 +231,147 @@ export type CatalogoData = {
   VALENCIA: Record<string, Producto[]>;
 };
 
+// Warehouse mapping: names can be overridden via env vars.
+// Defaults are based on Odoo warehouse names discovered in supricom-prod1:
+//   Central   (CENT1, id 9) -> Valencia
+//   Central 7 (CENT7, id 60) -> Caracas
+const DEFAULT_CARACAS_WAREHOUSE_NAME = process.env.ODOO_WAREHOUSE_CARACAS_NAME || 'Central 7';
+const DEFAULT_VALENCIA_WAREHOUSE_NAME = process.env.ODOO_WAREHOUSE_VALENCIA_NAME || 'Central';
+
+async function findWarehouseIds(uid: number): Promise<{ caracasId: number | null; valenciaId: number | null }> {
+  const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
+    ODOO_DB,
+    uid,
+    ODOO_PASSWORD,
+    'stock.warehouse',
+    'search_read',
+    [[]],
+    { fields: ['id', 'name', 'code'] },
+  ]);
+  const warehouses = parseResponse(resp);
+  if (!Array.isArray(warehouses)) return { caracasId: null, valenciaId: null };
+
+  let caracasId: number | null = null;
+  let valenciaId: number | null = null;
+
+  const caracasName = DEFAULT_CARACAS_WAREHOUSE_NAME.toLowerCase();
+  const valenciaName = DEFAULT_VALENCIA_WAREHOUSE_NAME.toLowerCase();
+
+  for (const wh of warehouses) {
+    const whName = String(wh.name || '').toLowerCase();
+    const whCode = String(wh.code || '').toLowerCase();
+    if (!caracasId && (whName.includes(caracasName) || whCode.includes(caracasName))) {
+      caracasId = wh.id;
+    }
+    if (!valenciaId && (whName.includes(valenciaName) || whCode.includes(valenciaName))) {
+      // Make sure we don't match "Central 7" when looking for "Central"
+      if (valenciaName !== 'central' || (!whName.includes('central 7') && !whCode.includes('cent7'))) {
+        valenciaId = wh.id;
+      }
+    }
+  }
+
+  // Fallback: if both matched the same warehouse, prefer exact name matches
+  if (caracasId && valenciaId && caracasId === valenciaId) {
+    valenciaId = null;
+    for (const wh of warehouses) {
+      const whName = String(wh.name || '').toLowerCase();
+      if (whName === valenciaName) {
+        valenciaId = wh.id;
+        break;
+      }
+    }
+  }
+
+  if (!caracasId) {
+    console.warn(`[catalogo] No se encontro almacen para Caracas con nombre "${DEFAULT_CARACAS_WAREHOUSE_NAME}"`);
+  }
+  if (!valenciaId) {
+    console.warn(`[catalogo] No se encontro almacen para Valencia con nombre "${DEFAULT_VALENCIA_WAREHOUSE_NAME}"`);
+  }
+
+  return { caracasId, valenciaId };
+}
+
+interface RawProduct {
+  id: number;
+  default_code?: string;
+  name?: string;
+  categ_id?: any;
+  x_studio_marca?: any;
+  qty_available?: number;
+  company_sale_price?: number;
+}
+
+function normalizeProduct(p: RawProduct): Producto | null {
+  // categ_id: [id, name] or just name
+  let catName = '';
+  if (Array.isArray(p.categ_id)) {
+    catName = p.categ_id[1] || '';
+  } else {
+    catName = String(p.categ_id || '');
+  }
+  const cat = catName.toUpperCase().trim() || 'SIN CATEGORIA';
+
+  // Filter out internal Odoo categories
+  const excluded = ['ALL', 'SERVICIO', 'JUGUETES', 'BOOKING FEES', 'POS', 'DELIVERIES', 'EXPENSES', 'SALEABLE', 'SOFTWARE'];
+  if (excluded.some(e => cat.includes(e))) return null;
+
+  // x_studio_marca: [id, name] or just name
+  let marcaName = '';
+  if (Array.isArray(p.x_studio_marca)) {
+    marcaName = p.x_studio_marca[1] || '';
+  } else {
+    marcaName = String(p.x_studio_marca || '');
+  }
+  const marca = marcaName.trim() || 'SIN MARCA';
+
+  const stock = typeof p.qty_available === 'number' ? p.qty_available : 0;
+  const precio = typeof p.company_sale_price === 'number' ? p.company_sale_price : 0;
+
+  return {
+    sku: p.default_code || '',
+    nombre: p.name || '',
+    marca,
+    categoria: cat,
+    cantidad: stock,
+    precio,
+  };
+}
+
+async function fetchWarehouseQuantities(
+  uid: number,
+  productIds: number[],
+  warehouseId: number | null
+): Promise<Map<number, number>> {
+  const qtyMap = new Map<number, number>();
+  if (!warehouseId || productIds.length === 0) return qtyMap;
+
+  const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
+    ODOO_DB,
+    uid,
+    ODOO_PASSWORD,
+    'product.product',
+    'read',
+    [productIds],
+    { fields: ['id', 'qty_available'], context: { warehouse: warehouseId } },
+  ]);
+
+  const rows = parseResponse(resp);
+  if (!Array.isArray(rows)) return qtyMap;
+
+  for (const row of rows) {
+    if (row && typeof row.id === 'number') {
+      qtyMap.set(row.id, typeof row.qty_available === 'number' ? row.qty_available : 0);
+    }
+  }
+  return qtyMap;
+}
+
 export async function fetchCatalogo(): Promise<CatalogoData> {
   const uid = await authenticate();
 
-  const fields = ['default_code', 'name', 'categ_id', 'x_studio_marca', 'qty_available', 'company_sale_price'];
+  const fields = ['id', 'default_code', 'name', 'categ_id', 'x_studio_marca', 'qty_available', 'company_sale_price'];
 
   const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
     ODOO_DB,
@@ -247,7 +384,7 @@ export async function fetchCatalogo(): Promise<CatalogoData> {
   ]);
 
   const rawProducts = parseResponse(resp);
-  const products = Array.isArray(rawProducts) ? rawProducts : [];
+  const generalProducts: RawProduct[] = Array.isArray(rawProducts) ? rawProducts : [];
 
   const result: CatalogoData = {
     GENERAL: {},
@@ -255,52 +392,35 @@ export async function fetchCatalogo(): Promise<CatalogoData> {
     VALENCIA: {},
   };
 
-  for (const p of products) {
-    // categ_id: [id, name] or just name
-    let catName = '';
-    if (Array.isArray(p.categ_id)) {
-      catName = p.categ_id[1] || '';
-    } else {
-      catName = String(p.categ_id || '');
-    }
-    const cat = catName.toUpperCase().trim() || 'SIN CATEGORIA';
+  const productMap = new Map<number, Producto>();
+  const productIds: number[] = [];
 
-    // Filter out internal Odoo categories
-    const excluded = ['ALL', 'SERVICIO', 'JUGUETES', 'BOOKING FEES', 'POS', 'DELIVERIES', 'EXPENSES', 'SALEABLE', 'SOFTWARE'];
-    if (excluded.some(e => cat.includes(e))) continue;
+  for (const p of generalProducts) {
+    const prod = normalizeProduct(p);
+    if (!prod) continue;
+    productMap.set(p.id, prod);
+    productIds.push(p.id);
 
-    // x_studio_marca: [id, name] or just name
-    let marcaName = '';
-    if (Array.isArray(p.x_studio_marca)) {
-      marcaName = p.x_studio_marca[1] || '';
-    } else {
-      marcaName = String(p.x_studio_marca || '');
-    }
-    const marca = marcaName.trim() || 'SIN MARCA';
+    if (!result.GENERAL[prod.categoria]) result.GENERAL[prod.categoria] = [];
+    result.GENERAL[prod.categoria].push(prod);
+  }
 
-    const stock = typeof p.qty_available === 'number' ? p.qty_available : 0;
-    const precio = typeof p.company_sale_price === 'number' ? p.company_sale_price : 0;
+  // Fetch real warehouse-level quantities instead of splitting 50/50
+  const { caracasId, valenciaId } = await findWarehouseIds(uid);
+  const [caracasQty, valenciaQty] = await Promise.all([
+    fetchWarehouseQuantities(uid, productIds, caracasId),
+    fetchWarehouseQuantities(uid, productIds, valenciaId),
+  ]);
 
-    const prod: Producto = {
-      sku: p.default_code || '',
-      nombre: p.name || '',
-      marca,
-      categoria: cat,
-      cantidad: stock,
-      precio,
-    };
+  for (const [id, prod] of Array.from(productMap.entries())) {
+    const caracasStock = caracasQty.get(id) ?? 0;
+    const valenciaStock = valenciaQty.get(id) ?? 0;
 
-    if (!result.GENERAL[cat]) result.GENERAL[cat] = [];
-    result.GENERAL[cat].push(prod);
+    if (!result.CARACAS[prod.categoria]) result.CARACAS[prod.categoria] = [];
+    result.CARACAS[prod.categoria].push({ ...prod, cantidad: caracasStock });
 
-    // Split stock 50/50 for CARACAS / VALENCIA (placeholder until warehouse-level stock)
-    const halfStock = Math.round(stock / 2);
-
-    if (!result.CARACAS[cat]) result.CARACAS[cat] = [];
-    result.CARACAS[cat].push({ ...prod, cantidad: stock - halfStock });
-
-    if (!result.VALENCIA[cat]) result.VALENCIA[cat] = [];
-    result.VALENCIA[cat].push({ ...prod, cantidad: halfStock });
+    if (!result.VALENCIA[prod.categoria]) result.VALENCIA[prod.categoria] = [];
+    result.VALENCIA[prod.categoria].push({ ...prod, cantidad: valenciaStock });
   }
 
   return result;
