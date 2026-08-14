@@ -37,10 +37,14 @@ export async function GET(request: NextRequest) {
       productos,
       actualizado: new Date().toISOString(),
     }, { headers: CORS_HEADERS });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching catalog:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      {
+        error: 'Internal server error',
+        message: error?.message || 'Unknown error',
+        stack: error?.stack || '',
+      },
       { status: 500, headers: CORS_HEADERS }
     );
   }
