@@ -1,219 +1,64 @@
-import https from 'https';
-import { URL } from 'url';
+import axios from 'axios';
 
-const ODOO_URL = process.env.ODOO_URL!;
-const ODOO_DB = process.env.ODOO_DB!;
-const ODOO_USER = process.env.ODOO_USER!;
-const ODOO_PASSWORD = process.env.ODOO_PASSWORD!;
+const RAW_URL = process.env.ODOO_URL || process.env.NEXT_PUBLIC_ODOO_URL || 'https://supricom2.odoo.com';
+const ODOO_URL = RAW_URL.replace(/\/$/, '');
+const ODOO_DB = process.env.ODOO_DB || 'supricom-prod1-25424683';
+const ODOO_UID = parseInt(process.env.ODOO_UID || '388', 10);
+const ODOO_API_KEY = process.env.ODOO_API_KEY || process.env.ODOO_PASSWORD || '';
 
-function escapeXml(str: string): string {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
+// Sede → company_id en Odoo (del dashboard funcional)
+const COMPANY_VALENCIA = parseInt(process.env.ODOO_COMPANY_VALENCIA || '9', 10);
+const COMPANY_CARACAS = parseInt(process.env.ODOO_COMPANY_CARACAS || '10', 10);
+const WAREHOUSE_VALENCIA = parseInt(process.env.ODOO_WAREHOUSE_VALENCIA || '9', 10);
+const WAREHOUSE_CARACAS = parseInt(process.env.ODOO_WAREHOUSE_CARACAS || '10', 10);
 
-function serializeValue(val: any): string {
-  if (val === null || val === undefined) return '<nil/>';
-  if (typeof val === 'boolean') return `<boolean>${val ? 1 : 0}</boolean>`;
-  if (typeof val === 'number') return Number.isInteger(val) ? `<int>${val}</int>` : `<double>${val}</double>`;
-  if (typeof val === 'string') return `<string>${escapeXml(val)}</string>`;
-  if (Array.isArray(val)) {
-    const items = val.map(v => `<value>${serializeValue(v)}</value>`).join('');
-    return `<array><data>${items}</data></array>`;
-  }
-  if (typeof val === 'object') {
-    const members = Object.entries(val)
-      .map(([k, v]) => `<member><name>${k}</name><value>${serializeValue(v)}</value></member>`)
-      .join('');
-    return `<struct>${members}</struct>`;
-  }
-  return `<string>${escapeXml(String(val))}</string>`;
-}
+let requestId = 1;
 
-function xmlRpcCall(path: string, methodName: string, params: any[]): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const paramXml = params.map(p => `<param><value>${serializeValue(p)}</value></param>`).join('');
-    const body = `<?xml version="1.0"?><methodCall><methodName>${methodName}</methodName><params>${paramXml}</params></methodCall>`;
-
-    const parsedUrl = new URL(ODOO_URL + path);
-    const options = {
-      hostname: parsedUrl.hostname,
-      port: 443,
-      path: parsedUrl.pathname,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/xml',
-        'Content-Length': Buffer.byteLength(body),
+export async function callOdooRPC<T>(
+  model: string,
+  method: string,
+  args: any[] = [],
+  kwargs: Record<string, any> = {},
+): Promise<T | null> {
+  try {
+    const payload = {
+      jsonrpc: '2.0',
+      method: 'call',
+      params: {
+        service: 'object',
+        method: 'execute_kw',
+        args: [
+          ODOO_DB,
+          ODOO_UID,
+          ODOO_API_KEY,
+          model,
+          method,
+          args,
+          kwargs,
+        ],
       },
+      id: requestId++,
     };
 
-    const req = https.request(options, (res) => {
-      let data = '';
-      res.on('data', (chunk) => (data += chunk));
-      res.on('end', () => resolve(data));
-    });
-    req.on('error', reject);
-    req.write(body);
-    req.end();
-  });
-}
+    const response = await axios.post<{ jsonrpc: string; id: number; result?: T; error?: any }>(
+      `${ODOO_URL}/jsonrpc`,
+      payload,
+      { headers: { 'Content-Type': 'application/json' }, timeout: 60000 },
+    );
 
-// ── Robust XML parser for Odoo responses ──
-
-interface XmlNode {
-  tag: string;
-  text: string;
-  children: XmlNode[];
-}
-
-function parseXmlNode(xml: string, start: number): { node: XmlNode; end: number } {
-  // Find opening tag
-  const openMatch = xml.substring(start).match(/^<(\w+)>/);
-  if (!openMatch) return { node: { tag: '', text: xml.substring(start), children: [] }, end: xml.length };
-
-  const tag = openMatch[1];
-  const tagEnd = start + openMatch[0].length;
-
-  // Self-closing tag
-  if (xml.substring(tagEnd).startsWith('/>')) {
-    return { node: { tag, text: '', children: [] }, end: tagEnd + 2 };
-  }
-
-  // Find closing tag
-  let depth = 1;
-  let pos = tagEnd;
-  const children: XmlNode[] = [];
-  let textContent = '';
-
-  while (pos < xml.length && depth > 0) {
-    const nextOpen = xml.indexOf('<', pos);
-    const nextClose = xml.indexOf('>', pos);
-
-    if (nextClose === -1) break;
-
-    if (nextOpen !== -1 && nextOpen < nextClose) {
-      // Check if it's a closing tag
-      if (xml[nextOpen + 1] === '/') {
-        const closeEnd = xml.indexOf('>', nextOpen);
-        if (xml.substring(nextOpen + 2, closeEnd).trim() === tag) {
-          depth--;
-          if (depth === 0) {
-            // Capture any text before the closing tag
-            textContent = xml.substring(tagEnd, nextOpen).trim();
-            pos = closeEnd + 1;
-            break;
-          }
-        }
-        pos = closeEnd + 1;
-      } else {
-        // It's an opening tag of a child
-        const child = parseXmlNode(xml, nextOpen);
-        children.push(child.node);
-        pos = child.end;
-      }
-    } else {
-      // Only a closing tag
-      if (xml[nextOpen + 1] === '/') {
-        const closeEnd = xml.indexOf('>', nextOpen);
-        depth--;
-        if (depth === 0) {
-          textContent = xml.substring(tagEnd, nextOpen).trim();
-          pos = closeEnd + 1;
-          break;
-        }
-        pos = closeEnd + 1;
-      } else {
-        pos = nextClose + 1;
-      }
+    if (response.data.error) {
+      console.error('❌ Odoo RPC error:', response.data.error);
+      throw new Error(`Odoo RPC error: ${JSON.stringify(response.data.error)}`);
     }
-  }
 
-  return { node: { tag, text: textContent, children }, end: pos };
-}
-
-function getNodeText(node: XmlNode): string {
-  if (node.children.length === 0) return node.text;
-  // Get text of first child if it's a simple text node
-  for (const child of node.children) {
-    if (child.tag === 'string' || child.tag === 'int' || child.tag === 'double' || child.tag === 'boolean') {
-      return child.text || getNodeText(child);
+    return response.data.result as T;
+  } catch (error: any) {
+    console.error('❌ Error RPC:', error.message);
+    if (axios.isAxiosError(error) && error.response?.data) {
+      console.error('Response:', JSON.stringify(error.response.data).substring(0, 500));
     }
+    throw error;
   }
-  return node.text;
-}
-
-function findChildren(node: XmlNode, tag: string): XmlNode[] {
-  return node.children.filter(c => c.tag === tag);
-}
-
-function findChild(node: XmlNode, tag: string): XmlNode | undefined {
-  return node.children.find(c => c.tag === tag);
-}
-
-function parseArrayValue(node: XmlNode): any[] {
-  const dataNode = findChild(node, 'data');
-  if (!dataNode) return [];
-  const valueNodes = findChildren(dataNode, 'value');
-  return valueNodes.map(v => parseValue(v));
-}
-
-function parseValue(node: XmlNode): any {
-  if (node.children.length === 0) {
-    return node.text;
-  }
-
-  const firstChild = node.children[0];
-  switch (firstChild.tag) {
-    case 'int':
-    case 'i4':
-      return parseInt(firstChild.text || '0');
-    case 'double':
-      return parseFloat(firstChild.text || '0');
-    case 'boolean':
-      return (firstChild.text || '0') === '1';
-    case 'string':
-      return firstChild.text || '';
-    case 'array':
-      return parseArrayValue(firstChild);
-    case 'struct':
-      return parseStruct(firstChild);
-    case 'nil':
-      return null;
-    default:
-      return firstChild.text || '';
-  }
-}
-
-function parseStruct(node: XmlNode): Record<string, any> {
-  const result: Record<string, any> = {};
-  const memberNodes = findChildren(node, 'member');
-
-  for (const member of memberNodes) {
-    const nameNode = findChild(member, 'name');
-    const valueNode = findChild(member, 'value');
-    if (nameNode && valueNode) {
-      const name = nameNode.text || getNodeText(nameNode);
-      result[name] = parseValue(valueNode);
-    }
-  }
-
-  return result;
-}
-
-function parseResponse(xml: string): any {
-  // Find the <value> inside <params><param>
-  const valueStart = xml.indexOf('<value>');
-  if (valueStart === -1) throw new Error('No <value> found in response');
-
-  const { node } = parseXmlNode(xml, valueStart);
-  return parseValue(node);
-}
-
-async function authenticate(): Promise<number> {
-  const resp = await xmlRpcCall('/xmlrpc/2/common', 'authenticate', [ODOO_DB, ODOO_USER, ODOO_PASSWORD, {}]);
-  const uid = parseResponse(resp);
-  if (typeof uid !== 'number' || uid === 0) {
-    throw new Error(`Authentication failed. Response: ${resp.substring(0, 500)}`);
-  }
-  return uid;
 }
 
 export interface Producto {
@@ -231,160 +76,176 @@ export type CatalogoData = {
   VALENCIA: Record<string, Producto[]>;
 };
 
-// Warehouse mapping: names can be overridden via env vars.
-// Defaults are based on Odoo warehouse names discovered in supricom-prod1:
-//   Central   (CENT1, id 9) -> Valencia
-//   Central 7 (CENT7, id 60) -> Caracas
-const DEFAULT_CARACAS_WAREHOUSE_NAME = process.env.ODOO_WAREHOUSE_CARACAS_NAME || 'Central 7';
-const DEFAULT_VALENCIA_WAREHOUSE_NAME = process.env.ODOO_WAREHOUSE_VALENCIA_NAME || 'Central';
-
-async function findWarehouseIds(uid: number): Promise<{ caracasId: number | null; valenciaId: number | null }> {
-  const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
-    ODOO_DB,
-    uid,
-    ODOO_PASSWORD,
-    'stock.warehouse',
-    'search_read',
-    [[]],
-    { fields: ['id', 'name', 'code'] },
-  ]);
-  const warehouses = parseResponse(resp);
-  if (!Array.isArray(warehouses)) return { caracasId: null, valenciaId: null };
-
-  let caracasId: number | null = null;
-  let valenciaId: number | null = null;
-
-  const caracasName = DEFAULT_CARACAS_WAREHOUSE_NAME.toLowerCase();
-  const valenciaName = DEFAULT_VALENCIA_WAREHOUSE_NAME.toLowerCase();
-
-  for (const wh of warehouses) {
-    const whName = String(wh.name || '').toLowerCase();
-    const whCode = String(wh.code || '').toLowerCase();
-    if (!caracasId && (whName.includes(caracasName) || whCode.includes(caracasName))) {
-      caracasId = wh.id;
-    }
-    if (!valenciaId && (whName.includes(valenciaName) || whCode.includes(valenciaName))) {
-      // Make sure we don't match "Central 7" when looking for "Central"
-      if (valenciaName !== 'central' || (!whName.includes('central 7') && !whCode.includes('cent7'))) {
-        valenciaId = wh.id;
-      }
-    }
-  }
-
-  // Fallback: if both matched the same warehouse, prefer exact name matches
-  if (caracasId && valenciaId && caracasId === valenciaId) {
-    valenciaId = null;
-    for (const wh of warehouses) {
-      const whName = String(wh.name || '').toLowerCase();
-      if (whName === valenciaName) {
-        valenciaId = wh.id;
-        break;
-      }
-    }
-  }
-
-  if (!caracasId) {
-    console.warn(`[catalogo] No se encontro almacen para Caracas con nombre "${DEFAULT_CARACAS_WAREHOUSE_NAME}"`);
-  }
-  if (!valenciaId) {
-    console.warn(`[catalogo] No se encontro almacen para Valencia con nombre "${DEFAULT_VALENCIA_WAREHOUSE_NAME}"`);
-  }
-
-  return { caracasId, valenciaId };
-}
-
 interface RawProduct {
   id: number;
-  default_code?: string;
+  default_code?: string | boolean;
+  display_name?: string;
   name?: string;
-  categ_id?: any;
-  x_studio_marca?: any;
-  qty_available?: number;
-  company_sale_price?: number;
+  categ_id?: [number, string] | string;
+  x_studio_marca?: [number, string] | string;
+  company_sale_price?: number | boolean;
+  product_tmpl_id?: [number, string] | number;
 }
 
-function normalizeProduct(p: RawProduct): Producto | null {
-  // categ_id: [id, name] or just name
+function normalizeName(p: RawProduct): string {
+  return p.display_name || p.name || '';
+}
+
+function normalizeCategory(p: RawProduct): string {
   let catName = '';
   if (Array.isArray(p.categ_id)) {
     catName = p.categ_id[1] || '';
   } else {
     catName = String(p.categ_id || '');
   }
-  const cat = catName.toUpperCase().trim() || 'SIN CATEGORIA';
+  return catName.toUpperCase().trim() || 'SIN CATEGORIA';
+}
 
-  // Filter out internal Odoo categories
-  const excluded = ['ALL', 'SERVICIO', 'JUGUETES', 'BOOKING FEES', 'POS', 'DELIVERIES', 'EXPENSES', 'SALEABLE', 'SOFTWARE'];
-  if (excluded.some(e => cat.includes(e))) return null;
-
-  // x_studio_marca: [id, name] or just name
+function normalizeBrand(p: RawProduct): string {
   let marcaName = '';
   if (Array.isArray(p.x_studio_marca)) {
     marcaName = p.x_studio_marca[1] || '';
   } else {
     marcaName = String(p.x_studio_marca || '');
   }
-  const marca = marcaName.trim() || 'SIN MARCA';
-
-  const stock = typeof p.qty_available === 'number' ? p.qty_available : 0;
-  const precio = typeof p.company_sale_price === 'number' ? p.company_sale_price : 0;
-
-  return {
-    sku: p.default_code || '',
-    nombre: p.name || '',
-    marca,
-    categoria: cat,
-    cantidad: stock,
-    precio,
-  };
+  return marcaName.trim() || 'SIN MARCA';
 }
 
-async function fetchWarehouseQuantities(
-  uid: number,
-  productIds: number[],
-  warehouseId: number | null
-): Promise<Map<number, number>> {
-  const qtyMap = new Map<number, number>();
-  if (!warehouseId || productIds.length === 0) return qtyMap;
+function normalizeSku(p: RawProduct): string {
+  const code = p.default_code;
+  return typeof code === 'string' ? code : '';
+}
 
-  const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
-    ODOO_DB,
-    uid,
-    ODOO_PASSWORD,
+function normalizePrice(p: RawProduct): number {
+  const price = p.company_sale_price;
+  return typeof price === 'number' ? price : 0;
+}
+
+const EXCLUDED_CATEGORIES = [
+  'ALL',
+  'SERVICIO',
+  'JUGUETES',
+  'BOOKING FEES',
+  'POS',
+  'DELIVERIES',
+  'EXPENSES',
+  'SALEABLE',
+  'SOFTWARE',
+];
+
+async function fetchProducts(companyId: number): Promise<RawProduct[]> {
+  const productos = await callOdooRPC<any[]>(
     'product.product',
-    'read',
-    [productIds],
-    { fields: ['id', 'qty_available'], context: { warehouse: warehouseId } },
+    'search_read',
+    [
+      [
+        ['sale_ok', '=', true],
+        ['active', '=', true],
+        ['type', '=', 'product'],
+      ],
+    ],
+    {
+      fields: [
+        'id',
+        'display_name',
+        'name',
+        'product_tmpl_id',
+        'default_code',
+        'company_sale_price',
+        'categ_id',
+        'barcode',
+        'uom_id',
+        'x_studio_marca',
+      ],
+      limit: 5000,
+      order: 'name asc',
+      context: { allowed_company_ids: [companyId], lang: 'es_VE' },
+    },
+  );
+
+  return productos || [];
+}
+
+async function fetchLocationIds(companyId: number, warehouseId: number): Promise<number[]> {
+  const warehouseData = await callOdooRPC<any[]>(
+    'stock.warehouse',
+    'search_read',
+    [[['id', '=', warehouseId]]],
+    { fields: ['id', 'lot_stock_id'], limit: 1 },
+  );
+  const locId = warehouseData?.[0]?.lot_stock_id?.[0];
+  return locId ? [locId] : [];
+}
+
+async function fetchStockByLocation(productIds: number[], locationIds: number[], companyId: number): Promise<Map<number, number>> {
+  const stockMap = new Map<number, number>();
+  if (productIds.length === 0) return stockMap;
+
+  const domain: any[] = [['product_id', 'in', productIds]];
+  if (locationIds.length > 0) {
+    domain.push(['location_id', 'child_of', locationIds]);
+  } else {
+    domain.push(['location_id.usage', '=', 'internal']);
+    domain.push(['company_id', '=', companyId]);
+  }
+
+  const stockData = await callOdooRPC<any[]>(
+    'stock.quant',
+    'search_read',
+    [domain],
+    { fields: ['product_id', 'quantity', 'reserved_quantity'], limit: 0 },
+  );
+
+  if (!stockData) return stockMap;
+
+  for (const s of stockData) {
+    if (!s.product_id) continue;
+    const id = Array.isArray(s.product_id) ? s.product_id[0] : s.product_id;
+    const qty = Math.max(0, (s.quantity || 0) - (s.reserved_quantity || 0));
+    stockMap.set(id, (stockMap.get(id) || 0) + qty);
+  }
+
+  return stockMap;
+}
+
+async function fetchCatalogForSede(companyId: number, warehouseId: number): Promise<{ products: RawProduct[]; stock: Map<number, number> }> {
+  const [products, locationIds] = await Promise.all([
+    fetchProducts(companyId),
+    fetchLocationIds(companyId, warehouseId),
   ]);
 
-  const rows = parseResponse(resp);
-  if (!Array.isArray(rows)) return qtyMap;
+  const productIds = products.map((p) => p.id);
+  const stock = await fetchStockByLocation(productIds, locationIds, companyId);
 
-  for (const row of rows) {
-    if (row && typeof row.id === 'number') {
-      qtyMap.set(row.id, typeof row.qty_available === 'number' ? row.qty_available : 0);
-    }
-  }
-  return qtyMap;
+  return { products, stock };
 }
 
 export async function fetchCatalogo(): Promise<CatalogoData> {
-  const uid = await authenticate();
+  if (!ODOO_API_KEY) {
+    throw new Error('ODOO_API_KEY no está configurado');
+  }
 
-  const fields = ['id', 'default_code', 'name', 'categ_id', 'x_studio_marca', 'qty_available', 'company_sale_price'];
-
-  const resp = await xmlRpcCall('/xmlrpc/2/object', 'execute_kw', [
-    ODOO_DB,
-    uid,
-    ODOO_PASSWORD,
-    'product.product',
-    'search_read',
-    [[]],
-    { fields, limit: 5000, order: 'name asc' },
+  const [valenciaData, caracasData] = await Promise.all([
+    fetchCatalogForSede(COMPANY_VALENCIA, WAREHOUSE_VALENCIA),
+    fetchCatalogForSede(COMPANY_CARACAS, WAREHOUSE_CARACAS),
   ]);
 
-  const rawProducts = parseResponse(resp);
-  const generalProducts: RawProduct[] = Array.isArray(rawProducts) ? rawProducts : [];
+  // Index products by ID for GENERAL aggregation
+  const allProducts = new Map<number, RawProduct>();
+  const valenciaStock = new Map<number, number>();
+  const caracasStock = new Map<number, number>();
+
+  for (const p of valenciaData.products) {
+    allProducts.set(p.id, p);
+    valenciaStock.set(p.id, valenciaData.stock.get(p.id) || 0);
+  }
+
+  for (const p of caracasData.products) {
+    if (!allProducts.has(p.id)) {
+      allProducts.set(p.id, p);
+    }
+    caracasStock.set(p.id, caracasData.stock.get(p.id) || 0);
+  }
 
   const result: CatalogoData = {
     GENERAL: {},
@@ -392,35 +253,55 @@ export async function fetchCatalogo(): Promise<CatalogoData> {
     VALENCIA: {},
   };
 
-  const productMap = new Map<number, Producto>();
-  const productIds: number[] = [];
+  // Helper to add product to a region bucket
+  const addToBucket = (region: keyof CatalogoData, p: RawProduct, qty: number) => {
+    const categoria = normalizeCategory(p);
+    if (EXCLUDED_CATEGORIES.some((ex) => categoria.includes(ex))) return;
 
-  for (const p of generalProducts) {
-    const prod = normalizeProduct(p);
-    if (!prod) continue;
-    productMap.set(p.id, prod);
-    productIds.push(p.id);
+    const producto: Producto = {
+      sku: normalizeSku(p),
+      nombre: normalizeName(p),
+      marca: normalizeBrand(p),
+      categoria,
+      cantidad: qty,
+      precio: normalizePrice(p),
+    };
 
-    if (!result.GENERAL[prod.categoria]) result.GENERAL[prod.categoria] = [];
-    result.GENERAL[prod.categoria].push(prod);
+    if (!result[region][categoria]) result[region][categoria] = [];
+    result[region][categoria].push(producto);
+  };
+
+  for (const [id, p] of Array.from(allProducts.entries())) {
+    const valQty = valenciaStock.get(id) || 0;
+    const carQty = caracasStock.get(id) || 0;
+    const totalQty = valQty + carQty;
+    const price = normalizePrice(p);
+
+    // GENERAL: any product with stock in any sede and price > 1
+    if (totalQty > 0 && price > 1) {
+      addToBucket('GENERAL', p, totalQty);
+    }
+
+    // Per-sede: product with stock in that sede and price > 1
+    if (carQty > 0 && price > 1) {
+      addToBucket('CARACAS', p, carQty);
+    }
+
+    if (valQty > 0 && price > 1) {
+      addToBucket('VALENCIA', p, valQty);
+    }
   }
 
-  // Fetch real warehouse-level quantities instead of splitting 50/50
-  const { caracasId, valenciaId } = await findWarehouseIds(uid);
-  const [caracasQty, valenciaQty] = await Promise.all([
-    fetchWarehouseQuantities(uid, productIds, caracasId),
-    fetchWarehouseQuantities(uid, productIds, valenciaId),
-  ]);
-
-  for (const [id, prod] of Array.from(productMap.entries())) {
-    const caracasStock = caracasQty.get(id) ?? 0;
-    const valenciaStock = valenciaQty.get(id) ?? 0;
-
-    if (!result.CARACAS[prod.categoria]) result.CARACAS[prod.categoria] = [];
-    result.CARACAS[prod.categoria].push({ ...prod, cantidad: caracasStock });
-
-    if (!result.VALENCIA[prod.categoria]) result.VALENCIA[prod.categoria] = [];
-    result.VALENCIA[prod.categoria].push({ ...prod, cantidad: valenciaStock });
+  // Sort categories and products within each region
+  for (const region of Object.keys(result) as (keyof CatalogoData)[]) {
+    const sortedRegion: Record<string, Producto[]> = {};
+    const categories = Object.keys(result[region]).sort();
+    for (const cat of categories) {
+      sortedRegion[cat] = result[region][cat].sort((a, b) =>
+        a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }),
+      );
+    }
+    result[region] = sortedRegion;
   }
 
   return result;
