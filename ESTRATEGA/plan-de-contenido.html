@@ -6,28 +6,29 @@
 <title>SUPRICOM — Plan de Contenido</title>
 <style>
   :root {
-    --primary: #0056DB;
-    --primary-light: #0791F4;
-    --bg: #F3F3F3;
-    --gradient-hero: linear-gradient(135deg, #015CDE 0%, #068AF1 100%);
-    --gradient-section: linear-gradient(135deg, #C8C8C8 0%, #F8F9F9 100%);
+    --primary: #0066CC;
+    --primary-hover: #0052A3;
+    --primary-light: #00A3E0;
+    --nav-bg: #060D1A;
+    --hero-gradient: linear-gradient(125deg, #060D1A 0%, #0D2040 50%, #060D1A 100%);
+    --bg: #F8FAFC;
     --text: #1A1A2E;
-    --text-light: #595959;
+    --text-light: #64748B;
     --white: #FFFFFF;
     --success: #00CC88;
-    --border: #E0E0E8;
+    --border: #E2E8F0;
     --card-shadow: 0 1px 6px rgba(0,0,0,.06);
     --card: #FFFFFF;
-    --c-showcase: #0056DB; --c-diagnostico: #E53935; --c-comparativa: #8E24AA;
+    --c-showcase: #0066CC; --c-diagnostico: #E53935; --c-comparativa: #8E24AA;
     --c-perfil: #00897B; --c-solucion: #43A047; --c-guia: #FB8C00;
     --c-tendencia: #5C6BC0; --c-inversion: #F4511E; --c-educativo: #00ACC1; --c-explicativo: #00838f;
     --c-ecosistema: #7CB342; --c-vision: #AB47BC; --c-error: #D81B60;
     --c-sinergia: #26A69A; --c-cierre: #546E7A; --c-alternativa: #FFA726;
     --c-post: #E65100;
     --error: #E53935;
-    --accent-cyan: #6BCBFF;
+    --accent-cyan: #00A3E0;
     --gold: #FFD700;
-    --surface-1: #FAFBFC; --surface-2: #F8F9FA; --surface-3: #F0F0F0;
+    --surface-1: #F8FAFC; --surface-2: #F1F5F9; --surface-3: #E2E8F0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   *:focus-visible { outline: 2px solid var(--primary-light); outline-offset: 2px; border-radius: 4px; }
@@ -40,11 +41,13 @@
   /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
-    background: var(--primary); color: white;
+    background: var(--nav-bg); color: white;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 20px; height: 52px;
-    box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
+  nav::after { display: none !important; }
   nav::after {
     content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
     background: linear-gradient(90deg, var(--primary-light), var(--accent-cyan), var(--primary-light), var(--accent-cyan));
@@ -62,17 +65,17 @@
   /* ─── HERO ─── */
   .hero {
     margin-top: 52px;
-    background: var(--gradient-hero);
-    background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
-    color: white; text-align: center; padding: 48px 20px 36px;
+    background: linear-gradient(-45deg, #060D1A, #0A192F, #0E2447, #060D1A);
+    background-size: 300% 300%;
+    animation: heroGradientShift 10s ease infinite alternate;
+    color: white; text-align: center; padding: 44px 20px 34px;
     position: relative; overflow: hidden;
   }
-  @keyframes gradientShift {
+  @keyframes heroGradientShift {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
   }
+  .hero::before, .hero::after { display: none !important; }
   .hero::after {
     content: ''; position: absolute; inset: 0;
     background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.03) 40px, rgba(255,255,255,.03) 41px);
@@ -94,9 +97,9 @@
     0%, 70%, 100% { left: -60%; }
     40% { left: 120%; }
   }
-  .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; opacity: 0; transform: translateY(20px); animation: fadeInUp .8s ease forwards; animation-delay: .2s; }
-  .hero h1 span { color: #90CAFF; }
-  .hero .sub { font-size: 15px; opacity: 0; transform: translateY(15px); animation: fadeInUp .8s ease forwards; animation-delay: .4s; margin-top: 4px; }
+  .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -0.5px; color: #FFFFFF !important; opacity: 0; transform: translateY(20px); animation: fadeInUp .8s ease forwards; animation-delay: .2s; }
+  .hero h1 span { color: #FFFFFF !important; font-weight: 800; }
+  .hero .sub { font-size: 13px; color: #94A3B8; letter-spacing: 0.5px; margin-top: 3px; opacity: 0; transform: translateY(15px); animation: fadeInUp .8s ease forwards; animation-delay: .4s; }
   .hero .kpi-strip { opacity: 0; transform: translateY(15px); animation: fadeInUp .8s ease forwards; animation-delay: .6s; }
   @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
   .hero .kpi-strip {
@@ -104,13 +107,21 @@
     margin-top: 20px;
   }
   .hero .kpi-strip .kp {
-    background: rgba(255,255,255,.1); backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 12px; padding: 10px 18px; min-width: 80px;
-    transition: transform .2s, background .2s;
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 163, 224, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(0, 163, 224, 0.08);
+    border-radius: 12px; padding: 10px 20px; min-width: 85px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .hero .kpi-strip .kp:hover { transform: translateY(-2px); background: rgba(255,255,255,.15); box-shadow: 0 0 20px rgba(7,145,244,.3); }
-  .hero .kpi-strip .kp .num { font-size: 24px; font-weight: 800; color: #fff; }
+  .hero .kpi-strip .kp:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(0, 163, 224, 0.6) !important;
+    box-shadow: 0 0 20px rgba(0, 163, 224, 0.3) !important;
+  }
+  .hero .kpi-strip .kp .num { font-size: 26px; font-weight: 800; color: #FFFFFF; }
+  .hero .kpi-strip .kp .lb { font-size: 10px; color: #94A3B8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .hero .kpi-strip .kp .lb { font-size: 10px; opacity: .85; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
 
   /* ─── MAIN ─── */
@@ -123,18 +134,21 @@
     box-shadow: 0 1px 6px rgba(0,0,0,.06); overflow: hidden;
   }
   .week-card .week-top {
-    background: var(--primary); color: white; padding: 14px 20px;
+    background: rgba(37,99,235,.18); color: var(--text);
+    border: 1px solid rgba(37,99,235,.25); border-bottom: 3px solid rgba(37,99,235,.35);
+    padding: 14px 20px;
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
     position: relative; overflow: hidden;
+    border-radius: 10px 10px 0 0;
   }
-  .week-card .week-top::after {
-    content: ''; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
-    background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.15) 50%, transparent 70%);
-    transition: left .6s ease;
-    pointer-events: none;
-  }
-  .week-card .week-top:hover::after { left: 120%; }
-  .week-card .week-top h2 { font-size: 20px; font-weight: 700; }
+  .week-card .week-top::after { display: none; }
+  .week-card .week-top:hover { background: rgba(37,99,235,.25); }
+  .week-card.week-current { border: 1px solid rgba(0, 102, 255, 0.2); border-left: 4px solid var(--primary); }
+  .week-card.week-current .week-top { background: linear-gradient(135deg, #0A192F 0%, #112240 100%) !important; border: 1px solid rgba(0, 102, 255, 0.3) !important; border-bottom: 3px solid var(--primary) !important; color: #FFFFFF; }
+  .week-card.week-current .week-top h2 { color: #FFFFFF !important; }
+  .week-card.week-current .week-summary { color: rgba(255, 255, 255, 0.8) !important; }
+  .week-card.week-current .week-arrow { color: rgba(255, 255, 255, 0.7) !important; }
+  .week-card .week-top h2 { font-size: 18px; font-weight: 700; color: var(--text); }
   .week-card .week-focus {
     padding: 12px 20px; font-size: 14px; color: var(--text-light);
     background: var(--surface-2); border-bottom: 1px solid var(--border);
@@ -159,71 +173,113 @@
   }
 
   .cal-col {
-    background: var(--white); padding: 14px; min-height: 360px;
+    background: var(--white); padding: 12px; min-height: 340px;
     display: flex; flex-direction: column; gap: 10px;
+    border: 1px solid var(--border);
   }
   .cal-col .col-head {
-    display: flex; align-items: baseline; gap: 6px; padding-bottom: 6px;
-    border-bottom: 2px solid var(--primary-light); margin-bottom: 4px;
+    display: flex; align-items: baseline; gap: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 6px;
   }
-  .cal-col .col-head .day { font-weight: 700; font-size: 15px; color: var(--primary); text-transform: uppercase; letter-spacing: .3px; }
-  .cal-col .col-head .date { font-size: 13px; color: var(--text-light); }
+  .cal-col .col-head .day { font-weight: 700; font-size: 14px; color: var(--text); text-transform: uppercase; letter-spacing: .3px; }
+  .cal-col .col-head .date { font-size: 12px; color: var(--text-light); }
 
   /* ─── CONTENT CARD ─── */
   .piece {
-    background: var(--surface-1); border: 1px solid var(--border);
-    border-radius: 8px; padding: 10px; padding-left: 13px;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px; padding-left: 16px;
     position: relative; border-left: 3px solid var(--border);
     transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer;
   }
   .piece:hover {
     border-color: var(--primary-light);
     border-left-color: var(--primary-light);
-    box-shadow: 0 4px 16px rgba(0,86,219,.1);
-    transform: translateY(-2px);
+    box-shadow: 0 2px 12px rgba(37,99,235,.08);
+    transform: translateY(-1px);
   }
   .piece[data-format="carrusel"] { border-left-color: #1565c0; }
   .piece[data-format="post"] { border-left-color: var(--c-post); }
   .piece[data-format="video"] { border-left-color: #7b1fa2; }
   .piece .num {
-    position: absolute; top: 4px; right: 6px;
-    background: var(--border); border-radius: 50%;
-    width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: #4AA3DF;
+    position: absolute; top: 6px; right: 8px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 50%;
+    width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--text-light);
     cursor: pointer; transition: all .25s ease; user-select: none;
   }
-  .piece .num:hover { background: rgba(0,86,219,.2); transform: scale(1.1); }
+  .piece .num:hover { background: var(--primary); color: white; border-color: var(--primary); transform: scale(1.1); }
   .piece .fmt {
     display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase;
-    padding: 2px 10px; border-radius: 8px; color: white; letter-spacing: .3px;
-    margin-bottom: 4px; width: fit-content;
+    padding: 2px 8px; border-radius: 6px; letter-spacing: .3px;
+    margin-bottom: 6px; width: fit-content;
+    color: var(--fmt-color, var(--primary));
+    background: var(--fmt-bg, rgba(37,99,235,.12));
+    border: 1px solid var(--fmt-border, rgba(37,99,235,.25));
   }
-  .piece .fmt.post { background: var(--c-post); }
-  .piece .fmt.vs1 { background: #7b1fa2; }
-  .piece .fmt.vocero { background: #00838f; }
+  .piece[data-format="carrusel"] { --fmt-color: #1565C0; --fmt-bg: rgba(21,101,192,.12); --fmt-border: rgba(21,101,192,.25); }
+  .piece[data-format="post"] { --fmt-color: var(--c-post); --fmt-bg: rgba(230,81,0,.12); --fmt-border: rgba(230,81,0,.25); }
+  .piece[data-format="video"] { --fmt-color: #7B1FA2; --fmt-bg: rgba(123,31,162,.12); --fmt-border: rgba(123,31,162,.25); }
 
   .piece .pillar {
     font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
-    color: white; margin-bottom: 3px; cursor: help;
-    display: inline-block; padding: 1px 6px; border-radius: 4px;
-    background: var(--primary);
+    display: inline-block; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; cursor: help;
+    color: var(--pillar-color, var(--primary));
+    background: var(--pillar-bg, rgba(37,99,235,.12));
+    border: 1px solid var(--pillar-border, rgba(37,99,235,.25));
   }
   .piece .topic {
-    font-size: 14px; line-height: 1.5; color: var(--text);
+    font-size: 14px; line-height: 1.5; color: var(--text); font-weight: 500;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 4px;
   }
 
   .piece.checked .num {
     background: var(--success); color: white; box-shadow: 0 0 8px rgba(0,204,136,.4);
-    width: auto; padding: 0 6px; border-radius: 12px;
+    width: auto; min-width: 28px; padding: 2px 8px; border-radius: 14px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   }
-  .piece.checked .num::after { content: '✓'; font-size: 12px; }
+  .piece.checked .num::after { content: '✓'; font-size: 11px; margin-left: 1px; font-weight: bold; }
   .piece.checked {
     border-color: var(--success) !important;
     box-shadow: 0 0 12px rgba(0,204,136,.35), inset 0 0 20px rgba(0,204,136,.06) !important;
   }
 
-  .piece .brands { font-size: 12px; color: var(--text-light); margin-top: 3px; }
+  .piece .brands { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  /* ─── DRAG & DROP ─── */
+  .piece { user-select: none; }
+  .piece[draggable="true"] { cursor: grab; }
+  .piece[draggable="true"]:active { cursor: grabbing; }
+  .piece.dragging { opacity: .35; transform: scale(.95); pointer-events: none; }
+  .piece.dragging * { pointer-events: none; }
+  .cal-col.drag-over { background: rgba(37,99,235,.04); border: 2px dashed var(--primary-light); border-radius: 8px; }
+  .piece-moved { position: relative; }
+  .piece-moved::after {
+    content: '🔄';
+    position: absolute;
+    top: 8px;
+    right: 48px;
+    font-size: 10px;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    padding: 1px 5px;
+    line-height: 1.3;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .piece.piece-moved.checked::after {
+    right: 56px;
+  }
+  @media print {
+    .piece.dragging, .piece-moved::after { display: none !important; }
+    .cal-col.drag-over { border: none; background: none; }
+  }
 
   .piece .ve-badge {
     display: inline-block; font-size: 9px; font-weight: 700;
@@ -261,9 +317,7 @@
 
   /* ─── FOOTER ─── */
   footer {
-    background: var(--gradient-hero);
-    background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
+    background: var(--nav-bg);
     color: rgba(255,255,255,.8);
     text-align: center; padding: 28px 20px; font-size: 15px;
   }
@@ -278,7 +332,11 @@
     user-select: none; min-height: 28px; display: inline-flex; align-items: center;
   }
   .enhanced-toolbar .fil:hover { border-color: var(--primary-light); color: var(--primary); }
-  .enhanced-toolbar .fil.active { background: var(--primary-light); color: white; border-color: var(--primary-light); }
+  .enhanced-toolbar .fil.active {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border-color: var(--primary) !important;
+  }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
@@ -384,7 +442,7 @@
   }
   @keyframes modalIn { from { opacity:0; transform:translateY(30px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
   .modal-head {
-    background: var(--gradient-hero); color: white; padding: 16px 24px;
+    background: var(--hero-gradient); color: white; padding: 16px 24px;
     display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 1; border-radius: 16px 16px 0 0;
   }
@@ -461,7 +519,7 @@
     font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s;
   }
   .copy-caption-btn:hover { background: #00b37a; }
-  .copy-caption-btn.copied { background: #0056DB; animation: copyPulse .3s ease; }
+  .copy-caption-btn.copied { background: var(--primary); animation: copyPulse .3s ease; }
   @keyframes copyPulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
   .copy-caption-btn.secondary {
     background: transparent; color: var(--success);
@@ -498,9 +556,6 @@
   .modal-nav .nav-dots .dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all .2s; }
   .modal-nav .nav-dots .dot.active::after { background: var(--primary-light); transform: scale(1.3); }
 
-  .piece .fmt.carrusel { background: #1565c0; }
-  .piece-with-copy .fmt.carrusel { background: #0d47a1; }
-
   /* ─── MONTH TABS ─── */
   .month-tabs {
     display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px;
@@ -514,7 +569,12 @@
     background: transparent; border: none; user-select: none;
   }
   .month-tabs .mtab:hover { color: var(--primary); background: rgba(0,86,219,.06); }
-  .month-tabs .mtab.active { background: var(--primary); color: white; transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,86,219,.2); }
+  .month-tabs .mtab.active {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--primary-light) !important;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+  }
   .month-content { display: block; opacity: 1; transform: translateY(0); transition: opacity .3s ease, transform .3s ease; }
   .month-content.hidden { opacity: 0; transform: translateY(8px); pointer-events: none; height: 0; overflow: hidden; padding: 0; margin: 0; }
 
@@ -525,7 +585,13 @@
   .em-delay-box { background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--primary-light); border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text); line-height: 1.6; }
   .em-delay-box strong { color: var(--primary); }
   .em-week { margin-bottom: 12px; }
-  .em-week-head { background: var(--gradient-section); border-radius: 10px; padding: 14px 16px; margin-bottom: 0; border: 1px solid var(--border); cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+  .em-week-head { background: var(--white); border: 1px solid var(--border); border-bottom: 3px solid var(--primary); border-radius: 10px 10px 0 0; padding: 14px 16px; margin-bottom: 0; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+  .em-week-head:hover { background: var(--surface-1); }
+  .em-week-current .em-week-head { background: var(--primary); color: white; border-color: var(--primary); }
+  .em-week-current .em-week-title { color: white; }
+  .em-week-current .em-week-sub { color: rgba(255,255,255,.75); }
+  .em-week-current .ew-arrow { color: rgba(255,255,255,.6); }
+  .em-week-current .em-week-head .ew-count { color: rgba(255,255,255,.8); }
   .em-week-head:hover { filter: brightness(.96); }
   .em-week-title { font-size: 15px; font-weight: 700; color: var(--primary); }
   .em-week-sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
@@ -537,7 +603,7 @@
   .em-week.open .em-week-body { max-height: 8000px; }
   .em-week-body-inner { padding: 12px 0 4px; }
   .email-card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 10px; overflow: hidden; }
-  .email-card .ec-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: var(--gradient-section); font-weight: 600; font-size: 13px; }
+  .email-card .ec-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: var(--surface-1); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 13px; color: var(--text); }
   .email-card .ec-head .badge { font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 700; }
   .email-card .ec-head .badge.ok { background: var(--success); color: #fff; }
   .email-card .ec-head .badge.curso { background: var(--c-post); color: #fff; }
@@ -551,7 +617,7 @@
   .em-btn:hover { border-color: var(--primary-light); color: var(--primary); }
   .em-btn.copied { background: var(--success); color: #fff; border-color: var(--success); }
   .email-card { transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer; }
-  .email-card:hover { border-color: var(--primary-light); box-shadow: 0 8px 24px rgba(7,145,244,.15); transform: perspective(800px) rotateX(1deg) translateY(-3px); }
+  .email-card:hover { border-color: var(--primary-light); box-shadow: 0 2px 12px rgba(37,99,235,.08); transform: translateY(-1px); }
   .email-card:active { transform: perspective(800px) rotateX(1deg) translateY(-1px); }
   .email-card .ec-head .ec-actions { margin: 0; padding: 0; border: none; gap: 4px; }
   .email-card .ec-actions .em-btn { padding: 4px 8px; font-size: 14px; border: none; background: transparent; }
@@ -611,7 +677,7 @@
   .cat-overlay.open .cat-modal { transform: translateY(0); }
   .cat-head {
     display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 20px;
-    background: var(--gradient-hero); color: white; flex-shrink: 0;
+    background: var(--hero-gradient); color: white; flex-shrink: 0;
   }
   .cat-head h2 { font-size: 17px; font-weight: 700; }
   .cat-kpis { display: flex; gap: 8px; margin-top: 8px; }
@@ -688,38 +754,40 @@
 
   /* nav catalog button */
   .cat-nav-btn {
-    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: white;
-    cursor: pointer; font-size: 13px; padding: 4px 12px; border-radius: 6px;
+    background: var(--primary) !important;
+    border: 1px solid var(--primary-light) !important;
+    color: #FFFFFF !important;
+    cursor: pointer; font-size: 13px; padding: 6px 14px; border-radius: 8px;
     margin-left: 8px; font-weight: 600; transition: all .2s; display: inline-flex; align-items: center; gap: 5px;
   }
-  .cat-nav-btn:hover { background: rgba(255,255,255,.25); }
+  .cat-nav-btn:hover { background: var(--primary-hover) !important; box-shadow: 0 0 12px rgba(0, 163, 224, 0.4); }
   .api-dot { width: 8px; height: 8px; border-radius: 50%; background: #888; transition: background .3s; }
   .api-dot.ok { background: var(--success); }
   .api-dot.stale { background: var(--gold); }
   .api-dot.offline { background: var(--error); }
 
-  /* ═══ PILLAR COLORS ═══ */
-  .pillar-showcase .pillar { background: var(--c-showcase); }
-  .pillar-diagnostico .pillar { background: var(--c-diagnostico); }
-  .pillar-comparativa .pillar { background: var(--c-comparativa); }
-  .pillar-perfil .pillar { background: var(--c-perfil); }
-  .pillar-solucion .pillar { background: var(--c-solucion); }
-  .pillar-guia .pillar { background: var(--c-guia); }
-  .pillar-tendencia .pillar { background: var(--c-tendencia); }
-  .pillar-inversion .pillar { background: var(--c-inversion); }
-  .pillar-educativo .pillar { background: var(--c-educativo); }
-  .pillar-explicativo .pillar { background: var(--c-explicativo); }
-  .pillar-ecosistema .pillar { background: var(--c-ecosistema); }
-  .pillar-vision .pillar { background: var(--c-vision); }
-  .pillar-error .pillar { background: var(--c-error); }
-  .pillar-sinergia .pillar { background: var(--c-sinergia); }
-  .pillar-cierre .pillar { background: var(--c-cierre); }
-  .pillar-alternativa .pillar { background: var(--c-alternativa); }
-  .pillar-venta-cruzada .pillar { background: #00897B; }
-  .pillar-nicho .pillar { background: #6A1B9A; }
-  .pillar-diferenciacion .pillar { background: #AD1457; }
-  .pillar-confianza .pillar { background: #00695C; }
-  .pillar-combo .pillar { background: var(--c-post); }
+  /* ═══ PILLAR COLORS (soft badges) ═══ */
+  .pillar-showcase .pillar { --pillar-color: var(--c-showcase); --pillar-bg: rgba(37,99,235,.12); --pillar-border: rgba(37,99,235,.25); }
+  .pillar-diagnostico .pillar { --pillar-color: var(--c-diagnostico); --pillar-bg: rgba(229,57,53,.12); --pillar-border: rgba(229,57,53,.25); }
+  .pillar-comparativa .pillar { --pillar-color: var(--c-comparativa); --pillar-bg: rgba(142,36,170,.12); --pillar-border: rgba(142,36,170,.25); }
+  .pillar-perfil .pillar { --pillar-color: var(--c-perfil); --pillar-bg: rgba(0,137,123,.12); --pillar-border: rgba(0,137,123,.25); }
+  .pillar-solucion .pillar { --pillar-color: var(--c-solucion); --pillar-bg: rgba(67,160,71,.12); --pillar-border: rgba(67,160,71,.25); }
+  .pillar-guia .pillar { --pillar-color: var(--c-guia); --pillar-bg: rgba(251,140,0,.12); --pillar-border: rgba(251,140,0,.25); }
+  .pillar-tendencia .pillar { --pillar-color: var(--c-tendencia); --pillar-bg: rgba(92,107,192,.12); --pillar-border: rgba(92,107,192,.25); }
+  .pillar-inversion .pillar { --pillar-color: var(--c-inversion); --pillar-bg: rgba(244,81,30,.12); --pillar-border: rgba(244,81,30,.25); }
+  .pillar-educativo .pillar { --pillar-color: var(--c-educativo); --pillar-bg: rgba(0,172,193,.12); --pillar-border: rgba(0,172,193,.25); }
+  .pillar-explicativo .pillar { --pillar-color: var(--c-explicativo); --pillar-bg: rgba(0,131,143,.12); --pillar-border: rgba(0,131,143,.25); }
+  .pillar-ecosistema .pillar { --pillar-color: var(--c-ecosistema); --pillar-bg: rgba(124,179,66,.12); --pillar-border: rgba(124,179,66,.25); }
+  .pillar-vision .pillar { --pillar-color: var(--c-vision); --pillar-bg: rgba(171,71,188,.12); --pillar-border: rgba(171,71,188,.25); }
+  .pillar-error .pillar { --pillar-color: var(--c-error); --pillar-bg: rgba(216,27,96,.12); --pillar-border: rgba(216,27,96,.25); }
+  .pillar-sinergia .pillar { --pillar-color: var(--c-sinergia); --pillar-bg: rgba(38,166,154,.12); --pillar-border: rgba(38,166,154,.25); }
+  .pillar-cierre .pillar { --pillar-color: var(--c-cierre); --pillar-bg: rgba(84,110,122,.12); --pillar-border: rgba(84,110,122,.25); }
+  .pillar-alternativa .pillar { --pillar-color: var(--c-alternativa); --pillar-bg: rgba(255,167,38,.12); --pillar-border: rgba(255,167,38,.25); }
+  .pillar-venta-cruzada .pillar { --pillar-color: #00897B; --pillar-bg: rgba(0,137,123,.12); --pillar-border: rgba(0,137,123,.25); }
+  .pillar-nicho .pillar { --pillar-color: #6A1B9A; --pillar-bg: rgba(106,27,154,.12); --pillar-border: rgba(106,27,154,.25); }
+  .pillar-diferenciacion .pillar { --pillar-color: #AD1457; --pillar-bg: rgba(173,20,87,.12); --pillar-border: rgba(173,20,87,.25); }
+  .pillar-confianza .pillar { --pillar-color: #00695C; --pillar-bg: rgba(0,105,92,.12); --pillar-border: rgba(0,105,92,.25); }
+  .pillar-combo .pillar { --pillar-color: var(--c-post); --pillar-bg: rgba(230,81,0,.12); --pillar-border: rgba(230,81,0,.25); }
 
   /* Pillar bar */
   .pillar-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 8px 20px 4px; background: rgba(0,0,0,.06); }
@@ -730,7 +798,7 @@
   @keyframes dotPulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
 
   /* Collapsible weeks */
-  .week-card .cal-grid { transition: max-height 0.4s ease, opacity 0.3s ease; overflow: hidden; }
+  .week-card .cal-grid { max-height: 5000px; transition: max-height 0.5s ease, opacity 0.25s ease; overflow: hidden; }
   .week-card.collapsed .cal-grid { max-height: 0; opacity: 0; }
   .week-card.collapsed .week-focus { max-height: 0; opacity: 0; padding: 0 20px; overflow: hidden; }
   .week-card.collapsed .pillar-bar { max-height: 0; opacity: 0; overflow: hidden; }
@@ -738,18 +806,18 @@
   .week-card .week-top { cursor: pointer; user-select: none; }
   .week-card .week-top:hover { filter: brightness(1.05); }
   .week-top-left { display: flex; align-items: center; gap: 8px; flex: 1; }
-  .week-summary { font-size: 12px; color: rgba(255,255,255,.75); margin-left: 8px; white-space: nowrap; font-weight: 500; }
-  .week-arrow { font-size: 14px; color: rgba(255,255,255,.6); transition: transform 0.3s ease; margin-left: 8px; }
+  .week-summary { font-size: 12px; color: var(--text-light); margin-left: 8px; white-space: nowrap; font-weight: 500; }
+  .week-arrow { font-size: 14px; color: var(--text-light); transition: transform 0.3s ease; margin-left: 8px; }
   .week-card.collapsed .week-arrow { transform: rotate(180deg); }
-  .week-check-all { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.6); padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap; margin-left: auto; }
-  .week-check-all:hover { transform: scale(1.05); }
-  .week-check-all.active { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.3); color: white; }
-  .week-check-all.active:hover { background: var(--success); border-color: var(--success); }
+  .week-check-all { background: var(--bg); border: 1px solid var(--border); color: var(--text-light); padding: 5px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap; margin-left: auto; }
+  .week-check-all:hover { background: var(--primary); color: white; border-color: var(--primary); transform: scale(1.05); }
+  .week-check-all.active { background: white; color: var(--primary); border-color: white; }
+  .week-check-all.active:hover { background: rgba(255,255,255,.85); border-color: rgba(255,255,255,.85); }
   .week-check-all.done { background: var(--success); border-color: var(--success); color: white; }
   .week-check-all.done:hover { background: var(--error); border-color: var(--error); }
   .em-week .week-check-all { background: var(--bg); border-color: var(--border); color: var(--text-light); }
-  .em-week .week-check-all.active { background: var(--primary); border-color: var(--primary); color: white; }
-  .em-week .week-check-all.active:hover { background: var(--primary-light); border-color: var(--primary-light); }
+  .em-week .week-check-all.active { background: white; border-color: white; color: var(--primary); }
+  .em-week .week-check-all.active:hover { background: rgba(255,255,255,.85); border-color: rgba(255,255,255,.85); }
   .em-week .week-check-all.done { background: var(--success); border-color: var(--success); color: white; }
   .em-week .week-check-all.done:hover { background: var(--error); border-color: var(--error); }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
@@ -768,7 +836,10 @@
   .export-btn:hover { background: rgba(7,145,244,.1); border-color: var(--primary); }
   .view-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
   .view-toggle button { padding: 5px 10px; border: none; background: var(--bg); color: var(--text-light); font-size: 11px; cursor: pointer; transition: all 0.2s; }
-  .view-toggle button.active { background: var(--primary); color: white; }
+  .view-toggle button.active {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+  }
 
   /* Search highlight */
   .highlight { background: #FFF176; border-radius: 2px; padding: 0 1px; }
@@ -780,11 +851,11 @@
   .table-view table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; }
   .table-view thead th {
     position: sticky; top: 52px; z-index: 10;
-    background: var(--primary); color: white; padding: 10px 12px;
+    background: #0B1426; color: white; padding: 10px 12px;
     text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
     cursor: pointer; user-select: none; white-space: nowrap;
   }
-  .table-view thead th:hover { background: var(--primary-light); }
+  .table-view thead th:hover { background: #112240; }
   .table-view thead th .sort-arrow { font-size: 9px; margin-left: 4px; opacity: .6; }
   .table-view thead th.sorted .sort-arrow { opacity: 1; }
   .table-view tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
@@ -816,9 +887,9 @@
   .hero-badges { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
   .hero .badge-active .dot-active { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
 
-  .cal-col.col-today .col-head { background: var(--primary); color: #fff; border-radius: 6px; padding: 6px 10px; border-bottom-color: transparent; }
+  .cal-col.col-today .col-head { background: var(--primary); color: white; border-radius: 6px; padding: 6px 10px; border-bottom-color: transparent; }
   .cal-col.col-today .col-head .day,
-  .cal-col.col-today .col-head .date { color: #fff; }
+  .cal-col.col-today .col-head .date { color: white; }
   .piece.piece-today { outline: 2px solid var(--primary-light); outline-offset: -1px; background: rgba(7,145,244,.04); }
   .email-card.email-today { border-left: 3px solid var(--primary); background: rgba(7,145,244,.04); }
 
@@ -848,7 +919,7 @@
 
   /* ─── NAV BLUR ON SCROLL ─── */
   nav { backdrop-filter: blur(0); transition: backdrop-filter .3s, background .3s, box-shadow .3s; }
-  nav.scrolled { backdrop-filter: blur(12px); background: rgba(0,86,219,.92); box-shadow: 0 2px 20px rgba(0,0,0,.25); }
+  nav.scrolled { backdrop-filter: blur(12px); background: rgba(11, 20, 38, 0.94); box-shadow: 0 2px 20px rgba(0,0,0,.35); }
 
   /* ─── HERO FLOATING GLOW ─── */
   .hero::before {
@@ -1394,7 +1465,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">3</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG1" onclick="openCopyModal('AUG1', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG1">
         <div class="num" onclick="toggleCheck(this, event)">1</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Showcase</div>
@@ -1415,7 +1486,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Logitech: lo que tu vitrina debería tener","frase":"Mouse, teclados, audífonos. Lo que tus clientes piden.","nota":"Productos Logitech en vitrina"},{"slide":"Mouse para cada cliente","texto":"Mouse para cada cliente","frase":"Desde el M170 básico hasta el G203 gaming. Logitech tiene mouse para cada perfil.","nota":"Mouse M170 + G203"},{"slide":"Teclados que se venden solos","texto":"Teclados que se venden solos","frase":"K270 para la oficina, K380S para el que quiere diseño. Productividad que el cliente busca.","nota":"Teclado K270 + K380S"},{"slide":"Audífonos y gaming","texto":"Audífonos y gaming","frase":"H111 para la oficina, G335 y Astro A10 para gaming. Audio que completa la venta.","nota":"Audífonos H111 + G335"},{"slide":"Cierre","texto":"Portafolio completo","frase":"Logitech: mouse, teclados, audífonos, gaming. Todo en SUPRICOM. Tu mayorista de confianza.","nota":"Logo LOGITECH + SUPRICOM"}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG2" onclick="openCopyModal('AUG2', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG2">
         <div class="num" onclick="toggleCheck(this, event)">2</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Demanda</div>
@@ -1436,7 +1507,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">4</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG3" onclick="openCopyModal('AUG3', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG3">
         <div class="num" onclick="toggleCheck(this, event)">3</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Showcase</div>
@@ -1455,7 +1526,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"De básico a premium: así se ve el surtido de routers en SUPRICOM","frase":"No todos los routers son iguales. Tu vitrina debería tener opciones para cada cliente.","escenario":"Smart office del futuro — Sala de reuniones con pantalla gigante mostrando mapa de cobertura WiFi. Múltiples dispositivos conectados (laptops, tablets, celulares, smart TV). Router WiFi 6 sobre mesa central con señal visualizada. Estilo high-tech, iluminación LED azul. Equipo de trabajo usando dispositivos simultáneamente.","nota":"[VISUAL]: Supri de pie junto a una vitrina con routers de diferentes marcas. Texto \"DE BÁSICO A PREMIUM\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara con expresión de \"te voy a enseñar algo\"."},{"slide":"Escena 2 (8-16s)","texto":"El básico","frase":"El básico: para el cliente que solo necesita WiFi estable. Confiabilidad que rota rápido.","escenario":"Misma sala smart office — Supri junto al router básico (HIKVISION DS-3WR12GC) sobre mesa central. Pantalla mostrando cobertura WiFi básica. Equipo trabajando de fondo. Iluminación LED azul.","nota":"[VISUAL]: Supri junto a un router básico (HIKVISION DS-3WR12GC) en el exhibidor.\n[ACCION]: Supri toma el router, lo muestra a cámara, señala con la otra mano."},{"slide":"Escena 3 (16-26s)","texto":"El medio y las premium","frase":"El medio: para la oficina que necesita más velocidad. Y las premium: WiFi 6 y Mesh para quien no negocia calidad.","escenario":"Misma sala smart office — Supri junto a routers gama media y premium (DS-3WR15X, DS-3WR18X, NEXXT HOME). Pantalla cambiando a mapa de cobertura WiFi 6. Dispositivos múltiples conectados. Iluminación LED azul.","nota":"[VISUAL]: Supri junto a gama media y premium (DS-3WR15X AX1500, DS-3WR18X AX1800 y NEXXT HOME BOLT MESH AX1800).\n[ACCION]: Supri señala cada uno alternadamente, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Distintas gamas para ofrecerle a tus clientes","frase":"Distintas gamas para ofrecerle a tus clientes. Pregunta por el portafolio de routers. SUPRICOM. Tu mayorista de confianza.","escenario":"Misma sala smart office — Supri en el centro con todos los routers visibles. Pantalla mostrando 5 gamas conectadas. Equipo de trabajo usando dispositivos. Iluminación LED azul. Ambiente high-tech.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Los routers visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente con seguridad."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-sinergia" data-format="post" data-piece="AUG4" onclick="openCopyModal('AUG4', event)">
+      <div class="piece piece-with-copy pillar-sinergia" data-format="post" data-piece="AUG4">
         <div class="num" onclick="toggleCheck(this, event)">4</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Venta cruzada</div>
@@ -1479,7 +1550,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">5</span></div>
 
-      <div class="piece piece-with-copy pillar-explicativo" data-format="video" data-piece="AUG5" onclick="openCopyModal('AUG5', event)">
+      <div class="piece piece-with-copy pillar-explicativo" data-format="video" data-piece="AUG5">
         <div class="num" onclick="toggleCheck(this, event)">5</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Explicativo</div>
@@ -1496,7 +1567,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"En 30 segundos: qué es BLUETTI y qué resuelve","frase":"BLUETTI no es una batería. Es la solución cuando se va la luz.","escenario":"Apartamento moderno durante corte de luz — Sala de estar elegante con ventanales. Todo oscuro EXCEPTO una BLUETTI AC50P encendida con luz propia, conectada a laptop, celular y lámpara LED. Familia reunida alrededor usando dispositivos. Fuera se ve la ciudad sin luz. Estilo cinematográfico, iluminación cálida de la BLUETTI contrastando con la oscuridad.","nota":"[VISUAL]: Supri de pie junto a una estación BLUETTI en vitrina. Texto \"BLUETTI EN 30 SEGUNDOS\" sobreimpresos.\n[ACCION]: Supri señala la estación con la mano, luego gira a cámara con expresión de \"te explico rápido\"."},{"slide":"Escena 2 (8-16s)","texto":"Conectas y sigue funcionando","frase":"Conectas tu laptop, tu celular, tu internet. Sigue todo funcionando mientras los demás se quedan sin luz.","escenario":"Mismo apartamento oscuro — Primer plano de la BLUETTI con enchufes visibles. Supri conectando celular/laptop a la estación. Pantalla mostrando carga. Ventana con lluvia. Vela encendida. Estilo cinematográfico.","nota":"[VISUAL]: Primer plano de la BLUETTI con enchufes visibles. Pantalla mostrando carga de celular/laptop.\n[ACCION]: Supri conecta un celular o laptop a la estación, lo muestra funcionando."},{"slide":"Escena 3 (16-26s)","texto":"Para cada perfil de cliente","frase":"Tenemos desde la portátil pequeña hasta la que mueve tu negocio completo. Para cada perfil de cliente.","escenario":"Mismo apartamento oscuro — Supri junto a diferentes modelos de BLUETTI (AC50P pequeño, AC180P mediano, AC200P grande). Vela encendida. Ventana con lluvia. Estilo cinematográfico.","nota":"[VISUAL]: Supri junto a diferentes modelos de BLUETTI (AC50P pequeño, AC180P mediano, AC200P grande).\n[ACCION]: Supri señala cada tamaño, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Tenla en tu vitrina","frase":"Cuando se va la luz, tu cliente necesita una solución. Tenla en tu vitrina. SUPRICOM. Tu mayorista de confianza.","escenario":"Mismo apartamento oscuro — Supri en el centro con BLUETTI funcionando. Laptop conectada, celular cargando. Ventana con lluvia. Vela encendida. Estilo cinematográfico.","nota":"[VISUAL]: Logo SUPRICOM + tagline. BLUETTI visible en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG6" onclick="openCopyModal('AUG6', event)">
+      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG6">
         <div class="num" onclick="toggleCheck(this, event)">6</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Venta cruzada</div>
@@ -1520,7 +1591,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">6</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG7" onclick="openCopyModal('AUG7', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG7">
         <div class="num" onclick="toggleCheck(this, event)">7</div>
         <span class="fmt vocero">Video Valencia</span>
         <div class="pillar">Educativo</div>
@@ -1539,7 +1610,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"3 errores que cometen los vendedores de laptops","frase":"Vendes laptops todos los días. Pero hay 3 errores que estás cometiendo sin saberlo.","nota":"Vocero directo. Texto de alerta."},{"slide":"Problem (5-15s)","texto":"Error #1: no conocer las diferencias entre marcas","frase":"El primero: no conocer las diferencias entre marcas. Cuando el cliente pregunta, no sabes qué recomendar. Y pierdes la venta.","nota":"Gráfico de marcas. X en la estrategia."},{"slide":"Agitation 1 (15-25s)","texto":"Error #2: no preguntar para qué la necesita","frase":"El segundo: no preguntar para qué la necesita. Vendes una laptop que no era la correcta. Y el cliente no vuelve.","nota":"Icono de pregunta sobre laptop."},{"slide":"Agitation 2 (25-35s)","texto":"Error #3: vender solo por precio","frase":"El tercero: vender solo por precio. El cliente se lleva algo barato, pero no queda satisfecho. Y tú no ganas bien.","nota":"Laptop barata vs laptop correcta."},{"slide":"Solution + CTA (35-50s)","texto":"Cómo lo evitas: vender con argumento","frase":"¿Cómo lo evitas? En SUPRICOM te capacitamos para que vendas con argumento. Conocemos cada marca, cada modelo, cada perfil de cliente. Te ayudamos a recomendar bien, a que el cliente confíe en ti, y a que vuelva a comprar. Porque una laptop bien recomendada es una venta que se repite. SUPRICOM. Tu mayorista de confianza.","nota":"Tres checks: conocer marcas, preguntar perfil, vender con argumento. Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG8" onclick="openCopyModal('AUG8', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG8">
         <div class="num" onclick="toggleCheck(this, event)">8</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Sales</div>
@@ -1560,7 +1631,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">7</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG9" onclick="openCopyModal('AUG9', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG9">
         <div class="num" onclick="toggleCheck(this, event)">9</div>
         <span class="fmt vocero">Video Caracas</span>
         <div class="pillar">Educación</div>
@@ -1578,7 +1649,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Cómo aumentar el ticket promedio vendiendo el complemento correcto","frase":"¿Vendes laptops? Estás dejando dinero sobre la mesa.","nota":"Vocero con laptop en mano. Flecha de ticket subiendo."},{"slide":"Antes (5-15s)","texto":"Antes: tu cliente compra laptop y se va","frase":"Antes: tu cliente compra laptop y se va. Gana lo mismo de siempre. Y si necesita un bolso o un mouse, lo busca en otro lado.","nota":"Laptop sola. Ticket bajo. Cliente se va."},{"slide":"Antes cont. (15-25s)","texto":"Sin complementos, la venta es plana","frase":"Sin complementos, la venta es plana. Y tú competimos solo por precio.","nota":"Bolso, mouse, UPS tachados. Cliente ignorando."},{"slide":"Después (25-40s)","texto":"Después: le ofreces el combo completo","frase":"Después: le ofreces el combo completo. Bolso, mouse, cargador. El cliente se lleva todo contigo. Subes el ticket, ganas más, y el cliente vuelve.","nota":"Laptop + bolso + mouse. Ticket doble. Cliente sonriente."},{"slide":"CTA (40-45s)","texto":"Pregunta por el portafolio Targus en SUPRICOM","frase":"Pregunta por el portafolio Targus en SUPRICOM. Tu mayorista de confianza.","nota":"Logo Targus + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG10" onclick="openCopyModal('AUG10', event)">
+      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG10">
         <div class="num" onclick="toggleCheck(this, event)">10</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Comparativa</div>
@@ -1619,7 +1690,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">10</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG11" onclick="openCopyModal('AUG11', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG11">
         <div class="num" onclick="toggleCheck(this, event)">11</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Showcase</div>
@@ -1638,7 +1709,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"5 marcas, 5 perfiles","frase":"¿Cuál le recomendaste a tu cliente?","nota":"Logo SUPRICOM + 5 logos de marcas."},{"slide":"ACER","texto":"ACER","frase":"Para el cliente que busca lo básico sin sacrificar calidad. Ryzen 5, 16GB, 512GB.","nota":"Laptop ACER abierta."},{"slide":"ASUS","texto":"ASUS","frase":"Para el que quiere diseño y rendimiento. Vivobook o TUF según el presupuesto.","nota":"Laptop ASUS con diseño moderno."},{"slide":"HP","texto":"HP","frase":"Para la oficina que necesita confiabilidad. Victus para gaming, ProBook para empresa.","nota":"Laptop HP corporativa."},{"slide":"DELL + LENOVO","texto":"DELL + LENOVO","frase":"Para el cliente que no negocia calidad. Inspiron e IdeaPad con Touch.","nota":"Ambas laptops lado a lado."},{"slide":"Cierre","texto":"Portafolio completo","frase":"Las 5 marcas principales en un solo mayorista. SUPRICOM. Tu mayorista de confianza.","nota":"Logo SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG12" onclick="openCopyModal('AUG12', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG12">
         <div class="num" onclick="toggleCheck(this, event)">12</div>
         <span class="fmt post">Post <span class="ve-badge">VE</span></span>
         <div class="pillar">Contexto Venezuela</div>
@@ -1659,7 +1730,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">11</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG13" onclick="openCopyModal('AUG13', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG13">
         <div class="num" onclick="toggleCheck(this, event)">13</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Showcase</div>
@@ -1681,7 +1752,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"Tinta, cartucho, tóner: lo que necesitas saber antes de vender","frase":"Tinta, cartucho, tóner. Son tres cosas diferentes. Y tu cliente necesita saber cuál.","escenario":"Imprenta profesional / Print shop — Mesa de trabajo con impresoras HP de diferentes tipos (inkjet, láser). Consumibles organizados por categorías: botellas de tinta a la izquierda, cartuchos al centro, tóner a la derecha. Trabajadores imprimiendo documentos de fondo. Estilo industrial-profesional. Supri parado entre las impresoras explicando las diferencias.","nota":"[VISUAL]: Supri de pie junto a una vitrina con consumibles HP. Texto \"TINTA · CARTUCHO · TÓNER\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara."},{"slide":"Escena 2 (8-16s)","texto":"La tinta es para impresoras de boquilla. El cartucho es para las que traen cartucho fijo.","frase":"La tinta es para impresoras de boquilla. El cartucho es para las que traen cartucho fijo. Si no sabes cuál va, pierdes la venta.","escenario":"Misma imprenta profesional — Supri sosteniendo una botella de tinta GT52 y un cartucho 664. Mesa de trabajo con impresoras HP de fondo. Consumibles organizados por categorías. Trabajadores imprimiendo documentos. Estilo industrial-profesional.","nota":"[VISUAL]: Supri sosteniendo una botella de tinta GT52 y un cartucho 664.\n[ACCION]: Supri muestra cada uno por separado, señalando la diferencia."},{"slide":"Escena 3 (16-26s)","texto":"Y el tóner es para laser","frase":"Y el tóner es para laser. Diferente impresora, diferente consumible. HP tiene opción para cada una.","escenario":"Misma imprenta profesional — Supri junto a tóner HP (105A, 206A) en vitrina. Mesa de trabajo con impresoras láser de fondo. Consumibles organizados. Trabajadores imprimiendo documentos. Estilo industrial-profesional.","nota":"[VISUAL]: Supri junto a tóner HP (105A, 206A) en vitrina.\n[ACCION]: Supri señala los tóner, hace gesto de \"esto es diferente\"."},{"slide":"Escena 4 (26-35s)","texto":"Tres tipos, tres impresoras, un solo mayorista","frase":"Tres tipos, tres impresoras, un solo mayorista. Pregunta por el portafolio de consumibles HP. SUPRICOM. Tu mayorista de confianza.","escenario":"Misma imprenta profesional — Supri en el centro con los 3 tipos de consumibles visibles: tinta a la izquierda, cartuchos al centro, tóner a la derecha. Impresoras HP de fondo. Trabajadores imprimiendo documentos. Estilo industrial-profesional.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Consumibles HP visibles.\n[ACCION]: Supri sonríe a cámara, asiente."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG14" onclick="openCopyModal('AUG14', event)">
+      <div class="piece piece-with-copy pillar-comparativa" data-format="carrusel" data-piece="AUG14">
         <div class="num" onclick="toggleCheck(this, event)">14</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Comparativa</div>
@@ -1704,7 +1775,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">12</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG15" onclick="openCopyModal('AUG15', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG15">
         <div class="num" onclick="toggleCheck(this, event)">15</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Showcase</div>
@@ -1721,7 +1792,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"Qué tipos de routers HIKVISION tenemos en SUPRICOM","frase":"HIKVISION no tiene un router. Tiene tres. Para tres clientes diferentes.","escenario":"Oficina corporativa moderna — Sala de trabajo abierto con múltiples empleados usando laptops, tablets y celulares. Router HIKVISION DS-3WR18X WiFi 6 sobre escritorio central visible. Pantalla grande mostrando mapa de cobertura de la oficina. Estilo corporate, iluminación natural. Estabilidad de red como protagonista. Supri parado en el centro de la oficina explicando las 3 gamas.","nota":"[VISUAL]: Supri de pie junto a una vitrina con routers HIKVISION. Texto \"3 MODELOS · 3 CLIENTES\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara."},{"slide":"Escena 2 (8-16s)","texto":"AC1200: el más vendido, el que más rota","frase":"El AC1200: para el cliente que solo necesita WiFi estable. El más vendido, el que más rota.","escenario":"Misma oficina corporativa moderna — Supri junto al router HIKVISION DS-3WR12GC AC1200 sobre escritorio. Empleado usando laptop conectada al router. Pantalla mostrando velocidad de conexión. Estilo corporate, iluminación natural.","nota":"[VISUAL]: Supri junto al DS-3WR12GC AC1200 en el exhibidor.\n[ACCION]: Supri toma el router, lo muestra a cámara, señala con la otra mano."},{"slide":"Escena 3 (16-26s)","texto":"AX1500 + AX1800: para quien no negocia calidad","frase":"El AX1500: para la oficina que necesita más velocidad. Y el AX1800: WiFi 6 para quien no negocia calidad.","escenario":"Misma oficina corporativa moderna — Supri junto a routers gama media y premium (DS-3WR15X AX1500, DS-3WR18X AX1800) sobre escritorio. Empleados usando múltiples dispositivos conectados. Pantalla mostrando cobertura WiFi 6. Estilo corporate, iluminación natural.","nota":"[VISUAL]: Supri junto al DS-3WR15X AX1500 y DS-3WR18X AX1800.\n[ACCION]: Supri señala cada uno, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Tres modelos, tres clientes, un solo mayorista","frase":"Tres modelos, tres clientes, un solo mayorista. Pregunta por los routers HIKVISION. SUPRICOM. Tu mayorista de confianza.","escenario":"Misma oficina corporativa moderna — Supri en el centro con los 3 routers visibles. Empleados trabajando en laptops, tablets y celulares. Pantalla mostrando cobertura completa. Estilo corporate, iluminación natural.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Los 3 routers visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente."}]</div>
       </div>
 
-      <div class="piece piece-with-copy" data-format="carrusel" data-piece="AUG16" onclick="openCopyModal('AUG16', event)">
+      <div class="piece piece-with-copy" data-format="carrusel" data-piece="AUG16">
         <div class="num" onclick="toggleCheck(this, event)">16</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Segmentación</div>
@@ -1745,7 +1816,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">13</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG17" onclick="openCopyModal('AUG17', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG17">
         <div class="num" onclick="toggleCheck(this, event)">17</div>
         <span class="fmt vocero">Video Valencia</span>
         <div class="pillar">Educación</div>
@@ -1763,7 +1834,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Lo que tu cliente NO sabe sobre mouse y teclados","frase":"Lo que tu cliente no sabe sobre los mouse y teclados que vendes.","nota":"Vocero con mouse en mano. Fondo con signos de interrogación."},{"slide":"Secreto 1 (5-15s)","texto":"Secreto #1: el mouse vertical previene lesiones","frase":"El mouse no es solo clic. Un mouse ergonómico como el Lift Vertical de Logitech evita lesiones. Tu cliente no lo sabe, pero lo necesita.","nota":"Mouse Lift Vertical. Icono de mano ergonómica."},{"slide":"Secreto 2 (15-25s)","texto":"Secreto #2: el teclado multi-dispositivo ahorra tiempo","frase":"El teclado no es solo escribir. Un teclado cómodo como el K380S cambia la productividad de tu cliente. Y tú no se lo estás ofreciendo.","nota":"K380S conectado a 3 dispositivos."},{"slide":"Secreto 3 (25-35s)","texto":"Secreto #3: lo que más se vende es lo que menos muestras","frase":"Lo que más se vende es lo que menos muestras. El M170 y el K270 son los que tus clientes piden. Pero no están en tu vitrina.","nota":"Mouse M170 y teclado K270."},{"slide":"CTA (35-45s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"En SUPRICOM tenemos todo el portafolio Logitech. Mouse, teclados, audífonos, gaming. Pregunta por lo que tu cliente necesita. SUPRICOM. Tu mayorista de confianza.","nota":"Logo Logitech + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-ecosistema" data-format="post" data-piece="AUG18" onclick="openCopyModal('AUG18', event)">
+      <div class="piece piece-with-copy pillar-ecosistema" data-format="post" data-piece="AUG18">
         <div class="num" onclick="toggleCheck(this, event)">18</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Demanda oculta</div>
@@ -1785,7 +1856,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">14</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG19" onclick="openCopyModal('AUG19', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG19">
         <div class="num" onclick="toggleCheck(this, event)">19</div>
         <span class="fmt vocero">Video Caracas</span>
         <div class="pillar">Inventario</div>
@@ -1802,7 +1873,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Pregunta rápida: ¿cuántos tipos de router necesitas?","frase":"Pregunta rápida: ¿cuántos tipos de router necesitas para cubrir a tus clientes? ¿Uno? ¿Dos? En SUPRICOM tenemos tres.","nota":"Vocero directo. Texto de pregunta."},{"slide":"Modelo 1 (5-17s)","texto":"El básico: DS-3WR12GC AC1200","frase":"El básico: DS-3WR12GC AC1200. WiFi estable, dual band, el que más se vende. Para el cliente que solo necesita conectar y listo. Más de cuatro mil unidades en SUPRICOM.","nota":"Router AC1200. Contador de stock."},{"slide":"Modelo 2 (17-30s)","texto":"El equilibrado: DS-3WR15X AX1500","frase":"El equilibrado: DS-3WR15X AX1500. WiFi 6, gigabit, para la oficina que necesita más velocidad. Más de cinco mil unidades. El que más rota.","nota":"Router AX1500. WiFi 6 icono."},{"slide":"Modelo 3 (30-42s)","texto":"El premium: DS-3WR18X AX1800","frase":"El premium: DS-3WR18X AX1800. WiFi 6 de alto rendimiento. Para quien no negocia calidad. Casi tres mil unidades. El de mayor margen.","nota":"Router AX1800. Icono premium."},{"slide":"Inventario + CTA (42-50s)","texto":"Tres gamas, un solo mayorista","frase":"Tres gamas, un solo mayorista. El que no tiene HIKVISION en su vitrina, el cliente lo compra en otro lado. ¿Cuál necesitas? Escríbenos y te asesoramos.","nota":"Los 3 routers juntos."},{"slide":"Slogan (50-55s)","texto":"HIKVISION en SUPRICOM. Tu mayorista de confianza.","frase":"HIKVISION en SUPRICOM. Tu mayorista de confianza.","nota":"Logo HIKVISION + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG20" onclick="openCopyModal('AUG20', event)">
+      <div class="piece piece-with-copy pillar-sinergia" data-format="carrusel" data-piece="AUG20">
         <div class="num" onclick="toggleCheck(this, event)">20</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Venta cruzada</div>
@@ -1848,7 +1919,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">17</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG21" onclick="openCopyModal('AUG21', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG21">
         <div class="num" onclick="toggleCheck(this, event)">21</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Educativo</div>
@@ -1867,7 +1938,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Lo que hace un buen router (y por qué importa para tu cliente)","frase":"Velocidad, cobertura, confiabilidad. Tres factores que tu cliente debe conocer.","nota":"Fondo azul. Tres iconos: velocidad, cobertura, confiabilidad."},{"slide":"Velocidad","texto":"Velocidad: no todo es megas","frase":"Un buen router maneja muchos dispositivos a la vez sin perder velocidad. WiFi 6 resuelve eso.","nota":"Gráfico de velocidad. Router con múltiples dispositivos."},{"slide":"Cobertura","texto":"Cobertura: sin zonas muertas","frase":"Si el router no llega al fondo de la casa, el cliente se queja. Mesh elimina zonas muertas.","nota":"Mapa de casa con cobertura completa."},{"slide":"Confiabilidad","texto":"Confiabilidad: el router que no se apaga","frase":"Un router malo se calienta y se reinicia. HIKVISION y Linksys tienen la calidad que tu cliente necesita.","nota":"Router estable vs router con alerta."},{"slide":"Cierre","texto":"Un buen router cierra la venta y abre la puerta a más","frase":"Routers en SUPRICOM. Pregunta por el ideal para tu cliente.","nota":"Grid routers + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG22" onclick="openCopyModal('AUG22', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG22">
         <div class="num" onclick="toggleCheck(this, event)">22</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Tendencia</div>
@@ -1889,7 +1960,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">18</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG23" onclick="openCopyModal('AUG23', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG23">
         <div class="num" onclick="toggleCheck(this, event)">23</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Showcase</div>
@@ -1907,7 +1978,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"3 tipos de laptops que toda tienda debería tener","frase":"Entrada, media y gaming. Tres gamas, tres clientes, una vitrina completa.","escenario":"Oficina de coworking moderna — Mesa de trabajo compartida con 3 estaciones: una con laptop básica (ACER) para estudiante, otra con laptop corporativa (HP) para ejecutivo, y una con laptop gaming (ASUS TUF) con luces RGB para gamer. Ventana grande con vista a ciudad. Personas de fondo trabajando. Ambiente productivo y dinámico.","nota":"[VISUAL]: Supri de pie frente a una vitrina con laptops de diferentes marcas. Expresión de \"te voy a enseñar algo\".\n[ACCION]: Supri da un paso al frente, levanta el índice señalando hacia la vitrina, luego gira la cabeza hacia la cámara con complicidad."},{"slide":"Escena 2 (8-16s)","texto":"Entrada: Acer Aspire 3 A315","frase":"Para el cliente que busca lo básico. Buena rotación, precio contenido.","escenario":"Misma oficina de coworking — Supri junto a la estación de estudiante con laptop ACER. Fondo: ventana con vista a ciudad. Personas trabajando de fondo. Ambiente productivo.","nota":"[VISUAL]: Supri junto a una laptop de entrada (ACER o ASUS) en el exhibidor.\n[ACCION]: Supri apoya la mano en la laptop, la señala con la otra mano abierta, y hace un gesto de \"esta es la primera\"."},{"slide":"Escena 3 (16-26s)","texto":"Media: HP ProBook 440 + Dell Inspiron 15","frase":"Para oficina y hogar. El punto dulce entre precio y prestaciones.","escenario":"Misma oficina de coworking — Supri junto a la estación ejecutiva con laptop HP. Fondo: sala de reuniones visible. Ambiente corporativo-profesional.","nota":"[VISUAL]: Supri junto a una laptop corporativa (HP o DELL).\n[ACCION]: Supri toca la laptop con la mano derecha, levanta el dedo índice haciendo énfasis, luego abre los brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Gaming: ASUS TUF Gaming F15","frase":"Para el cliente que pide rendimiento. Mayor margen, mayor ticket.","escenario":"Misma oficina de coworking — Supri en el centro con las 3 estaciones visibles. Las 3 laptops destacadas (ACER, HP, ASUS TUF). Personas de fondo. Ambiente productivo y dinámico.","nota":"[VISUAL]: Supri sonriendo, con las tres laptops visibles detrás.\n[ACCION]: Supri señala las tres opciones de izquierda a derecha, luego junta las manos en el centro indicando \"un solo lugar\". Asiente con seguridad."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-diferenciacion" data-format="carrusel" data-piece="AUG24" onclick="openCopyModal('AUG24', event)">
+      <div class="piece piece-with-copy pillar-diferenciacion" data-format="carrusel" data-piece="AUG24">
         <div class="num" onclick="toggleCheck(this, event)">24</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Diferenciación</div>
@@ -1930,7 +2001,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">19</span></div>
 
-      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG25" onclick="openCopyModal('AUG25', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="video" data-piece="AUG25">
         <div class="num" onclick="toggleCheck(this, event)">25</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Showcase</div>
@@ -1948,7 +2019,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"De básico a gaming: la línea de mouse Logitech","frase":"Logitech tiene un mouse para cada cliente. Tú solo tienes que saber cuál ofrecerle.","escenario":"Sala gaming profesional / Streaming room — Setup gaming completo: escritorio negro, silla gaming, monitor curvo 144Hz, teclado mecánico RGB, mouse gaming Logitech G203 con luces, audífonos gaming. Letrero neon \"GAMING\" de fondo. Estilo streamer profesional. Supri sentado en la silla gaming usando los periféricos.","nota":"[VISUAL]: Supri de pie frente a una vitrina con mouse Logitech de diferentes gamas. Texto \"DE BÁSICO A GAMING\" sobreimpresos.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara."},{"slide":"Escena 2 (8-16s)","texto":"Básico: M170 y M240","frase":"Compactos, inalámbricos, batería de larga duración. El mouse que se vende solo.","escenario":"Misma sala gaming — Supri sentado en la silla gaming, mostrando mouse de oficina (M170, M240) sobre el escritorio. Monitor apagado. Letrero neon \"GAMING\" de fondo. Estilo streamer profesional.","nota":"[VISUAL]: Supri junto a mouse de oficina (M170, M240) en el exhibidor.\n[ACCION]: Supri toma un M170, lo muestra a cámara, señala con la otra mano."},{"slide":"Escena 3 (16-26s)","texto":"Gaming: G203 y G305","frase":"G203 con iluminación RGB. G305 inalámbrico de alta velocidad. Para el cliente gaming.","escenario":"Misma sala gaming — Supri usando mouse gaming (G203, G305) con RGB encendido. Monitor encendido con juego. Teclado mecánico RGB brillando. Letrero neon \"GAMING\" brillando. Estilo streamer profesional.","nota":"[VISUAL]: Supri junto a mouse gaming (G203, G305) en vitrina.\n[ACCION]: Supri señala cada modelo, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"Cuatro gamas, un solo proveedor","frase":"SUPRICOM. Tu mayorista de confianza. Logitech disponible en Caracas y Valencia.","escenario":"Misma sala gaming — Supri en la silla con los 2 setups visibles: oficina a la izquierda (mouse M170, M240), gaming a la derecha (G203, G305 con RGB). Letrero neon \"GAMING\" brillando. Estilo streamer profesional.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Mouse Logitech visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG26" onclick="openCopyModal('AUG26', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="carrusel" data-piece="AUG26">
         <div class="num" onclick="toggleCheck(this, event)">26</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Educativo</div>
@@ -1978,7 +2049,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">20</span></div>
 
-      <div class="piece piece-with-copy pillar-perfil" data-format="video" data-piece="AUG27" onclick="openCopyModal('AUG27', event)">
+      <div class="piece piece-with-copy pillar-perfil" data-format="video" data-piece="AUG27">
         <div class="num" onclick="toggleCheck(this, event)">27</div>
         <span class="fmt vocero">Video Valencia</span>
         <div class="pillar">Competencia</div>
@@ -1997,7 +2068,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Si tú no tienes BLUETTI, tu competidor sí","frase":"Si tú no tienes BLUETTI, tu competidor sí. Y se lo está vendiendo a tu cliente.","nota":"Vocero directo. Texto de alerta."},{"slide":"Contexto (5-15s)","texto":"Cada corte, alguien va a vender la solución","frase":"Cada vez que hay un corte, un apagón, una falla eléctrica... alguien va a vender la solución. La pregunta es si eres tú o el de al lado.","nota":"Escena de apagón en ciudad."},{"slide":"Producto (15-30s)","texto":"8 modelos de BLUETTI en SUPRICOM","frase":"En SUPRICOM tenemos 8 modelos de BLUETTI. Desde la Elite 30 V2, que es la portátil que todo cliente quiere... hasta el Apex 300, que mueve un negocio completo. AC70P, AC180P, AC200P L, Premium 200 V2... para cada perfil de cliente, tenemos la que necesitas.","nota":"Showcase de los 8 modelos BLUETTI."},{"slide":"Decisión (30-42s)","texto":"BLUETTI se vende solo","frase":"No es si tu cliente va a comprar una estación de energía. Ya decidió. Ya preguntó. La pregunta es de quién la va a comprar. BLUETTI se vende solo. Tú solo tienes que tenerlo en tu vitrina.","nota":"Cliente decidido. Vitrina con BLUETTI."},{"slide":"CTA + Slogan (42-52s)","texto":"BLUETTI en SUPRICOM. Pídelo antes de que lo pida en otro lugar.","frase":"BLUETTI en SUPRICOM. Pídelo antes de que lo pida en otro lugar. SUPRICOM. Tu mayorista de confianza.","nota":"Logo BLUETTI + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-venta-cruzada" data-format="post" data-piece="AUG28" onclick="openCopyModal('AUG28', event)">
+      <div class="piece piece-with-copy pillar-venta-cruzada" data-format="post" data-piece="AUG28">
         <div class="num" onclick="toggleCheck(this, event)">28</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Venta cruzada</div>
@@ -2019,7 +2090,7 @@
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">21</span></div>
 
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG29" onclick="openCopyModal('AUG29', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG29">
         <div class="num" onclick="toggleCheck(this, event)">29</div>
         <span class="fmt vocero">Video Caracas</span>
         <div class="pillar">Educativo</div>
@@ -2037,7 +2108,7 @@
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"¿Sabes qué es una Mini PC?","frase":"¿Sabes qué es una Mini PC? Es una computadora del tamaño de tu mano que hace lo mismo que un escritorio.","nota":"Vocero con Mini PC en mano."},{"slide":"Problema (5-15s)","texto":"Sin torre, sin cables, sin ruido","frase":"Sin torre, sin cables, sin ruido. Tu cliente la pone en cualquier lado. Para oficina, para punto de venta, para quien no quiere ocupar espacio. Y lo mejor: se personaliza para cada necesidad.","nota":"Mini PC en diferentes escenarios."},{"slide":"Modelo 1 (15-22s)","texto":"Cubi 5 i5: productividad","frase":"En SUPRICOM tenemos 4 modelos. La Cubi 5 i5: para la oficina que necesita productividad. Rápida, eficiente, lista para trabajar.","nota":"MSI Cubi 5 i5."},{"slide":"Modelo 2 (22-28s)","texto":"Cubi 5 i7 Barebone: personalizable","frase":"La Cubi 5 i7 Barebone: para quien quiere armarla a su manera. Tú pones la memoria, el almacenamiento, el sistema.","nota":"MSI Cubi 5 i7 con componentes."},{"slide":"Modelo 3 (28-34s)","texto":"Cubi Z AI Ryzen 7: inteligencia artificial","frase":"La Cubi Z AI Ryzen 7: inteligencia artificial en tu escritorio. Para el cliente que pide lo último.","nota":"MSI Cubi Z AI Ryzen 7."},{"slide":"Modelo 4 (34-40s)","texto":"Cubi Z AI Ryzen 9: la más potente","frase":"Y la Cubi Z AI Ryzen 9: la más potente. Ultra-compacta, ultra-rápida. Para quien no negocia rendimiento.","nota":"MSI Cubi Z AI Ryzen 9."},{"slide":"Negocio + CTA (40-48s)","texto":"La Mini PC es el futuro de la oficina","frase":"Pocos la conocen, pero quien la pruebe vuelve por otra. La Mini PC es el futuro de la oficina. No esperes a que tu competidor la tenga. Pídela ya en SUPRICOM.","nota":"Cliente satisfecho. Vitrina Mini PC."},{"slide":"Slogan (48-52s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Logo MSI + SUPRICOM."}]</div>
       </div>
 
-      <div class="piece piece-with-copy pillar-nicho" data-format="post" data-piece="AUG30" onclick="openCopyModal('AUG30', event)">
+      <div class="piece piece-with-copy pillar-nicho" data-format="post" data-piece="AUG30">
         <div class="num" onclick="toggleCheck(this, event)">30</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Nicho</div>
@@ -2074,7 +2145,7 @@
 
     <div class="cal-col">
       <div class="col-head"><span class="day">Lun</span><span class="date">24</span></div>
-      <div class="piece piece-with-copy pillar-tendencia" data-format="carrusel" data-piece="AUG31" onclick="openCopyModal('AUG31', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="carrusel" data-piece="AUG31">
         <div class="num" onclick="toggleCheck(this, event)">31</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Tendencia</div>
@@ -2092,7 +2163,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Portada","texto":"Laptops que se están vendiendo rápido (y por qué)","frase":"Cada gama tiene su momento. Tú sabes cuál ofrecer.","nota":"Fondo azul. Flecha de tendencia."},{"slide":"Gama entrada","texto":"Gama entrada: Acer Aspire 3 y HP 245 G10","frase":"Las que más rotan. Precio contenido, buen rendimiento.","nota":"Acer Aspire 3 + HP 245 G10."},{"slide":"Gama media","texto":"Gama media: ASUS TUF y Lenovo IdeaPad 3","frase":"Diseño y rendimiento. Para el cliente que quiere más sin pagar premium.","nota":"ASUS TUF + Lenovo IdeaPad."},{"slide":"Gama alta","texto":"Gama alta: Dell Inspiron 15","frase":"Construcción profesional. Para el cliente que invierte en calidad.","nota":"Dell Inspiron 15 en escritorio."},{"slide":"Cierre","texto":"Cada gama tiene su cliente. Tú tienes las 5.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Grid 5 laptops + SUPRICOM."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG32" onclick="openCopyModal('AUG32', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="post" data-piece="AUG32">
         <div class="num" onclick="toggleCheck(this, event)">32</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Producto estrella</div>
@@ -2112,7 +2183,7 @@
 
     <div class="cal-col">
       <div class="col-head"><span class="day">Mar</span><span class="date">25</span></div>
-      <div class="piece piece-with-copy pillar-tendencia" data-format="video" data-piece="AUG33" onclick="openCopyModal('AUG33', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="video" data-piece="AUG33">
         <div class="num" onclick="toggleCheck(this, event)">33</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Tendencia</div>
@@ -2130,7 +2201,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"WiFi 6: la tendencia que ya llegó","frase":"WiFi 6 ya no es el futuro. Es el presente. Y los negocios que no se actualizan, se quedan atrás.","escenario":"Showroom moderno / Sala de exposición tech — Vitrina iluminada con routers WiFi 6 de diferentes marcas organizados por gama. Pantalla grande mostrando gráfico comparativo WiFi 5 vs WiFi 6 (velocidad, dispositivos, latencia). Estilo high-tech, iluminación LED azul. Supri de pie junto a la vitrina explicando la tendencia.","nota":"[VISUAL]: Supri de pie junto a la vitrina con routers WiFi 6.\n[ACCION]: Supri señala la vitrina con la mano abierta, luego gira a cámara con expresión de \"esto es importante\"."},{"slide":"Escena 2 (8-16s)","texto":"¿Por qué migran a WiFi 6?","frase":"Más velocidad, más dispositivos conectados, menos interferencia. El cliente de hoy tiene 15-20 dispositivos conectados. Tu router debe aguantar.","escenario":"Misma sala de exposición — Supri junto a la pantalla mostrando comparativa WiFi 5 vs WiFi 6. Vitrina con routers de fondo. Pantalla cambiando a gráfico de dispositivos conectados. Estilo high-tech, iluminación LED azul.","nota":"[VISUAL]: Pantalla mostrando gráfico comparativo WiFi 5 vs WiFi 6 (velocidad, múltiples dispositivos). Supri señalando la pantalla.\n[ACCION]: Supri señala la pantalla con la mano, hace gesto de \"mira esto\". Luego cuenta con los dedos \"15, 20 dispositivos\"."},{"slide":"Escena 3 (16-26s)","texto":"5 marcas WiFi 6 en SUPRICOM","frase":"En SUPRICOM tenemos WiFi 6 en 5 marcas: HIKVISION, Linksys, Xiaomi, TP-LINK y Nexxt Home. Para cada cliente, tenemos el router ideal.","escenario":"Misma sala de exposición — Supri junto a la vitrina con routers WiFi 6 de las 5 marcas visibles: HIKVISION AX1500, LINKSYS Velop, XIAOMI AX3200, TP-LINK AX1800, NEXXT HOME Bolt Mesh. Pantalla mostrando las marcas. Estilo high-tech, iluminación LED azul.","nota":"[VISUAL]: Supri señalando los routers en la vitrina. Cada marca visible con su logo: HIKVISION, LINKSYS, XIAOMI, TP-LINK, NEXXT HOME.\n[ACCION]: Supri señala cada marca alternadamente, abre brazos indicando que ya están disponibles."},{"slide":"Escena 4 (26-35s)","texto":"La tendencia ya llegó. Asegúrate de tenerla.","frase":"La tendencia ya llegó. Asegúrate de tenerla en tu vitrina. WiFi 6 en SUPRICOM. Tu mayorista de confianza.","escenario":"Misma sala de exposición — Supri en el centro con routers WiFi 6 visibles en vitrina. Pantalla mostrando \"WiFi 6: LA TENDENCIA\". Logo SUPRICOM al fondo. Estilo high-tech, iluminación LED azul.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Routers WiFi 6 visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente con seguridad."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-perfil" data-format="carrusel" data-piece="AUG34" onclick="openCopyModal('AUG34', event)">
+      <div class="piece piece-with-copy pillar-perfil" data-format="carrusel" data-piece="AUG34">
         <div class="num" onclick="toggleCheck(this, event)">34</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Caso de negocio</div>
@@ -2152,7 +2223,7 @@
 
     <div class="cal-col">
       <div class="col-head"><span class="day">Mié</span><span class="date">26</span></div>
-      <div class="piece piece-with-copy pillar-solucion" data-format="video" data-piece="AUG35" onclick="openCopyModal('AUG35', event)">
+      <div class="piece piece-with-copy pillar-solucion" data-format="video" data-piece="AUG35">
         <div class="num" onclick="toggleCheck(this, event)">35</div>
         <span class="fmt vs1">Video Supri</span>
         <div class="pillar">Customización</div>
@@ -2169,7 +2240,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Escena 1 (0-8s)","texto":"Barebone: personaliza para cada cliente","frase":"Barebone significa que tú eliges la RAM y el SSD. El cliente paga por lo que necesita, no por lo que no.","escenario":"Taller de tecnología / Tech lab — Mesa de trabajo técnica con Mini PC MSI abierta, componentes organizados (RAM, SSD, herramientas). Monitor mostrando BIOS o sistema operativo. Estilo ingeniería, iluminación blanca limpia. Herramientas de technicians visibles. Supri como ingeniero explicando cómo personalizar cada componente.","nota":"[VISUAL]: Supri de pie junto a una Mini PC MSI abierta (barebone). Texto \"BAREBONE: PERSONALIZA CADA MINI PC\" sobreimpresos.\n[ACCION]: Supri señala la Mini PC abierta con la mano, luego gira a cámara."},{"slide":"Escena 2 (8-16s)","texto":"¿Por qué es ventaja?","frase":"El cliente de oficina necesita 8GB y 256GB. El de diseño necesita 32GB y 1TB. Tú armas según la necesidad.","escenario":"Mismo taller de tecnología — Primer plano de los componentes internos de la Mini PC (RAM, SSD, puertos). Mesa de trabajo técnica con herramientas. Monitor mostrando BIOS. Estilo ingeniería, iluminación blanca limpia.","nota":"[VISUAL]: Primer plano de los componentes internos de la Mini PC (RAM, SSD, puertos).\n[ACCION]: Supri señala cada componente mientras lo menciona."},{"slide":"Escena 3 (16-26s)","texto":"MSI Cubi 5 y Cubi Z AI: barebone","frase":"Cubi 5 Barebone y Cubi Z AI. Tú personalizas, el cliente recibe exactamente lo que necesita.","escenario":"Mismo taller de tecnología — Supri junto a los 4 modelos de Mini PC MSI en vitrina. Mesa de trabajo técnica con componentes organizados. Monitor mostrando opciones de personalización. Estilo ingeniería, iluminación blanca limpia.","nota":"[VISUAL]: Supri junto a los 4 modelos de Mini PC MSI en vitrina.\n[ACCION]: Supri señala cada modelo, abre brazos indicando variedad."},{"slide":"Escena 4 (26-35s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"MSI Cubi barebone en SUPRICOM. Personaliza para cada cliente.","escenario":"Mismo taller de tecnología — Supri en el centro con los 4 modelos de Mini PC MSI visibles. Mesa de trabajo técnica con componentes organizados. Monitor mostrando opciones de personalización. Estilo ingeniería, iluminación blanca limpia.","nota":"[VISUAL]: Logo SUPRICOM + tagline. Mini PC MSI visibles en vitrina.\n[ACCION]: Supri sonríe a cámara, asiente."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG36" onclick="openCopyModal('AUG36', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG36">
         <div class="num" onclick="toggleCheck(this, event)">36</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Showcase</div>
@@ -2189,7 +2260,7 @@
 
     <div class="cal-col">
       <div class="col-head"><span class="day">Jue</span><span class="date">27</span></div>
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG37" onclick="openCopyModal('AUG37', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG37">
         <div class="num" onclick="toggleCheck(this, event)">37</div>
         <span class="fmt vocero">Video Caracas</span>
         <div class="pillar">Venta cruzada</div>
@@ -2206,7 +2277,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"Tu cliente compra una impresora. ¿Le ofreciste el consumible?","frase":"Tu cliente compra una impresora. ¿Le ofreciste el consumible? Si no lo haces, pierdes la venta extra y se lo compra en otro lado.","nota":"Vocero con impresora y consumibles."},{"slide":"Tipo 1 (5-17s)","texto":"La tinta es para impresoras de boquilla","frase":"La tinta es para impresoras de boquilla. GT52, GT53. Las que compran para casa, para la oficina pequeña. En SUPRICOM tenemos stock de todas las presentaciones.","nota":"Botellas de tinta GT52/GT53."},{"slide":"Tipo 2 (17-28s)","texto":"El cartucho es para las que traen cartucho fijo","frase":"El cartucho es para las que traen cartucho fijo. El 664, el más vendido. Negro y color. Si no lo tienes, tu cliente lo busca en otro lado.","nota":"Cartuchos HP 664."},{"slide":"Tipo 3 (28-40s)","texto":"Y el tóner es para láser","frase":"Y el tóner es para láser. Diferente impresora, diferente consumible. En SUPRICOM tenemos el 105A, el 136A. Para cada impresora HP, tenemos el que necesitas.","nota":"Tóner HP 105A/136A."},{"slide":"Negocio + CTA (40-48s)","texto":"El consumible se vende con cada impresora","frase":"El consumible se vende con cada impresora. Si no lo tienes en tu vitrina, pierdes dinero en cada venta. Tintas, cartuchos y tóner HP en SUPRICOM. Pídelo ya.","nota":"Vitrina con consumibles HP."},{"slide":"Slogan (48-52s)","texto":"SUPRICOM. Tu mayorista de confianza.","frase":"SUPRICOM. Tu mayorista de confianza.","nota":"Logo HP + SUPRICOM."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG38" onclick="openCopyModal('AUG38', event)">
+      <div class="piece piece-with-copy pillar-showcase" data-format="carrusel" data-piece="AUG38">
         <div class="num" onclick="toggleCheck(this, event)">38</div>
         <span class="fmt carrusel">Carrusel 📋</span>
         <div class="pillar">Showcase</div>
@@ -2230,7 +2301,7 @@
 
     <div class="cal-col">
       <div class="col-head"><span class="day">Vie</span><span class="date">28</span></div>
-      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG39" onclick="openCopyModal('AUG39', event)">
+      <div class="piece piece-with-copy pillar-educativo" data-format="video" data-piece="AUG39">
         <div class="num" onclick="toggleCheck(this, event)">39</div>
         <span class="fmt vocero">Video Valencia</span>
         <div class="pillar">Diferenciación</div>
@@ -2246,7 +2317,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Hook (0-5s)","texto":"¿Cuántas tiendas de tu zona venden HIKVISION?","frase":"VOCERO: ¿Cuántas tiendas de tu zona venden HIKVISION? Piénsalo. ¿Por qué la tuya no?","nota":"Vocero directo a cámara."},{"slide":"Desarrollo (5-18s)","texto":"El router HIKVISION no se vende: se pide","frase":"VOCERO: El router HIKVISION no se vende: se pide. El cliente llega buscando el AC1200 para su casa, el AX1500 para la oficina, el AX1800 para lo mejor. Marca conocida, cero objeción.","nota":"Vocero mostrando los tres routers HIKVISION."},{"slide":"Oferta (18-32s)","texto":"Al mayor, solo tiendas y comercios","frase":"VOCERO: En SUPRICOM vendemos al mayor, solo a tiendas y comercios. Los tres modelos disponibles, con asesoría técnica para que sepas cuál venderle a cada perfil.","nota":"Los tres modelos alineados. Logo SUPRICOM."},{"slide":"CTA (32-45s)","texto":"Escribe HIKVISION en comentarios","frase":"VOCERO: Escribe HIKVISION en comentarios y un asesor te contacta con la lista mayorista. SUPRICOM. Tu mayorista de confianza.","nota":"Logo HIKVISION + SUPRICOM."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-confianza" data-format="post" data-piece="AUG40" onclick="openCopyModal('AUG40', event)">
+      <div class="piece piece-with-copy pillar-confianza" data-format="post" data-piece="AUG40">
         <div class="num" onclick="toggleCheck(this, event)">40</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Confianza</div>
@@ -2287,7 +2358,7 @@
 
     <div class="cal-col" style="grid-column: 1 / 2">
       <div class="col-head"><span class="day">Lun</span><span class="date">31</span></div>
-      <div class="piece piece-with-copy pillar-combo" data-format="post" data-piece="AUG41" onclick="openCopyModal('AUG41', event)">
+      <div class="piece piece-with-copy pillar-combo" data-format="post" data-piece="AUG41">
         <div class="num" onclick="toggleCheck(this, event)">41</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Combo</div>
@@ -2304,7 +2375,7 @@
         </details>
         <div class="copy-data" style="display:none">[{"slide":"Post","texto":"Bolso + laptop: la venta que siempre cierra","frase":"El combo que nunca falla. Tu cliente compra laptop, le ofreces el bolso, y la venta se cierra.\n\nNo es presión. Es sentido común. Nadie quiere arruinar su inversión.\n\nTargus tiene bolsos para cada laptop. En SUPRICOM los tenemos listos.","nota":"Grid Targus productos. Fondo SUPRICOM."}]</div>
       </div>
-      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG42" onclick="openCopyModal('AUG42', event)">
+      <div class="piece piece-with-copy pillar-tendencia" data-format="post" data-piece="AUG42">
         <div class="num" onclick="toggleCheck(this, event)">42</div>
         <span class="fmt post">Post</span>
         <div class="pillar">Demanda</div>
@@ -2344,7 +2415,7 @@
 
   <!-- ═══ S2 · LUN 10 – VIE 14 AGO ═══ -->
   <div class="em-week">
-    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+    <div class="em-week-head" onclick="toggleEmailWeek(this)">
       <div>
         <div class="em-week-title">S2 · 10 al 14 de agosto</div>
         <div class="em-week-sub">Basado en contenido de S1 · 5 emails</div>
@@ -2353,7 +2424,7 @@
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card" onclick="openCopyModal('AUG2',event)">
+    <div class="email-card" data-piece="AUG2">
       <div class="ec-head">
         <span>Lun 10 · Routers</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2376,7 +2447,7 @@ Escríbenos y te asesoramos. Así no pierdes la venta ni al cliente.</div>
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG4',event)">
+    <div class="email-card" data-piece="AUG4">
       <div class="ec-head">
         <span>Mar 11 · Consumibles HP</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2399,7 +2470,7 @@ No dejes que tu cliente compre sus consumibles en otro lado. Pregunta por el por
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG6',event)">
+    <div class="email-card" data-piece="AUG6">
       <div class="ec-head">
         <span>Mié 12 · Logitech</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2424,7 +2495,7 @@ No es cuestión de vender más. Es cuestión de vender mejor. Arma la venta comp
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG8',event)">
+    <div class="email-card" data-piece="AUG8">
       <div class="ec-head">
         <span>Jue 13 · HIKVISION</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2451,7 +2522,7 @@ Tres modelos. Tres clientes. Un solo mayorista. Asegúrate de tenerlos en tu vit
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG9',event)">
+    <div class="email-card" data-piece="AUG9">
       <div class="ec-head">
         <span>Vie 14 · TARGUS</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2481,7 +2552,7 @@ Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera compr
 
   <!-- ═══ S3 · LUN 17 – VIE 21 AGO ═══ -->
   <div class="em-week">
-    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+    <div class="em-week-head" onclick="toggleEmailWeek(this)">
       <div>
         <div class="em-week-title">S3 · 17 al 21 de agosto</div>
         <div class="em-week-sub">Basado en contenido de S2 · 5 emails</div>
@@ -2490,7 +2561,7 @@ Es dinero que estás dejando sobre la mesa. No porque el cliente no quiera compr
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card" onclick="openCopyModal('AUG12',event)">
+    <div class="email-card" data-piece="AUG12">
       <div class="ec-head">
         <span>Lun 17 · BLUETTI</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2515,7 +2586,7 @@ Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>.
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG14',event)">
+    <div class="email-card" data-piece="AUG14">
       <div class="ec-head">
         <span>Mar 18 · Routers</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2538,7 +2609,7 @@ Si no le ofreces la solución correcta, él busca en otro lado. Y cuando la encu
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG16',event)">
+    <div class="email-card" data-piece="AUG16">
       <div class="ec-head">
         <span>Mié 19 · TARGUS</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2563,7 +2634,7 @@ Si le ofreces el mismo bolso a todos, estás perdiendo ventas. Porque el ejecuti
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG18',event)">
+    <div class="email-card" data-piece="AUG18">
       <div class="ec-head">
         <span>Jue 20 · Mini PC MSI</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2588,7 +2659,7 @@ Stock de Mini PC MSI disponible. Pregunta por el modelo ideal.</div>
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG20',event)">
+    <div class="email-card" data-piece="AUG20">
       <div class="ec-head">
         <span>Vie 21 · Laptops</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2616,7 +2687,7 @@ No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es
 
   <!-- ═══ S4 · LUN 24 – VIE 28 AGO ═══ -->
   <div class="em-week">
-    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+    <div class="em-week-head" onclick="toggleEmailWeek(this)">
       <div>
         <div class="em-week-title">S4 · 24 al 28 de agosto</div>
         <div class="em-week-sub">Basado en contenido de S3 · 5 emails</div>
@@ -2625,7 +2696,7 @@ No dejes que tu cliente salga solo con la laptop. Ofrecerle el combo completo es
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card" onclick="openCopyModal('AUG22',event)">
+    <div class="email-card" data-piece="AUG22">
       <div class="ec-head">
         <span>Lun 24 · Consumibles HP</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2650,7 +2721,7 @@ No esperes a que pregunte en otro lado. Ofrecerle los consumibles ahora.</div>
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG24',event)">
+    <div class="email-card" data-piece="AUG24">
       <div class="ec-head">
         <span>Mar 25 · BLUETTI</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2675,7 +2746,7 @@ En <strong>SUPRICOM</strong> tenemos ocho modelos. Desde la compacta <strong>AC5
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG26',event)">
+    <div class="email-card" data-piece="AUG26">
       <div class="ec-head">
         <span>Mié 26 · Consumibles HP</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2700,7 +2771,7 @@ Tres tipos. Tres impresoras. Tres consumibles diferentes. Si no sabes cuál va e
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG28',event)">
+    <div class="email-card" data-piece="AUG28">
       <div class="ec-head">
         <span>Jue 27 · TARGUS</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2725,7 +2796,7 @@ En <strong>SUPRICOM</strong> los tenemos listos. Solo tienes que preguntar.</div
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG30',event)">
+    <div class="email-card" data-piece="AUG30">
       <div class="ec-head">
         <span>Vie 28 · LOGITECH</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2753,7 +2824,7 @@ Logitech <strong>Lift Vertical</strong> para zurdos. Stock disponible en <strong
 
   <!-- ═══ S5 · LUN 3 – VIE 7 SEPT ═══ -->
   <div class="em-week">
-    <div class="em-week-head" onclick="this.parentElement.classList.toggle('open')">
+    <div class="em-week-head" onclick="toggleEmailWeek(this)">
       <div>
         <div class="em-week-title">S5 · 3 al 7 de septiembre</div>
         <div class="em-week-sub">Basado en contenido de S4 · 6 emails</div>
@@ -2762,7 +2833,7 @@ Logitech <strong>Lift Vertical</strong> para zurdos. Stock disponible en <strong
     </div>
     <div class="em-week-body"><div class="em-week-body-inner">
 
-    <div class="email-card" onclick="openCopyModal('AUG32',event)">
+    <div class="email-card" data-piece="AUG32">
       <div class="ec-head">
         <span>Lun 3 Sept · HIKVISION</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2785,7 +2856,7 @@ Es el router que debería estar en toda vitrina. Si no lo tienes, estás perdien
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG34',event)">
+    <div class="email-card" data-piece="AUG34">
       <div class="ec-head">
         <span>Mar 4 Sept · BLUETTI</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2810,7 +2881,7 @@ Disponible en ambas sedes. <strong>Caracas</strong> y <strong>Valencia</strong>.
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG36',event)">
+    <div class="email-card" data-piece="AUG36">
       <div class="ec-head">
         <span>Mié 5 Sept · HIKVISION</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2835,7 +2906,7 @@ Tres modelos. Tres clientes diferentes. Un solo mayorista. No necesitas ir a tre
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG38',event)">
+    <div class="email-card" data-piece="AUG38">
       <div class="ec-head">
         <span>Jue 6 Sept · TARGUS</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2860,7 +2931,7 @@ En <strong>SUPRICOM</strong> los tenemos listos. Arma el combo y cierra la venta
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG40',event)">
+    <div class="email-card" data-piece="AUG40">
       <div class="ec-head">
         <span>Vie 7 Sept · LOGITECH</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -2885,7 +2956,7 @@ No dejes que tu cliente pregunte por Logitech y no lo tengas.</div>
       </div>
     </div>
 
-    <div class="email-card" onclick="openCopyModal('AUG42',event)">
+    <div class="email-card" data-piece="AUG42">
       <div class="ec-head">
         <span>Lun 10 Sept · Laptops</span>
         <div class="email-check" onclick="toggleCheck(this, event)"></div>
@@ -3164,6 +3235,7 @@ let currentFormat = '';
 let slidesData = [];
 
 function openCopyModal(pieceNum, ev) {
+  if (_isDragging) return;
   if (ev && ev.target && ev.target.closest && ev.target.closest('.prods, summary')) return;
   const el = document.querySelector(`.piece-with-copy[data-piece="${pieceNum}"]`);
   if (!el) return;
@@ -3526,6 +3598,47 @@ function copyProduct(btn) {
     setTimeout(() => { btn.textContent = '📋'; btn.classList.remove('copied'); }, 1500);
   }).catch(() => showToast('Error al copiar'));
 }
+
+// ─── PERSISTENCIA DE CHECKS Y MOVIMIENTOS (GLOBAL) ───
+function savePlanState() {
+  var state = { pieces: {} };
+  document.querySelectorAll('.piece').forEach(function(p) {
+    var id = p.dataset.piece;
+    if (!id) return;
+    state.pieces[id] = {
+      checked: p.classList.contains('checked'),
+      moved: p.classList.contains('piece-moved'),
+      colId: p.closest('.cal-col') ? getColId(p.closest('.cal-col')) : null
+    };
+  });
+  localStorage.setItem('supricom_plan_state', JSON.stringify(state));
+}
+
+function loadPlanState() {
+  var raw = localStorage.getItem('supricom_plan_state');
+  if (!raw) return;
+  try {
+    var state = JSON.parse(raw);
+    if (!state.pieces) return;
+    document.querySelectorAll('.piece').forEach(function(p) {
+      var id = p.dataset.piece;
+      var data = state.pieces[id];
+      if (!data) return;
+      if (data.checked) p.classList.add('checked');
+      else p.classList.remove('checked');
+      if (data.moved) p.classList.add('piece-moved');
+      if (data.colId) {
+        document.querySelectorAll('.cal-col').forEach(function(col) {
+          if (getColId(col) === data.colId && p.closest('.cal-col') !== col) {
+            col.appendChild(p);
+          }
+        });
+      }
+    });
+    document.querySelectorAll('.week-card').forEach(function(wc) { updateWeekButton(wc); });
+  } catch(e) { console.warn('Error cargando estado del plan', e); }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.pi').forEach(function(pi) {
     if (pi.querySelector('.copy-prod-btn')) return;
@@ -3564,9 +3677,10 @@ document.addEventListener('DOMContentLoaded', function() {
       dot.className = 'api-dot offline';
     }
   }
-  // Week status: auto-check past weeks + set button states
+  // Week status: auto-check past weeks + set button states (skip if localStorage has saved state)
   var now = new Date();
   var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var hasSavedState = localStorage.getItem('supricom_plan_state');
   document.querySelectorAll('.week-card').forEach(function(wc) {
     var h2 = wc.querySelector('h2');
     if (!h2) return;
@@ -3578,9 +3692,11 @@ document.addEventListener('DOMContentLoaded', function() {
       wc.classList.remove('collapsed');
       if (btn) { btn.textContent = 'En desarrollo'; btn.classList.add('active'); btn.classList.remove('done'); }
     } else if (todayMidnight > dates.end) {
-      // Past week: auto-check all pieces
+      // Past week
       wc.classList.add('collapsed');
-      wc.querySelectorAll('.piece').forEach(function(p) { p.classList.add('checked'); });
+      if (!hasSavedState) {
+        wc.querySelectorAll('.piece').forEach(function(p) { p.classList.add('checked'); });
+      }
       if (btn) { btn.textContent = '✓ HECHO'; btn.classList.add('done'); btn.classList.remove('active'); }
     } else {
       // Future week
@@ -3588,7 +3704,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (btn) { btn.textContent = 'Pendiente'; btn.classList.remove('active', 'done'); }
     }
   });
-  // Email week status: auto-check past weeks + set button states
+  // Email week status: auto-check past weeks + set button states (skip if localStorage has saved state)
   document.querySelectorAll('.em-week').forEach(function(ew) {
     var title = ew.querySelector('.em-week-title');
     if (!title) return;
@@ -3596,19 +3712,47 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!dates) return;
     var btn = ew.querySelector('.week-check-all');
     if (todayMidnight >= dates.start && todayMidnight <= dates.end) {
-      ew.classList.add('open');
+      ew.classList.add('open', 'em-week-current');
       if (btn) { btn.textContent = 'En desarrollo'; btn.classList.add('active'); btn.classList.remove('done'); }
     } else if (todayMidnight > dates.end) {
       ew.classList.remove('open');
-      ew.querySelectorAll('.email-card').forEach(function(c) { c.classList.add('checked'); });
+      if (!hasSavedState) {
+        ew.querySelectorAll('.email-card').forEach(function(c) { c.classList.add('checked'); });
+      }
       if (btn) { btn.textContent = '✓ HECHO'; btn.classList.add('done'); btn.classList.remove('active'); }
     } else {
       ew.classList.remove('open');
       if (btn) { btn.textContent = 'Pendiente'; btn.classList.remove('active', 'done'); }
     }
   });
+  // Email card click to open modal
+  document.querySelectorAll('.email-card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.email-check, .em-btn, button')) return;
+      var pieceId = card.dataset.piece;
+      if (pieceId) openCopyModal(pieceId, e);
+    });
+  });
   markCurrentWeek();
   markTodayPieces();
+  // Initialize week button counters from DOM checked state
+  document.querySelectorAll('.week-card').forEach(function(wc) { updateWeekButton(wc); });
+  // Initialize Drag & Drop
+  initDragAndDrop();
+
+  setTimeout(function() { loadPlanState(); }, 150);
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.piece .num, .email-check')) {
+      setTimeout(function() {
+        if (typeof savePlanState === 'function') savePlanState();
+      }, 60);
+    }
+  });
+
+  window.addEventListener('drop', function() {
+    setTimeout(savePlanState, 50);
+  });
   var savedMonth = localStorage.getItem('activeMonth') || '2026-08';
   if (savedMonth === 'email') savedMonth = '2026-08';
   switchMonth(savedMonth);
@@ -3638,6 +3782,7 @@ function toggleCheck(el, e) {
   const wasChecked = card.classList.contains('checked');
   card.classList.toggle('checked');
   if (!wasChecked) triggerConfetti(el);
+  if (typeof savePlanState === 'function') savePlanState();
   // Sync week button
   var weekCard = card.closest('.week-card');
   var emWeek = card.closest('.em-week');
@@ -3652,11 +3797,17 @@ function updateWeekButton(weekCard) {
   var all = weekCard.querySelectorAll('.piece');
   var checkedCount = Array.from(all).filter(function(p) { return p.classList.contains('checked'); }).length;
   var videoCount = Array.from(all).filter(function(p) { return p.dataset.format === 'video'; }).length;
+  // Check if this is the current week
+  var h2 = weekCard.querySelector('h2');
+  var dates = h2 ? parseWeekDates(h2.textContent) : null;
+  var now = new Date();
+  var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var isCurrentWeek = dates && todayMidnight >= dates.start && todayMidnight <= dates.end;
   // Update summary
   if (summary) {
     var txt = all.length + ' piezas';
     if (videoCount > 0) txt += ' · ' + videoCount + ' videos';
-    if (checkedCount > 0) txt += ' · ' + checkedCount + '/' + all.length + ' ✓';
+    txt += ' · ' + checkedCount + '/' + all.length + ' ✓';
     summary.textContent = txt;
   }
   // Update button
@@ -3665,11 +3816,26 @@ function updateWeekButton(weekCard) {
   if (all.length > 0 && checkedCount === all.length) {
     btn.textContent = '✓ HECHO';
     btn.classList.add('done');
-  } else if (checkedCount > 0) {
+  } else if (checkedCount > 0 || isCurrentWeek) {
     btn.textContent = 'En desarrollo';
     btn.classList.add('active');
   } else {
     btn.textContent = 'Pendiente';
+  }
+}
+
+// ─── TOGGLE EMAIL WEEK (with animation reset) ───
+function toggleEmailWeek(el) {
+  var emWeek = el.closest('.em-week');
+  if (!emWeek) return;
+  var wasOpen = emWeek.classList.contains('open');
+  emWeek.classList.toggle('open');
+  if (!wasOpen) {
+    emWeek.querySelectorAll('.animate-in').forEach(function(child) {
+      child.classList.remove('visible');
+      child.classList.remove('animate-in');
+    });
+    setTimeout(function() { observeAll(); }, 60);
   }
 }
 
@@ -3714,6 +3880,7 @@ function checkAllEmailWeek(btn, e) {
     btn.classList.remove('active');
     btn.classList.add('done');
   }
+  if (typeof savePlanState === 'function') savePlanState();
 }
 
 function updateEmailWeekButton(emWeek) {
@@ -3721,11 +3888,17 @@ function updateEmailWeekButton(emWeek) {
   if (!btn) return;
   var all = emWeek.querySelectorAll('.email-card');
   var checkedCount = Array.from(all).filter(function(c) { return c.classList.contains('checked'); }).length;
+  // Check if this is the current week
+  var title = emWeek.querySelector('.em-week-title');
+  var dates = title ? parseWeekDates(title.textContent) : null;
+  var now = new Date();
+  var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var isCurrentWeek = dates && todayMidnight >= dates.start && todayMidnight <= dates.end;
   btn.classList.remove('active', 'done');
   if (all.length > 0 && checkedCount === all.length) {
     btn.textContent = '✓ HECHO';
     btn.classList.add('done');
-  } else if (checkedCount > 0) {
+  } else if (checkedCount > 0 || isCurrentWeek) {
     btn.textContent = 'En desarrollo';
     btn.classList.add('active');
   } else {
@@ -3746,7 +3919,17 @@ function checkAllWeek(weekId, e) {
   if (allChecked) {
     // Uncheck all
     allPieces.forEach(function(p) { p.classList.remove('checked'); });
-    if (btn) { btn.textContent = 'Pendiente'; btn.classList.remove('active', 'done'); }
+    // Check if this is the current week
+    var h2 = week.querySelector('h2');
+    var dates = h2 ? parseWeekDates(h2.textContent) : null;
+    var now = new Date();
+    var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var isCurrentWeek = dates && todayMidnight >= dates.start && todayMidnight <= dates.end;
+    if (isCurrentWeek) {
+      if (btn) { btn.textContent = 'En desarrollo'; btn.classList.add('active'); btn.classList.remove('done'); }
+    } else {
+      if (btn) { btn.textContent = 'Pendiente'; btn.classList.remove('active', 'done'); }
+    }
   } else {
     // Check all
     const isCollapsed = week.classList.contains('collapsed');
@@ -3762,6 +3945,7 @@ function checkAllWeek(weekId, e) {
     });
     if (btn) { btn.textContent = '✓ HECHO'; btn.classList.remove('active'); btn.classList.add('done'); }
   }
+  if (typeof savePlanState === 'function') savePlanState();
 }
 
 // ─── CONFETTI ───
@@ -3773,7 +3957,7 @@ function triggerConfetti(sourceEl) {
   canvas.style.cssText = 'position:fixed;top:' + (rect.top + rect.height/2 - 100) + 'px;left:' + (rect.left + rect.width/2 - 100) + 'px;width:200px;height:200px;pointer-events:none;z-index:9999';
   document.body.appendChild(canvas);
   var ctx = canvas.getContext('2d');
-  var colors = ['var(--success)', '#0056DB', 'var(--gold)', 'var(--error)', '#FF6B35', '#8E24AA'];
+  var colors = ['var(--success)', '#0066FF', 'var(--gold)', 'var(--error)', '#FF6B35', '#8E24AA'];
   var particles = [];
   for (var i = 0; i < 25; i++) {
     particles.push({
@@ -3864,12 +4048,241 @@ document.addEventListener('keydown', e => {
   }
 });
 
+// ═══ DRAG & DROP ═══
+var _isDragging = false;
+var _draggedPiece = null;
+var _draggedOrigWeek = null;
+var _placeholder = null;
+var _scrollSpeed = 0;
+var _scrollRaf = null;
+var _weekHoverTimer = null;
+
+function processAutoScroll() {
+  if (_scrollSpeed !== 0) {
+    window.scrollBy(0, _scrollSpeed);
+    _scrollRaf = requestAnimationFrame(processAutoScroll);
+  } else {
+    _scrollRaf = null;
+  }
+}
+
+function stopAutoScroll() {
+  _scrollSpeed = 0;
+  if (_scrollRaf) {
+    cancelAnimationFrame(_scrollRaf);
+    _scrollRaf = null;
+  }
+  document.documentElement.style.scrollBehavior = '';
+}
+
+function getColId(col) {
+  var day = col.querySelector('.col-head .day');
+  var date = col.querySelector('.col-head .date');
+  if (!day || !date) return null;
+  return day.textContent.trim() + '_' + date.textContent.trim();
+}
+
+function initDragAndDrop() {
+  if (!_placeholder) {
+    _placeholder = document.createElement('div');
+    _placeholder.className = 'drag-placeholder';
+  }
+
+  document.querySelectorAll('.piece').forEach(function(piece) {
+    piece.setAttribute('draggable', 'true');
+
+    // Store original identifiers
+    if (!piece.dataset.origWeek) {
+      var wc = piece.closest('.week-card');
+      if (wc) piece.dataset.origWeek = wc.id;
+    }
+    if (!piece.dataset.origColId) {
+      var col = piece.closest('.cal-col');
+      if (col) {
+        var colId = getColId(col);
+        if (colId) piece.dataset.origColId = colId;
+      }
+    }
+
+    piece.ondragstart = function(e) {
+      _isDragging = true;
+      _draggedPiece = piece;
+      _draggedOrigWeek = piece.closest('.week-card');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', piece.dataset.piece);
+      document.documentElement.style.scrollBehavior = 'auto';
+      setTimeout(function() { piece.classList.add('dragging'); }, 0);
+    };
+
+    piece.ondragend = function(e) {
+      _isDragging = false;
+      piece.classList.remove('dragging');
+      if (_placeholder.parentNode) _placeholder.parentNode.removeChild(_placeholder);
+      document.querySelectorAll('.cal-col').forEach(function(c) { c.classList.remove('drag-over'); });
+      _draggedPiece = null;
+      _draggedOrigWeek = null;
+      document.documentElement.style.scrollBehavior = '';
+    };
+
+    piece.onclick = function(e) {
+      if (_isDragging) return;
+      if (e.target.closest('.num, .prods, summary, .copy-prod-btn')) return;
+      openCopyModal(piece.dataset.piece, e);
+    };
+  });
+
+  // Auto-scroll: document listener with passive:false + quadratic acceleration
+  document.addEventListener('dragover', function(e) {
+    if (!_isDragging) return;
+    e.preventDefault();
+
+    var y = e.clientY;
+    var h = window.innerHeight;
+    var topThreshold = 80;
+    var bottomThreshold = 80;
+    var maxScrollSpeed = 30;
+
+    if (y < topThreshold) {
+      var factor = Math.max(0, (topThreshold - y) / topThreshold);
+      _scrollSpeed = -Math.round(factor * factor * maxScrollSpeed) - 2;
+    } else if (y > h - bottomThreshold) {
+      var factor = Math.max(0, (y - (h - bottomThreshold)) / bottomThreshold);
+      _scrollSpeed = Math.round(factor * factor * maxScrollSpeed) + 2;
+    } else {
+      _scrollSpeed = 0;
+    }
+
+    if (_scrollSpeed !== 0 && !_scrollRaf) {
+      _scrollRaf = requestAnimationFrame(processAutoScroll);
+    }
+  }, { passive: false });
+
+  window.addEventListener('dragend', stopAutoScroll);
+  window.addEventListener('drop', stopAutoScroll);
+  window.addEventListener('dragleave', function(e) {
+    if (e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY <= 0 || e.clientY >= window.innerHeight) {
+      stopAutoScroll();
+    }
+  });
+
+  document.querySelectorAll('.cal-col').forEach(function(col) {
+    col.ondragover = function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      col.classList.add('drag-over');
+      var afterElement = getDragAfterElement(col, e.clientY);
+      if (afterElement == null) {
+        col.appendChild(_placeholder);
+      } else {
+        col.insertBefore(_placeholder, afterElement);
+      }
+    };
+
+    col.ondragleave = function(e) {
+      var rect = col.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX >= rect.right || e.clientY < rect.top || e.clientY >= rect.bottom) {
+        col.classList.remove('drag-over');
+        if (_placeholder.parentNode === col) col.removeChild(_placeholder);
+      }
+    };
+
+    col.ondrop = function(e) {
+      e.preventDefault();
+      col.classList.remove('drag-over');
+      if (!_draggedPiece) return;
+      // Insert piece where placeholder is
+      if (_placeholder.parentNode === col) {
+        col.insertBefore(_draggedPiece, _placeholder);
+        col.removeChild(_placeholder);
+      } else {
+        col.appendChild(_draggedPiece);
+      }
+      // Track move: compare current column with original column
+      var origColId = _draggedPiece.dataset.origColId;
+      var destColId = getColId(col);
+      if (origColId && destColId) {
+        if (origColId !== destColId) {
+          _draggedPiece.classList.add('piece-moved');
+        } else {
+          _draggedPiece.classList.remove('piece-moved');
+        }
+      }
+      // Recalculate counters for both weeks
+      var newWeek = _draggedPiece.closest('.week-card');
+      if (_draggedOrigWeek) updateWeekButton(_draggedOrigWeek);
+      if (newWeek && newWeek !== _draggedOrigWeek) updateWeekButton(newWeek);
+      // Save state after drop
+      if (typeof savePlanState === 'function') savePlanState();
+    };
+  });
+
+  // Auto-expand collapsed weeks on drag hover
+  document.querySelectorAll('.week-card .week-top').forEach(function(top) {
+    top.addEventListener('dragover', function(e) {
+      if (!_isDragging) return;
+      e.preventDefault();
+      var wc = top.closest('.week-card');
+      if (wc && wc.classList.contains('collapsed') && !_weekHoverTimer) {
+        _weekHoverTimer = setTimeout(function() {
+          wc.classList.remove('collapsed');
+          _weekHoverTimer = null;
+          // Re-init animations for the expanded content
+          wc.querySelectorAll('.animate-in').forEach(function(child) {
+            child.classList.remove('visible');
+            child.classList.remove('animate-in');
+          });
+          setTimeout(function() { observeAll(); }, 60);
+        }, 400);
+      }
+    });
+
+    top.addEventListener('dragleave', function(e) {
+      var rect = top.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX >= rect.right || e.clientY < rect.top || e.clientY >= rect.bottom) {
+        if (_weekHoverTimer) {
+          clearTimeout(_weekHoverTimer);
+          _weekHoverTimer = null;
+        }
+      }
+    });
+  });
+
+  // Cleanup auto-expand timer on drag end
+  window.addEventListener('dragend', function() {
+    if (_weekHoverTimer) {
+      clearTimeout(_weekHoverTimer);
+      _weekHoverTimer = null;
+    }
+  });
+}
+
+function getDragAfterElement(container, y) {
+  var draggableElements = Array.from(container.querySelectorAll('.piece:not(.dragging)'));
+  return draggableElements.reduce(function(closest, child) {
+    var box = child.getBoundingClientRect();
+    var offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child };
+    }
+    return closest;
+  }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
 // ═══ 5 MEJORAS VISUALES ═══
 
 // ─── TOGGLE WEEKS ───
 function toggleWeek(weekId) {
-  const el = document.getElementById(weekId);
-  if (el) el.classList.toggle('collapsed');
+  var el = document.getElementById(weekId);
+  if (!el) return;
+  var wasCollapsed = el.classList.contains('collapsed');
+  el.classList.toggle('collapsed');
+  if (wasCollapsed) {
+    el.querySelectorAll('.animate-in').forEach(function(child) {
+      child.classList.remove('visible');
+      child.classList.remove('animate-in');
+    });
+    setTimeout(function() { observeAll(); }, 60);
+  }
 }
 function toggleAllWeeks() {
   var mc = document.querySelector('.month-content:not(.hidden)');
@@ -3877,9 +4290,17 @@ function toggleAllWeeks() {
   var weeks = mc.querySelectorAll('.week-card');
   var allCollapsed = Array.from(weeks).every(function(w) { return w.classList.contains('collapsed'); });
   weeks.forEach(function(w) {
-    if (allCollapsed) w.classList.remove('collapsed');
-    else w.classList.add('collapsed');
+    if (allCollapsed) {
+      w.classList.remove('collapsed');
+      w.querySelectorAll('.animate-in').forEach(function(child) {
+        child.classList.remove('visible');
+        child.classList.remove('animate-in');
+      });
+    } else {
+      w.classList.add('collapsed');
+    }
   });
+  if (allCollapsed) setTimeout(function() { observeAll(); }, 60);
   var btn = document.querySelector('.month-content:not(.hidden) .export-btn');
   if (btn) btn.textContent = allCollapsed ? '📂 Contraer todo' : '📂 Expandir todo';
 }
@@ -4001,7 +4422,7 @@ function buildTableView(monthId) {
       const dateEl = col.querySelector('.col-head .date');
       day = (dayEl ? dayEl.textContent : '') + ' ' + (dateEl ? dateEl.textContent : '');
     }
-    rows += '<tr onclick="openCopyModal(' + num + ', event)" style="cursor:pointer">' +
+    rows += '<tr style="cursor:pointer">' +
       '<td class="tv-num">' + num + '</td>' +
       '<td class="tv-day">' + day + '</td>' +
       '<td><span class="fmt ' + fmt + '">' + fmtLabel + '</span></td>' +
@@ -4511,21 +4932,19 @@ function debounce(fn, ms) {
    ═══════════════════════════════════════════════════ */
 
 /* 1. ENTRANCE ANIMATIONS — IntersectionObserver */
-(function() {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: .12 });
-  function observeAll() {
-    document.querySelectorAll('.week-card, .cal-col, .piece, .email-card').forEach(el => {
-      if (!el.classList.contains('animate-in')) { el.classList.add('animate-in'); obs.observe(el); }
-    });
-  }
-  observeAll();
-  /* Re-observe on month tab switch */
-  document.querySelectorAll('.mtab').forEach(t => t.addEventListener('click', () => setTimeout(observeAll, 60)));
-})();
+var _animObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); _animObs.unobserve(e.target); }
+  });
+}, { threshold: .12 });
+function observeAll() {
+  document.querySelectorAll('.week-card, .cal-col, .piece, .email-card').forEach(function(el) {
+    if (!el.classList.contains('animate-in')) { el.classList.add('animate-in'); _animObs.observe(el); }
+  });
+}
+observeAll();
+/* Re-observe on month tab switch */
+document.querySelectorAll('.mtab').forEach(function(t) { t.addEventListener('click', function() { setTimeout(observeAll, 60); }); });
 
 /* 1b. PILLAR BAR ANIMATED FILL */
 (function() {
