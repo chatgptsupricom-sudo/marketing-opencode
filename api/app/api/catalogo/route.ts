@@ -2,8 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { fetchCatalogo } from '@/lib/odoo';
 import { validateApiKey } from '@/lib/auth';
 
-// SIN CACHE: siempre consulta Odoo fresco para datos en vivo
-// (antes tenia TTL de 24h que causaba datos desactualizados)
+// Cache CORTO (30 segundos): suficiente para que multiples pestañas/usuarios
+// compartan la misma consulta a Odoo sin saturarlo (429 Too Many Requests).
+// El HTML refresca cada 30s asi que siempre recibe datos frescos.
+
+let cache: { data: any; ts: number } | null = null;
+const TTL = 30 * 1000; // 30 segundos (antes era 24 horas)
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -22,12 +26,23 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // SIEMPRE fetch fresco desde Odoo - sin cache intermedio
+    // Cache hit: si tiene menos de 30s, sirve sin tocar Odoo
+    if (cache && Date.now() - cache.ts < TTL) {
+      return NextResponse.json({
+        productos: cache.data,
+        actualizado: new Date(cache.ts).toISOString(),
+        cached: true,
+      }, { headers: CORS_HEADERS });
+    }
+
+    // Fetch fresco desde Odoo
     const productos = await fetchCatalogo();
+    cache = { data: productos, ts: Date.now() };
 
     return NextResponse.json({
       productos,
       actualizado: new Date().toISOString(),
+      cached: false,
     }, {
       headers: {
         ...CORS_HEADERS,
@@ -36,7 +51,18 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error: any) {
-    console.error('Error fetching catalog:', error);
+    console.error('Error fetching catalog:', error?.message || error);
+
+    // Si hay cache viejo, servirlo con aviso en vez de fallar
+    if (cache) {
+      return NextResponse.json({
+        productos: cache.data,
+        actualizado: new Date(cache.ts).toISOString(),
+        cached: true,
+        stale: true,
+      }, { headers: CORS_HEADERS });
+    }
+
     return NextResponse.json(
       {
         error: 'Internal server error',
